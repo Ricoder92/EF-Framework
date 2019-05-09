@@ -1,0 +1,257 @@
+.header-default {
+    position: relative;
+    top: 0px;
+    display: block;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
+}
+
+.toggle-header-sticky {
+    position: fixed;
+    top: 0;
+    z-index: 999999999;
+    display: none;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+.admin-bar .toggle-header-sticky {
+    position: fixed;
+    top: 32px !important;
+    z-index: 999;
+    display: none;;
+}
+
+.header-default .logo{
+    text-align: left;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+}
+
+.header-default .logo img{
+    max-height: 120px;
+    width: auto;
+}
+
+.header-default .nav {
+    text-align: right;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    display: block;
+    text-align: right;
+}
+
+.header-menu-default {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-flex;
+}
+ 
+.header-menu-default .menu-item {
+    list-style: none;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.header-menu-default .menu-item>a{
+    padding: 30px 0px;
+    color: rgba(0,0,0,0.6);
+    font-size: 0.8rem;
+    display: block;
+    text-decoration: none !important;
+   
+}
+
+.header-menu-default .menu-item a:hover{
+   color: black;
+}
+
+.header-menu-default .current-menu-item a{
+   color: black;
+}
+
+.header-menu-default .menu-item .sub-menu {
+   display: none;
+   opacity: 0;
+   position: absolute;
+   width: 300px;
+   list-style: none;
+   padding: 15px 25px;
+   margin-top: 25px;
+   z-index: 99;
+   background-color: white;
+   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+   text-align: left;
+   border-bottom-left-radius: 6px;
+   border-bottom-right-radius: 6px;
+   
+}
+
+.header-menu-default .menu-item-has-children .sub-menu .menu-item {
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin: 0px !important;
+}
+
+.header-menu-default .menu-item-has-children .sub-menu .menu-item:last-child {
+    border-bottom: 0px;
+}
+
+.header-menu-default .menu-item-has-children>.sub-menu>.menu-item>a{
+    display: block;
+    text-align: left;
+    padding: 12px 0px;
+    margin: 0px !important;
+}
+
+.header-menu-default .menu-item-has-children .sub-menu .menu-item a:hover{
+    display: block;
+    text-align: left;
+    padding: 12px 0px;
+    margin: 0px !important;
+}
+
+.header-default-mobile {
+    position: relative;
+    display: block;
+    width: 100%;
+    background-color: white;
+    height: 70px;
+}
+
+.header-default-mobile .logo{
+    text-align: left;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header-default-mobile .nav{
+    text-align: right;
+    display: block;
+}
+
+.header-default-mobile-content {
+    display: none;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    z-index: 99999999;
+    height: 100%;
+    width: 100%;
+    margin: 30px 0;
+}
+
+.header-menu-default-mobile {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+    width: 100%;
+}
+ 
+.header-menu-default-mobile .menu-item {
+    list-style: none;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.header-menu-default-mobile .menu-item:first-child {
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.header-menu-default-mobile .menu-item>a{
+    padding: 15px 0px;
+    color: rgba(0,0,0,0.6);
+    font-size: 1.0rem;
+    display: block;
+}
+
+.header-menu-default-mobile .menu-item a:hover{
+   color: black;
+}
+
+.header-menu-default-mobile .current-menu-item a{
+   color: black;
+}
+
+.header-menu-default-mobile .menu-item .sub-menu {
+   display: none;
+   width: 300px;
+   list-style: none;
+   padding: 15px 25px;
+   margin-top: 25px;
+ 
+}
+
+.header-menu-default-mobile .menu-item:hover .sub-menu{
+
+}
+
+.header-menu-default-mobile .menu-item-has-children .sub-menu .menu-item {
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin: 0px !important;
+}
+
+.header-menu-default-mobile .menu-item-has-children .sub-menu .menu-item:last-child {
+    border-bottom: 0px;
+}
+
+.header-menu-default-mobile .menu-item-has-children>.sub-menu>.menu-item>a{
+    display: block;
+    text-align: left;
+    padding: 12px 0px;
+    margin: 0px !important;
+}
+
+.header-menu-default-mobile .menu-item-has-children .sub-menu .menu-item a:hover{
+    display: block;
+    text-align: left;
+    padding: 12px 0px;
+    margin: 0px !important;
+}
+
+.header-default-top-bar {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    color: rgba(0,0,0,0.6);
+    padding: 15px 0;
+    font-size: 0.8rem;
+}
+
+.header-default-top-bar .left{
+    text-align: left;
+}
+
+.header-default-top-bar .right{
+    text-align: right;
+}
+
+.header-default-top-bar .menu {
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    list-style: none;
+    color: white;
+}
+
+.header-default-top-bar .sub-menu {
+    display: none;
+}
+
+.header-default-top-bar .menu .menu-item {
+    display: inline-block;
+    list-style: none;
+}
+
+.header-default-top-bar .menu .menu-item a {
+    text-decoration: none;
+    font-weight: 400;
+    margin: 0px 0px 0px 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header-default-top-bar .menu .menu-item a:hover {
+}

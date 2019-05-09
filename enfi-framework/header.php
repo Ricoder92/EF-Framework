@@ -1,0 +1,1 @@
+<?php ef_layout_get_template('header'); ?>

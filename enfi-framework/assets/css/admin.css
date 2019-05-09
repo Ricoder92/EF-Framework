@@ -1,0 +1,293 @@
+#wpwrap {
+
+}
+
+.enfi-settings-head {
+    background-image: url(../img/admin_bg.png);
+    background-repeat: repeat;
+    color: rgba(255,255,255,.6);
+    margin-left: -20px;
+    margin-top: -37px;
+    padding: 60px 60px 0px 60px;
+    box-shadow: inset 0px 0px 32px 0px rgba(0,0,0,0.25);
+}
+
+.enfi-settings-head h1,
+.enfi-settings-head h2,
+.enfi-settings-head h3{
+    color: white;
+}
+
+.enfi-settings-menu .item:hover h2,
+.enfi-settings-menu .current h2  {
+    color: black;
+}
+
+.enfi-settings-content {
+    padding: 30px;
+}
+
+.enfi-settings-section {
+    display: none;
+}
+
+.enfi-settings-container {
+    padding: 30px;
+    margin-bottom: 30px;
+    max-width: 100%;
+    display: block;
+}
+
+
+.enfi-settings-submit {
+    background-color: white;
+    width: 100%; 
+}
+
+.enfi-settings-submit p{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.enfi-settings-submit .button {
+    display: block;
+    padding: 12px 22px;
+    line-height: normal;
+    height: unset;
+    border: 0px solid !important;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    background: #00b512;
+    text-shadow: none;
+    width: 100%;
+}
+
+.enfi-settings-submit .button:hover {
+    display: block;
+    padding: 12px 22px;
+    line-height: normal;
+    height: unset;
+    border: 1px solid;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    width: 100%;
+    background: #00b512;
+    text-shadow: none;
+}
+
+.enfi-settings-nav {
+
+}
+
+.enfi-settings-menu,
+.enfi-settings-post-types-menu {
+    text-align: left;
+    display: block;
+    list-style: none;
+}
+
+
+.enfi-settings-menu .item,
+.enfi-settings-post-types-menu .item {
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 20px;
+    color: rgba(255,255,255,0.6);
+    margin: 25px 0px;
+    border-radius: 10px;
+}
+
+
+.enfi-settings-menu .item:first,
+.enfi-settings-post-types-menu .item:first {
+    margin-left: 0px;
+}
+
+.enfi-settings-menu .item:hover,
+.enfi-settings-post-types-menu .item:hover,
+.enfi-settings-menu .current {
+    background-color: rgba(255,255,255,1);
+    color: #2f2f2f !important;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    transition: 200ms;
+    border-radius: 10px;
+}
+
+.enfi-settings-image-remove {
+    display: block;
+    color: red;
+    cursor: pointer;
+}
+
+.enfi-settings-container {
+   color: #2f2f2f;
+}
+
+
+
+.enfi-settings-container h2{
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: left;
+    background-color: yellow;
+    padding: 20px;
+    color: white;
+    background-image: url(../img/admin_bg.png);
+}
+
+
+.enfi-settings-add-field {
+    display: block;
+    max-width: 382px;
+    background-color: #74c867;
+    padding: 9px 0;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    margin-left: 2px;
+    margin: 5px 0px 5px 2px;
+}
+
+.enfi-settings-add-field:hover {
+    background-color: #5dae4f;
+    color: white;
+    border: none;
+    box-shadow: none;
+}
+
+.enfi-settings-add-field:focus {
+    background-color: #5dae4f;
+    color: white;
+    border: none;
+    box-shadow: none;
+}
+
+.enfi-settings-remove-field-disable {
+    display: inline-block;
+    padding: 10px 13px 9px 13px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+    font-size: 0.8rem;
+    margin: 0 0 0 3px;
+    color: rgba(0,0,0,0.2);
+}
+
+.enfi-settings-remove-field-disable:hover {
+    display: inline-block;
+    padding: 10px 13px 9px 13px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+    font-size: 0.8rem;
+    margin: 0 0 0 3px;
+    color: rgba(0,0,0,0.2);
+    cursor: unset;
+}
+
+
+.enfi-settings-remove-field {
+    display: inline-block;
+    padding: 10px 13px 9px 13px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+    font-size: 0.8rem;
+    margin: 0 0 0 3px;
+    color: rgba(0,0,0,0.6);
+}
+
+.enfi-settings-remove-field:hover {
+    border: 1px solid #d03d3d;
+    background-color: #d03d3d;
+    color: white;
+}
+
+.enfi-settings-move-field {
+    display: inline-block;
+    padding: 10px 13px 9px 13px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+    font-size: 0.8rem;
+    margin: 0 0 0 3px;
+    color: rgba(0,0,0,0.6);
+}
+
+.enfi-settings-move-field:hover {
+    border: 1px solid #67a9c8;
+    background-color: #67a9c8;
+    color: white;
+}
+
+/**** Admin Inputs  ******/
+
+
+.enfi-admin-input {
+    padding: 8px 14px;
+    height: unset;
+    margin: 2px;
+    text-align: left;
+    min-width: 300px;
+    display: inline-block;
+}
+
+.enfi-admin-input-small {
+    padding: 8px 14px;
+    height: unset;
+    margin: 2px;
+    text-align: left;
+    width: 80px !important;
+    min-width: unset;
+    display: inline-block;
+}
+
+
+.enfi-admin-input-button-group a {
+    display: inline-block;
+    background-color: rgba(0,0,0,.05);
+    border: 0px;
+    padding: 6px 15px;
+    color: rgba(0,0,0,0.8);
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+.enfi-admin-input-button-group a i {
+    font-size: 16px;
+}
+
+
+.enfi-admin-input-button-group a:hover {
+    background-color: rgba(0,0,0,.1);
+    cursor: pointer;
+}
+
+.enfi-admin-input-button-group a.current {
+    background-color: rgba(0,0,0,.6);
+    color: white;
+}
+
+.enfi-admin-input-button-group a:first-of-type {
+
+}
+
+.enfi-admin-input-button-group a:last-of-type {
+    border-right: 0px;
+}
+
+.enfi-checkboxGroup {
+    overflow-y: scroll;
+    max-height: 400px;
+    padding: 15px;
+    border: 1px solid rgba(0,0,0,0.1); 
+}
+
+.enfi-checkboxGroup .item {
+    padding: 8px 0px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.enfi-checkboxGroup .item:last-child {
+    padding: 8px 0px;
+    border-bottom: 0px solid rgba(0,0,0,0.1);
+}

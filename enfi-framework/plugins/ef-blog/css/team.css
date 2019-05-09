@@ -1,0 +1,112 @@
+.team-details {
+
+}
+
+.team-details .thumbnail {
+    height: 400px;
+    margin-bottom: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 255px;
+}
+
+.team-details .title {
+}
+
+.team-details .positions {
+}
+
+.team-details .text {
+}
+
+
+.team-more {
+    margin-top: 80px;
+}
+
+.team-single-info-table tr{
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    transition: 200ms;
+}
+
+.team-single-info-table tr:last-of-type{
+    border-bottom: 0;
+}
+
+.team-single-info-table tr:only-child:hover{
+    background-color: transparent;
+}
+
+.team-single-info-table tr:hover{
+    background-color: rgba(0,0,0,0.025);
+}
+
+.team-single-info-table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.team-single-info-table th {
+    padding: 10px 0px;
+}
+
+.team-single-info-table td{
+    text-align: right;
+    padding: 10px 0px;
+}
+
+/* archive */
+
+.team-member-card {
+    height: 400px;
+    margin-bottom: 20px;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 255px;
+}
+
+.team-member-card:hover {
+    cursor: pointer;
+}
+
+.team-member-card .hover {
+    width: 100%;
+    height: 100%;
+    display: none;
+    padding: 0 15px;
+}
+
+.team-member-card:hover .hover {
+    background-color: rgba(160,60,60,0.6);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.team-member-card .title {
+    text-align: center;
+}
+
+.team-member-card .text {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.team-member-card .position {
+    text-align: center;
+    
+}
+
+.team-member-card .contact,
+.team-member-card .contact a{
+    margin-top: 15px;
+    text-align: center;
+    color: white;
+    font-size: 0.6rem;
+}

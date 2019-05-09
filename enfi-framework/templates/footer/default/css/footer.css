@@ -1,0 +1,11 @@
+.footer-default-top {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding: 60px;
+}
+
+.footer-default-bottom {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding: 20px;
+    font-size: 0.8rem;
+    text-align: center;
+}
