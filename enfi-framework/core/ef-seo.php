@@ -44,7 +44,7 @@ $title_style = array(
 );
 
 ## add module page
-$seo_page = new Enfi_Framework_Admin_Plugin_Page('seo', __('Search Engine Optimization', 'enfi'), __('Search Engine Optimization', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', 'fa-search-dollar', 2);
+$seo_page = new Enfi_Framework_Settings_Page('seo', __('Search Engine Optimization', 'enfi'), __('Search Engine Optimization', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', 'fa-search-dollar', 2);
 
 ## settinfs for post type and other stuff
 $seo_page->addSection('settings', __('Search Machine Optimization', 'enfi'));

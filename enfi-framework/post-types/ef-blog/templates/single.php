@@ -17,6 +17,6 @@
             <?php get_template_part('templates/content/news-no-entries'); ?>
 <?php endif; ?>
 
-<?php wp_enqueue_style('team'); ?>
+
 
 <?php ef_layout_get_template('footer'); ?>

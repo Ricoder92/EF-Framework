@@ -35,9 +35,10 @@ class Enfi_Framework {
     
         # require some ef stuff
         require_once get_template_directory().'/core/class/ef-admin-meta-box.php';
-        require_once get_template_directory().'/core/class/ef-admin-plugin-page.php';
+        require_once get_template_directory().'/core/class/ef-admin-settings-page.php';
         require_once get_template_directory().'/core/class/ef-admin-navigation.php';
-
+        require_once get_template_directory().'/core/class/ef-admin-post-type.php';
+        
         require_once get_template_directory().'/core/ef-functions.php';
         require_once get_template_directory().'/core/ef-post-types.php';
         require_once get_template_directory().'/core/ef-styles-scripts.php';

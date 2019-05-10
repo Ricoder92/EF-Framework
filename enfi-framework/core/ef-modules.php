@@ -1,11 +1,7 @@
 <?php
 
-$plugins_page = new Enfi_Framework_Admin_Plugin_Page('modules', __('Manage modules', 'enfi'), __('Manage modules', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'modules', 'fa-puzzle-piece', 9);
+$plugins_page = new Enfi_Framework_Settings_Page('modules', __('Manage modules', 'enfi'), __('Manage modules', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'modules', 'fa-puzzle-piece', 9);
 $plugins_page->addContent('plugins_render');
-
-$plugins_page->addSection('settings', __('Debug Settings', 'enfi'));
-$plugins_page->addField('settings', 'mode-enable', __('Enable', 'enfi'), null, 'checkbox', null, array('checkboxText' => __('Enable', 'enfi')));
-
 
 function plugins_render() {
 
@@ -14,12 +10,13 @@ function plugins_render() {
 
     if(is_child_theme()) {
         $child_theme = get_stylesheet();
-        $value = get_option('modules-'.$child_theme);
+        $value = ef_get_option('modules');
         $name = 'modules-'. $child_theme;
     } else {
-        $value = get_option('modules');
+        $value = ef_get_option('modules');
         $name = 'modules';
     }
+    
     
     echo '<table class="ef-admin-table">';
 
@@ -94,7 +91,8 @@ $active_modules = ef_get_option('modules');
 
 if($active_modules) {
     foreach($active_modules as $key => $module) {
-        require_once get_template_directory().'/plugins/'.$key.'/init.php';
+        if(file_exists(get_template_directory().'/plugins/'.$key.'/init.php'))
+            require_once get_template_directory().'/plugins/'.$key.'/init.php';
     }
 }
 

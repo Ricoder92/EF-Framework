@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-    
+
     <?php get_template_part('templates/content/content-before'); ?>  
 
     <div class="row">
@@ -22,7 +22,6 @@
 
     <?php wp_reset_postdata(); ?>
 
-  
-<?php wp_enqueue_style('team'); ?>
+    <?php wp_enqueue_style('ef-blog-blog'); ?>
 
 <?php get_footer(); ?>

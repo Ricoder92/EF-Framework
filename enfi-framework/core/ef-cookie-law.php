@@ -9,7 +9,7 @@ $duration = array(
 );
 
 # cookie law admin page with settings
-$cookie_law_page = new Enfi_Framework_Admin_Plugin_Page('cookie-law', __('Cookie Law', 'enfi'), __('Cookie Law', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'),'settings','fa-cookie', 4);
+$cookie_law_page = new Enfi_Framework_Settings_Page('cookie-law', __('Cookie Law', 'enfi'), __('Cookie Law', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'),'settings','fa-cookie', 4);
 $cookie_law_page->addSection('cookie-banner', __('Cookie banner', 'enfi'));
 $cookie_law_page->addField('cookie-banner', 'cookie-banner-enable', __('Enable', 'enfi'), __('Activate cookie banner mode', 'enfi'), 'checkbox', null, array('checkboxText' => __('Enable', 'enfi')));
 $cookie_law_page->addField('cookie-banner', 'cookie-banner-title', __('Cookie banner title', 'enfi'),__('Cookie banner title', 'enfi'), 'text', __('Privacy Policy', 'enfi'));

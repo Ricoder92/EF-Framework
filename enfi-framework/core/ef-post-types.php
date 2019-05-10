@@ -1,123 +1,101 @@
 <?php
 
+$plugins_page = new Enfi_Framework_Settings_Page('post-types', __('Manage pPost types', 'enfi'), __('Manage post types', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'post-types', 'fa-puzzle-piece', 9);
+$plugins_page->addContent('post_types_render');
 
-class Enfi_Framework_Post_Type_Create {
+function post_types_render() {
 
-    public function __construct($name, $args, $prio = 0) {
+    $plugins_path_child =  get_stylesheet_directory().'/post-types';
+    $plugins_path =  get_template_directory().'/post-types';
 
-        $this->name = $name;
-        $this->args = $args;
-        $this->prio = $prio;
-
-        add_action( 'init', array(&$this, 'register') );
-        add_action('wp_enqueue_scripts',  array(&$this, 'cssjs'));
-
-        $this->cssjs($this->name);
-      
+    if(is_child_theme()) {
+        $child_theme = get_stylesheet();
+        $value = ef_get_option('post-types');
+        $name = 'post-types-'. $child_theme;
+    } else {
+        $value = ef_get_option('post-types');
+        $name = 'post-types';
     }
+    
+    echo '<table class="ef-admin-table">';
 
+        echo '<thead><tr>';
+            echo '<th class="center">'.__('Enable', 'enfi').'</th>';
+            echo '<th class="left">'.__('Name', 'enfi').'</th>';
+            echo '<th class="left">'.__('Description', 'enfi').'</th>';
+        echo '</tr></thead>';
 
-    function register() {
+        
+    
+    foreach(glob($plugins_path.'/*/init.php') as $file){
+           
+        $filedata = get_file_data($file, array(
+            'name' => 'Name',
+            'slug' => 'Slug',
+            'description' => 'Description',
+            'version' => 'Version',
+            'author' => 'Author'
+        ));   
 
-        register_post_type( $this->name , $this->args );
-
-    }
- 
-    function cssjs($name) {
-        if(is_child_theme()) {
-            
-            $path = get_stylesheet_directory().'/post-types/'.$name;
-            $path_uri = get_stylesheet_directory_uri().'/post-types/'.$name;
-
-            //check if directory exists in child theme for this template...
-            if(is_dir($path)) {
-
-                foreach(glob($path.'/css/*.css') as $file){
-                    wp_register_style(basename($file, ".css"), $path_uri.'/css/'.basename($file), array('main', 'bootstrapCSS'));
-                    #wp_enqueue_style(basename($file, ".css"));
-                }
-
-                foreach(glob($path.'/js/*.js') as $file){
-                    wp_register_script(basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
-                    #wp_enqueue_script(basename($file, ".js"));
-                }
-
-            # ... if not, check parrent theme for this template
-            } else {
-
-                $path = get_template_directory().'/post-types/'.$name;
-                $path_uri = get_template_directory_uri().'/post-types/'.$name;
-
-                if(is_dir($path)) {
-
-                    foreach(glob($path.'/css/*.css') as $file){
-                        wp_register_style(basename($file, ".css"), $path_uri.'/css/'.basename($file), array('main', 'bootstrapCSS'));
-                        #wp_enqueue_style(basename($file, ".css"));
-                    }
-
-                    foreach(glob($path.'/js/*.js') as $file){
-                        wp_register_script(basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
-                        #wp_enqueue_script(basename($file, ".js"));
-                    }
-                }
-            }
-
+        if(is_array($value) && $value != null) {
+            if(array_key_exists($filedata['slug'], $value)) 
+                $checked = checked('true', $value[$filedata['slug']] , false );
+            else 
+                $checked = null;
         } else {
+            $checked = null;
+        }     
 
-            $path = get_template_directory().'/post-types/'.$name;
-            $path_uri = get_template_directory_uri().'/post-types/'.$name;
+        echo '<tbody><tr>';
+            echo '<td class="center"><input type="checkbox" id="'.$filedata['slug'].'" value="true" name="'.$name.'['.$filedata['slug'].']" '.$checked.'></td>';
+            echo '<td>'.$filedata['name'].'</td>';
+            echo '<td>'.$filedata['description'].' - '.$filedata['author'].' - '.$filedata['version'].'</td>';
+        echo '</tr></tbody>';
 
-            if(is_dir($path)) {
+    }
 
-                foreach(glob($path.'/css/*.css') as $file){
-                    wp_register_style(basename($file, ".css"), $path_uri.'/css/'.basename($file), array('main', 'bootstrapCSS'));
-                    #wp_enqueue_style(basename($file, ".css"));
-                }
+    if(is_child_theme()) 
+        foreach(glob($plugins_path_child.'/*/init.php') as $file){
+           
+            $filedata = get_file_data($file, array(
+                'name' => 'Name',
+                'slug' => 'Slug',
+                'description' => 'Description',
+                'version' => 'Version',
+                'author' => 'Author'
+            ));   
 
-                foreach(glob($path.'/js/*.js') as $file){
-                    wp_register_script(basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
-                    #wp_enqueue_script(basename($file, ".js"));
-                }
-            }
+            if(is_array($value) && $value != null) {
+                if(array_key_exists($filedata['slug'], $value)) 
+                    $checked = checked('true', $value[$filedata['slug']] , false );
+                else 
+                    $checked = null;
+            } else {
+                $checked = null;
+            }     
+
+            echo '<tr>';
+                echo '<td>'.$filedata['name'].'</td>';
+                echo '<td>'.$filedata['description'].'</td>';
+                echo '<td><input type="checkbox" id="'.$filedata['slug'].'" value="true" name="ef-pluugs['.$filedata['slug'].']" '.$checked.'><label for="'.$filedata['slug'].'">Aktivieren</label></td>';
+            echo '</tr>';
+
         }
 
+    echo '</table>';
+    
+}
+
+$active_post_types = ef_get_option('post-types');
+
+if($active_post_types) {
+    foreach($active_post_types as $key => $module) {
+        require_once get_template_directory().'/post-types/'.$key.'/init.php';
     }
-
-  
-
-
-}
-
-function enfi_post_type_create($name, $args, $prio = 0) {
-
-    add_action( 'init', function() use ($name, $args) {
-
-        register_post_type( $name , $args );
-
-    }, 0 );
-
-    add_action('wp_enqueue_scripts', function() use ($name) {
-           
-        
-    });
-
 }
 
 
-################################################################################################################################################## 
-### create taxonomy
-##################################################################################################################################################
 
-function enfi_post_type_taxonomy_create($name, $post_type, $args, $prio = 0) {
-
-    add_action( 'init', function() use ($name, $post_type, $args) {
-
-        register_taxonomy( $name, $post_type, $args );
-
-    }, 0 );
-
-}
- 
 
 
 ?>

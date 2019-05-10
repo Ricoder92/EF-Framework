@@ -1,6 +1,6 @@
 <?php
 
-$styles_scripts = new Enfi_Framework_Admin_Plugin_Page('styles-scripts', __('Styles & Scripts', 'enfi'), __('Styles & Scripts', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'layout', '', 6);
+$styles_scripts = new Enfi_Framework_Settings_Page('styles-scripts', __('Styles & Scripts', 'enfi'), __('Styles & Scripts', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'layout', '', 6);
 $styles_scripts->addContent('styles_scripts_render');
 
 $styles_scripts->addSection('settings', __('Settings', 'enfi'));

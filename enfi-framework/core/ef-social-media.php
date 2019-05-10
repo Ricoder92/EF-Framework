@@ -1,6 +1,6 @@
 <?php
 
-$social_media_page = new Enfi_Framework_Admin_Plugin_Page('social-media', __('Social Media', 'enfi'), __('Social Media', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', 'fa-hashtag', 3);
+$social_media_page = new Enfi_Framework_Settings_Page('social-media', __('Social Media', 'enfi'), __('Social Media', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', 'fa-hashtag', 3);
 
     $social_media_page->addSection('social-media-channels', __('Social Media Channels', 'enfi'));
         $social_media_page->addField('social-media-channels', 'facebook', __('Facebook-site ID', 'enfi'), null, 'text', null);

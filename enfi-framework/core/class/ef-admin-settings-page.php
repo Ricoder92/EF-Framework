@@ -1,7 +1,7 @@
 <?php
 
 # Class for creating plugin page
-class Enfi_Framework_Admin_Plugin_Page {
+class Enfi_Framework_Settings_Page {
 
     # construktur
     public function __construct($id, $name, $menuname, $description, $menu = 'settings', $icon = '', $prio = 0, $capability = 'manage_options') {
@@ -203,12 +203,12 @@ class Enfi_Framework_Admin_Plugin_Page {
 
     public function sanitize($args) {
 
-        $name = $args['name'];
-        $id             = $args['name'];
-        $value          = $args['value'];
-        $description    = $args['description'];
-        $type           = $args['type'];
-        $data           = $args['args'];
+        $name          = $args['name'];
+        $id            = $args['name'];
+        $value         = $args['value'];
+        $description   = $args['description'];
+        $type          = $args['type'];
+        $data          = $args['args'];
 
         # placeholder
         if(isset($data['placeholder']))
@@ -276,7 +276,7 @@ function parseOptions($args) {
 
 
 
-$settings_page = new Enfi_Framework_Admin_Plugin_Page('settings', __('Settings', 'enfi'), __('Settings', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', null, 1);
+$settings_page = new Enfi_Framework_Settings_Page('settings', __('Settings', 'enfi'), __('Settings', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', null, 1);
 
 $options = array(
     array( 'text' =>  '30', 'value' => 30),
