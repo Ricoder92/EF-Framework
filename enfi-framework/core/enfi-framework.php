@@ -31,6 +31,7 @@ class Enfi_Framework {
 
         # global header stuff (except titletag)
         add_action( 'wp_head', array(&$this, 'global_header'), -999 );
+      
 
     
         # require some ef stuff
@@ -190,8 +191,16 @@ class Enfi_Framework {
     function global_header() {
         ef_html_comment('Metatags');
         echo "\t<meta charset=\"UTF-8\" />\n";
-        echo "\t<meta name=\"url\" content=\"".get_the_permalink()."\">\n";
-        echo "\t<meta name=\"identifier-URL\" content=\"".get_the_permalink()."\">\n";
+        if(is_single())
+            echo "\t<meta name=\"url\" content=\"".get_the_permalink()."\">\n";
+        else if(is_archive() || is_tax())
+            echo "\t<meta name=\"url\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\">\n";
+
+        if(is_single())
+            echo "\t<meta name=\"identifier-URL\" content=\"".get_the_permalink()."\">\n";
+        else if(is_archive() || is_tax())
+            echo "\t<meta name=\"identifier-URL\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\">\n";
+        
         echo "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n";
         echo "\t<meta name=\"language\" content=\"".get_locale()."\">\n";
 
@@ -231,6 +240,9 @@ class Enfi_Framework {
             echo '<div onclick="location.href=\''.site_url().'\';">'.$logo_out = ''.get_bloginfo('name').'</div>';
         }
     }
+
+  
+   
 
 }
 

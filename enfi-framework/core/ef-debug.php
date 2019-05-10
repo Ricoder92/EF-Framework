@@ -103,4 +103,5 @@ function ef_is_debug_mode() {
 
 }
 
+
 ?>

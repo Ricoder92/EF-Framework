@@ -219,6 +219,10 @@ function wpdocs_filter_wp_title( $title, $sep ) {
  
     if( is_front_page() || is_home()) 
         return get_bloginfo('name');
+
+    if(is_archive())
+        return post_type_archive_title('', true).' '.$sep.' ';;
+    
  
     ## get post meta
     $meta_data = get_post_meta(get_the_id(), 'seo-meta-data', true);
