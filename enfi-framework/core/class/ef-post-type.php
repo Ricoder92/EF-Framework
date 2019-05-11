@@ -1,26 +1,30 @@
 <?php
 
-
 class EF_Post_Type_Create {
 
+    # contructor
     public function __construct($name, $args, $prio = 0) {
 
+        # vars
         $this->name = $name;
         $this->args = $args;
         $this->prio = $prio;
 
+        # acions
         add_action( 'init', array(&$this, 'register') );
         add_action('wp_enqueue_scripts',  array(&$this, 'cssjs'));
 
      
     }
 
+    # register post type
     function register() {
 
         register_post_type( $this->name , $this->args );
 
     }
  
+    # register css and js
     function cssjs() {
 
         if(is_child_theme()) {
@@ -150,20 +154,6 @@ class EF_Post_Type_Create {
 
 }
 
-#function enfi_post_type_create($name, $args, $prio = 0) {
-#
- #   add_action( 'init', function() use ($name, $args) {
-#
-#        register_post_type( $name , $args );
-#
- #   }, 0 );
-#
- #   add_action('wp_enqueue_scripts', function() use ($name) {
-  #         
-        
- #   });
-
-#}
 
 
 ################################################################################################################################################## 

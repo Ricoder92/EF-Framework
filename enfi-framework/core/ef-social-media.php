@@ -2,15 +2,18 @@
 
 $social_media_page = new EF_Settings_Page('social-media', __('Social Media', 'ef'), __('Social Media', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-hashtag', 3);
 
+    # social media channels
     $social_media_page->addSection('social-media-channels', __('Social Media Channels', 'ef'));
         $social_media_page->addField('social-media-channels', 'facebook', __('Facebook-site ID', 'ef'), null, 'text', null);
         $social_media_page->addField('social-media-channels', 'youtube', __('Youtube Channel', 'ef'), null, 'text', null);
         $social_media_page->addField('social-media-channels', 'twitter', __('Twitter', 'ef'), null, 'text');
         $social_media_page->addField('social-media-channels', 'instagram', __('Instagram', 'ef'), null, 'text', null);
 
+    # social media enable for post-types
     $social_media_page->addSection('og-post-types', __('Post Types', 'ef'));
         $social_media_page->addField('og-post-types', 'post-types', __('Post Types', 'ef'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
 
+    # social media global tags
     $social_media_page->addSection('og-tags', __('OpenGraph Meta Tags', 'ef'));
         $social_media_page->addField('og-tags', 'title', __('Title', 'ef'), null, 'text', null);
         $social_media_page->addField('og-tags', 'type', __('Type', 'ef'), null, 'selection', null, array('options' => $typeOptions));
@@ -28,24 +31,26 @@ $social_media_page = new EF_Settings_Page('social-media', __('Social Media', 'ef
         $social_media_page->addField('og-tags', 'region', __('Region', 'ef'), null, 'text', null);
         $social_media_page->addField('og-tags', 'country', __('Land', 'ef'), null, 'text', null);
 
-$typeOptions = array(
-    array( 'text' =>  __('Movie', 'ef'), 'value' => 'movie'),
-    array( 'text' =>  __('Audio', 'ef'), 'value' => 'audio'),
-    array( 'text' =>  __('Article', 'ef'), 'value' => 'article'),
-    array( 'text' =>  __('Actor', 'ef'), 'value' => 'actor'),
-    array( 'text' =>  __('Website', 'ef'), 'value' => 'website'),
-);
+        # article type options
+        $typeOptions = array(
+            array( 'text' =>  __('Movie', 'ef'), 'value' => 'movie'),
+            array( 'text' =>  __('Audio', 'ef'), 'value' => 'audio'),
+            array( 'text' =>  __('Article', 'ef'), 'value' => 'article'),
+            array( 'text' =>  __('Actor', 'ef'), 'value' => 'actor'),
+            array( 'text' =>  __('Website', 'ef'), 'value' => 'website'),
+        );
 
+# set defaults
 $social_media_page->setDefaultValues();
 
 # get option data
-$option_data = get_option('social-media');
+$option = ef_get_option('social-media');
 
 # enable for post types
-if(array_key_exists('post-types', $option_data)) {
+if(array_key_exists('post-types', $option)) {
 
     # get post types
-    $post_types = $option_data['post-types'];   
+    $post_types = $option['post-types'];   
 
     # create meta box for post types
     $meta = new EF_Metabox('social-media-meta', __('Social Media', 'ef'), $post_types);
@@ -82,9 +87,9 @@ function sm_add_wp_head() {
         # get seo option (+child)
         if(is_child_theme()) {
             $child_theme = get_stylesheet();
-            $option_data = get_option('social-media-'.$child_theme);
+            $option = get_option('social-media-'.$child_theme);
         } else {
-            $option_data = get_option('social-media');
+            $option = get_option('social-media');
         }
 
         ef_html_comment('Social Media');
@@ -109,8 +114,8 @@ function sm_add_wp_head() {
         if(isset($meta_data['og-site-name']))
            echo "\t<meta property=\"og:site_name\" content=\"".$meta_data['og-site-name']."\"/>\n";
         else
-        if($option_data['site-name'])
-            echo "\t<meta property=\"og:site_name\" content=\"".$option_data['site-name']."\"/>\n";
+        if($option['site-name'])
+            echo "\t<meta property=\"og:site_name\" content=\"".$option['site-name']."\"/>\n";
         else {
             echo "\t<meta property=\"og:site_name\" content=\"".get_bloginfo('name')."\"/>\n";
         }
@@ -118,16 +123,16 @@ function sm_add_wp_head() {
         # post description
         if(isset($meta_data['og-description']))
            echo "\t<meta property=\"og:description\" content=\"".$meta_data['og-description']."\"/>\n";
-        else if($option_data['site-description'])
-            echo "\t<meta property=\"og:description\" content=\"".$option_data['site-description']."\"/>\n";
+        else if($option['site-description'])
+            echo "\t<meta property=\"og:description\" content=\"".$option['site-description']."\"/>\n";
 
         # post image
         if(isset($meta_data['og-image']))
             $image_id = $meta_data['og-image'];
         else if(get_the_post_thumbnail_url())
             $image_id = get_post_thumbnail_id();
-        else if($option_data['image']) 
-            $image_id = $option_data['image'];
+        else if($option['image']) 
+            $image_id = $option['image'];
         else 
             $image_id = null;
 
@@ -162,44 +167,44 @@ function sm_add_wp_head() {
         # latitude
         if(isset($meta_data['og-latitude']))
             echo "\t<meta property=\"og:latitude\" content=\"".$meta_data['og-latitude']."\"/>\n";
-        else if($option_data['latitude'])
-            echo "\t<meta property=\"og:latitude\" content=\"".$option_data['latitude']."\"/>\n";
+        else if($option['latitude'])
+            echo "\t<meta property=\"og:latitude\" content=\"".$option['latitude']."\"/>\n";
         
         # longitude
         if(isset($meta_data['og-longitude']))
             echo "\t<meta property=\"og:longitude\" content=\"".$meta_data['og-longitude']."\"/>\n";
-        else if($option_data['longitude'])
-            echo "\t<meta property=\"og:longitude\" content=\"".$option_data['longitude']."\"/>\n";
+        else if($option['longitude'])
+            echo "\t<meta property=\"og:longitude\" content=\"".$option['longitude']."\"/>\n";
         
         # street
         if(isset($meta_data['og-street']))
             echo "\t<meta property=\"og:street-address\" content=\"".$meta_data['og-street']."\"/>\n";
-        else if($option_data['street'])
-            echo "\t<meta property=\"og:street-address\" content=\"".$option_data['street']."\"/>\n";
+        else if($option['street'])
+            echo "\t<meta property=\"og:street-address\" content=\"".$option['street']."\"/>\n";
         
         # city
         if(isset($meta_data['og-city']))
             echo "\t<meta property=\"og:locality\" content=\"".$meta_data['og-city']."\"/>\n";
-        else if($option_data['city'])
-            echo "\t<meta property=\"og:locality\" content=\"".$option_data['city']."\"/>\n";
+        else if($option['city'])
+            echo "\t<meta property=\"og:locality\" content=\"".$option['city']."\"/>\n";
         
         # region
         if(isset($meta_data['og-region']))
             echo "\t<meta property=\"og:region\" content=\"".$meta_data['og-region']."\"/>\n";
-        else if($option_data['region'])
-            echo "\t<meta property=\"og:region\" content=\"".$option_data['region']."\"/>\n";
+        else if($option['region'])
+            echo "\t<meta property=\"og:region\" content=\"".$option['region']."\"/>\n";
         
         # zip code
         if(isset($meta_data['og-zip']))
             echo "\t<meta property=\"og:postal-code\" content=\"".$meta_data['og-zip']."\"/>\n";
-        else if($option_data['zip'])
-            echo "\t<meta property=\"og:postal-code\" content=\"".$option_data['zip']."\"/>\n";
+        else if($option['zip'])
+            echo "\t<meta property=\"og:postal-code\" content=\"".$option['zip']."\"/>\n";
         
         #
         if(isset($meta_data['og-country']))
             echo "\t<meta property=\"og:country-name\" content=\"".$meta_data['og-country']."\"/>\n";
-        else if($option_data['country'])
-            echo "\t<meta property=\"og:country-name\" content=\"".$option_data['country']."\"/>\n";
+        else if($option['country'])
+            echo "\t<meta property=\"og:country-name\" content=\"".$option['country']."\"/>\n";
 
     }
 
@@ -211,17 +216,11 @@ add_action('wp_head', 'sm_add_wp_head', -997);
 # check if for post type enable
 function sm_check_post_type_enable() {
 
-    if(is_child_theme()) {
-        $child_theme = get_stylesheet();
-        $option_sm = get_option('social-media-'.$child_theme, array());
-    } else {
-        $option_sm = get_option('social-media', array());
-    }
-
+    $option = ef_get_option('social-media', array());
     $post_type = get_post_type();
 
-    if(array_key_exists('post-types', $option_sm) && is_array($option_sm['post-types']))
-        return in_array($post_type, $option_sm['post-types']);
+    if(array_key_exists('post-types', $option) && is_array($option['post-types']))
+        return in_array($post_type, $option['post-types']);
 }
 
 ?>

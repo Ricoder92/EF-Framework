@@ -1,15 +1,17 @@
 <?php
 
-// Class for creating plugin page
 class EF_Metabox {
 
+    # constructor
     public function __construct($id, $title, $post_types) {
 
+        # vars
         $this->id = $id;
         $this->title = $title;
         $this->post_types = $post_types;
         $this->fields = array();
 
+        # actions
         if ( is_admin() ) {
             add_action( 'load-post.php',     array( $this, 'init_metabox' ) );
             add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
@@ -17,15 +19,18 @@ class EF_Metabox {
  
     }
  
+    # init metabox
     public function init_metabox() {
         add_action( 'add_meta_boxes', array( $this, 'add_metabox'  )        );
         add_action( 'save_post',      array( $this, 'save_metabox' ), 10, 2 );
     }
  
+    # add metabox
     public function add_metabox() {
         add_meta_box($this->id, $this->title, array( $this, 'render_metabox' ), $this->post_types, 'advanced', 'default');
     }
 
+    # render metabox
     public function render_metabox( $post ) {
 
         echo '<table class="form-table enfi-admin-form-meta-box">';
@@ -36,6 +41,7 @@ class EF_Metabox {
 
     }
  
+    # save metabox
     public function save_metabox( $post_id, $post ) {
 
         // Check if user has permissions to save data.
@@ -59,6 +65,7 @@ class EF_Metabox {
  
     }
 
+    # add field
     public function addField($key, $title, $description, $type, $args = '') {
 
         add_action('enfi_meta_box_'.$this->id, function() use ($key, $title, $description, $type, $args) {
@@ -95,6 +102,7 @@ class EF_Metabox {
         });
     }
 
+    # add section, call a render func
     public function addContent($function) {
 
         add_action('enfi_meta_box_'.$this->id, function() use ($function) {
@@ -106,6 +114,7 @@ class EF_Metabox {
         });
     }
 
+    # load field type
     public function sanitize($args) {
 
         $name           = $args['name'];
@@ -115,14 +124,16 @@ class EF_Metabox {
         $type           = $args['type'];
         $data           = $args['args'];
 
-        // placeholder
+        # set placeholder
         if(isset($args['placeholder']))
             $placeholder = $args['placeholder'];
         else    
             $placeholder = __('Insert text here...', 'ef');
 
+        # get field template
         $sanitized_field_template = get_template_directory() . "/core/fields/".$type.".php";
 
+        # check and load field template
         if(file_exists($sanitized_field_template)) {
             $output = '';
             require $sanitized_field_template;       

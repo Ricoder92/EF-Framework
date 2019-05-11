@@ -4,18 +4,11 @@
  $meta_data = get_post_meta(get_the_id(), 'seo-meta-data', true);
 
  ## if null, set to empty array
- if(!is_array($meta_data))
-     $meta_data = array();
+if(!is_array($meta_data))
+    $meta_data = array();
+
+$option = ef_get_option('seo');
  
- ## get seo option (+child)
- if(is_child_theme()) {
-     $child_theme = get_stylesheet();
-     $option_seo = get_option('seo-'.$child_theme);
- } else {
-     $option_seo = get_option('seo');
- }
-
-
 $disable_meta_tags = array(
     array( 'key' => 'description' ,'text' =>  __('Description', 'ef'), 'value' => true),
     array( 'key' => 'keywords' ,'text' =>  __('Keywords', 'ef'), 'value' => true),
@@ -37,7 +30,7 @@ $title_seperators = array(
     array( 'text' =>  ':', 'value' => ':'),
 );
 
-$title_sep = $option_seo['global-title-seperator'];
+$title_sep = $option['global-title-seperator'];
 $title_style = array(
     array( 'text' =>  get_bloginfo('name').' '.$title_sep.' '.__('{Post name}', 'ef'), 'value' => 'left'),
     array( 'text' =>  __('{Post name}', 'ef').' '.$title_sep.' '.get_bloginfo('name'), 'value' => 'right'),
@@ -101,15 +94,15 @@ function check_post_type_enable() {
 
     if(is_child_theme()) {
         $child_theme = get_stylesheet();
-        $option_seo = get_option('seo-'.$child_theme, array());
+        $option = get_option('seo-'.$child_theme, array());
     } else {
-        $option_seo = get_option('seo', array());
+        $option = get_option('seo', array());
     }
 
     $post_type = get_post_type();
 
-    if(array_key_exists('post-types', $option_seo) && is_array($option_seo['post-types']))
-        return in_array($post_type, $option_seo['post-types']);
+    if(array_key_exists('post-types', $option) && is_array($option['post-types']))
+        return in_array($post_type, $option['post-types']);
 
 }
 
@@ -145,14 +138,14 @@ function seo_add_wp_head() {
         ## get seo option (+child)
         if(is_child_theme()) {
             $child_theme = get_stylesheet();
-            $option_seo = get_option('seo-'.$child_theme);
+            $option = get_option('seo-'.$child_theme);
         } else {
-            $option_seo = get_option('seo');
+            $option = get_option('seo');
         }
 
         ## check disable seo meta tags
-        if(array_key_exists('global-disable-seo-meta', $option_seo))
-            $global_disable_seo_meta = $option_seo['global-disable-seo-meta'];
+        if(array_key_exists('global-disable-seo-meta', $option))
+            $global_disable_seo_meta = $option['global-disable-seo-meta'];
         else 
             $global_disable_seo_meta = array();
 
@@ -174,7 +167,7 @@ function seo_add_wp_head() {
             if(isset($meta_data['seo-'.$meta_tag]));
 
             $meta = $meta_data['seo-'.$meta_tag];
-            $options = $option_seo['global-'.$meta_tag];
+            $options = $option['global-'.$meta_tag];
 
             if(!(is_array($meta_disable_seo_meta) && array_key_exists($meta_tag, $meta_disable_seo_meta)) ) {
                 if(!(is_array($global_disable_seo_meta) && array_key_exists($meta_tag, $global_disable_seo_meta)) ) {

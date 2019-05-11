@@ -33,10 +33,11 @@ class EF_Framework {
         add_action( 'wp_head', array(&$this, 'global_header'), -999 );
       
         # require some ef stuff
-        require_once get_template_directory().'/core/class/ef-admin-meta-box.php';
-        require_once get_template_directory().'/core/class/ef-admin-settings-page.php';
-        require_once get_template_directory().'/core/class/ef-admin-navigation.php';
-        require_once get_template_directory().'/core/class/ef-admin-post-type.php';
+        require_once get_template_directory().'/core/class/ef-meta-box.php';
+        require_once get_template_directory().'/core/class/ef-settings-page.php';
+        require_once get_template_directory().'/core/class/ef-navigation.php';
+        require_once get_template_directory().'/core/class/ef-post-type.php';
+
         require_once get_template_directory().'/core/ef-functions.php';
         require_once get_template_directory().'/core/ef-post-types.php';
         require_once get_template_directory().'/core/ef-styles-scripts.php';
@@ -116,7 +117,7 @@ class EF_Framework {
     function setup_theme() {
 
         # textdomain
-        load_theme_textdomain( 'enfi', get_template_directory() . '/languages' );
+        load_theme_textdomain( 'ef', get_template_directory() . '/languages' );
         
         # theme supports
         add_theme_support( 'post-thumbnails' );
@@ -126,8 +127,8 @@ class EF_Framework {
     
         # nav menus
         register_nav_menus( array(
-            'header' => __( 'Hauptmenü', 'enfi' ),
-            'footer'  => __( 'FooterMenü', 'enfi' ),
+            'header' => __( 'Hauptmenü', 'ef'),
+            'footer'  => __( 'FooterMenü', 'ef'),
         ) );
 
         # remove emojis and rss stuff
@@ -186,6 +187,8 @@ class EF_Framework {
     }
 
     function global_header() {
+
+        # meta tags
         ef_html_comment('Metatags');
         echo "\t<meta charset=\"UTF-8\" />\n";
         if(is_single())
@@ -193,14 +196,19 @@ class EF_Framework {
         else if(is_archive() || is_tax())
             echo "\t<meta name=\"url\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\">\n";
 
+        # URL
         if(is_single())
             echo "\t<meta name=\"identifier-URL\" content=\"".get_the_permalink()."\">\n";
         else if(is_archive() || is_tax())
             echo "\t<meta name=\"identifier-URL\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\">\n";
         
+        # viewport
         echo "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n";
+
+        # language
         echo "\t<meta name=\"language\" content=\"".get_locale()."\">\n";
 
+        # apple tags
         ef_html_comment('Apple metatags');
         echo "\t<meta name=\"format-detection\" content=\"telephone=yes\">\n";
         echo "\t<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n";
@@ -221,6 +229,7 @@ class EF_Framework {
             
         }
 
+        # internet explorer tags
         ef_html_comment('Internet Exploter metatags');
         echo "\t<meta name=\"msapplication-starturl\" content=\"".get_home_url()."\">\n";
         echo "\t<meta name=\"msapplication-navbutton-color\" content=\"black\">\n";
