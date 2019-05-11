@@ -1,2 +1,2 @@
-<div class="content-wrapper">
-<div class="container">
+<div class="content-post">
+    <div class="container">

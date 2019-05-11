@@ -1,15 +1,18 @@
 body {
     font-display: initial;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 a {
     text-decoration: none;
-    color: rgba(210, 53, 19, 0.4);
+    color: rgba(0, 0, 0, 0.6);
 }
 
 a:hover {
     text-decoration: none;
-    color: rgba(210, 53, 19, 1);
+    color: rgba(0, 0, 0, 0.8);
 }
 
 button,
@@ -58,41 +61,27 @@ button:focus .btn:active,
     outline: none;
 }
 
-.content-gray-bg {
-    background-color: #f1f1f1 !important;
-}
-
-.content-wrapper {
-    margin: 0px 0px 80px 0;
-}
-
-.content-wrapper-404 {
-    margin: 80px 0;
-}
-
 .content-title {
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     margin-bottom: 40px;
     height: 400px;
     text-align: center;
 }
 
-.content-title h1{
+.content-title h1 {
     color: white;
 }
 
-
-.warning-jq-not-loaded {
-    display: block;
-    position: fixed;
-    z-index: 99999999;
-    width: 100%;
-    bottom: 0;
-    background-color: #b96b6b;
-    color: white;
-    font-size: 1.2rem;
-    padding: 35px;
+.content-post {
+    margin: 0px 0px 80px 0;
 }
+
+.content-post-404 {
+    margin: 80px 0;
+}
+
+
+/* remove outlints from inputs */
 
 textarea:focus,
 input[type="text"]:focus,
@@ -115,9 +104,9 @@ input[type="color"]:focus,
 }
 
 
-.post-content {
+/* post content stuff */
 
-}
+.post-content {}
 
 .post-content>h1,
 .post-content>h2,
@@ -141,7 +130,6 @@ input[type="color"]:focus,
 .post-content table {
     width: 100%;
     margin-bottom: 40px;
-
 }
 
 .post-content table tr {}
@@ -184,82 +172,6 @@ input[type="color"]:focus,
     height: 600px;
 }
 
-
-.archive-card-1-item {
-    margin-bottom: 60px;
-    padding: 40px;
-    background: white;
-    box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.05);
-    cursor: pointer;
-    transition: 200ms;
-}
-
-.archive-card-1-item:hover {
-    box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.15);
-}
-
-.archive-card-1-item .title {
-    margin: 15px 0;
-}
-
-.archive-card-1-item .title h5 {
-    display: inline-block;
-    font-weight: bold;
-    text-align: left;
-}
-
-.archive-card-1-item .content {
-    margin: 15px 0;
-}
-
-.archive-card-1-item .info {
-    text-align: center;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 15px 0px;
-    text-transform: uppercase;
-    font-size: 0.6rem;
-}
-
-.archive-card-1-item .thumbnail {
-    width: 100%;
-    height: auto;
-}
-
-
-
-
-.archive-list-1-item {
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 20px 0;
-}
-
-.archive-list-1-item .title {
-    margin-bottom: 15px;
-}
-
-.archive-list-1-item .title h5 {
-    display: inline-block;
-    font-weight: bold;
-    font-size: 26px;
-    text-align: left;
-}
-
-.archive-list-1-item .content {
-    margin-bottom: 25px 0;
-}
-
-.archive-list-1-item .info {
-    text-align: left;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-}
-
-.archive-list-1-item .thumbnail img {
-    width: 180px;
-    height: auto;
-}
-
 .tagcloud {
     list-style: none;
     margin: 0 0 40px 0;
@@ -285,7 +197,6 @@ input[type="color"]:focus,
     display: table;
     width: 100%;
     text-align: center;
-
 }
 
 .pagination .page-numbers {
@@ -305,22 +216,22 @@ input[type="color"]:focus,
     cursor: pointer;
 }
 
-.ef-widget-container {
+.widget-container {
     margin-bottom: 40px;
 }
 
-.ef-widget-container ul{
+.widget-container ul {
     margin: 10px;
     padding: 0;
 }
 
-.ef-widget-container ul li {
+.widget-container ul li {
     margin: 0px;
     padding: 10px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     list-style: none;
 }
 
-.ef-widget-container ul li:last-child {
+.widget-container ul li:last-child {
     border-bottom: 0;
 }

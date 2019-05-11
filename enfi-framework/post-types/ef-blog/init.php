@@ -60,7 +60,7 @@ function ef_blog_register_sidebar() {
         'name' => __( 'Blog Sidebar', 'enfi' ),
         'id' => 'ef-blog-sidebar-1',
         'description' => __( 'Sidebar for EF Blog', 'enfi' ),
-        'before_widget' => '<div class="ef-widget-container">',
+        'before_widget' => '<div class="widget-container">',
 	    'after_widget'  => '</div>',
 	    'before_title'  => '<h4>',
 	    'after_title'   => '</h4>',

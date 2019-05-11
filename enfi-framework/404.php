@@ -4,15 +4,16 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="content-wrapper-404">
+        <div class="content-post-404">
 
             <?php 
+
             $id=504; 
             $post = get_post($id); 
             $content = apply_filters('the_content', $post->post_content); 
-            echo $content;  
-            ?>
+            echo $content; 
 
+            ?>
 
         </div>
     </div>
