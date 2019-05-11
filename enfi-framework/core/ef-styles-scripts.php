@@ -115,7 +115,7 @@ function enqueue_styles_and_scripts() {
         wp_enqueue_script( 'main' );
 
         # theme CSS
-        $option = get_option('styles-scripts');
+        $option = ef_get_option('styles-scripts');
 
         wp_register_style('main', get_template_directory_uri().'/style.css');
 

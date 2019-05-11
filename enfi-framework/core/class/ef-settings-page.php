@@ -122,7 +122,6 @@ class EF_Settings_Page {
 
             $data['key'] = $id;
            
-
             if(!is_child_theme()) 
                 $data['name'] = $this->slug.'['.$id.']';
             else {
@@ -160,45 +159,45 @@ class EF_Settings_Page {
         wp_enqueue_style( 'bootstrap-grid' );
 
         echo '<form method="post" action="options.php">';
-       
-            echo '<div class="enfi-admin-page-head">';
+
+            echo '<div class="ef-admin-page-head">';
                 echo '<div class="container-fluid">';
                     echo '<div class="row">';
                         echo '<div class="col-lg-12">';
-
                             echo '<div class="title-description">';
                                 echo '<h1>'.__($this->name).'</h1>';
                                 echo '<p>'.__($this->description).'</p>';
                             echo '</div>';
-
                         echo '</div>';
                     echo '</div>';   
                 echo '</div>';
             echo '</div>';
 
             echo '<div class="container-fluid"><div class="row">';
-
+                
                 echo '<div class="col-lg-2">';
-
                     do_action('ef-admin-navigation');
-
                 echo '</div>';
 
                 echo '<div class="col-lg-8">';
-                        echo '<div class="enfi-admin-page-content enfi-admin-form-settings-page">';
+                    echo '<div class="ef-admin-page-content ef-admin-form-settings">';
                         settings_fields ($this->slug);
                         do_settings_sections ('ef-framework-'.$this->slug);
                         do_action('ef-framework-content-'.$this->slug);
                     echo '</div>';
-                    
-            echo '<div class="enfi-admin-page-footer">';
-            submit_button();
-         echo '</div>';
+                
+                    echo '<div class="ef-admin-page-footer">';
+                        submit_button();
+                    echo '</div>';
+
                 echo '</div>';
 
-            echo '</div></div>';
+            echo '</div>';
 
-        echo '</form>';
+        echo '</div>';
+
+    echo '</form>';
+
     }
 
     public function sanitize($args) {
@@ -275,7 +274,6 @@ function parseOptions($args) {
 }
 
 
-
 $settings_page = new EF_Settings_Page('settings', __('Settings', 'ef'), __('Settings', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', null, 1);
 
 $options = array(
@@ -288,36 +286,22 @@ $options = array(
     array( 'text' =>  '90', 'value' => 90)
 );
 
-
 $settings_page->addSection(1, 'Settings');
-
-$settings_page->addField(1, 'textbox', 'Text', null, 'text');
-$settings_page->addField(1, 'ttretextbox', 'Text', null, 'text');
-$settings_page->addField(1, 'texttrebox', 'Text', null, 'text');
-$settings_page->addField(1, 'tex432box', 'Text', null, 'text');
-$settings_page->addField(1, 'textb42ox', 'Text', null, 'text');
-$settings_page->addField(1, 'te66xtbox', 'Text', null, 'text');
-
-$settings_page->addField(1, 'selection', 'Selection', null, 'selection', '', array('options' => $options));
-
-$settings_page->addField(1, 'selection-post-types', 'Selection Group', null, 'selection', null, array('post_types' => get_post_types()));
-
-$settings_page->addField(1, 'checkbox', 'Checkbox', null, 'checkbox', null, array('checkboxText' => 'test'));
-
-$settings_page->addField(1, 'checkbox-group-options', 'Checkbox-Group Options', null, 'checkbox-group', null, array('options' => $options));
-
-$settings_page->addField(1, 'checkbox-group-post-types', 'Checkbox-Group Post-Types', null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
-
-$settings_page->addField(1, 'checkbox-group-posts', 'Checkbox-Group Posts', null, 'checkbox-group', null, array( 'posts' => 'page'));
-
-$settings_page->addField(1, 'list', 'Liste', null, 'list', null);
-
-$settings_page->addField(1, 'color-picker', 'Color-Picker', null, 'color-picker',  null);
-
-$settings_page->addField(1, 'image', 'Image', null, 'image', null);
-
-$settings_page->addField(1, 'button-group', 'Button group', null, 'text-align', 'left');
-
-$settings_page->addField(1, 'button-group245156156', 'Button group', null, 'button-group', null, array( 'options' => $options ));
-
-$settings_page->addField(1, 'button-group245156gtre156', 'Button group', null, 'button-group', null, array( 'options' => $options, 'vertical' => true ));
+    $settings_page->addField(1, 'textbox', 'Text', null, 'text');
+    $settings_page->addField(1, 'ttretextbox', 'Text', null, 'text');
+    $settings_page->addField(1, 'texttrebox', 'Text', null, 'text');
+    $settings_page->addField(1, 'tex432box', 'Text', null, 'text');
+    $settings_page->addField(1, 'textb42ox', 'Text', null, 'text');
+    $settings_page->addField(1, 'te66xtbox', 'Text', null, 'text');
+    $settings_page->addField(1, 'selection', 'Selection', null, 'selection', '', array('options' => $options));
+    $settings_page->addField(1, 'selection-post-types', 'Selection Group', null, 'selection', null, array('post_types' => get_post_types()));
+    $settings_page->addField(1, 'checkbox', 'Checkbox', null, 'checkbox', null, array('checkboxText' => 'test'));
+    $settings_page->addField(1, 'checkbox-group-options', 'Checkbox-Group Options', null, 'checkbox-group', null, array('options' => $options));
+    $settings_page->addField(1, 'checkbox-group-post-types', 'Checkbox-Group Post-Types', null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
+    $settings_page->addField(1, 'checkbox-group-posts', 'Checkbox-Group Posts', null, 'checkbox-group', null, array( 'posts' => 'page'));
+    $settings_page->addField(1, 'list', 'Liste', null, 'list', null);
+    $settings_page->addField(1, 'color-picker', 'Color-Picker', null, 'color-picker',  null);
+    $settings_page->addField(1, 'image', 'Image', null, 'image', null);
+    $settings_page->addField(1, 'button-group', 'Button group', null, 'text-align', 'left');
+    $settings_page->addField(1, 'button-group245156156', 'Button group', null, 'button-group', null, array( 'options' => $options ));
+    $settings_page->addField(1, 'button-group245156gtre156', 'Button group', null, 'button-group', null, array( 'options' => $options, 'vertical' => true ));

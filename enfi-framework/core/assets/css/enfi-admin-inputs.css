@@ -1,13 +1,13 @@
 /* Text */
 
-.enfi-admin-form-settings-page .description {
+.ef-admin-form-settings .description {
     padding: 10px;
-    border-top: 1px solid rgba(0,0,0,0.05);
-    color: rgba(0,0,0,0.4);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.4);
     margin: 0;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-text {
+.ef-admin-form-settings .enfi-admin-input-text {
     padding: 10px 0;
     width: 100%;
     background-color: transparent !important;
@@ -17,20 +17,21 @@
     box-shadow: unset !important;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-text:active,
-.enfi-admin-form-settings-page .enfi-admin-input-text:focus {
+.ef-admin-form-settings .enfi-admin-input-text:active,
+.ef-admin-form-settings .enfi-admin-input-text:focus {
     box-shadow: none !important;
     outline: none !important;
     border: unset !important;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-text::placeholder {
+.ef-admin-form-settings .enfi-admin-input-text::placeholder {
     color: rgba(0, 0, 0, 0.2) !important;
 }
 
+
 /* Selection */
 
-.enfi-admin-form-settings-page .enfi-admin-input-selection {
+.ef-admin-form-settings .enfi-admin-input-selection {
     width: calc(100% - 10px);
     padding: 10px 0;
     border: unset !important;
@@ -40,7 +41,7 @@
     cursor: pointer;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-selection option {
+.ef-admin-form-settings .enfi-admin-input-selection option {
     width: calc(100% - 10px);
     padding: 20px;
     border: unset !important;
@@ -49,16 +50,15 @@
 }
 
 
-
 /* list */
 
-.enfi-admin-form-settings-page .enfi-admin-input-list {}
+.ef-admin-form-settings .enfi-admin-input-list {}
 
-.enfi-admin-form-settings-page .enfi-admin-input-list .field {
+.ef-admin-form-settings .enfi-admin-input-list .field {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-list input[type=text] {
+.ef-admin-form-settings .enfi-admin-input-list input[type=text] {
     width: 80%;
     border: none;
     box-shadow: none;
@@ -66,11 +66,11 @@
     padding: 10px;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-list input::placeholder {
+.ef-admin-form-settings .enfi-admin-input-list input::placeholder {
     color: rgba(0, 0, 0, 0.2) !important;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-list .add {
+.ef-admin-form-settings .enfi-admin-input-list .add {
     display: inline-block;
     padding: 10px;
     cursor: pointer;
@@ -78,12 +78,12 @@
     transition: 200ms;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-list .add:hover {
+.ef-admin-form-settings .enfi-admin-input-list .add:hover {
     background-color: #4f874c;
     color: white;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-list .remove {
+.ef-admin-form-settings .enfi-admin-input-list .remove {
     border-right: 1px solid rgba(0, 0, 0, 0.05);
     display: inline-block;
     padding: 10px;
@@ -91,12 +91,12 @@
     color: rgba(0, 0, 0, 0.2);
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-list .remove:hover {
+.ef-admin-form-settings .enfi-admin-input-list .remove:hover {
     background-color: #874c4c;
     color: white;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-list .remove-disable {
+.ef-admin-form-settings .enfi-admin-input-list .remove-disable {
     border-right: 1px solid rgba(0, 0, 0, 0.05);
     display: inline-block;
     padding: 10px;
@@ -104,7 +104,7 @@
     color: rgba(0, 0, 0, 0.2);
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-list .move {
+.ef-admin-form-settings .enfi-admin-input-list .move {
     border-right: 1px solid rgba(117, 94, 94, 0.05);
     display: inline-block;
     padding: 10px;
@@ -112,19 +112,20 @@
     color: rgba(0, 0, 0, 0.2);
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-list .move:hover {
+.ef-admin-form-settings .enfi-admin-input-list .move:hover {
     background-color: #67a9c8;
     color: white;
 }
 
+
 /* image */
 
-.enfi-admin-form-settings-page .enfi-settings-input-image {
+.ef-admin-form-settings .enfi-settings-input-image {
     width: 160px;
     margin: 20px;
 }
 
-.enfi-admin-form-settings-page .enfi-settings-image-set {
+.ef-admin-form-settings .enfi-settings-image-set {
     width: calc(100% - 4px);
     height: 160px;
     border: 2px dashed rgba(0, 0, 0, 0.2);
@@ -140,12 +141,12 @@
     background-repeat: no-repeat;
 }
 
-.enfi-admin-form-settings-page .enfi-settings-image-set.isset {
+.ef-admin-form-settings .enfi-settings-image-set.isset {
     border: 0px !important;
     width: 100%;
 }
 
-.enfi-admin-form-settings-page .enfi-settings-image-set:hover {
+.ef-admin-form-settings .enfi-settings-image-set:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -154,7 +155,7 @@
     font-size: 2rem;
 }
 
-.enfi-admin-form-settings-page .enfi-settings-image-remove {
+.ef-admin-form-settings .enfi-settings-image-remove {
     padding: 6px;
     text-align: center;
     background-color: rgba(255, 0, 0, 0.6);
@@ -164,14 +165,15 @@
     cursor: pointer;
 }
 
-.enfi-admin-form-settings-page .enfi-settings-image-remove:hover {
+.ef-admin-form-settings .enfi-settings-image-remove:hover {
     background-color: rgba(255, 0, 0, 1);
     color: white;
 }
 
+
 /* button group */
 
-.enfi-admin-form-settings-page .enfi-admin-input-button-group a {
+.ef-admin-form-settings .enfi-admin-input-button-group a {
     display: inline-block;
     padding: 10px 0;
     color: rgba(0, 0, 0, 0.8);
@@ -179,29 +181,30 @@
     text-align: center;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-button-group a i {
+.ef-admin-form-settings .enfi-admin-input-button-group a i {
     font-size: 16px;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-button-group a:hover {
+.ef-admin-form-settings .enfi-admin-input-button-group a:hover {
     background-color: rgba(0, 0, 0, .1);
     cursor: pointer;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-button-group a.current {
+.ef-admin-form-settings .enfi-admin-input-button-group a.current {
     background-color: rgba(0, 0, 0, .6);
     color: white;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-button-group a:first-of-type {}
+.ef-admin-form-settings .enfi-admin-input-button-group a:first-of-type {}
 
-.enfi-admin-form-settings-page .enfi-admin-input-button-group a:last-of-type {
+.ef-admin-form-settings .enfi-admin-input-button-group a:last-of-type {
     border-right: 0px;
 }
 
+
 /* button group vertical*/
 
-.enfi-admin-form-settings-page .enfi-admin-input-button-group-vertical a {
+.ef-admin-form-settings .enfi-admin-input-button-group-vertical a {
     display: block;
     padding: 20px 20px;
     color: rgba(0, 0, 0, 0.8);
@@ -209,29 +212,30 @@
     text-align: left;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-button-group-vertical a i {
+.ef-admin-form-settings .enfi-admin-input-button-group-vertical a i {
     font-size: 16px;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-button-group-vertical a:hover {
+.ef-admin-form-settings .enfi-admin-input-button-group-vertical a:hover {
     background-color: rgba(0, 0, 0, .1);
     cursor: pointer;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-button-group-vertical a.current {
+.ef-admin-form-settings .enfi-admin-input-button-group-vertical a.current {
     background-color: rgba(0, 0, 0, .6);
     color: white;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-button-group-vertical a:first-of-type {}
+.ef-admin-form-settings .enfi-admin-input-button-group-vertical a:first-of-type {}
 
-.enfi-admin-form-settings-page .enfi-admin-input-button-group-vertical a:last-of-type {
+.ef-admin-form-settings .enfi-admin-input-button-group-vertical a:last-of-type {
     border-bottom: 0px;
 }
 
+
 /* checkbox */
 
-.enfi-admin-form-settings-page .enfi-admin-input-checkbox {
+.ef-admin-form-settings .enfi-admin-input-checkbox {
     position: relative;
     padding-left: 30px;
     cursor: pointer;
@@ -245,9 +249,10 @@
     font-size: 0.9rem;
 }
 
+
 /* Hide the browser's default checkbox */
 
-.enfi-admin-form-settings-page .enfi-admin-input-checkbox input {
+.ef-admin-form-settings .enfi-admin-input-checkbox input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -255,9 +260,10 @@
     width: 0;
 }
 
+
 /* Create a custom checkbox */
 
-.enfi-admin-form-settings-page .checkmark {
+.ef-admin-form-settings .checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -268,35 +274,40 @@
     border-radius: 6px;
 }
 
+
 /* On mouse-over, add a grey background color */
 
-.enfi-admin-form-settings-page .enfi-admin-input-checkbox :hover input~.checkmark {
+.ef-admin-form-settings .enfi-admin-input-checkbox :hover input~.checkmark {
     background-color: #1f1d1d;
 }
 
+
 /* When the checkbox is checked, add a blue background */
 
-.enfi-admin-form-settings-page .enfi-admin-input-checkbox input:checked~.checkmark {
+.ef-admin-form-settings .enfi-admin-input-checkbox input:checked~.checkmark {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+
 /* Create the checkmark/indicator (hidden when not checked) */
 
-.enfi-admin-form-settings-page .checkmark:after {
+.ef-admin-form-settings .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
+
 /* Show the checkmark when checked */
 
-.enfi-admin-form-settings-page .enfi-admin-input-checkbox input:checked~.checkmark:after {
+.ef-admin-form-settings .enfi-admin-input-checkbox input:checked~.checkmark:after {
     display: block;
 }
 
+
 /* Style the checkmark/indicator */
 
-.enfi-admin-form-settings-page .enfi-admin-input-checkbox .checkmark:after {
+.ef-admin-form-settings .enfi-admin-input-checkbox .checkmark:after {
     left: 6px;
     top: 2px;
     width: 3px;
@@ -308,19 +319,20 @@
     transform: rotate(45deg);
 }
 
+
 /* checkbox group */
 
-.enfi-admin-form-settings-page .enfi-admin-input-checkbox-group {
+.ef-admin-form-settings .enfi-admin-input-checkbox-group {
     overflow-y: scroll;
     overflow: hidden;
     max-height: 400px;
     padding: 15px 0;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-checkbox-group .item {
+.ef-admin-form-settings .enfi-admin-input-checkbox-group .item {
     padding: 8px 0px;
 }
 
-.enfi-admin-form-settings-page .enfi-admin-input-checkbox-group .item:last-child {
+.ef-admin-form-settings .enfi-admin-input-checkbox-group .item:last-child {
     padding: 8px 0px;
 }

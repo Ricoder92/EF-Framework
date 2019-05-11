@@ -45,13 +45,7 @@ function ef_layout_get_templates_list($_template_name) {
 
 function ef_layout_enqueue_css_js($_template_name) {
 
-    if(is_child_theme()) {
-        $child_theme = get_stylesheet();
-        $template = get_option('layout-'.$child_theme);
-    } else {
-        $template = get_option('layout');
-    }
-    
+    $template = ef_get_option('layout');
     $template = $template[$_template_name];
 
     if(!is_child_theme()) {
@@ -144,13 +138,7 @@ function ef_layout_enqueue_css_js($_template_name) {
 
 function ef_layout_get_template($_template_name) {
 
-    if(is_child_theme()) {
-        $child_theme = get_stylesheet();
-        $template = get_option('layout-'.$child_theme);
-    } else {
-        $template = get_option('layout');
-    }
-
+    $template = ef_get_option('layout');
     $template = $template[$_template_name];
         
     if(!is_child_theme()) {

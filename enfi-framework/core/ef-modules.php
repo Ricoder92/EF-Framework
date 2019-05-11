@@ -8,16 +8,9 @@ function plugins_render() {
     $plugins_path_child =  get_stylesheet_directory().'/plugins';
     $plugins_path =  get_template_directory().'/plugins';
 
-    if(is_child_theme()) {
-        $child_theme = get_stylesheet();
-        $value = ef_get_option('modules');
-        $name = 'modules-'. $child_theme;
-    } else {
-        $value = ef_get_option('modules');
-        $name = 'modules';
-    }
-    
-    
+    $option = ef_get_option('layout');
+    $name = ef_get_child_name('layout');
+
     echo '<table class="ef-admin-table">';
 
         echo '<thead><tr>';
@@ -38,9 +31,9 @@ function plugins_render() {
             'author' => 'Author'
         ));   
 
-        if(is_array($value) && $value != null) {
-            if(array_key_exists($filedata['slug'], $value)) 
-                $checked = checked('true', $value[$filedata['slug']] , false );
+        if(is_array($option) && $option != null) {
+            if(array_key_exists($filedata['slug'], $option)) 
+                $checked = checked('true', $option[$filedata['slug']] , false );
             else 
                 $checked = null;
         } else {
@@ -66,9 +59,9 @@ function plugins_render() {
                 'author' => 'Author'
             ));   
 
-            if(is_array($value) && $value != null) {
-                if(array_key_exists($filedata['slug'], $value)) 
-                    $checked = checked('true', $value[$filedata['slug']] , false );
+            if(is_array($option) && $option != null) {
+                if(array_key_exists($filedata['slug'], $option)) 
+                    $checked = checked('true', $option[$filedata['slug']] , false );
                 else 
                     $checked = null;
             } else {

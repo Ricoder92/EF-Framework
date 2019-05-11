@@ -33,13 +33,13 @@ class EF_Framework {
         add_action( 'wp_head', array(&$this, 'global_header'), -999 );
       
         # require some ef stuff
-        require_once get_template_directory().'/core/class/ef-meta-box.php';
-        require_once get_template_directory().'/core/class/ef-settings-page.php';
-        require_once get_template_directory().'/core/class/ef-navigation.php';
-        require_once get_template_directory().'/core/class/ef-post-type.php';
-
         require_once get_template_directory().'/core/ef-functions.php';
-        require_once get_template_directory().'/core/ef-post-types.php';
+
+        require_once get_template_directory().'/core/class/ef-settings-page.php';
+        require_once get_template_directory().'/core/class/ef-meta-box.php';
+        require_once get_template_directory().'/core/class/ef-post-type.php';
+        require_once get_template_directory().'/core/class/ef-navigation.php';
+
         require_once get_template_directory().'/core/ef-styles-scripts.php';
         require_once get_template_directory().'/core/ef-layout.php';
         require_once get_template_directory().'/core/ef-debug.php';
@@ -86,7 +86,7 @@ class EF_Framework {
 
         wp_enqueue_style('bootstrap-grid');
 
-        echo '<div class="enfi-admin-page-head">';
+        echo '<div class="ef-admin-page-head">';
             echo '<div class="container-fluid">';
                 echo '<div class="row">';
                     echo '<div class="col-lg-12">';
@@ -99,7 +99,7 @@ class EF_Framework {
             echo '</div>';
         echo '</div>';
 
-        echo '<div class="enfi-admin-page-content">';
+        echo '<div class="ef-admin-page-content">';
             echo '<div class="container-fluid">';
                 echo '<div class="row">';
                         do_action('ef-admin-navigation-main-page');
@@ -242,6 +242,5 @@ class EF_Framework {
 }
 
 new EF_Framework(__('EF Framework', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.DebugLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est ', 'ef'), 'upload_themes');
-
 
 ?>

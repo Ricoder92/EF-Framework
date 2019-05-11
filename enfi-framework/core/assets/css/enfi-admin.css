@@ -1,4 +1,4 @@
-.enfi-admin-page-head {
+.ef-admin-page-head {
     margin-left: -20px;
     padding: 30px 0;
     background-color: white;
@@ -6,14 +6,14 @@
     margin-bottom: 40px;
 }
 
-.enfi-admin-page-head .icon {
+.ef-admin-page-head .icon {
     position: relative;
     top: -11px;
     left: 0px;
-    display:inline-block;
+    display: inline-block;
 }
 
-.enfi-admin-page-head .title-description {
+.ef-admin-page-head .title-description {
     display: inline-block;
     margin-left: 20px;
 }
@@ -21,27 +21,26 @@
 .enfi-admin-page-navigation {
     margin-left: 20px;
     width: 300px;
-    color: rgba(0, 0, 0, 0.6);	
+    color: rgba(0, 0, 0, 0.6);
     float: left;
 }
 
-.enfi-admin-page-content {
-    color: rgba(0, 0, 0, 0.6);	
+.ef-admin-page-content {
+    color: rgba(0, 0, 0, 0.6);
 }
 
-.enfi-admin-form-settings-page h2 {
+.ef-admin-form-settings h2 {
     background: white;
     padding: 16px;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     margin: 0px;
     border-bottom: none;
     font-size: 0.9rem;
     font-weight: bold;
 }
 
-
 .ef-admin-table,
-.enfi-admin-page-content .form-table {
+.ef-admin-page-content .form-table {
     margin: 0 auto 20px auto;
     padding: 0px;
     border-collapse: collapse;
@@ -49,41 +48,38 @@
     width: 100%;
 }
 
-.ef-admin-table .left{
+.ef-admin-table .left {
     text-align: left;
 }
 
-.ef-admin-table .center{
+.ef-admin-table .center {
     text-align: center;
 }
 
 .ef-admin-table tr,
-.enfi-admin-page-content .form-table tr {
+.ef-admin-page-content .form-table tr {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .ef-admin-table th,
-.enfi-admin-page-content .form-table th {
+.ef-admin-page-content .form-table th {
     background-color: white;
     color: rgba(0, 0, 0, 0.6);
     padding: 16px 10px;
     margin: 1px;
 }
 
-.ef-admin-table td ,
-.enfi-admin-page-content .form-table td{
+.ef-admin-table td,
+.ef-admin-page-content .form-table td {
     background-color: white;
     color: rgba(0, 0, 0, 0.6);
     padding: 5px;
 }
 
+.ef-admin-page-content .form-table tr:nth-child(even) td,
+.ef-admin-page-content .form-table tr:nth-child(even) th {}
 
-.enfi-admin-page-content .form-table tr:nth-child(even) td,
-.enfi-admin-page-content .form-table tr:nth-child(even) th {
-   
-}
-
-.enfi-admin-page-content .form-table th {
+.ef-admin-page-content .form-table th {
     background-color: white;
     color: rgba(0, 0, 0, 0.6);
     margin-bottom: 1px;
@@ -94,20 +90,16 @@
     font-weight: normal;
 }
 
-
-
-.enfi-admin-page-content pre{
+.ef-admin-page-content pre {
     padding: 30px;
-    border: 1px solid rgba(0,0,0,0.2);
-    background-color: rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
-.enfi-admin-page-footer {
+.ef-admin-page-footer {
     margin-left: -20px;
     padding: 40px;
 }
-
-
 
 .ef-admin-list-modules .row {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -144,7 +136,6 @@
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.6);
     display: none;
-
 }
 
 .ef-admin-list-modules .description {
@@ -152,10 +143,6 @@
     color: rgba(0, 0, 0, 0.6);
     display: inline;
 }
-
-
-
-
 
 .ef-admin-list-modules li {
     background: white;
@@ -166,9 +153,6 @@
     color: rgba(0, 0, 0, 0.6);
     padding: 20px;
 }
-
-
-
 
 .enfi-framework-admin-navigation {
     display: inline-block;
@@ -190,7 +174,7 @@
     margin: 0px;
 }
 
-.enfi-framework-admin-navigation li a{
+.enfi-framework-admin-navigation li a {
     display: block;
     padding: 16px 12px;
     background-color: white;
@@ -201,7 +185,7 @@
     text-decoration: none;
 }
 
-.enfi-framework-admin-navigation li a.current{
+.enfi-framework-admin-navigation li a.current {
     display: block;
     padding: 16px 12px;
     background-color: white;
@@ -213,15 +197,15 @@
 }
 
 .enfi-framework-admin-navigation li a:active,
-.enfi-framework-admin-navigation li a:focus{
+.enfi-framework-admin-navigation li a:focus {
     box-shadow: none;
 }
 
-.enfi-framework-admin-navigation li a .icon{
+.enfi-framework-admin-navigation li a .icon {
     margin-right: 5px;
 }
 
-.enfi-framework-admin-navigation li a:hover{
+.enfi-framework-admin-navigation li a:hover {
     color: rgba(0, 0, 0, 0.8);
 }
 
@@ -229,13 +213,13 @@
     padding: 40px;
     background-color: white;
     margin: 20px 0;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     min-height: 300px;
 }
 
 .ef-admin-navigation-main-page-card:hover {
     cursor: pointer;
-    border: 1px solid rgba(0,0,0,0.4);
+    border: 1px solid rgba(0, 0, 0, 0.4);
     transition: 200ms;
 }
 
