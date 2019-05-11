@@ -164,33 +164,38 @@ function seo_add_wp_head() {
 
         foreach($meta_tags as $meta_tag) {
 
-            if(isset($meta_data['seo-'.$meta_tag]));
+                if(isset($meta_data['seo-'.$meta_tag]))
+                    $meta = $meta_data['seo-'.$meta_tag];
+                else    
+                    $meta = null;
 
-            $meta = $meta_data['seo-'.$meta_tag];
-            $options = $option['global-'.$meta_tag];
+                $options = $option['global-'.$meta_tag];
 
-            if(!(is_array($meta_disable_seo_meta) && array_key_exists($meta_tag, $meta_disable_seo_meta)) ) {
-                if(!(is_array($global_disable_seo_meta) && array_key_exists($meta_tag, $global_disable_seo_meta)) ) {
+                if(!(is_array($meta_disable_seo_meta) && array_key_exists($meta_tag, $meta_disable_seo_meta)) ) {
 
-                if($meta_tag == 'keywords') {
+                    if(!(is_array($global_disable_seo_meta) && array_key_exists($meta_tag, $global_disable_seo_meta)) ) {
 
-                    if($meta != "" && $options != "")
-                        $meta .= ', '.$options;
+                        if($meta_tag == 'keywords') {
 
-                    if(isset($meta)) 
-                        echo "\t<meta name=\"keywords\" content=\"".$meta."\"/>\n";
-                    else if($options)
-                        echo "\t<meta name=\"keywords\" content=\"".$options."\"/>\n";
+                            if($meta != "" && $options != "")
+                                $meta .= ', '.$options;
 
-                } else {
+                            if(isset($meta)) 
+                                echo "\t<meta name=\"keywords\" content=\"".$meta."\"/>\n";
+                            else if($options)
+                                echo "\t<meta name=\"keywords\" content=\"".$options."\"/>\n";
 
-                    if($meta)
-                        echo "\t<meta name=\"".$meta_tag."\" content=\"".$meta."\"/>\n";
-                    else if($options)
-                        echo "\t<meta name=\"".$meta_tag."\" content=\"".$options."\"/>\n";
-                }
+                        } else {
 
-            }
+                            if($meta)
+                                echo "\t<meta name=\"".$meta_tag."\" content=\"".$meta."\"/>\n";
+                            else if($options)
+                                echo "\t<meta name=\"".$meta_tag."\" content=\"".$options."\"/>\n";
+                        }
+
+                    }
+
+                
 
             }
          

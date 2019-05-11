@@ -12,7 +12,16 @@ $social_media_page = new EF_Settings_Page('social-media', __('Social Media', 'ef
     # social media enable for post-types
     $social_media_page->addSection('og-post-types', __('Post Types', 'ef'));
         $social_media_page->addField('og-post-types', 'post-types', __('Post Types', 'ef'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
-
+    
+        # article type options
+    $typeOptions = array(
+        array( 'text' =>  __('Movie', 'ef'), 'value' => 'movie'),
+        array( 'text' =>  __('Audio', 'ef'), 'value' => 'audio'),
+        array( 'text' =>  __('Article', 'ef'), 'value' => 'article'),
+        array( 'text' =>  __('Actor', 'ef'), 'value' => 'actor'),
+        array( 'text' =>  __('Website', 'ef'), 'value' => 'website'),
+    );
+    
     # social media global tags
     $social_media_page->addSection('og-tags', __('OpenGraph Meta Tags', 'ef'));
         $social_media_page->addField('og-tags', 'title', __('Title', 'ef'), null, 'text', null);
@@ -30,15 +39,6 @@ $social_media_page = new EF_Settings_Page('social-media', __('Social Media', 'ef
         $social_media_page->addField('og-tags', 'city', __('City', 'ef'), null, 'text', null);
         $social_media_page->addField('og-tags', 'region', __('Region', 'ef'), null, 'text', null);
         $social_media_page->addField('og-tags', 'country', __('Land', 'ef'), null, 'text', null);
-
-        # article type options
-        $typeOptions = array(
-            array( 'text' =>  __('Movie', 'ef'), 'value' => 'movie'),
-            array( 'text' =>  __('Audio', 'ef'), 'value' => 'audio'),
-            array( 'text' =>  __('Article', 'ef'), 'value' => 'article'),
-            array( 'text' =>  __('Actor', 'ef'), 'value' => 'actor'),
-            array( 'text' =>  __('Website', 'ef'), 'value' => 'website'),
-        );
 
 # set defaults
 $social_media_page->setDefaultValues();

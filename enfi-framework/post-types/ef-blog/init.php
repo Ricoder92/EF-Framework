@@ -18,14 +18,14 @@ $labels = array(
     'name'                => 'Blog',
     'singular_name'       => _x( 'Blog', 'Post Type Singular Name', 'enfi' ),
     'menu_name'           => __( 'Blog', 'enfi' ),
-    'parent_item_colon'   => __( 'Eltern-Blogmitglied', 'enfi' ),
-    'all_items'           => __( 'Alle Blogmitglieder', 'enfi' ),
-    'view_item'           => __( 'Blogmitglied ansehen', 'enfi' ),
-    'add_new_item'        => __( 'Blogmitglied hinzufügen', 'enfi' ),
-    'add_new'             => __( 'Neues Blogmitglied', 'enfi' ),
-    'edit_item'           => __( 'Blogmitglied bearbeiten', 'enfi' ),
-    'update_item'         => __( 'Blogmitglied aktualisieren', 'enfi' ),
-    'search_items'        => __( 'Blogmitglied suchen', 'enfi' ),
+    'parent_item_colon'   => __( 'Eltern-Blogeintrag', 'enfi' ),
+    'all_items'           => __( 'Alle Blogeinträge', 'enfi' ),
+    'view_item'           => __( 'Blogeintrag ansehen', 'enfi' ),
+    'add_new_item'        => __( 'Blogeintrag hinzufügen', 'enfi' ),
+    'add_new'             => __( 'Neues Blogeintrag', 'enfi' ),
+    'edit_item'           => __( 'Blogeintrag bearbeiten', 'enfi' ),
+    'update_item'         => __( 'Blogeintrag aktualisieren', 'enfi' ),
+    'search_items'        => __( 'Blogeintrag suchen', 'enfi' ),
     'not_found'           => __( 'nichts gefunden', 'enfi' ),
     'not_found_in_trash'  => __( 'nichts im Papierkorb gefunden', 'enfi' ),
     
@@ -33,7 +33,7 @@ $labels = array(
     
 $args = array(
     'label'               => __( 'Blog', 'enfi' ),
-    'description'         => __( 'Verwalte Blogmitglieder', 'enfi' ),
+    'description'         => __( 'Verwalte Blogeintrager', 'enfi' ),
     'labels'              => $labels,
     'supports'            => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
     'hierarchical'        => false,
@@ -48,7 +48,8 @@ $args = array(
     'has_archive'         => true,
     'exclude_from_search' => true,
     'show_in_rest'       => true,
-    'publicly_queryable'  => true
+    'publicly_queryable'  => true,
+    'rewrite' => array('slug' => 'blog'),
 );
 
 $blog = new EF_Post_Type_Create('ef-blog', $args);
