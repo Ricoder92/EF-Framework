@@ -54,6 +54,8 @@ class Enfi_Framework {
 
         require_once get_template_directory().'/shortcodes/enfi-post-grid.php';
 
+        require_once get_template_directory().'/widgets/ef-archive/ef-archive.php';
+
     }
 
     # ef head

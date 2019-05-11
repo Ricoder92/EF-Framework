@@ -37,7 +37,7 @@ class Enfi_Framework_Post_Type_Create {
                 }
 
                 foreach(glob($path.'/js/*.js') as $file){
-                    wp_register_script($this->name.'-'.basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
+                    wp_register_script($this->name.'-'.basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ));
                     #wp_enqueue_script(basename($file, ".js"));
                 }
 
@@ -57,7 +57,7 @@ class Enfi_Framework_Post_Type_Create {
                     }
 
                     foreach(glob($path.'/js/*.js') as $file){
-                        wp_register_script($this->name.'-'.basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
+                        wp_register_script($this->name.'-'.basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ));
                         #wp_enqueue_script(basename($file, ".js"));
                     }
                 }
@@ -76,7 +76,7 @@ class Enfi_Framework_Post_Type_Create {
                 }
 
                 foreach(glob($path.'/js/*.js') as $file){
-                    wp_register_script($this->name.'-'.basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
+                    wp_register_script($this->name.'-'.basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ));
                     #wp_enqueue_script(basename($file, ".js"));
                 }
 
@@ -96,7 +96,7 @@ class Enfi_Framework_Post_Type_Create {
                     }
 
                     foreach(glob($path.'/js/*.js') as $file){
-                        wp_register_script($this->name.'-'.basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
+                        wp_register_script($this->name.'-'.basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ));
                         #wp_enqueue_script(basename($file, ".js"));
                     }
                 }

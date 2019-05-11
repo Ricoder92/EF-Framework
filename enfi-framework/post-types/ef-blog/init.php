@@ -53,6 +53,19 @@ $args = array(
 
 $blog = new Enfi_Framework_Post_Type_Create('ef-blog', $args);
 
+add_action( 'widgets_init', 'ef_blog_register_sidebar' );
+function ef_blog_register_sidebar() {
+    register_sidebar( array(
+        'name' => __( 'Blog Sidebar', 'enfi' ),
+        'id' => 'ef-blog-sidebar-1',
+        'description' => __( 'Sidebar for EF Blog', 'enfi' ),
+        'before_widget' => '<div class="ef-widget-container">',
+	    'after_widget'  => '</div>',
+	    'before_title'  => '<h4>',
+	    'after_title'   => '</h4>',
+    ) );
+}
+
 
 
 ?>

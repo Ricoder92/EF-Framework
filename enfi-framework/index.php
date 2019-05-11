@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php get_template_part('templates/content/content-title-breadcrumbs'); ?>  
+<?php get_template_part('templates/content/content-title'); ?>  
 
 <?php get_template_part('templates/content/content-before'); ?>  
 
