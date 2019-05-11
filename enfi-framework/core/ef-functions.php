@@ -17,4 +17,12 @@ function ef_get_option($string, $default = false) {
     return $option;
 }
 
+function ef_render_logo() {
+    if ( has_custom_logo() ) {
+        echo the_custom_logo();
+    } else {
+        echo '<div onclick="location.href=\''.site_url().'\';">'.$logo_out = ''.get_bloginfo('name').'</div>';
+    }
+}
+
 ?>

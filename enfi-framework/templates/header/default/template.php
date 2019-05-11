@@ -18,7 +18,7 @@
 
                 <div class="col-lg-2">
                     <div class="logo">
-                       <?php Enfi_Framework::render_logo(); ?>
+                       <?php ef_render_logo(); ?>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
 
                 <div class="col-lg-2">
                     <div class="logo">
-                    <?php Enfi_Framework::render_logo(); ?>
+                    <?php ef_render_logo(); ?>
                     </div>
                 </div>
 
@@ -69,7 +69,7 @@
 
             <div class="col-8">
                 <div class="logo">
-                <?php Enfi_Framework::render_logo(); ?>
+                <?php ef_render_logo(); ?>
                 </div>
             </div>
 

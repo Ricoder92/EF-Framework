@@ -1,7 +1,7 @@
 <?php
 
 // Class for creating plugin page
-class Enfi_Admin_Meta_Box {
+class EF_Metabox {
 
     public function __construct($id, $title, $post_types) {
 

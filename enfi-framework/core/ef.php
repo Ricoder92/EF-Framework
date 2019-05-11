@@ -1,6 +1,6 @@
 <?php
 
-class Enfi_Framework {
+class EF_Framework {
  
     public function __construct($title, $description, $capability = 'manage_options') {
 
@@ -32,14 +32,11 @@ class Enfi_Framework {
         # global header stuff (except titletag)
         add_action( 'wp_head', array(&$this, 'global_header'), -999 );
       
-
-    
         # require some ef stuff
         require_once get_template_directory().'/core/class/ef-admin-meta-box.php';
         require_once get_template_directory().'/core/class/ef-admin-settings-page.php';
         require_once get_template_directory().'/core/class/ef-admin-navigation.php';
         require_once get_template_directory().'/core/class/ef-admin-post-type.php';
-        
         require_once get_template_directory().'/core/ef-functions.php';
         require_once get_template_directory().'/core/ef-post-types.php';
         require_once get_template_directory().'/core/ef-styles-scripts.php';
@@ -54,16 +51,13 @@ class Enfi_Framework {
         require_once get_template_directory().'/core/ef-blocks.php';
         require_once get_template_directory().'/core/ef-cookie-law.php';
 
-        require_once get_template_directory().'/shortcodes/enfi-post-grid.php';
-
-
     }
 
     # ef head
     function ef_head() {
 
         echo "\n\t<!--#################################################################\n";
-        echo "\t\tpowered by Enfi Framework\n";
+        echo "\t\tpowered by EF Framework\n";
         echo "\t\tcreated by Enrico Fischer - Halle(Saale)\n";
         echo "\t\twww.ricoder.de | info@ricoder.de \n";
         echo "\t#################################################################--!>\n";
@@ -72,18 +66,18 @@ class Enfi_Framework {
     # admin bar link
     function admin_bar_link($admin_bar){
         $admin_bar->add_menu( array(
-            'id'    => 'enfi-framework',
-            'title' => __('Enfi Framework'),
-            'href'  => site_url().'/wp-admin/themes.php?page=enfi-framework',
+            'id'    => 'ef-framework',
+            'title' => __('EF Framework'),
+            'href'  => site_url().'/wp-admin/themes.php?page=ef-framework',
             'meta'  => array(
-                'title' => __('Enfi Framework'),            
+                'title' => __('EF Framework'),            
             ),
         ));
     }
 
     # function for admin menu
     function admin_menu() {
-        add_menu_page('Enfi Framework','Enfi Framework','manage_options','enfi-framework',array($this,'admin_menu_render'),'','99');
+        add_menu_page('EF Framework','EF Framework','manage_options','ef-framework',array($this,'admin_menu_render'),'','99');
     }
 
     # function for admin menu render
@@ -236,20 +230,9 @@ class Enfi_Framework {
         }
     }
 
-    public static function render_logo() {
-        if ( has_custom_logo() ) {
-            echo the_custom_logo();
-        } else {
-            echo '<div onclick="location.href=\''.site_url().'\';">'.$logo_out = ''.get_bloginfo('name').'</div>';
-        }
-    }
-
-  
-   
-
 }
 
-new Enfi_Framework(__('Enfi Framework', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.DebugLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est ', 'enfi'), 'upload_themes');
+new EF_Framework(__('EF Framework', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.DebugLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est ', 'enfi'), 'upload_themes');
 
 
 ?>

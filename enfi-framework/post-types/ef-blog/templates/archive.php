@@ -29,6 +29,8 @@
             <?php get_template_part('templates/content/content-no-entries'); ?>
         <?php endif; ?>
 
+        <?php get_template_part('templates/content/content-pagination'); ?>
+
     </div>
 
     <div class="col-lg-4">

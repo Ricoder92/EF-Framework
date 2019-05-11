@@ -51,7 +51,7 @@ $args = array(
     'publicly_queryable'  => true
 );
 
-$blog = new Enfi_Framework_Post_Type_Create('ef-blog', $args);
+$blog = new EF_Post_Type_Create('ef-blog', $args);
 
 add_action( 'widgets_init', 'ef_blog_register_sidebar' );
 

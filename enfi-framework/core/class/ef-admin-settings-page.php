@@ -1,7 +1,7 @@
 <?php
 
 # Class for creating plugin page
-class Enfi_Framework_Settings_Page {
+class EF_Settings_Page {
 
     # construktur
     public function __construct($id, $name, $menuname, $description, $menu = 'settings', $icon = '', $prio = 0, $capability = 'manage_options') {
@@ -42,7 +42,7 @@ class Enfi_Framework_Settings_Page {
                 $this->name,                    # Title
                 $this->menuName,                # MenuName
                 $this->capability,              # Capability
-                'enfi-framework-'.$this->slug,  # Slug
+                'ef-framework-'.$this->slug,  # Slug
                 array(&$this, 'render')         # Callback
             );
 
@@ -62,13 +62,13 @@ class Enfi_Framework_Settings_Page {
 
         add_action('ef-admin-navigation-'.$this->menu, function() {
         
-            echo '<li><a href="'.admin_url('/admin.php?page=enfi-framework-'.$this->slug).'"><i class="icon fas '.$this->icon.' fa-1x"></i>'.$this->menuName.'</a></li>';
+            echo '<li><a href="'.admin_url('/admin.php?page=ef-framework-'.$this->slug).'"><i class="icon fas '.$this->icon.' fa-1x"></i>'.$this->menuName.'</a></li>';
 
         }, $this->prio);
 
         add_action('ef-admin-navigation-main-page-'.$this->menu, function() {
 
-            $url = admin_url("/admin.php?page=enfi-framework-".$this->slug);
+            $url = admin_url("/admin.php?page=ef-framework-".$this->slug);
         
             echo '<div class="col-lg-3 col-md-6">';
                 echo '<div onclick="location.href=\''.$url.'\';" class="ef-admin-navigation-main-page-card">';
@@ -85,8 +85,8 @@ class Enfi_Framework_Settings_Page {
 
             global $wp_admin_bar;
         
-            $menu_id = 'enfi-framework';
-            $wp_admin_bar->add_menu(array('parent' => $menu_id, 'title' =>  $this->menuName, 'id' =>  $this->slug, 'href' => '/wp-admin/admin.php?page=enfi-framework-'.$this->slug));
+            $menu_id = 'ef-framework';
+            $wp_admin_bar->add_menu(array('parent' => $menu_id, 'title' =>  $this->menuName, 'id' =>  $this->slug, 'href' => '/wp-admin/admin.php?page=ef-framework-'.$this->slug));
         
         }, $this->prio);
       
@@ -101,7 +101,7 @@ class Enfi_Framework_Settings_Page {
                 $this->slug.$id, 
                 $title, 
                 null, 
-                'enfi-framework-'.$this->slug
+                'ef-framework-'.$this->slug
             );
         });
        
@@ -109,7 +109,7 @@ class Enfi_Framework_Settings_Page {
 
     public function addContent($function) {
 
-        add_action('enfi-framework-content-'.$this->slug, function() use ($function) {
+        add_action('ef-framework-content-'.$this->slug, function() use ($function) {
             call_user_func($function);
         });
        
@@ -143,7 +143,7 @@ class Enfi_Framework_Settings_Page {
                 $id,
                 $name,
                 array(&$this, 'sanitize'), 
-                'enfi-framework-'.$this->slug,
+                'ef-framework-'.$this->slug,
                 $this->slug.$section_id,
                 $data
             );
@@ -187,8 +187,8 @@ class Enfi_Framework_Settings_Page {
                 echo '<div class="col-lg-8">';
                         echo '<div class="enfi-admin-page-content enfi-admin-form-settings-page">';
                         settings_fields ($this->slug);
-                        do_settings_sections ('enfi-framework-'.$this->slug);
-                        do_action('enfi-framework-content-'.$this->slug);
+                        do_settings_sections ('ef-framework-'.$this->slug);
+                        do_action('ef-framework-content-'.$this->slug);
                     echo '</div>';
                     
             echo '<div class="enfi-admin-page-footer">';
@@ -276,7 +276,7 @@ function parseOptions($args) {
 
 
 
-$settings_page = new Enfi_Framework_Settings_Page('settings', __('Settings', 'enfi'), __('Settings', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', null, 1);
+$settings_page = new EF_Settings_Page('settings', __('Settings', 'enfi'), __('Settings', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', null, 1);
 
 $options = array(
     array( 'text' =>  '30', 'value' => 30),

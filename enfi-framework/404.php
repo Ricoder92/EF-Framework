@@ -5,10 +5,11 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="content-post-404">
-
+            
             <?php 
 
-            $id=504; 
+            $id = ef_get_option('debug'); 
+            $id = $id['404-page'];
             $post = get_post($id); 
             $content = apply_filters('the_content', $post->post_content); 
             echo $content; 

@@ -1,7 +1,7 @@
 <?php
 
 
-class Enfi_Framework_Post_Type_Create {
+class EF_Post_Type_Create {
 
     public function __construct($name, $args, $prio = 0) {
 

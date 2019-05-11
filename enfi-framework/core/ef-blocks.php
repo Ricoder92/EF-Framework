@@ -1,6 +1,6 @@
 <?php
 
-class Enfi_Blocks {
+class EF_Blocks {
  
     # constructor
     public function __construct() {
@@ -98,6 +98,6 @@ class Enfi_Blocks {
     }
 }
 
-new Enfi_Blocks();
+new EF_Blocks();
 
 ?>

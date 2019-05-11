@@ -1,6 +1,6 @@
 <?php
 
-$plugins_page = new Enfi_Framework_Settings_Page('post-types', __('Manage pPost types', 'enfi'), __('Manage post types', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'post-types', 'fa-puzzle-piece', 9);
+$plugins_page = new EF_Settings_Page('post-types', __('Manage pPost types', 'enfi'), __('Manage post types', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'post-types', 'fa-puzzle-piece', 9);
 $plugins_page->addContent('post_types_render');
 
 function post_types_render() {

@@ -1,6 +1,6 @@
 <?php
 
-$debug_page = new Enfi_Framework_Settings_Page('debug', __('Maintenance & Debug', 'enfi'), __('Maintenance & Debug', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', 'fa-bug', 8);
+$debug_page = new EF_Settings_Page('debug', __('Maintenance & Debug', 'enfi'), __('Maintenance & Debug', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', 'fa-bug', 8);
 
 $debug_page->addSection('debug-settings', __('Debug Settings', 'enfi'));
 $debug_page->addField('debug-settings', 'debug-mode-enable', __('Enable', 'enfi'), null, 'checkbox', null, array('checkboxText' => __('Enable', 'enfi')));

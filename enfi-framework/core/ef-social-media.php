@@ -1,6 +1,6 @@
 <?php
 
-$social_media_page = new Enfi_Framework_Settings_Page('social-media', __('Social Media', 'enfi'), __('Social Media', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', 'fa-hashtag', 3);
+$social_media_page = new EF_Settings_Page('social-media', __('Social Media', 'enfi'), __('Social Media', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', 'fa-hashtag', 3);
 
     $social_media_page->addSection('social-media-channels', __('Social Media Channels', 'enfi'));
         $social_media_page->addField('social-media-channels', 'facebook', __('Facebook-site ID', 'enfi'), null, 'text', null);
@@ -48,7 +48,7 @@ if(array_key_exists('post-types', $option_data)) {
     $post_types = $option_data['post-types'];   
 
     # create meta box for post types
-    $meta = new Enfi_Admin_Meta_Box('social-media-meta', __('Social Media', 'enfi'), $post_types);
+    $meta = new EF_Metabox('social-media-meta', __('Social Media', 'enfi'), $post_types);
     $meta->addField('og-disable', __('Disable', 'enfi'), 'Aktivieren, um die Suchmaschinenoptimierung für diese Seite/Beitrag auszuschalten.', 'checkbox', array('checkboxText' => __('Disable Social Media Meta Data for this post', 'enfi')));
     $meta->addField('og-title', __('Social media post title', 'enfi'), 'Seitentitel für Social Media Beiträge', 'text');
     $meta->addField('og-site-name', __('Social media site name', 'enfi'), 'Seitenbeschreibung für Social Media Beiträge', 'text');
