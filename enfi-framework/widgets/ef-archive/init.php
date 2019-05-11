@@ -19,19 +19,21 @@ class EF_Widget_Archive extends WP_Widget {
 	public function widget( $args, $instance ) {
         echo $args['before_widget'];
         echo $args['before_title']. apply_filters( 'widget_title', $instance['title'] ) .$args['after_title'];
-        
+		
+		echo '<ul>';
         $args_archive = array(
-            'type'            => 'monthly',
+            'type'            => 'daily',
             'limit'           => '',
             'format'          => 'html', 
             'before'          => '',
             'after'           => '',
-            'show_post_count' => false,
+            'show_post_count' => true,
             'echo'            => 1,
             'order'           => 'DESC',
             'post_type'     => apply_filters( 'widget_title', $instance['post-type'] )
         );
-        wp_get_archives( $args_archive ); 
+		wp_get_archives( $args_archive ); 
+		echo '</ul>';
 
         echo $args['after_widget'];
 	}
@@ -75,9 +77,9 @@ class EF_Widget_Archive extends WP_Widget {
 }
 
 // register Foo_Widget widget
-function register_foo_widget() {
+function ef_widget_register_blog() {
     register_widget( 'ef_widget_archive' );
 }
-add_action( 'widgets_init', 'register_foo_widget' );
+add_action( 'widgets_init', 'ef_widget_register_blog' );
 
 ?>

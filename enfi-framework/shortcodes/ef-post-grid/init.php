@@ -1,6 +1,6 @@
 <?php
 
-function enfi_shortcode_post_grid( $atts ) {
+function ef_shortcode_post_grid( $atts ) {
 
     $a = shortcode_atts( array(
         'post_type' => 'post',
@@ -23,12 +23,12 @@ function enfi_shortcode_post_grid( $atts ) {
 
     ob_start();
 
-    echo '<div class="enfi-post-grid"><div class="row">';
+    echo '<div class="row">';
 
     if ( $the_query->have_posts() ) :
         # Start the Loop
         while ( $the_query->have_posts() ) : $the_query->the_post();
-            echo '<div class="col-lg-'.$a['col'].'">';
+            echo '<div class="col-lg-'.$a['col'].'"><div class="ef-post-grid">';
                 echo '<div class="item">';
                 echo '<div class="image"><img src="'.get_the_post_thumbnail_url(get_the_id()).'"/></div>';
                 echo '<div class="date">'.__('Posted on ', 'enfi').get_the_date().'</div>';
@@ -36,16 +36,16 @@ function enfi_shortcode_post_grid( $atts ) {
                 echo '<p>'.get_the_excerpt().'</p>';
                 echo '<button>'.__('Read more', 'enfi').'</button>';
                 echo '</div>';
-            echo '</div>';
+            echo '</div></div>';
         endwhile;
 
-        echo '</div></div>';
+        echo '</div>';
     endif;
 
     return ob_get_clean();
 
 }
 
-add_shortcode( 'enfi-post-grid', 'enfi_shortcode_post_grid' );
+add_shortcode( 'ef-post-grid', 'ef_shortcode_post_grid' );
 
 ?>

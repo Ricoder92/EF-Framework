@@ -45,7 +45,9 @@ class Enfi_Framework {
         require_once get_template_directory().'/core/ef-styles-scripts.php';
         require_once get_template_directory().'/core/ef-layout.php';
         require_once get_template_directory().'/core/ef-debug.php';
-        require_once get_template_directory().'/core/ef-google-analytics.php';
+        require_once get_template_directory().'/core/ef-google-api.php';
+        require_once get_template_directory().'/core/ef-widgets.php';
+        require_once get_template_directory().'/core/ef-shortcodes.php';
         require_once get_template_directory().'/core/ef-modules.php';
         require_once get_template_directory().'/core/ef-seo.php';
         require_once get_template_directory().'/core/ef-social-media.php';
@@ -54,7 +56,6 @@ class Enfi_Framework {
 
         require_once get_template_directory().'/shortcodes/enfi-post-grid.php';
 
-        require_once get_template_directory().'/widgets/ef-archive/ef-archive.php';
 
     }
 
