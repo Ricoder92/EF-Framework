@@ -119,7 +119,7 @@ class EF_Metabox {
         if(isset($args['placeholder']))
             $placeholder = $args['placeholder'];
         else    
-            $placeholder = __('Insert text here...', 'enfi');
+            $placeholder = __('Insert text here...', 'ef');
 
         $sanitized_field_template = get_template_directory() . "/core/fields/".$type.".php";
 

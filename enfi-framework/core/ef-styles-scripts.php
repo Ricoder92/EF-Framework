@@ -1,11 +1,11 @@
 <?php
 
-$styles_scripts = new EF_Settings_Page('styles-scripts', __('Styles & Scripts', 'enfi'), __('Styles & Scripts', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'layout', '', 6);
+$styles_scripts = new EF_Settings_Page('styles-scripts', __('Styles & Scripts', 'ef'), __('Styles & Scripts', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'layout', '', 6);
 $styles_scripts->addContent('styles_scripts_render');
 
-$styles_scripts->addSection('settings', __('Settings', 'enfi'));
-$styles_scripts->addField('settings', 'use-parent-style', __('Use parent CSS style', 'enfi'), null, 'checkbox', true, array('checkboxText' => __('Enable', 'enfi')));
-$styles_scripts->addField('settings', 'use-parent-js', __('Use parent JS', 'enfi'), null, 'checkbox', true, array('checkboxText' => __('Enable', 'enfi')));
+$styles_scripts->addSection('settings', __('Settings', 'ef'));
+$styles_scripts->addField('settings', 'use-parent-style', __('Use parent CSS style', 'ef'), null, 'checkbox', true, array('checkboxText' => __('Enable', 'ef')));
+$styles_scripts->addField('settings', 'use-parent-js', __('Use parent JS', 'ef'), null, 'checkbox', true, array('checkboxText' => __('Enable', 'ef')));
 
 $styles_scripts->setDefaultValues();
 

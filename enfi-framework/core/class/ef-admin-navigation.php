@@ -48,7 +48,7 @@ class EF_Admin_Navigation {
 
 }
 
-new EF_Admin_Navigation('settings', __('Settings', 'enfi'), '', 0);
-new EF_Admin_Navigation('layout', __('Layout', 'enfi'), '', 1);
-new EF_Admin_Navigation('post-types', __('Post Types', 'enfi'), '', 2);
-new EF_Admin_Navigation('modules', __('Modules', 'enfi'), '', 3);
+new EF_Admin_Navigation('settings', __('Settings', 'ef'), '', 0);
+new EF_Admin_Navigation('layout', __('Layout', 'ef'), '', 1);
+new EF_Admin_Navigation('post-types', __('Post Types', 'ef'), '', 2);
+new EF_Admin_Navigation('modules', __('Modules', 'ef'), '', 3);

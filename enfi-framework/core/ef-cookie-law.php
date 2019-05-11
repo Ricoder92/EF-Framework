@@ -9,19 +9,19 @@ $duration = array(
 );
 
 # cookie law admin page with settings
-$cookie_law_page = new EF_Settings_Page('cookie-law', __('Cookie Law', 'enfi'), __('Cookie Law', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'),'settings','fa-cookie', 4);
-$cookie_law_page->addSection('cookie-banner', __('Cookie banner', 'enfi'));
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-enable', __('Enable', 'enfi'), __('Activate cookie banner mode', 'enfi'), 'checkbox', null, array('checkboxText' => __('Enable', 'enfi')));
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-title', __('Cookie banner title', 'enfi'),__('Cookie banner title', 'enfi'), 'text', __('Privacy Policy', 'enfi'));
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-text', __('Cookie banner text', 'enfi'),__('Cookie banner text', 'enfi'), 'textarea', __('Privacy Policy', 'enfi'));
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-background-color', __('Cookie banner background color', 'enfi'),__('Cookie banner background color', 'enfi'), 'color-picker', '#f9f9f9');
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-title-color', __('Cookie banner title color', 'enfi'),__('Cookie banner title color', 'enfi'), 'color-picker', '#000');
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-text-color', __('Cookie banner text color', 'enfi'),__('Cookie banner text color', 'enfi'), 'color-picker', '#000');
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-button-background-color', __('Cookie banner button background color', 'enfi'),__('Cookie banner button background color', 'enfi'), 'color-picker', '#000');
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-button-text-color', __('Cookie banner button text color', 'enfi'),__('Cookie banner button text color', 'enfi'), 'color-picker', '#fff');
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-private-policy-page', __('Cookie banner private policy page', 'enfi'), __('Cookie banner private policy page', 'enfi'), 'selection', null, array( 'posts' => 'page'));
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-duration', __('Duration', 'enfi'),__('Duration', 'enfi'), 'selection', '30', array('options' => $duration));
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-id', __('Cookie banner id', 'enfi'),__('Cookie banner id', 'enfi'), 'text', 'cookie-1');
+$cookie_law_page = new EF_Settings_Page('cookie-law', __('Cookie Law', 'ef'), __('Cookie Law', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'),'settings','fa-cookie', 4);
+$cookie_law_page->addSection('cookie-banner', __('Cookie banner', 'ef'));
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-enable', __('Enable', 'ef'), __('Activate cookie banner mode', 'ef'), 'checkbox', null, array('checkboxText' => __('Enable', 'ef')));
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-title', __('Cookie banner title', 'ef'),__('Cookie banner title', 'ef'), 'text', __('Privacy Policy', 'ef'));
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-text', __('Cookie banner text', 'ef'),__('Cookie banner text', 'ef'), 'textarea', __('Privacy Policy', 'ef'));
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-background-color', __('Cookie banner background color', 'ef'),__('Cookie banner background color', 'ef'), 'color-picker', '#f9f9f9');
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-title-color', __('Cookie banner title color', 'ef'),__('Cookie banner title color', 'ef'), 'color-picker', '#000');
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-text-color', __('Cookie banner text color', 'ef'),__('Cookie banner text color', 'ef'), 'color-picker', '#000');
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-button-background-color', __('Cookie banner button background color', 'ef'),__('Cookie banner button background color', 'ef'), 'color-picker', '#000');
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-button-text-color', __('Cookie banner button text color', 'ef'),__('Cookie banner button text color', 'ef'), 'color-picker', '#fff');
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-private-policy-page', __('Cookie banner private policy page', 'ef'), __('Cookie banner private policy page', 'ef'), 'selection', null, array( 'posts' => 'page'));
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-duration', __('Duration', 'ef'),__('Duration', 'ef'), 'selection', '30', array('options' => $duration));
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-id', __('Cookie banner id', 'ef'),__('Cookie banner id', 'ef'), 'text', 'cookie-1');
 
 
 
@@ -49,7 +49,7 @@ function enfi_cookieconsent_print() {
                 echo '<p>'.$option['cookie-banner-text'].'</p>';
                 echo '</div>';
                 
-            echo '<div class="accept" id="enfi-cookieconsent-accept"><button>'.__('Accept', 'enfi').'</button></div>';
+            echo '<div class="accept" id="enfi-cookieconsent-accept"><button>'.__('Accept', 'ef').'</button></div>';
         echo '</div>';
     }
 }

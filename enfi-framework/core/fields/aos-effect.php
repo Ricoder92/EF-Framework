@@ -56,6 +56,6 @@ if(isset($value['delay']))
 else    
     $value_delay = "";
 
-    $output .= '<br/><input type="text" class="enfi-admin-input" id="'.$name.'-field"  name="'.$name.'[duration]"  placeholder="'.__('Effekt-Dauer', 'enfi').'" value="'.$value_duration.'" />';
-    $output .= '<br/><input type="text" class="enfi-admin-input" id="'.$name.'-field"  name="'.$name.'[delay]"  placeholder="'.__('Effekt-Verzögerung', 'enfi').'" value="'.$value_delay.'" />';
+    $output .= '<br/><input type="text" class="enfi-admin-input" id="'.$name.'-field"  name="'.$name.'[duration]"  placeholder="'.__('Effekt-Dauer', 'ef').'" value="'.$value_duration.'" />';
+    $output .= '<br/><input type="text" class="enfi-admin-input" id="'.$name.'-field"  name="'.$name.'[delay]"  placeholder="'.__('Effekt-Verzögerung', 'ef').'" value="'.$value_delay.'" />';
 ?>

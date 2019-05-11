@@ -1,39 +1,39 @@
 <?php
 
-$social_media_page = new EF_Settings_Page('social-media', __('Social Media', 'enfi'), __('Social Media', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', 'fa-hashtag', 3);
+$social_media_page = new EF_Settings_Page('social-media', __('Social Media', 'ef'), __('Social Media', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-hashtag', 3);
 
-    $social_media_page->addSection('social-media-channels', __('Social Media Channels', 'enfi'));
-        $social_media_page->addField('social-media-channels', 'facebook', __('Facebook-site ID', 'enfi'), null, 'text', null);
-        $social_media_page->addField('social-media-channels', 'youtube', __('Youtube Channel', 'enfi'), null, 'text', null);
-        $social_media_page->addField('social-media-channels', 'twitter', __('Twitter', 'enfi'), null, 'text');
-        $social_media_page->addField('social-media-channels', 'instagram', __('Instagram', 'enfi'), null, 'text', null);
+    $social_media_page->addSection('social-media-channels', __('Social Media Channels', 'ef'));
+        $social_media_page->addField('social-media-channels', 'facebook', __('Facebook-site ID', 'ef'), null, 'text', null);
+        $social_media_page->addField('social-media-channels', 'youtube', __('Youtube Channel', 'ef'), null, 'text', null);
+        $social_media_page->addField('social-media-channels', 'twitter', __('Twitter', 'ef'), null, 'text');
+        $social_media_page->addField('social-media-channels', 'instagram', __('Instagram', 'ef'), null, 'text', null);
 
-    $social_media_page->addSection('og-post-types', __('Post Types', 'enfi'));
-        $social_media_page->addField('og-post-types', 'post-types', __('Post Types', 'enfi'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
+    $social_media_page->addSection('og-post-types', __('Post Types', 'ef'));
+        $social_media_page->addField('og-post-types', 'post-types', __('Post Types', 'ef'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
 
-    $social_media_page->addSection('og-tags', __('OpenGraph Meta Tags', 'enfi'));
-        $social_media_page->addField('og-tags', 'title', __('Title', 'enfi'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'type', __('Type', 'enfi'), null, 'selection', null, array('options' => $typeOptions));
-        $social_media_page->addField('og-tags', 'image', __('Image', 'enfi'), null, 'image', null);
-        $social_media_page->addField('og-tags', 'site-name', __('Site Name', 'enfi'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'site-description', __('Site Description', 'enfi'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'email', __('E-Mail', 'enfi'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'phone', __('Phone Number', 'enfi'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'fax', __('Fax Number', 'enfi'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'latitude', __('Latitude', 'enfi'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'longitude', __('Longitude', 'enfi'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'street', __('Street', 'enfi'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'zip', __('ZIP Code', 'enfi'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'city', __('City', 'enfi'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'region', __('Region', 'enfi'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'country', __('Land', 'enfi'), null, 'text', null);
+    $social_media_page->addSection('og-tags', __('OpenGraph Meta Tags', 'ef'));
+        $social_media_page->addField('og-tags', 'title', __('Title', 'ef'), null, 'text', null);
+        $social_media_page->addField('og-tags', 'type', __('Type', 'ef'), null, 'selection', null, array('options' => $typeOptions));
+        $social_media_page->addField('og-tags', 'image', __('Image', 'ef'), null, 'image', null);
+        $social_media_page->addField('og-tags', 'site-name', __('Site Name', 'ef'), null, 'text', null);
+        $social_media_page->addField('og-tags', 'site-description', __('Site Description', 'ef'), null, 'text', null);
+        $social_media_page->addField('og-tags', 'email', __('E-Mail', 'ef'), null, 'text', null);
+        $social_media_page->addField('og-tags', 'phone', __('Phone Number', 'ef'), null, 'text', null);
+        $social_media_page->addField('og-tags', 'fax', __('Fax Number', 'ef'), null, 'text', null);
+        $social_media_page->addField('og-tags', 'latitude', __('Latitude', 'ef'), null, 'text', null);
+        $social_media_page->addField('og-tags', 'longitude', __('Longitude', 'ef'), null, 'text', null);
+        $social_media_page->addField('og-tags', 'street', __('Street', 'ef'), null, 'text', null);
+        $social_media_page->addField('og-tags', 'zip', __('ZIP Code', 'ef'), null, 'text', null);
+        $social_media_page->addField('og-tags', 'city', __('City', 'ef'), null, 'text', null);
+        $social_media_page->addField('og-tags', 'region', __('Region', 'ef'), null, 'text', null);
+        $social_media_page->addField('og-tags', 'country', __('Land', 'ef'), null, 'text', null);
 
 $typeOptions = array(
-    array( 'text' =>  __('Movie', 'enfi'), 'value' => 'movie'),
-    array( 'text' =>  __('Audio', 'enfi'), 'value' => 'audio'),
-    array( 'text' =>  __('Article', 'enfi'), 'value' => 'article'),
-    array( 'text' =>  __('Actor', 'enfi'), 'value' => 'actor'),
-    array( 'text' =>  __('Website', 'enfi'), 'value' => 'website'),
+    array( 'text' =>  __('Movie', 'ef'), 'value' => 'movie'),
+    array( 'text' =>  __('Audio', 'ef'), 'value' => 'audio'),
+    array( 'text' =>  __('Article', 'ef'), 'value' => 'article'),
+    array( 'text' =>  __('Actor', 'ef'), 'value' => 'actor'),
+    array( 'text' =>  __('Website', 'ef'), 'value' => 'website'),
 );
 
 $social_media_page->setDefaultValues();
@@ -48,22 +48,22 @@ if(array_key_exists('post-types', $option_data)) {
     $post_types = $option_data['post-types'];   
 
     # create meta box for post types
-    $meta = new EF_Metabox('social-media-meta', __('Social Media', 'enfi'), $post_types);
-    $meta->addField('og-disable', __('Disable', 'enfi'), 'Aktivieren, um die Suchmaschinenoptimierung für diese Seite/Beitrag auszuschalten.', 'checkbox', array('checkboxText' => __('Disable Social Media Meta Data for this post', 'enfi')));
-    $meta->addField('og-title', __('Social media post title', 'enfi'), 'Seitentitel für Social Media Beiträge', 'text');
-    $meta->addField('og-site-name', __('Social media site name', 'enfi'), 'Seitenbeschreibung für Social Media Beiträge', 'text');
-    $meta->addField('og-description', __('Social media post description', 'enfi'), 'Seitenbeschreibung für Social Media Beiträge', 'text');
-    $meta->addField('og-image', __('Social media thumbnail', 'enfi'), 'Vorschaubild für Social Media Beiträge', 'image');
-    $meta->addField('og-type', __('Article type', 'enfi'), 'Vorschaubild für Social Media Beiträge', 'selection', array('options' => $typeOptions));
-    $meta->addField('og-latitude', __('Latitude', 'enfi'), __('Globale Keywörter für alle Seiten und Beiträge', 'enfi'), 'text');
-    $meta->addField('og-longitude', __('Longitude', 'enfi'), __('Globale Keywörter für alle Seiten und Beiträge', 'enfi'), 'text');
-    $meta->addField('og-street', __('Street', 'enfi'), __('Globale Keywörter für alle Seiten und Beiträge', 'enfi'), 'text');
-    $meta->addField('og-zip', __('ZIP Code', 'enfi'), __('Globale Keywörter für alle Seiten und Beiträge', 'enfi'), 'text');
-    $meta->addField('og-city', __('City', 'enfi'), __('Globale Keywörter für alle Seiten und Beiträge', 'enfi'), 'text');
-    $meta->addField('og-region', __('Region', 'enfi'), __('Globale Keywörter für alle Seiten und Beiträge', 'enfi'), 'text');
-    $meta->addField('og-country', __('Country', 'enfi'), __('Globale Keywörter für alle Seiten und Beiträge', 'enfi'), 'text');
-    $meta->addField('og-facebook-post',__('Facebook', 'enfi'), 'Name des eigenen Twitter Kanals', 'text');
-    $meta->addField('og-twitter-post',__('Twitter', 'enfi'), 'Name des eigenen Twitter Kanals', 'text');
+    $meta = new EF_Metabox('social-media-meta', __('Social Media', 'ef'), $post_types);
+    $meta->addField('og-disable', __('Disable', 'ef'), 'Aktivieren, um die Suchmaschinenoptimierung für diese Seite/Beitrag auszuschalten.', 'checkbox', array('checkboxText' => __('Disable Social Media Meta Data for this post', 'ef')));
+    $meta->addField('og-title', __('Social media post title', 'ef'), 'Seitentitel für Social Media Beiträge', 'text');
+    $meta->addField('og-site-name', __('Social media site name', 'ef'), 'Seitenbeschreibung für Social Media Beiträge', 'text');
+    $meta->addField('og-description', __('Social media post description', 'ef'), 'Seitenbeschreibung für Social Media Beiträge', 'text');
+    $meta->addField('og-image', __('Social media thumbnail', 'ef'), 'Vorschaubild für Social Media Beiträge', 'image');
+    $meta->addField('og-type', __('Article type', 'ef'), 'Vorschaubild für Social Media Beiträge', 'selection', array('options' => $typeOptions));
+    $meta->addField('og-latitude', __('Latitude', 'ef'), __('Globale Keywörter für alle Seiten und Beiträge', 'ef'), 'text');
+    $meta->addField('og-longitude', __('Longitude', 'ef'), __('Globale Keywörter für alle Seiten und Beiträge', 'ef'), 'text');
+    $meta->addField('og-street', __('Street', 'ef'), __('Globale Keywörter für alle Seiten und Beiträge', 'ef'), 'text');
+    $meta->addField('og-zip', __('ZIP Code', 'ef'), __('Globale Keywörter für alle Seiten und Beiträge', 'ef'), 'text');
+    $meta->addField('og-city', __('City', 'ef'), __('Globale Keywörter für alle Seiten und Beiträge', 'ef'), 'text');
+    $meta->addField('og-region', __('Region', 'ef'), __('Globale Keywörter für alle Seiten und Beiträge', 'ef'), 'text');
+    $meta->addField('og-country', __('Country', 'ef'), __('Globale Keywörter für alle Seiten und Beiträge', 'ef'), 'text');
+    $meta->addField('og-facebook-post',__('Facebook', 'ef'), 'Name des eigenen Twitter Kanals', 'text');
+    $meta->addField('og-twitter-post',__('Twitter', 'ef'), 'Name des eigenen Twitter Kanals', 'text');
 }
 
 # add meta tags to wp_head

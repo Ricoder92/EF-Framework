@@ -10,10 +10,14 @@
 
             $id = ef_get_option('debug'); 
             $id = $id['404-page'];
-            $post = get_post($id); 
-            $content = apply_filters('the_content', $post->post_content); 
-            echo $content; 
 
+            if(isset($id)) {
+                $post = get_post($id); 
+                $content = apply_filters('the_content', $post->post_content); 
+                echo $content; 
+            } else 
+                echo '<h1>404</h1>';
+                
             ?>
 
         </div>

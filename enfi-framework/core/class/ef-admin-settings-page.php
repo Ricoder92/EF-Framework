@@ -214,7 +214,7 @@ class EF_Settings_Page {
         if(isset($data['placeholder']))
             $placeholder = $data['placeholder'];
         else    
-            $placeholder = __('Insert text here...', 'enfi');
+            $placeholder = __('Insert text here...', 'ef');
 
         $sanitized_field_template = get_template_directory() . "/core/fields/".$type.".php";
 
@@ -276,7 +276,7 @@ function parseOptions($args) {
 
 
 
-$settings_page = new EF_Settings_Page('settings', __('Settings', 'enfi'), __('Settings', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', null, 1);
+$settings_page = new EF_Settings_Page('settings', __('Settings', 'ef'), __('Settings', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', null, 1);
 
 $options = array(
     array( 'text' =>  '30', 'value' => 30),

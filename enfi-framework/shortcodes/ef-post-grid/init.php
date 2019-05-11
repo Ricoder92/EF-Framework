@@ -31,10 +31,10 @@ function ef_shortcode_post_grid( $atts ) {
             echo '<div class="col-lg-'.$a['col'].'"><div class="ef-post-grid">';
                 echo '<div class="item">';
                 echo '<div class="image"><img src="'.get_the_post_thumbnail_url(get_the_id()).'"/></div>';
-                echo '<div class="date">'.__('Posted on ', 'enfi').get_the_date().'</div>';
+                echo '<div class="date">'.__('Posted on ', 'ef').get_the_date().'</div>';
                 echo '<h4>'.get_the_title().'</h4>';
                 echo '<p>'.get_the_excerpt().'</p>';
-                echo '<button>'.__('Read more', 'enfi').'</button>';
+                echo '<button>'.__('Read more', 'ef').'</button>';
                 echo '</div>';
             echo '</div></div>';
         endwhile;

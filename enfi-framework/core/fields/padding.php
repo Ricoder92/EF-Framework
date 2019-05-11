@@ -20,7 +20,7 @@ if(isset($value['left']))
 else    
     $left = '';
 
-$output .= '<input type="text" class="enfi-admin-input-small" id="'.$name.'[top]-field"  name="'.$name.'[top]"  placeholder="'.__('Oben', 'enfi').'" value="'.$top.'" />';
-$output .= '<input type="text" class="enfi-admin-input-small" id="'.$name.'[right]-field"  name="'.$name.'[right]"  placeholder="'.__('Rechts', 'enfi').'" value="'.$right.'" />';
-$output .= '<input type="text" class="enfi-admin-input-small" id="'.$name.'[down]-field"  name="'.$name.'[down]"  placeholder="'.__('Unten', 'enfi').'" value="'.$down.'" />';
-$output .= '<input type="text" class="enfi-admin-input-small" id="'.$name.'[left]-field"  name="'.$name.'[left]"  placeholder="'.__('Links', 'enfi').'" value="'.$left.'" />';
+$output .= '<input type="text" class="enfi-admin-input-small" id="'.$name.'[top]-field"  name="'.$name.'[top]"  placeholder="'.__('Oben', 'ef').'" value="'.$top.'" />';
+$output .= '<input type="text" class="enfi-admin-input-small" id="'.$name.'[right]-field"  name="'.$name.'[right]"  placeholder="'.__('Rechts', 'ef').'" value="'.$right.'" />';
+$output .= '<input type="text" class="enfi-admin-input-small" id="'.$name.'[down]-field"  name="'.$name.'[down]"  placeholder="'.__('Unten', 'ef').'" value="'.$down.'" />';
+$output .= '<input type="text" class="enfi-admin-input-small" id="'.$name.'[left]-field"  name="'.$name.'[left]"  placeholder="'.__('Links', 'ef').'" value="'.$left.'" />';

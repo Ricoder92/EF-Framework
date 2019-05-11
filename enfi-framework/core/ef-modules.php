@@ -1,6 +1,6 @@
 <?php
 
-$plugins_page = new EF_Settings_Page('modules', __('Manage modules', 'enfi'), __('Manage modules', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'modules', 'fa-puzzle-piece', 9);
+$plugins_page = new EF_Settings_Page('modules', __('Manage modules', 'ef'), __('Manage modules', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'modules', 'fa-puzzle-piece', 9);
 $plugins_page->addContent('plugins_render');
 
 function plugins_render() {
@@ -21,9 +21,9 @@ function plugins_render() {
     echo '<table class="ef-admin-table">';
 
         echo '<thead><tr>';
-            echo '<th class="center">'.__('Enable', 'enfi').'</th>';
-            echo '<th class="left">'.__('Name', 'enfi').'</th>';
-            echo '<th class="left">'.__('Description', 'enfi').'</th>';
+            echo '<th class="center">'.__('Enable', 'ef').'</th>';
+            echo '<th class="left">'.__('Name', 'ef').'</th>';
+            echo '<th class="left">'.__('Description', 'ef').'</th>';
         echo '</tr></thead>';
 
         

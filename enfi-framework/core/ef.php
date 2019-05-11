@@ -150,9 +150,9 @@ class EF_Framework {
     
         # header left
         register_sidebar( array(
-            'name'          => __('Header Obere Leiste Links', 'enfi'),
+            'name'          => __('Header Obere Leiste Links', 'ef'),
             'id'            => 'header-top-bar-left',
-            'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.', 'enfi'),
+            'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.', 'ef'),
             'before_widget' => '',
             'after_widget'  => '',
             'before_title'  => '<span style="display:none;">',
@@ -161,9 +161,9 @@ class EF_Framework {
 
         # header right
         register_sidebar( array(
-            'name'          => __('Header Obere Leiste Rechts', 'enfi'),
+            'name'          => __('Header Obere Leiste Rechts', 'ef'),
             'id'            => 'header-top-bar-right',
-            'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.','enfi'),
+            'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.','ef'),
             'before_widget' => '',
             'after_widget'  => '',
             'before_title'  => '<span style="display:none;">',
@@ -172,9 +172,9 @@ class EF_Framework {
 
         # footer
         register_sidebar( array(
-            'name'          => __('Fußbereich', 'enfi'),
+            'name'          => __('Fußbereich', 'ef'),
             'id'            => 'footer',
-            'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.','enfi'),
+            'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.','ef'),
             'before_widget' => '<div class="col-lg">',
             'after_widget'  => '</div>',
             'before_title'  => '<span style="display:none;">',
@@ -232,7 +232,7 @@ class EF_Framework {
 
 }
 
-new EF_Framework(__('EF Framework', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.DebugLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est ', 'enfi'), 'upload_themes');
+new EF_Framework(__('EF Framework', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.DebugLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est ', 'ef'), 'upload_themes');
 
 
 ?>

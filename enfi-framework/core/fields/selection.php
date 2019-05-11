@@ -5,7 +5,7 @@ $options = parseOptions($data);
 if(isset($data['defaultOptionText']))
     $defaultOptionText = $data['defaultOptionText'];
 else 
-    $defaultOptionText = __('-- No option --', 'enfi');
+    $defaultOptionText = __('-- No option --', 'ef');
 
 if(isset($data['defaultOptionValue']))
     $defaultOptionValue = $data['defaultOptionValue'];

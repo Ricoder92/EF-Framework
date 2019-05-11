@@ -20,7 +20,7 @@ if(isset($value['zip']))
 else    
     $zip = '';
 
-$output .= '<input type="text" class="enfi-admin-input" id="'.$name.'[street]-field"  name="'.$name.'[street]"  placeholder="'.__('Straße', 'enfi').'" value="'.$street.'" /><br/>';
-$output .= '<input type="text" class="enfi-admin-input" id="'.$name.'[street_addition]-field"  name="'.$name.'[street_addition]"  placeholder="'.__('Adresszusatz', 'enfi').'" value="'.$street_addition.'" /><br/>';
-$output .= '<input type="text" class="enfi-admin-input" id="'.$name.'[zip]-field"  name="'.$name.'[zip]"  placeholder="'.__('PLZ', 'enfi').'" value="'.$zip.'" /><br/>';
-$output .= '<input type="text" class="enfi-admin-input" id="'.$name.'[city]-field"  name="'.$name.'[city]"  placeholder="'.__('Stadt', 'enfi').'" value="'.$city.'" /><br/>';
+$output .= '<input type="text" class="enfi-admin-input" id="'.$name.'[street]-field"  name="'.$name.'[street]"  placeholder="'.__('Straße', 'ef').'" value="'.$street.'" /><br/>';
+$output .= '<input type="text" class="enfi-admin-input" id="'.$name.'[street_addition]-field"  name="'.$name.'[street_addition]"  placeholder="'.__('Adresszusatz', 'ef').'" value="'.$street_addition.'" /><br/>';
+$output .= '<input type="text" class="enfi-admin-input" id="'.$name.'[zip]-field"  name="'.$name.'[zip]"  placeholder="'.__('PLZ', 'ef').'" value="'.$zip.'" /><br/>';
+$output .= '<input type="text" class="enfi-admin-input" id="'.$name.'[city]-field"  name="'.$name.'[city]"  placeholder="'.__('Stadt', 'ef').'" value="'.$city.'" /><br/>';

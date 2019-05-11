@@ -23,7 +23,7 @@
         $output.= '</div>';
     }
 
-    $output.= '</div><a class="add" data-input="list" data-field="'.$name.'" data-placeholder="'.$placeholder.' "><i class="fas fa-plus"></i> '.__('Add Field', 'enfi').'</a></div>';
+    $output.= '</div><a class="add" data-input="list" data-field="'.$name.'" data-placeholder="'.$placeholder.' "><i class="fas fa-plus"></i> '.__('Add Field', 'ef').'</a></div>';
 
 
 ?>

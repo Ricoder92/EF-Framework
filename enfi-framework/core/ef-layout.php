@@ -1,15 +1,15 @@
 <?php
 
-$layout_page = new EF_Settings_Page('layout', __('Layout Einstellungen', 'enfi'), __('Layout', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'settings', 'fa-object-group', 5);
+$layout_page = new EF_Settings_Page('layout', __('Layout Einstellungen', 'ef'), __('Layout', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-object-group', 5);
 
-    $layout_page->addSection('header', __('Header', 'enfi'));
-        $layout_page->addField('header', 'header', __('Header Layout', 'enfi'), null, 'selection', 'default', array('options' => ef_layout_get_templates_list('header'), 'defaultOptionValue' => 'default'));
+    $layout_page->addSection('header', __('Header', 'ef'));
+        $layout_page->addField('header', 'header', __('Header Layout', 'ef'), null, 'selection', 'default', array('options' => ef_layout_get_templates_list('header'), 'defaultOptionValue' => 'default'));
 
-    $layout_page->addSection('footer', __('Footer', 'enfi'));
-        $layout_page->addField('footer', 'footer', __('Footer Layout', 'enfi'),null, 'selection', 'default', array('options' => ef_layout_get_templates_list('footer'), 'defaultOptionValue' => 'default'));
+    $layout_page->addSection('footer', __('Footer', 'ef'));
+        $layout_page->addField('footer', 'footer', __('Footer Layout', 'ef'),null, 'selection', 'default', array('options' => ef_layout_get_templates_list('footer'), 'defaultOptionValue' => 'default'));
 
-    $layout_page->addSection('post-type-layout-settings', __('Post Type Layout Settings', 'enfi'));
-        $layout_page->addField('post-type-layout-settings', 'post-type-layout-settings', __('Post Types', 'enfi'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
+    $layout_page->addSection('post-type-layout-settings', __('Post Type Layout Settings', 'ef'));
+        $layout_page->addField('post-type-layout-settings', 'post-type-layout-settings', __('Post Types', 'ef'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
 
     $layout_page->setDefaultValues();
 
@@ -178,7 +178,7 @@ function ef_layout_get_template($_template_name) {
 function ef_layout_breadcrumbs($gutter = '\\') {
 
     $delimiter = '<span class="gutter">' . $gutter . '</span>';
-    $home      = __('Home', 'enfi');
+    $home      = __('Home', 'ef');
     $before    = '<span class="current-page">';
     $after     = '</span>';
 

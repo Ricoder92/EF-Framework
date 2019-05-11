@@ -10,7 +10,7 @@ if(isset($value['lastname']))
 else    
     $lastname = '';
 
-$output .= '<input type="text" class="enfi-admin-input" id="'.$name.'-field"  name="'.$name.'[firstname]"  placeholder="'.__('Vorname', 'enfi').'" value="'.$firstname.'" />';
-$output .= '<br/><input type="text" class="enfi-admin-input" id="'.$name.'-field"  name="'.$name.'[lastname]"  placeholder="'.__('Nachname', 'enfi').'" value="'.$lastname.'" />';
+$output .= '<input type="text" class="enfi-admin-input" id="'.$name.'-field"  name="'.$name.'[firstname]"  placeholder="'.__('Vorname', 'ef').'" value="'.$firstname.'" />';
+$output .= '<br/><input type="text" class="enfi-admin-input" id="'.$name.'-field"  name="'.$name.'[lastname]"  placeholder="'.__('Nachname', 'ef').'" value="'.$lastname.'" />';
 
 ?>

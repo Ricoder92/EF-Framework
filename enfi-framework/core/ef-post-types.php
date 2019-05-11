@@ -1,6 +1,6 @@
 <?php
 
-$plugins_page = new EF_Settings_Page('post-types', __('Manage pPost types', 'enfi'), __('Manage post types', 'enfi'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'enfi'), 'post-types', 'fa-puzzle-piece', 9);
+$plugins_page = new EF_Settings_Page('post-types', __('Manage pPost types', 'ef'), __('Manage post types', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'post-types', 'fa-puzzle-piece', 9);
 $plugins_page->addContent('post_types_render');
 
 function post_types_render() {
@@ -20,9 +20,9 @@ function post_types_render() {
     echo '<table class="ef-admin-table">';
 
         echo '<thead><tr>';
-            echo '<th class="center">'.__('Enable', 'enfi').'</th>';
-            echo '<th class="left">'.__('Name', 'enfi').'</th>';
-            echo '<th class="left">'.__('Description', 'enfi').'</th>';
+            echo '<th class="center">'.__('Enable', 'ef').'</th>';
+            echo '<th class="left">'.__('Name', 'ef').'</th>';
+            echo '<th class="left">'.__('Description', 'ef').'</th>';
         echo '</tr></thead>';
 
         

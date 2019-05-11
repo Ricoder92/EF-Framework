@@ -18,7 +18,7 @@
         <div class="row align-items-center h-100">
 
             <div class="col-lg-12">
-                <?php bloginfo(); ?> <?php _e('© Copyright', 'enfi'); ?> <?php echo date('Y'); ?>. <?php _e('All Rights Reserved', 'enfi'); ?>
+                <?php bloginfo(); ?> <?php _e('© Copyright', 'ef'); ?> <?php echo date('Y'); ?>. <?php _e('All Rights Reserved', 'ef'); ?>
             </div>
 
         </div>
