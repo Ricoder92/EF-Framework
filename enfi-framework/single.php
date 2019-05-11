@@ -17,7 +17,8 @@ if(is_child_theme()) {
         $path =  get_template_directory().'/templates/post-types/'.$post_type.'/'.$suffix .'.php';
     else if(file_exists(get_template_directory().'/post-types/'.$post_type.'/templates/'.$suffix .'.php')) 
         $path =  get_template_directory().'/post-types/'.$post_type.'/templates/'.$suffix .'.php';
-
+    else    
+        $path = get_template_directory().'/index.php';
 
 } else {
 
@@ -25,6 +26,8 @@ if(is_child_theme()) {
         $path =  get_template_directory().'/templates/post-types/'.$post_type.'/'.$suffix .'.php';
     else if(file_exists(get_template_directory().'/post-types/'.$post_type.'/templates/'.$suffix .'.php')) 
         $path =  get_template_directory().'/post-types/'.$post_type.'/templates/'.$suffix .'.php';
+    else    
+        $path = get_template_directory().'/index.php';
 
 }
 
