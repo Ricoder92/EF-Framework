@@ -197,20 +197,25 @@ class EF_Framework {
         ef_html_comment('Metatags');
         echo "\t<meta charset=\"UTF-8\" />\n";
 
-        if(is_single())
+        if(is_single() || is_page())
             echo "\t<meta name=\"url\" content=\"".get_the_permalink()."\">\n";
-        else if(is_archive())
+        else if(is_archive() && !is_tax())
             echo "\t<meta name=\"url\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\">\n";
-        else if (is_tax())
-            echo "\t<meta name=\"url\" content=\"".get_post_type_archive_link(get_query_var( 'taxonomy' ))."\">\n";
-
+        else if (is_tax()) {
+            global $wp_query;
+            $term = $wp_query->get_queried_object();
+            echo "\t<meta name=\"url\" content=\"".get_term_link($term)."\">\n";
+        }
+           
         # URL
-        if(is_single())
+        if(is_single() || is_page())
             echo "\t<meta name=\"identifier-URL\" content=\"".get_the_permalink()."\">\n";
-        else if(is_archive())
+        else if(is_archive() && !is_tax())
             echo "\t<meta name=\"identifier-URL\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\">\n";
         else if (is_tax()) {
-       
+            global $wp_query;
+            $term = $wp_query->get_queried_object();
+            echo "\t<meta name=\"identifier-URL\" content=\"".get_term_link($term)."\">\n";
         }
 
         # viewport
