@@ -7,7 +7,7 @@ class EF_Widget_Archive extends WP_Widget {
 			'classname' => 'ef_widget_archive',
 			'description' => 'Display Archive ',
 		);
-		parent::__construct( 'ef_widget_archive', 'EF Archive', $widget_ops );
+		parent::__construct( 'ef_widget_archive', __('EF Archive', 'ef'), $widget_ops );
 	}
 
 	/**
@@ -77,9 +77,9 @@ class EF_Widget_Archive extends WP_Widget {
 }
 
 // register Foo_Widget widget
-function ef_widget_register_blog() {
+function ef_widget_register_archive() {
     register_widget( 'ef_widget_archive' );
 }
-add_action( 'widgets_init', 'ef_widget_register_blog' );
+add_action( 'widgets_init', 'ef_widget_register_archive' );
 
 ?>

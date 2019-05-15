@@ -1,3 +1,4 @@
+    
 <?php get_header(); ?>
 
 <?php get_template_part('templates/content/content-title'); ?>  
@@ -22,6 +23,8 @@
             </div>
     
         <?php endwhile; ?>
+
+        <?php wp_reset_postdata(); ?>
 
         <?php else : ?>
             <?php get_template_part('templates/content/content-no-entries'); ?>

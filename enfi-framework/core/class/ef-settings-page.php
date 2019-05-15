@@ -1,6 +1,9 @@
 <?php
 
-# Class for creating plugin page
+################################################################################################################################################## 
+### Class for creating plugin page
+##################################################################################################################################################
+
 class EF_Settings_Page {
 
     # construktur
@@ -153,7 +156,6 @@ class EF_Settings_Page {
         
     }
 
-
     public function render() {
 
         wp_enqueue_style( 'bootstrap-grid' );
@@ -273,6 +275,9 @@ function parseOptions($args) {
     }
 }
 
+################################################################################################################################################## 
+### example settings page
+##################################################################################################################################################
 
 $settings_page = new EF_Settings_Page('settings', __('Settings', 'ef'), __('Settings', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', null, 1);
 

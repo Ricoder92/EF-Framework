@@ -1,5 +1,9 @@
 <?php
 
+################################################################################################################################################## 
+### layout settings page
+##################################################################################################################################################
+
 $layout_page = new EF_Settings_Page('layout', __('Layout Einstellungen', 'ef'), __('Layout', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-object-group', 5);
 
     $layout_page->addSection('header', __('Header', 'ef'));
@@ -13,7 +17,10 @@ $layout_page = new EF_Settings_Page('layout', __('Layout Einstellungen', 'ef'), 
 
     $layout_page->setDefaultValues();
 
-# template list 
+################################################################################################################################################## 
+### get template list -> header and footer
+##################################################################################################################################################
+
 function ef_layout_get_templates_list($_template_name) {
 
     # register and enqueue scripts and css for active template
@@ -42,6 +49,10 @@ function ef_layout_get_templates_list($_template_name) {
     return $_templates;
     
 }
+
+################################################################################################################################################## 
+### enqueue css and js for templates
+##################################################################################################################################################
 
 function ef_layout_enqueue_css_js($_template_name) {
 
@@ -136,6 +147,10 @@ function ef_layout_enqueue_css_js($_template_name) {
     
 }
 
+################################################################################################################################################## 
+### load template 
+##################################################################################################################################################
+
 function ef_layout_get_template($_template_name) {
 
     $template = ef_get_option('layout');
@@ -162,6 +177,10 @@ function ef_layout_get_template($_template_name) {
         get_footer($template);
     
 }
+
+################################################################################################################################################## 
+### get brotkrümels :)
+##################################################################################################################################################
 
 function ef_layout_breadcrumbs($gutter = '\\') {
 

@@ -1,5 +1,9 @@
 <?php
 
+################################################################################################################################################## 
+### style and script stuff
+##################################################################################################################################################
+
 $styles_scripts = new EF_Settings_Page('styles-scripts', __('Styles & Scripts', 'ef'), __('Styles & Scripts', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'layout', '', 6);
 $styles_scripts->addContent('styles_scripts_render');
 
@@ -63,7 +67,10 @@ echo '</tr>';
     echo '</table>';
 }
 
-# function for frontend styles and scripts
+################################################################################################################################################## 
+### frontend
+##################################################################################################################################################
+
 function enqueue_styles_and_scripts() {
 
     if(!is_admin()) {
@@ -137,7 +144,10 @@ function enqueue_styles_and_scripts() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_styles_and_scripts');
 
-# function for admin styles and scripts
+################################################################################################################################################## 
+### backend
+##################################################################################################################################################
+
 function enqueue_admin_styles_and_scripts() {
 
     # load all css files in admin/assets/css
@@ -180,33 +190,48 @@ function enqueue_admin_styles_and_scripts() {
 add_action( 'admin_enqueue_scripts', 'enqueue_admin_styles_and_scripts'); 
 
 
-# prettifier style tags
+################################################################################################################################################## 
+### prettifier script tags
+##################################################################################################################################################
+
 function prettifier_styles($tag, $handle) {
     $tag = str_replace( "<link rel='stylesheet'", "\t<link rel='stylesheet'", $tag );
     return $tag;
 }
 add_filter('style_loader_tag', 'prettifier_styles', 10, 2);
 
-# prettifier script tags
+################################################################################################################################################## 
+### prettifier script tags
+##################################################################################################################################################
+
 function prettifier_scripts($tag, $handle) {
     $tag = str_replace( "<script", "\t<script", $tag );
     return $tag;
 }
 add_filter('script_loader_tag', 'prettifier_scripts', 10, 2);
 
-# prettifier style tags #2
+################################################################################################################################################## 
+### prettifier script tags
+##################################################################################################################################################
+
 function prettifier_styles_comment() {
     ef_html_comment('Stylesheets');
 }
 add_filter('wp_print_styles', 'prettifier_styles_comment', 10);
 
-# prettifier script tags #2
+################################################################################################################################################## 
+### prettifier script tags
+##################################################################################################################################################
+
 function prettifier_scripts_comment() {
     ef_html_comment('Scripts');
 }
 add_filter('wp_print_scripts', 'prettifier_scripts_comment', 10);
 
-# prettifier script tags #3
+################################################################################################################################################## 
+### prettifier script tags
+##################################################################################################################################################
+
 function prettifier_scripts_comment_footer() {
     ef_html_comment('Scripts');
 }

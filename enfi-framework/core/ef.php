@@ -1,5 +1,9 @@
 <?php
 
+################################################################################################################################################## 
+### thats the "HERZSTÜCK" :)
+##################################################################################################################################################
+
 class EF_Framework {
  
     public function __construct($title, $description, $capability = 'manage_options') {
@@ -38,6 +42,7 @@ class EF_Framework {
         require_once get_template_directory().'/core/class/ef-settings-page.php';
         require_once get_template_directory().'/core/class/ef-meta-box.php';
         require_once get_template_directory().'/core/class/ef-post-type.php';
+        require_once get_template_directory().'/core/class/ef-taxonomy.php';
         require_once get_template_directory().'/core/class/ef-navigation.php';
 
         require_once get_template_directory().'/core/ef-styles-scripts.php';
@@ -191,17 +196,23 @@ class EF_Framework {
         # meta tags
         ef_html_comment('Metatags');
         echo "\t<meta charset=\"UTF-8\" />\n";
+
         if(is_single())
             echo "\t<meta name=\"url\" content=\"".get_the_permalink()."\">\n";
-        else if(is_archive() || is_tax())
+        else if(is_archive())
             echo "\t<meta name=\"url\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\">\n";
+        else if (is_tax())
+            echo "\t<meta name=\"url\" content=\"".get_post_type_archive_link(get_query_var( 'taxonomy' ))."\">\n";
 
         # URL
         if(is_single())
             echo "\t<meta name=\"identifier-URL\" content=\"".get_the_permalink()."\">\n";
-        else if(is_archive() || is_tax())
+        else if(is_archive())
             echo "\t<meta name=\"identifier-URL\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\">\n";
-        
+        else if (is_tax()) {
+       
+        }
+
         # viewport
         echo "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n";
 
@@ -240,6 +251,11 @@ class EF_Framework {
     }
 
 }
+
+
+################################################################################################################################################## 
+### und ab die Post....
+##################################################################################################################################################
 
 new EF_Framework(__('EF Framework', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.DebugLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est ', 'ef'), 'upload_themes');
 

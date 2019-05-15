@@ -1,5 +1,9 @@
 <?php
 
+################################################################################################################################################## 
+### debug settings page
+##################################################################################################################################################
+
 $debug_page = new EF_Settings_Page('debug', __('Maintenance & Debug', 'ef'), __('Maintenance & Debug', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-bug', 8);
 
 $debug_page->addSection('debug-settings', __('Debug Settings', 'ef'));
@@ -13,7 +17,10 @@ $debug_page->addSection('404', __('404 Error page', 'ef'));
 $debug_page->addField('404', '404-page', __('404 Error page', 'ef'), null, 'selection', null, array( 'posts' => 'page'));
 
 
-# set state 404 in site list
+################################################################################################################################################## 
+### set states for pages in dashboard
+##################################################################################################################################################
+
 function enfi_filter_post_state_404( $post_states, $post ) {
     
     # get option
@@ -34,7 +41,9 @@ function enfi_filter_post_state_404( $post_states, $post ) {
 }
 add_filter( 'display_post_states', 'enfi_filter_post_state_404', 10, 2 );
 
-
+################################################################################################################################################## 
+### set states for pages in dashboard
+##################################################################################################################################################
 
 function enfi_filter_post_state_maintenance( $post_states, $post ) {
     
@@ -55,7 +64,10 @@ function enfi_filter_post_state_maintenance( $post_states, $post ) {
 }
 add_filter( 'display_post_states', 'enfi_filter_post_state_maintenance', 10, 2 );
 
-# maintenance mode
+################################################################################################################################################## 
+### maintenance loop
+##################################################################################################################################################
+
 function enfi_maintenance_maintenance_mode() {
 
     # get options
@@ -89,7 +101,10 @@ function enfi_maintenance_maintenance_mode() {
 }
 add_action( 'parse_query', 'enfi_maintenance_maintenance_mode' );
 
-# check if debug mode
+################################################################################################################################################## 
+### if is debug mode
+##################################################################################################################################################
+
 function ef_is_debug_mode() {
 
     if(!is_child_theme()) 

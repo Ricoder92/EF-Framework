@@ -1,5 +1,9 @@
 <?php
 
+################################################################################################################################################## 
+### module handler
+##################################################################################################################################################
+
 $plugins_page = new EF_Settings_Page('modules', __('Manage modules', 'ef'), __('Manage modules', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'modules', 'fa-puzzle-piece', 9);
 $plugins_page->addContent('plugins_render');
 
@@ -79,6 +83,10 @@ function plugins_render() {
     echo '</table>';
     
 }
+
+################################################################################################################################################## 
+### load active moduls
+##################################################################################################################################################
 
 $active_modules = ef_get_option('modules');
 

@@ -1,3 +1,4 @@
+    
 <?php get_header(); ?>
 
 <?php get_template_part('templates/content/content-title'); ?>  
@@ -17,6 +18,7 @@
                 <div class="title"><h3><?php echo the_title(); ?></h3></div>
                 <div class="author-date"><span class="author"><?php the_author(); ?> | <span class="date"><?php echo get_the_date();?></div>
                 <div class="content"><?php echo the_excerpt(); ?></div>
+                <div class="tags">Tags: <?php echo ef_print_terms('ef-blog-tags'); ?></div>
                 <a href="<?php the_permalink(); ?>" class="read-more"><?php _e('read more', 'ef');?></a>
 
             </div>

@@ -33,9 +33,9 @@ $labels = array(
     
 $args = array(
     'label'               => __( 'Blog', 'enfi' ),
-    'description'         => __( 'Verwalte Blogeintrager', 'enfi' ),
+    'description'         => __( 'Blog', 'enfi' ),
     'labels'              => $labels,
-    'supports'            => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
+    'supports'            => array( 'title', 'editor', 'author', 'revisions', 'thumbnail'),
     'hierarchical'        => false,
     'public'              => true,
     'show_ui'             => true,
@@ -45,11 +45,11 @@ $args = array(
     'menu_icon'           => 'dashicons-admin-page',
     'menu_position'       => 31,
     'can_export'          => true,
+    'rewrite'             => array('slug' => 'blog'),
     'has_archive'         => true,
-    'exclude_from_search' => true,
-    'show_in_rest'       => true,
-    'publicly_queryable'  => true,
-    'rewrite' => array('slug' => 'blog'),
+    'exclude_from_search' => false,
+    'show_in_rest'        => true,
+    'publicly_queryable'  => true
 );
 
 $blog = new EF_Post_Type_Create('ef-blog', $args);

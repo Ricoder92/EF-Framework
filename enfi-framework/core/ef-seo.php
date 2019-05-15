@@ -1,9 +1,13 @@
 <?php
 
- ## get post meta
- $meta_data = get_post_meta(get_the_id(), 'seo-meta-data', true);
+################################################################################################################################################## 
+### seo
+##################################################################################################################################################
 
- ## if null, set to empty array
+## get post meta
+$meta_data = get_post_meta(get_the_id(), 'seo-meta-data', true);
+
+## if null, set to empty array
 if(!is_array($meta_data))
     $meta_data = array();
 
@@ -19,7 +23,6 @@ $disable_meta_tags = array(
     array( 'key' => 'copyright' ,'text' =>  __('Copyright', 'ef'), 'value' => true)
 );
  
-
 $title_seperators = array(
     array( 'text' =>  '|', 'value' => '|'),
     array( 'text' =>  '-', 'value' => '-'),
@@ -106,6 +109,10 @@ function check_post_type_enable() {
 
 }
 
+################################################################################################################################################## 
+### check if for post type enable
+##################################################################################################################################################
+
 function check_post_enable() {
 
     $meta_data = get_post_meta(get_the_id(), 'seo-meta-data', array());
@@ -117,12 +124,20 @@ function check_post_enable() {
 
 }
 
+################################################################################################################################################## 
+### check if meta tag globally disable
+##################################################################################################################################################
+
 function check_meta_tag_disable($global_disable_seo_meta, $key) {
     if(array_key_exists($key, $global_disable_seo_meta)) {
         return false;
     } else 
         return true;
 }
+
+################################################################################################################################################## 
+### loop
+##################################################################################################################################################
 
 function seo_add_wp_head() {
 
@@ -207,13 +222,11 @@ function seo_add_wp_head() {
 
 add_action('wp_head', 'seo_add_wp_head', -998);
 
-## seo admin sidebar
-function enfi_seo_sm_editor_sidebar() {
-    wp_enqueue_script( 'ef-seo-sidebar', get_template_directory_uri().'/core/editor-sidebars/seo/seo-sidebar.js', array( 'wp-blocks', 'wp-edit-post', 'wp-element' ));
-}
-#add_action( 'enqueue_block_editor_assets', 'enfi_seo_sm_editor_sidebar' );
 
-## title hook
+################################################################################################################################################## 
+### set WP_TITLE
+##################################################################################################################################################
+
 function wpdocs_filter_wp_title( $title, $sep ) {
     global $paged, $page;
  
@@ -221,9 +234,8 @@ function wpdocs_filter_wp_title( $title, $sep ) {
         return get_bloginfo('name');
 
     if(is_archive())
-        return post_type_archive_title('', true).' '.$sep.' ';;
-    
- 
+        return post_type_archive_title('', true).' '.$sep.' ';
+
     ## get post meta
     $meta_data = get_post_meta(get_the_id(), 'seo-meta-data', true);
 

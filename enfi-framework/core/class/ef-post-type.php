@@ -1,5 +1,9 @@
 <?php
 
+################################################################################################################################################## 
+### create post type class
+##################################################################################################################################################
+
 class EF_Post_Type_Create {
 
     # contructor
@@ -18,9 +22,7 @@ class EF_Post_Type_Create {
 
     # register post type
     function register() {
-
         register_post_type( $this->name , $this->args );
-
     }
  
     # register css and js
@@ -105,10 +107,8 @@ class EF_Post_Type_Create {
                 }
             }                  
           
-
         } else {
-           
-            
+                  
             # check parents templates folder
             if(is_dir(get_template_directory().'/templates/post-types/'.$this->name)) {
 
@@ -124,7 +124,6 @@ class EF_Post_Type_Create {
                     wp_register_script($this->name.'-'.basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
                     #wp_enqueue_script(basename($file, ".js"));
                 }
-
             } 
             
             # check parents post types folder
@@ -146,14 +145,15 @@ class EF_Post_Type_Create {
                     }
                 }
             }
-
         }
-
     }
-
 }
 
-# post type settings page
+
+################################################################################################################################################## 
+### settings page
+##################################################################################################################################################
+
 $plugins_page = new EF_Settings_Page('post-types', __('Manage pPost types', 'ef'), __('Manage post types', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'post-types', 'fa-puzzle-piece', 9);
 $plugins_page->addContent('post_types_render');
 
@@ -235,6 +235,10 @@ function post_types_render() {
     
 }
 
+################################################################################################################################################## 
+### load all active post types
+##################################################################################################################################################
+
 $active_post_types = ef_get_option('post-types');
 
 if($active_post_types) {
@@ -242,21 +246,6 @@ if($active_post_types) {
         require_once get_template_directory().'/post-types/'.$key.'/init.php';
     }
 }
-
-################################################################################################################################################## 
-### create taxonomy
-##################################################################################################################################################
-
-function enfi_post_type_taxonomy_create($name, $post_type, $args, $prio = 0) {
-
-    add_action( 'init', function() use ($name, $post_type, $args) {
-
-        register_taxonomy( $name, $post_type, $args );
-
-    }, 0 );
-
-}
- 
 
 
 ?>

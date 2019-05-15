@@ -172,27 +172,6 @@ input[type="color"]:focus,
     height: 600px;
 }
 
-.tagcloud {
-    list-style: none;
-    margin: 0 0 40px 0;
-    padding: 0px;
-    text-align: center;
-}
-
-.tagcloud li {
-    display: inline-block;
-}
-
-.tagcloud li a {
-    padding: 10px 15px;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    background: #f1f1f1;
-    color: rgba(0, 0, 0, 0.6);
-    display: inline-block;
-    margin: 0 5px 5px 0px;
-}
-
 .pagination {
     display: table;
     width: 100%;
@@ -233,5 +212,47 @@ input[type="color"]:focus,
 }
 
 .widget-container ul li:last-child {
+    border-bottom: 0;
+}
+
+.widget-container ul li .date {
+    font-size: 0.7rem;
+    background-color: rgba(0, 0, 0, 0.33);
+}
+
+.widget-tagcloud {
+    margin: 0;
+    padding: 0;
+}
+
+.widget-tagcloud li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    border-bottom: 0;
+}
+
+.widget-tagcloud li a {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 0px 5px 5px 0px;
+    background-color: rgba(0, 0, 0, 0.50);
+    color: white;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.widget-tagcloud li a:hover {
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    transition: 200ms;
+}
+
+.widget-tagcloud li {
+    border-bottom: 0 !important;
+}
+
+.widget-tagcloud li:last-child {
     border-bottom: 0;
 }

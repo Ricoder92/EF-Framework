@@ -1,5 +1,9 @@
 <?php
 
+################################################################################################################################################## 
+### social media
+##################################################################################################################################################
+
 $social_media_page = new EF_Settings_Page('social-media', __('Social Media', 'ef'), __('Social Media', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-hashtag', 3);
 
     # social media channels
@@ -162,8 +166,11 @@ function sm_add_wp_head() {
         }
 
         # url
-        echo "\t<meta property=\"og:url\" content=\"".get_the_permalink()."\"/>\n";
-        
+        if(is_single())
+            echo "\t<meta property=\"og:url\" content=\"".get_the_permalink()."\"/>\n";
+        else if(is_archive() || is_tax())
+            echo "\t<meta property=\"og:url\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\"/>\n";
+
         # latitude
         if(isset($meta_data['og-latitude']))
             echo "\t<meta property=\"og:latitude\" content=\"".$meta_data['og-latitude']."\"/>\n";
