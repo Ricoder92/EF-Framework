@@ -11,17 +11,17 @@ Author: Enrico Fischer
 */
 
 $labels_tax = array(
-    'name'              => _x( 'Branchen', 'taxonomy general name' ),
-    'singular_name'     => _x( 'Branche', 'taxonomy singular name' ),
-    'search_items'      => __( 'Branche suchen' ),
-    'all_items'         => __( 'Alle Branchen' ),
-    'parent_item'       => __( 'Eltern-Branche' ),
-    'parent_item_colon' => __( 'Eltern-Branche:' ),
-    'edit_item'         => __( 'Branche bearbeiten' ),
-    'update_item'       => __( 'Branche aktualisieren' ),
-    'add_new_item'      => __( 'Neue Branche hinzufügen' ),
-    'new_item_name'     => __( 'Neue Branche' ),
-    'menu_name'         => __( 'Branchen' ),
+    'name'              => _x( 'Tags', 'taxonomy general name', 'ef' ),
+    'singular_name'     => _x( 'Tags', 'taxonomy singular name' ),
+    'search_items'      => __( 'Search Tags', 'ef' ),
+    'all_items'         => __( 'All Tags', 'ef' ),
+    'parent_item'       => __( 'Parent-Tags', 'ef' ),
+    'parent_item_colon' => __( 'Parent-Tags: ', 'ef' ),
+    'edit_item'         => __( 'Edit Tag', 'ef' ),
+    'update_item'       => __( 'Update Tag', 'ef' ),
+    'add_new_item'      => __( 'Add new Tag', 'ef' ),
+    'new_item_name'     => __( 'New Tag', 'ef' ),
+    'menu_name'         => __( 'Tags', 'ef' )
 );
 
 $args_tax = array(
@@ -30,12 +30,12 @@ $args_tax = array(
     'show_ui'           => true,
     'show_admin_column' => true,
     'query_var'         => true,
-    'rewrite'           => array( 'slug' => 'blogtags' ),
+    'rewrite'           => array( 'slug' => 'blog-tags' ),
     'show_in_rest'       => true,
     'rest_base'          => 'ef-blog-tags',
     'rest_controller_class' => 'WP_REST_Terms_Controller',
 );
 
-enfi_post_type_taxonomy_create('ef-blog-tags', 'ef-blog', $args_tax);
+new EF_Taxonomy_Create('ef-blog-tags', 'ef-blog', $args_tax);
 
 ?>

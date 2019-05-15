@@ -16,18 +16,18 @@ Author: Enrico Fischer
  
 $labels = array(
     'name'                => 'Blog',
-    'singular_name'       => _x( 'Blog', 'Post Type Singular Name', 'enfi' ),
+    'singular_name'       => _x( 'Beitrag', 'Post Type Singular Name', 'enfi' ),
     'menu_name'           => __( 'Blog', 'enfi' ),
-    'parent_item_colon'   => __( 'Eltern-Blogeintrag', 'enfi' ),
-    'all_items'           => __( 'Alle Blogeinträge', 'enfi' ),
-    'view_item'           => __( 'Blogeintrag ansehen', 'enfi' ),
-    'add_new_item'        => __( 'Blogeintrag hinzufügen', 'enfi' ),
-    'add_new'             => __( 'Neues Blogeintrag', 'enfi' ),
-    'edit_item'           => __( 'Blogeintrag bearbeiten', 'enfi' ),
-    'update_item'         => __( 'Blogeintrag aktualisieren', 'enfi' ),
-    'search_items'        => __( 'Blogeintrag suchen', 'enfi' ),
-    'not_found'           => __( 'nichts gefunden', 'enfi' ),
-    'not_found_in_trash'  => __( 'nichts im Papierkorb gefunden', 'enfi' ),
+    'parent_item_colon'   => __( 'Parent-Post: ', 'enfi' ),
+    'all_items'           => __( 'All Posts', 'enfi' ),
+    'view_item'           => __( 'View Post', 'enfi' ),
+    'add_new_item'        => __( 'Add Post', 'enfi' ),
+    'add_new'             => __( 'New Post', 'enfi' ),
+    'edit_item'           => __( 'Edit Post', 'enfi' ),
+    'update_item'         => __( 'Update Post', 'enfi' ),
+    'search_items'        => __( 'Search Post', 'enfi' ),
+    'not_found'           => __( 'not found', 'enfi' ),
+    'not_found_in_trash'  => __( 'not found', 'enfi' ),
     
 );
     

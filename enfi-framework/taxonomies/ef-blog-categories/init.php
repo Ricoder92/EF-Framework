@@ -11,17 +11,17 @@ Author: Enrico Fischer
 */
 
 $labels_tax = array(
-    'name'              => _x( 'Kategorien', 'taxonomy general name' ),
-    'singular_name'     => _x( 'Kategorie', 'taxonomy singular name' ),
-    'search_items'      => __( 'Kategorie suchen' ),
-    'all_items'         => __( 'Alle Kategorien' ),
-    'parent_item'       => __( 'Eltern-Kategorie' ),
-    'parent_item_colon' => __( 'Eltern-Kategorie:' ),
-    'edit_item'         => __( 'Kategorie bearbeiten' ),
-    'update_item'       => __( 'Kategorie aktualisieren' ),
-    'add_new_item'      => __( 'Neue Kategorie hinzufügen' ),
-    'new_item_name'     => __( 'Neue Kategorie' ),
-    'menu_name'         => __( 'Kategorien' ),
+    'name'              => _x( 'Categories', 'taxonomy general name', 'ef' ),
+    'singular_name'     => _x( 'Categories', 'taxonomy singular name' ),
+    'search_items'      => __( 'Search Categories', 'ef' ),
+    'all_items'         => __( 'All Categories', 'ef' ),
+    'parent_item'       => __( 'Parent-Category', 'ef' ),
+    'parent_item_colon' => __( 'Parent-Category: ', 'ef' ),
+    'edit_item'         => __( 'Edit Category', 'ef' ),
+    'update_item'       => __( 'Update Category', 'ef' ),
+    'add_new_item'      => __( 'Add new Category', 'ef' ),
+    'new_item_name'     => __( 'New Category', 'ef' ),
+    'menu_name'         => __( 'Categories', 'ef' )
 );
 
 $args_tax = array(
@@ -30,12 +30,12 @@ $args_tax = array(
     'show_ui'           => true,
     'show_admin_column' => true,
     'query_var'         => true,
-    'rewrite'           => array( 'slug' => 'blogcategories' ),
+    'rewrite'           => array( 'slug' => 'blog-categories' ),
     'show_in_rest'       => true,
-    'rest_base'          => 'ef-blog-tags',
+    'rest_base'          => 'ef-blog-Categories',
     'rest_controller_class' => 'WP_REST_Terms_Controller',
 );
 
-enfi_post_type_taxonomy_create('ef-blog-categories', 'ef-blog', $args_tax);
+new EF_Taxonomy_Create('ef-blog-categories', 'ef-blog', $args_tax);
 
 ?>
