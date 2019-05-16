@@ -6,14 +6,14 @@
 
 $layout_page = new EF_Settings_Page('layout', __('Layout Einstellungen', 'ef'), __('Layout', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-object-group', 5);
 
-    $layout_page->addSection('header', __('Header', 'ef'));
-        $layout_page->addField('header', 'header', __('Header Layout', 'ef'), null, 'selection', 'default', array('options' => ef_layout_get_templates_list('header'), 'defaultOptionValue' => 'default'));
+    // $layout_page->addSection('header', __('Header', 'ef'));
+    //     $layout_page->addField('header', 'header', __('Header Layout', 'ef'), null, 'selection', 'default', array('options' => ef_layout_get_templates_list('header'), 'defaultOptionValue' => 'default'));
 
-    $layout_page->addSection('footer', __('Footer', 'ef'));
-        $layout_page->addField('footer', 'footer', __('Footer Layout', 'ef'),null, 'selection', 'default', array('options' => ef_layout_get_templates_list('footer'), 'defaultOptionValue' => 'default'));
+    // $layout_page->addSection('footer', __('Footer', 'ef'));
+    //     $layout_page->addField('footer', 'footer', __('Footer Layout', 'ef'),null, 'selection', 'default', array('options' => ef_layout_get_templates_list('footer'), 'defaultOptionValue' => 'default'));
 
-    $layout_page->addSection('post-type-layout-settings', __('Post Type Layout Settings', 'ef'));
-        $layout_page->addField('post-type-layout-settings', 'post-type-layout-settings', __('Post Types', 'ef'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
+    // $layout_page->addSection('post-type-layout-settings', __('Post Type Layout Settings', 'ef'));
+    //     $layout_page->addField('post-type-layout-settings', 'post-type-layout-settings', __('Post Types', 'ef'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
 
     $layout_page->setDefaultValues();
 
@@ -21,162 +21,162 @@ $layout_page = new EF_Settings_Page('layout', __('Layout Einstellungen', 'ef'), 
 ### get template list -> header and footer
 ##################################################################################################################################################
 
-function ef_layout_get_templates_list($_template_name) {
+// function ef_layout_get_templates_list($_template_name) {
 
-    # register and enqueue scripts and css for active template
-    ef_layout_enqueue_css_js($_template_name);
+//     # register and enqueue scripts and css for active template
+//     ef_layout_enqueue_css_js($_template_name);
 
-    $_templates_path = get_template_directory() . "/templates/".$_template_name."/";
-    $_templates_path_child = get_stylesheet_directory() . "/templates/".$_template_name."/";
+//     $_templates_path = get_template_directory() . "/templates/".$_template_name."/";
+//     $_templates_path_child = get_stylesheet_directory() . "/templates/".$_template_name."/";
     
-    $_templates = array();
+//     $_templates = array();
     
-    # read templates of parrent theme
-    foreach(glob($_templates_path."*", GLOB_ONLYDIR) as $file){
-        array_push($_templates, array( 'text' =>  basename($file), 'value' => basename($file)));  
-    }
+//     # read templates of parrent theme
+//     foreach(glob($_templates_path."*", GLOB_ONLYDIR) as $file){
+//         array_push($_templates, array( 'text' =>  basename($file), 'value' => basename($file)));  
+//     }
     
-    # if child theme, read templates of child theme
-    if(is_child_theme()) {
-        foreach(glob($_templates_path_child."*", GLOB_ONLYDIR) as $file){
-            $value =  array( 'text' =>  basename($file), 'value' => basename($file));
-            if(!in_array($value, $_templates, true)){
-                array_push($_templates, $value);  
-            }
-        } 
-    }
+//     # if child theme, read templates of child theme
+//     if(is_child_theme()) {
+//         foreach(glob($_templates_path_child."*", GLOB_ONLYDIR) as $file){
+//             $value =  array( 'text' =>  basename($file), 'value' => basename($file));
+//             if(!in_array($value, $_templates, true)){
+//                 array_push($_templates, $value);  
+//             }
+//         } 
+//     }
 
-    return $_templates;
+//     return $_templates;
     
-}
+// }
 
 ################################################################################################################################################## 
 ### enqueue css and js for templates
 ##################################################################################################################################################
 
-function ef_layout_enqueue_css_js($_template_name) {
+// function ef_layout_enqueue_css_js($_template_name) {
 
-    $template = ef_get_option('layout');
-    $template = $template[$_template_name];
+//     $template = ef_get_option('layout');
+//     $template = $template[$_template_name];
 
-    if(!is_child_theme()) {
-        if($template == '' || $template == null || !file_exists(get_template_directory().'/templates/'.$_template_name.'/'.$template.'/template.php'))
-            $template = 'default';
-    } else {
-        if($template == '' || $template == null || !file_exists(get_stylesheet_directory().'/templates/'.$_template_name.'/'.$template.'/template.php'))
-            $template = 'default';
-    }
+//     if(!is_child_theme()) {
+//         if($template == '' || $template == null || !file_exists(get_template_directory().'/templates/'.$_template_name.'/'.$template.'/template.php'))
+//             $template = 'default';
+//     } else {
+//         if($template == '' || $template == null || !file_exists(get_stylesheet_directory().'/templates/'.$_template_name.'/'.$template.'/template.php'))
+//             $template = 'default';
+//     }
 
-    if(!is_admin()) {
+//     if(!is_admin()) {
         
-        add_action('wp_enqueue_scripts', function() use ($template, $_template_name) {
+//         add_action('wp_enqueue_scripts', function() use ($template, $_template_name) {
            
 
-            if(is_child_theme()) {
+//             if(is_child_theme()) {
                 
-                $path = get_stylesheet_directory().'/templates/'.$_template_name.'/'.$template.'';
-                $path_uri = get_stylesheet_directory_uri().'/templates/'.$_template_name.'/'.$template.'';
+//                 $path = get_stylesheet_directory().'/templates/'.$_template_name.'/'.$template.'';
+//                 $path_uri = get_stylesheet_directory_uri().'/templates/'.$_template_name.'/'.$template.'';
 
-                //check if directory exists in child theme for this template...
-                if(is_dir($path)) {
+//                 //check if directory exists in child theme for this template...
+//                 if(is_dir($path)) {
 
-                    foreach(glob($path.'/css/*.css') as $file){
-                        wp_register_style(basename($file, ".css"), $path_uri.'/css/'.basename($file), array('bootstrapCSS'));
-                        wp_enqueue_style(basename($file, ".css"));
-                    }
+//                     foreach(glob($path.'/css/*.css') as $file){
+//                         wp_register_style(basename($file, ".css"), $path_uri.'/css/'.basename($file), array('bootstrapCSS'));
+//                         wp_enqueue_style(basename($file, ".css"));
+//                     }
 
-                    foreach(glob($path.'/js/*.js') as $file){
-                        wp_register_script(basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
-                        wp_enqueue_script(basename($file, ".js"));
-                    }
+//                     foreach(glob($path.'/js/*.js') as $file){
+//                         wp_register_script(basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
+//                         wp_enqueue_script(basename($file, ".js"));
+//                     }
 
-                # ... if not, check parrent theme for this template
-                } else {
+//                 # ... if not, check parrent theme for this template
+//                 } else {
 
-                    $path = get_template_directory().'/templates/'.$_template_name.'/'.$template.'';
-                    $path_uri = get_template_directory_uri().'/templates/'.$_template_name.'/'.$template.'';
+//                     $path = get_template_directory().'/templates/'.$_template_name.'/'.$template.'';
+//                     $path_uri = get_template_directory_uri().'/templates/'.$_template_name.'/'.$template.'';
 
-                    if(is_dir($path)) {
+//                     if(is_dir($path)) {
 
-                        foreach(glob($path.'/css/*.css') as $file){
-                            wp_register_style(basename($file, ".css"), $path_uri.'/css/'.basename($file), array('bootstrapCSS'));
-                            wp_enqueue_style(basename($file, ".css"));
-                        }
+//                         foreach(glob($path.'/css/*.css') as $file){
+//                             wp_register_style(basename($file, ".css"), $path_uri.'/css/'.basename($file), array('bootstrapCSS'));
+//                             wp_enqueue_style(basename($file, ".css"));
+//                         }
     
-                        foreach(glob($path.'/js/*.js') as $file){
-                            wp_register_script(basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
-                            wp_enqueue_script(basename($file, ".js"));
-                        }
-                    }
-                }
+//                         foreach(glob($path.'/js/*.js') as $file){
+//                             wp_register_script(basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
+//                             wp_enqueue_script(basename($file, ".js"));
+//                         }
+//                     }
+//                 }
 
-            } else {
+//             } else {
 
-                $path = get_template_directory().'/templates/'.$_template_name.'/'.$template.'';
-                $path_uri = get_template_directory_uri().'/templates/'.$_template_name.'/'.$template.'';
+//                 $path = get_template_directory().'/templates/'.$_template_name.'/'.$template.'';
+//                 $path_uri = get_template_directory_uri().'/templates/'.$_template_name.'/'.$template.'';
 
-                if(is_dir($path)) {
+//                 if(is_dir($path)) {
 
-                    foreach(glob($path.'/css/*.css') as $file){
-                        wp_register_style(basename($file, ".css"), $path_uri.'/css/'.basename($file), array('bootstrapCSS'));
-                        wp_enqueue_style(basename($file, ".css"));
-                    }
+//                     foreach(glob($path.'/css/*.css') as $file){
+//                         wp_register_style(basename($file, ".css"), $path_uri.'/css/'.basename($file), array('bootstrapCSS'));
+//                         #wp_enqueue_style(basename($file, ".css"));
+//                     }
 
-                    foreach(glob($path.'/js/*.js') as $file){
-                        wp_register_script(basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
-                        wp_enqueue_script(basename($file, ".js"));
-                    }
-                }
-            }
+//                     foreach(glob($path.'/js/*.js') as $file){
+//                         wp_register_script(basename($file, ".js"), $path_uri.'/js/'.basename($file), array( 'jquery', 'jqueryUI' ), '', true);
+//                         #wp_enqueue_script(basename($file, ".js"));
+//                     }
+//                 }
+//             }
 
             
-        });
+//         });
 
-    } else {
+//     } else {
 
-        # load settings for templates
-        if(!is_child_theme()) {
-            if(file_exists(get_template_directory().'/templates/'.$_template_name.'/'.$template.'/settings.php'))
-                require get_template_directory().'/templates/'.$_template_name.'/'.$template.'/settings.php';
-        } else {
-            if(file_exists(get_stylesheet_directory().'/templates/'.$_template_name.'/'.$template.'/settings.php'))
-                require get_stylesheet_directory().'/templates/'.$_template_name.'/'.$template.'/settings.php';
-        }
+//         # load settings for templates
+//         if(!is_child_theme()) {
+//             if(file_exists(get_template_directory().'/templates/'.$_template_name.'/'.$template.'/settings.php'))
+//                 require get_template_directory().'/templates/'.$_template_name.'/'.$template.'/settings.php';
+//         } else {
+//             if(file_exists(get_stylesheet_directory().'/templates/'.$_template_name.'/'.$template.'/settings.php'))
+//                 require get_stylesheet_directory().'/templates/'.$_template_name.'/'.$template.'/settings.php';
+//         }
 
-    }
+//     }
     
-}
+// }
 
 ################################################################################################################################################## 
 ### load template 
 ##################################################################################################################################################
 
-function ef_layout_get_template($_template_name) {
+// function ef_layout_get_template($_template_name) {
 
-    $template = ef_get_option('layout');
-    $template = $template[$_template_name];
+//     $template = ef_get_option('layout');
+//     $template = $template[$_template_name];
         
-    if(!is_child_theme()) {
-        if($template == '' || $template == null || !file_exists(get_template_directory().'/templates/'.$_template_name.'/'.$template.'/template.php'))
-            $template = 'default';
-    } else {
-        if($template == '' || $template == null || !file_exists(get_stylesheet_directory().'/templates/'.$_template_name.'/'.$template.'/template.php'))
-            $template = 'default';
-    } 
+//     if(!is_child_theme()) {
+//         if($template == '' || $template == null || !file_exists(get_template_directory().'/templates/'.$_template_name.'/'.$template.'/template.php'))
+//             $template = 'default';
+//     } else {
+//         if($template == '' || $template == null || !file_exists(get_stylesheet_directory().'/templates/'.$_template_name.'/'.$template.'/template.php'))
+//             $template = 'default';
+//     } 
 
-    if($_template_name == 'header')
-        get_header($template);
+//     if($_template_name == 'header')
+//         get_header($template);
 
-    # load mobile tempalte if exists and its mobile site
-    if(wp_is_mobile() && file_exists(get_template_directory().'/templates/'.$_template_name.'/'.$template.'/template-mobile.php'))
-        get_template_part('templates/'.$_template_name.'/'.$template.'/template-mobile');
-    else
-        get_template_part('templates/'.$_template_name.'/'.$template.'/template');
+//     # load mobile tempalte if exists and its mobile site
+//     if(wp_is_mobile() && file_exists(get_template_directory().'/templates/'.$_template_name.'/'.$template.'/template-mobile.php'))
+//         get_template_part('templates/'.$_template_name.'/'.$template.'/template-mobile');
+//     else
+//         get_template_part('templates/'.$_template_name.'/'.$template.'/template');
 
-    if($_template_name == 'footer')
-        get_footer($template);
+//     if($_template_name == 'footer')
+//         get_footer($template);
     
-}
+// }
 
 ################################################################################################################################################## 
 ### get brotkrümels :)
@@ -267,6 +267,64 @@ function ef_layout_breadcrumbs($gutter = '\\') {
         }
         echo '</nav>';
     }
+}
+
+function ef_register_enqueue_css($slug, $path, $depend = null) {
+
+    add_action('wp_enqueue_scripts', function() use ($slug, $path, $depend) {
+
+        if(is_child_theme()) {
+
+            if(file_exists(get_stylesheet_directory().'/'.$path)) {
+                wp_register_style($slug, get_stylesheet_directory_uri().'/'.$path, $depend);
+                wp_enqueue_style($slug);    
+            } else {
+
+                if(file_exists(get_template_directory().'/'.$path)) {
+                    wp_register_style($slug, get_template_directory_uri().'/'.$path, $depend);
+                    wp_enqueue_style($slug);    
+                }
+
+            }
+
+        } else {
+
+            if(file_exists(get_template_directory().'/'.$path)) {
+                wp_register_style($slug, get_template_directory_uri().'/'.$path, $depend);
+                wp_enqueue_style($slug);    
+            }
+        }
+
+    });
+}
+
+function ef_register_enqueue_js($slug, $path, $depend = null) {
+
+    add_action('wp_enqueue_scripts', function() use ($slug, $path, $depend) {
+
+        if(is_child_theme()) {
+
+            if(file_exists(get_stylesheet_directory().'/'.$path)) {
+                wp_register_script($slug, get_stylesheet_directory_uri().'/'.$path, $depend);
+                wp_enqueue_script($slug);    
+            } else {
+
+                if(file_exists(get_template_directory().'/'.$path)) {
+                    wp_register_script($slug, get_template_directory_uri().'/'.$path, $depend);
+                    wp_enqueue_script($slug);    
+                }
+
+            }
+
+        } else {
+
+            if(file_exists(get_template_directory().'/'.$path)) {
+                wp_register_script($slug, get_template_directory_uri().'/'.$path, $depend);
+                wp_enqueue_script($slug);    
+            }
+        }
+
+    });
 }
 
 ?>

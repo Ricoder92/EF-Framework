@@ -39,18 +39,17 @@ class EF_Framework {
         # require some ef stuff
         require_once get_template_directory().'/core/ef-functions.php';
 
-        require_once get_template_directory().'/core/class/ef-settings-page.php';
-        require_once get_template_directory().'/core/class/ef-meta-box.php';
-        require_once get_template_directory().'/core/class/ef-post-type.php';
-        require_once get_template_directory().'/core/class/ef-taxonomy.php';
-        require_once get_template_directory().'/core/class/ef-navigation.php';
+        require_once get_template_directory().'/core/inc/ef-settings-page.php';
+        require_once get_template_directory().'/core/inc/ef-meta-box.php';
+        require_once get_template_directory().'/core/inc/ef-post-type.php';
+        require_once get_template_directory().'/core/inc/ef-taxonomy.php';
+        require_once get_template_directory().'/core/inc/ef-navigation.php';
 
         require_once get_template_directory().'/core/ef-styles-scripts.php';
         require_once get_template_directory().'/core/ef-layout.php';
         require_once get_template_directory().'/core/ef-debug.php';
         require_once get_template_directory().'/core/ef-google-api.php';
-        require_once get_template_directory().'/core/ef-widgets.php';
-        require_once get_template_directory().'/core/ef-shortcodes.php';
+        require_once get_template_directory().'/core/ef-loader.php';
         require_once get_template_directory().'/core/ef-modules.php';
         require_once get_template_directory().'/core/ef-seo.php';
         require_once get_template_directory().'/core/ef-social-media.php';
