@@ -233,8 +233,14 @@ function wpdocs_filter_wp_title( $title, $sep ) {
     if( is_front_page() || is_home()) 
         return get_bloginfo('name');
 
-    if(is_archive())
+    if(is_archive() && !is_tax())
         return post_type_archive_title('', true).' '.$sep.' ';
+
+    if(is_tax()) {
+        global $wp_query;
+        $term = $wp_query->get_queried_object();
+        return $term->name.' '.$sep.' ';
+    }
 
     ## get post meta
     $meta_data = get_post_meta(get_the_id(), 'seo-meta-data', true);

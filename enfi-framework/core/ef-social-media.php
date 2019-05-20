@@ -108,14 +108,14 @@ function sm_add_wp_head() {
         #}
 
         # post title
-        if(isset($meta_data['og-title']))
+        if(isset($meta_data['og-title']) && $meta_data['og-title'] != '')
             echo "\t<meta property=\"og:title\" content=\"".$meta_data['og-title']."\"/>\n";
         else {
             echo "\t<meta property=\"og:title\" content=\"".get_the_title()."\"/>\n";
         }
 
         # site name
-        if(isset($meta_data['og-site-name']))
+        if(isset($meta_data['og-site-name']) && $meta_data['og-site-name'] != '')
            echo "\t<meta property=\"og:site_name\" content=\"".$meta_data['og-site-name']."\"/>\n";
         else
         if($option['site-name'])
@@ -125,13 +125,13 @@ function sm_add_wp_head() {
         }
 
         # post description
-        if(isset($meta_data['og-description']))
+        if(isset($meta_data['og-description']) && $meta_data['og-description'] != '')
            echo "\t<meta property=\"og:description\" content=\"".$meta_data['og-description']."\"/>\n";
         else if($option['site-description'])
             echo "\t<meta property=\"og:description\" content=\"".$option['site-description']."\"/>\n";
 
         # post image
-        if(isset($meta_data['og-image']))
+        if(isset($meta_data['og-image']) && $meta_data['og-image'] != '')
             $image_id = $meta_data['og-image'];
         else if(get_the_post_thumbnail_url())
             $image_id = get_post_thumbnail_id();
@@ -172,43 +172,43 @@ function sm_add_wp_head() {
             echo "\t<meta property=\"og:url\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\"/>\n";
 
         # latitude
-        if(isset($meta_data['og-latitude']))
+        if(isset($meta_data['og-latitude']) && $meta_data['og-latitude'] != '')
             echo "\t<meta property=\"og:latitude\" content=\"".$meta_data['og-latitude']."\"/>\n";
         else if($option['latitude'])
             echo "\t<meta property=\"og:latitude\" content=\"".$option['latitude']."\"/>\n";
         
         # longitude
-        if(isset($meta_data['og-longitude']))
+        if(isset($meta_data['og-longitude']) && $meta_data['og-longitude'] != '')
             echo "\t<meta property=\"og:longitude\" content=\"".$meta_data['og-longitude']."\"/>\n";
         else if($option['longitude'])
             echo "\t<meta property=\"og:longitude\" content=\"".$option['longitude']."\"/>\n";
         
         # street
-        if(isset($meta_data['og-street']))
+        if(isset($meta_data['og-street']) && $meta_data['og-street'] != '')
             echo "\t<meta property=\"og:street-address\" content=\"".$meta_data['og-street']."\"/>\n";
         else if($option['street'])
             echo "\t<meta property=\"og:street-address\" content=\"".$option['street']."\"/>\n";
         
         # city
-        if(isset($meta_data['og-city']))
+        if(isset($meta_data['og-city']) && $meta_data['og-city'] != '')
             echo "\t<meta property=\"og:locality\" content=\"".$meta_data['og-city']."\"/>\n";
         else if($option['city'])
             echo "\t<meta property=\"og:locality\" content=\"".$option['city']."\"/>\n";
         
         # region
-        if(isset($meta_data['og-region']))
+        if(isset($meta_data['og-region']) && $meta_data['og-region'] != '')
             echo "\t<meta property=\"og:region\" content=\"".$meta_data['og-region']."\"/>\n";
         else if($option['region'])
             echo "\t<meta property=\"og:region\" content=\"".$option['region']."\"/>\n";
         
         # zip code
-        if(isset($meta_data['og-zip']))
+        if(isset($meta_data['og-zip']) && $meta_data['og-zip'] != '')
             echo "\t<meta property=\"og:postal-code\" content=\"".$meta_data['og-zip']."\"/>\n";
         else if($option['zip'])
             echo "\t<meta property=\"og:postal-code\" content=\"".$option['zip']."\"/>\n";
         
         #
-        if(isset($meta_data['og-country']))
+        if(isset($meta_data['og-country']) && $meta_data['og-country'] != '')
             echo "\t<meta property=\"og:country-name\" content=\"".$meta_data['og-country']."\"/>\n";
         else if($option['country'])
             echo "\t<meta property=\"og:country-name\" content=\"".$option['country']."\"/>\n";
