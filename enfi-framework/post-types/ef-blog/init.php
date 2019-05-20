@@ -35,7 +35,7 @@ $args = array(
     'label'               => __( 'Blog', 'enfi' ),
     'description'         => __( 'Blog', 'enfi' ),
     'labels'              => $labels,
-    'supports'            => array( 'title', 'editor', 'author', 'revisions', 'thumbnail'),
+    'supports'            => array( 'title', 'editor', 'author', 'revisions', 'thumbnail', 'comments'),
     'hierarchical'        => false,
     'public'              => true,
     'show_ui'             => true,
@@ -67,6 +67,7 @@ function ef_blog_register_sidebar() {
 	    'after_title'   => '</h4>',
     ) );
 }
+
 
 
 

@@ -265,7 +265,7 @@ function parseOptions($args) {
 
     } else if(isset( $args['post_types'])) {
         $post_types = get_post_types([ '_builtin' => false]);
-        $include = array('page');
+        $include = array('page', 'post');
         $exclude = array('wpcf7_contact_form', 'tribe-ea-record');
 
         if(isset($args['exclude_post_types']))

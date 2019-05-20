@@ -17,9 +17,10 @@
                 <div class="title"><h3><?php echo the_title(); ?></h3></div>
                 <div class="author-date"><span class="author"><?php the_author(); ?> | <span class="date"><?php echo get_the_date();?></div>
                 <div class="content"><?php echo the_excerpt(); ?></div>
-                <a href="<?php the_permalink(); ?>" class="read-more"><?php _e('read more', 'ef');?></a>
 
             </div>
+
+            <?php comments_template('', true); ?>
     
         <?php endwhile; ?>
 
@@ -27,7 +28,7 @@
             <?php get_template_part('templates/content/content-no-entries'); ?>
         <?php endif; ?>
 
-        <?php get_template_part('templates/content/content-pagination'); ?>
+        
 
     </div>
 

@@ -17,7 +17,7 @@
     <?php while ( have_posts() ) : the_post(); ?>
 
         <?php get_template_part('templates/content/content-simple'); ?>
-<?php comments_template(); ?>   
+        <?php comments_template(); ?>   
 
     <?php endwhile; ?>
 
