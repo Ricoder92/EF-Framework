@@ -4,8 +4,6 @@
 ### footer
 ##################################################################################################################################################
 
-ef_register_enqueue_css('footer', 'assets/css/header/footer.css');
-ef_register_enqueue_js('footer', 'assets/js/header/footer.js');
 
 ?>
 
@@ -41,3 +39,5 @@ ef_register_enqueue_js('footer', 'assets/js/header/footer.js');
 </body>
 
 </html>
+
+

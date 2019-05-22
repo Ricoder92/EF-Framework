@@ -19,7 +19,9 @@ class EF_Widget_Recent_Posts extends WP_Widget {
 	public function widget( $args, $instance ) {
 
         echo $args['before_widget'];
-        echo $args['before_title']. apply_filters( 'widget_title', $instance['title'] ) .$args['after_title'];
+		echo $args['before_title']. apply_filters( 'widget_title', $instance['title'] ) .$args['after_title'];
+		
+		echo $args['before_content'];
 		
         echo '<ul>';
         
@@ -42,10 +44,12 @@ class EF_Widget_Recent_Posts extends WP_Widget {
         $date_format = get_option( 'date_format' );
 
         foreach($recent_posts as $post) {
-            echo '<li><a href="'.get_the_permalink($post['ID']).'">'.$post['post_title'].'</a><br/><span class="date">'.get_the_date($post['post_date']).' - '.get_the_author_meta('display_name', $post["post_author"]).'</span></li>';
+            echo '<li><a href="'.get_the_permalink($post['ID']).'">'.$post['post_title'].'</a><br/><span class="date">'.get_the_date($post['post_date']).'</span></li>';
         }
 
 		echo '</ul>';
+
+		echo $args['after_content'];
 
         echo $args['after_widget'];
 	}

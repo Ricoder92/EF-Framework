@@ -18,7 +18,9 @@ class EF_Widget_Tagcloud extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
         echo $args['before_widget'];
-        echo $args['before_title']. apply_filters( 'widget_title', $instance['title'] ) .$args['after_title'];
+		echo $args['before_title']. apply_filters( 'widget_title', $instance['title'] ) .$args['after_title'];
+		
+		echo $args['before_content'];
 
         $terms = get_terms( array(
             'taxonomy' => $instance['taxonomy'],
@@ -31,7 +33,9 @@ class EF_Widget_Tagcloud extends WP_Widget {
         foreach($terms as $tag) {
             echo '<li class="term"><a href="'.get_term_link($tag).'">'.$tag->name.'</a></li>';
         }
-        echo "</ul>";
+		echo "</ul>";
+		
+		echo $args['after_content'];
 		
         echo $args['after_widget'];
 	}

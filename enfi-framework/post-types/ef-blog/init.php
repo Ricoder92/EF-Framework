@@ -15,19 +15,19 @@ Author: Enrico Fischer
 ##########################################################################################################################################################################
  
 $labels = array(
-    'name'                => 'Blog',
-    'singular_name'       => _x( 'Beitrag', 'Post Type Singular Name', 'enfi' ),
-    'menu_name'           => __( 'Blog', 'enfi' ),
-    'parent_item_colon'   => __( 'Parent-Post: ', 'enfi' ),
-    'all_items'           => __( 'All Posts', 'enfi' ),
-    'view_item'           => __( 'View Post', 'enfi' ),
-    'add_new_item'        => __( 'Add Post', 'enfi' ),
-    'add_new'             => __( 'New Post', 'enfi' ),
-    'edit_item'           => __( 'Edit Post', 'enfi' ),
-    'update_item'         => __( 'Update Post', 'enfi' ),
-    'search_items'        => __( 'Search Post', 'enfi' ),
-    'not_found'           => __( 'not found', 'enfi' ),
-    'not_found_in_trash'  => __( 'not found', 'enfi' ),
+    'name'                => __( 'Blog', 'ef' ),
+    'singular_name'       => __( 'Beitrag', 'ef' ),
+    'menu_name'           => __( 'Blog', 'ef' ),
+    'parent_item_colon'   => __( 'Parent-Post: ', 'ef' ),
+    'all_items'           => __( 'All Posts', 'ef' ),
+    'view_item'           => __( 'View Post', 'ef' ),
+    'add_new_item'        => __( 'Add Post', 'ef' ),
+    'add_new'             => __( 'New Post', 'ef' ),
+    'edit_item'           => __( 'Edit Post', 'ef' ),
+    'update_item'         => __( 'Update Post', 'ef' ),
+    'search_items'        => __( 'Search Post', 'ef' ),
+    'not_found'           => __( 'not found', 'ef' ),
+    'not_found_in_trash'  => __( 'not found', 'ef' ),
     
 );
     
@@ -54,9 +54,8 @@ $args = array(
 
 $blog = new EF_Post_Type_Create('ef-blog', $args);
 
-add_action( 'widgets_init', 'ef_blog_register_sidebar' );
+add_action( 'widgets_init', function() {
 
-function ef_blog_register_sidebar() {
     register_sidebar( array(
         'name' => __( 'Blog Sidebar', 'enfi' ),
         'id' => 'ef-blog-sidebar-1',
@@ -66,8 +65,8 @@ function ef_blog_register_sidebar() {
 	    'before_title'  => '<h4>',
 	    'after_title'   => '</h4>',
     ) );
-}
 
+} );
 
 
 

@@ -20,6 +20,8 @@ class EF_Widget_Categories extends WP_Widget {
         echo $args['before_widget'];
         echo $args['before_title']. apply_filters( 'widget_title', $instance['title'] ) .$args['after_title'];
 
+		echo $args['before_content'];
+
         $terms = get_terms( array(
             'taxonomy' => $instance['category'],
             'hide_empty' => true,
@@ -32,7 +34,9 @@ class EF_Widget_Categories extends WP_Widget {
         foreach($terms as $tag) {
             echo '<li class="term"><a href="'.get_term_link($tag).'">'.$tag->name.' ('.$tag->count.')</a></li>';
         }
-        echo "</ul>";
+		echo "</ul>";
+		
+		echo $args['after_content'];
 		
         echo $args['after_widget'];
 	}

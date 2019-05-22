@@ -39,11 +39,11 @@ class EF_Framework {
         # require some ef stuff
         require_once get_template_directory().'/core/ef-functions.php';
 
-        require_once get_template_directory().'/core/inc/ef-settings-page.php';
-        require_once get_template_directory().'/core/inc/ef-meta-box.php';
-        require_once get_template_directory().'/core/inc/ef-post-type.php';
-        require_once get_template_directory().'/core/inc/ef-taxonomy.php';
-        require_once get_template_directory().'/core/inc/ef-navigation.php';
+        require_once get_template_directory().'/core/inc/class-ef-settings-page.php';
+        require_once get_template_directory().'/core/inc/class-ef-meta-box.php';
+        require_once get_template_directory().'/core/inc/class-ef-post-type.php';
+        require_once get_template_directory().'/core/inc/class-ef-taxonomy.php';
+        require_once get_template_directory().'/core/inc/class-ef-navigation.php';
 
         require_once get_template_directory().'/core/ef-styles-scripts.php';
         require_once get_template_directory().'/core/ef-layout.php';
@@ -55,6 +55,7 @@ class EF_Framework {
         require_once get_template_directory().'/core/ef-social-media.php';
         require_once get_template_directory().'/core/ef-blocks.php';
         require_once get_template_directory().'/core/ef-cookie-law.php';
+        require_once get_template_directory().'/core/ef-cover.php';
 
     }
 
@@ -106,7 +107,7 @@ class EF_Framework {
         echo '<div class="ef-admin-page-content">';
             echo '<div class="container-fluid">';
                 echo '<div class="row">';
-                        do_action('ef-admin-navigation-main-page');
+                    do_action('ef-admin-navigation-main-page');
                 echo '</div>';   
             echo '</div>';
         echo '</div>';
@@ -184,6 +185,19 @@ class EF_Framework {
             'after_widget'  => '</div>',
             'before_title'  => '<span style="display:none;">',
             'after_title'   => '</span>',
+        ));
+
+        # post 
+        register_sidebar( array(
+            'name'          => __('Post Sidebar', 'ef'),
+            'id'            => 'post-archive-sidebar',
+            'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.','ef'),
+            'before_widget' => '<div class="widget-container">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<div class="title"><h4>',
+            'after_title'   => '</h4></div>',
+            'before_content'  => '<div class="content">',
+            'after_content'   => '</div>',
         ));
 
         # remove auto <p> tags in widgets

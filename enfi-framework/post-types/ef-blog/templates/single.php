@@ -33,10 +33,10 @@
     </div>
 
     <div class="col-lg-4">
-                    <?php if ( is_active_sidebar( 'ef-blog-sidebar-1' ) ) { ?>
-                        <?php dynamic_sidebar( 'ef-blog-sidebar-1' ); ?>
-                    <?php } ?>
-                </div>
+        <?php if ( is_active_sidebar( 'ef-blog-sidebar-1' ) ) { ?>
+            <?php dynamic_sidebar( 'ef-blog-sidebar-1' ); ?>
+        <?php } ?>
+    </div>
 
     <?php get_template_part('templates/content/content-after'); ?>
 

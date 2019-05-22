@@ -4,16 +4,16 @@
 ### module handler
 ##################################################################################################################################################
 
-$plugins_page = new EF_Settings_Page('modules', __('Manage modules', 'ef'), __('Manage modules', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'modules', 'fa-puzzle-piece', 9);
-$plugins_page->addContent('plugins_render');
+$modules_page = new EF_Settings_Page('modules', __('Manage modules', 'ef'), __('Manage modules', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'modules', 'fa-puzzle-piece', 9);
+$modules_page->addContent('modules_render');
 
-function plugins_render() {
+function modules_render() {
 
-    $plugins_path_child =  get_stylesheet_directory().'/plugins';
-    $plugins_path =  get_template_directory().'/plugins';
+    $modules_path_child =  get_stylesheet_directory().'/modules';
+    $modules_path =  get_template_directory().'/modules';
 
-    $option = ef_get_option('layout');
-    $name = ef_get_child_name('layout');
+    $option = ef_get_option('modules');
+    $name = ef_get_child_name('modules');
 
     echo '<table class="ef-admin-table">';
 
@@ -25,7 +25,7 @@ function plugins_render() {
 
         
     
-    foreach(glob($plugins_path.'/*/init.php') as $file){
+    foreach(glob($modules_path.'/*/init.php') as $file){
            
         $filedata = get_file_data($file, array(
             'name' => 'Name',
@@ -53,7 +53,7 @@ function plugins_render() {
     }
 
     if(is_child_theme()) 
-        foreach(glob($plugins_path_child.'/*/init.php') as $file){
+        foreach(glob($modules_path_child.'/*/init.php') as $file){
            
             $filedata = get_file_data($file, array(
                 'name' => 'Name',
@@ -92,8 +92,8 @@ $active_modules = ef_get_option('modules');
 
 if($active_modules) {
     foreach($active_modules as $key => $module) {
-        if(file_exists(get_template_directory().'/plugins/'.$key.'/init.php'))
-            require_once get_template_directory().'/plugins/'.$key.'/init.php';
+        if(file_exists(get_template_directory().'/modules/'.$key.'/init.php'))
+            require_once get_template_directory().'/modules/'.$key.'/init.php';
     }
 }
 

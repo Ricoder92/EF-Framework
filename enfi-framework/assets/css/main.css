@@ -1,9 +1,14 @@
+/* body */
+
 body {
     font-display: initial;
     margin: 0;
     padding: 0;
     color: rgba(0, 0, 0, 0.8);
 }
+
+
+/* links */
 
 a {
     text-decoration: none;
@@ -14,6 +19,9 @@ a:hover {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.8);
 }
+
+
+/* buttons */
 
 button,
 .btn {
@@ -61,6 +69,25 @@ button:focus .btn:active,
     outline: none;
 }
 
+
+/* cover */
+
+.content-cover {
+    background: rgba(0, 0, 0, 0.6);
+    height: 400px;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.content-cover h1 {
+    color: white;
+}
+
+
+/* title */
+
 .content-title {
     background: rgba(0, 0, 0, 0.6);
     margin-bottom: 40px;
@@ -72,39 +99,25 @@ button:focus .btn:active,
     color: white;
 }
 
+
+/* post */
+
 .content-post {
-    margin: 0px 0px 80px 0;
+    padding: 80px 0;
+}
+
+.content-post-grey {
+    padding: 80px 0;
+    background: #f1f1f1;
 }
 
 .content-post-404 {
-    margin: 80px 0;
+    padding: 80px 0;
 }
 
-
-/* remove outlints from inputs */
-
-textarea:focus,
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus,
-.uneditable-input:focus {
-    outline: 0;
-    box-shadow: none;
+.content-post-no-post {
+    padding: 80px 0;
 }
-
-
-/* post content stuff */
 
 .post-content {}
 
@@ -165,13 +178,6 @@ input[type="color"]:focus,
     margin-bottom: 40px;
 }
 
-.no-entries {
-    position: relative;
-    text-align: center;
-    padding: 60px;
-    height: 600px;
-}
-
 .pagination {
     display: table;
     width: 100%;
@@ -217,7 +223,7 @@ input[type="color"]:focus,
 
 .widget-container ul li .date {
     font-size: 0.7rem;
-    background-color: rgba(0, 0, 0, 0.33);
+    color: rgba(0, 0, 0, 0.33);
 }
 
 .widget-tagcloud {
@@ -255,4 +261,42 @@ input[type="color"]:focus,
 
 .widget-tagcloud li:last-child {
     border-bottom: 0;
+}
+
+.blog-item {
+    margin-bottom: 40px;
+    padding: 40px;
+    background: white;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.blog-item .title {
+    font-size: 0.8rem;
+    color: rgba(0, 0 0, 0.4);
+}
+
+.blog-item .author-date {
+    font-size: 0.8rem;
+    color: rgba(0, 0 0, 0.4);
+    margin-top: 10px;
+}
+
+.blog-item .content {
+    margin-top: 10px;
+}
+
+.blog-item .read-more {
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 1);
+    color: black;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    margin-top: 10px;
+}
+
+.blog-item .read-more:hover {
+    background-color: black;
+    color: white;
+    transition: 200ms;
 }
