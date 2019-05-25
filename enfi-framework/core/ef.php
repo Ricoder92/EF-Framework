@@ -28,13 +28,16 @@ class EF_Framework {
         # adminbar link hook
         add_action('admin_bar_menu', array(&$this, 'admin_bar_link'), 100);
 
+        # remove wp embed
+        add_action( 'init', array(&$this, 'ef_remove_wp_embed'), 9999 );
+
         # remove rss
-        add_action('wp_head', array(&$this, 'ef_head'), -9999);
+        add_action('wp_head', array(&$this, 'ef_head'), -1);
         remove_action('wp_head', 'rsd_link');
         remove_action('wp_head', 'wlwmanifest_link');
 
         # global header stuff (except titletag)
-        add_action( 'wp_head', array(&$this, 'global_header'), -999 );
+        add_action( 'wp_head', array(&$this, 'global_header') ,-1);
       
         # require some ef stuff
         require_once get_template_directory().'/core/ef-functions.php';
@@ -48,8 +51,8 @@ class EF_Framework {
         require_once get_template_directory().'/core/ef-styles-scripts.php';
         require_once get_template_directory().'/core/ef-layout.php';
         require_once get_template_directory().'/core/ef-debug.php';
-        require_once get_template_directory().'/core/ef-google-api.php';
         require_once get_template_directory().'/core/ef-loader.php';
+        require_once get_template_directory().'/core/ef-google-api.php';
         require_once get_template_directory().'/core/ef-modules.php';
         require_once get_template_directory().'/core/ef-seo.php';
         require_once get_template_directory().'/core/ef-social-media.php';
@@ -61,7 +64,6 @@ class EF_Framework {
 
     # ef head
     function ef_head() {
-
         echo "\n\t<!--#################################################################\n";
         echo "\t\tpowered by EF Framework\n";
         echo "\t\tcreated by Enrico Fischer - Halle(Saale)\n";
@@ -151,6 +153,32 @@ class EF_Framework {
     
     }
 
+    function ef_remove_wp_embed() {
+
+        // Remove the REST API endpoint.
+        remove_action( 'rest_api_init', 'wp_oembed_register_route' );
+
+        // Turn off oEmbed auto discovery.
+        add_filter( 'embed_oembed_discover', '__return_false' );
+
+        // Don't filter oEmbed results.
+        remove_filter( 'oembed_dataparse', 'wp_filter_oembed_result', 10 );
+
+        // Remove oEmbed discovery links.
+        remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+
+        // Remove oEmbed-specific JavaScript from the front-end and back-end.
+        remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+        add_filter( 'tiny_mce_plugins', array(&$this, 'disable_embeds_tiny_mce_plugin'));
+
+        // Remove all embeds rewrite rules.
+        add_filter( 'rewrite_rules_array', array(&$this, 'disable_embeds_rewrites'));
+
+        // Remove filter of the oEmbed result before any HTTP requests are made.
+        remove_filter( 'pre_oembed_result', 'wp_filter_pre_oembed_result', 10 );
+
+    }
+
     # register widget areas
     function register_widgets() {
     
@@ -209,28 +237,31 @@ class EF_Framework {
         # meta tags
         ef_html_comment('Metatags');
         echo "\t<meta charset=\"UTF-8\" />\n";
-
-        if(is_single() || is_page())
-            echo "\t<meta name=\"url\" content=\"".get_the_permalink()."\">\n";
+        
+        # set url
+        if (is_category())
+        $url = get_category_link(get_query_var('cat'));
+        else if (is_tag())
+        $url = get_tag_link(get_queried_object()->term_id);
+        else if(is_single() || is_page())
+        $url = get_the_permalink();
         else if(is_archive() && !is_tax())
-            echo "\t<meta name=\"url\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\">\n";
-        else if (is_tax()) {
+        $url = get_post_type_archive_link(get_query_var( 'post_type' ));
+        else if(is_tax()) {
             global $wp_query;
-            $term = $wp_query->get_queried_object();
-            echo "\t<meta name=\"url\" content=\"".get_term_link($term)."\">\n";
+            $url = get_term_link($wp_query->get_queried_object());
         }
+        else if(is_home())
+            $url = get_post_type_archive_link('post');
+        else if(is_front_page())
+            $url = site_url();
+        else if(is_404())
+            $url = site_url();
+         
+        # print url
+        echo "\t<meta name=\"URL\" content=\"".$url."\">\n";
+        echo "\t<meta name=\"identifier-URL\" content=\"".$url."\">\n";
            
-        # URL
-        if(is_single() || is_page())
-            echo "\t<meta name=\"identifier-URL\" content=\"".get_the_permalink()."\">\n";
-        else if(is_archive() && !is_tax())
-            echo "\t<meta name=\"identifier-URL\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\">\n";
-        else if (is_tax()) {
-            global $wp_query;
-            $term = $wp_query->get_queried_object();
-            echo "\t<meta name=\"identifier-URL\" content=\"".get_term_link($term)."\">\n";
-        }
-
         # viewport
         echo "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n";
 
@@ -266,6 +297,19 @@ class EF_Framework {
         if($icon_url != null) {
             echo "\t<link rel=\"shortcut icon\" href=\"".$icon_url."\" />\n";
         }
+    }
+
+    function disable_embeds_tiny_mce_plugin($plugins) {
+        return array_diff($plugins, array('wpembed'));
+    }
+    
+    function disable_embeds_rewrites($rules) {
+        foreach($rules as $rule => $rewrite) {
+            if(false !== strpos($rewrite, 'embed=true')) {
+                unset($rules[$rule]);
+            }
+        }
+        return $rules;
     }
 
 }

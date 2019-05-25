@@ -79,70 +79,68 @@ function enqueue_styles_and_scripts() {
         wp_deregister_script( 'jquery' );
 
         # jQuery
-        wp_register_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js', '', '', false);
+        wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.4.1.min.js', '', '', true);
         wp_enqueue_script( 'jquery' );
 
         # jQuery UI
-        wp_register_script( 'jqueryUI',  'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js', array( 'jquery' ), '', false);
+        wp_register_script( 'jqueryUI',  'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js', array( 'jquery' ),'', true);
         wp_enqueue_script( 'jqueryUI' );
-
-        # google Font
-        $option = ef_get_option('google-api');
-        $fonts = $option['google-fonts'];
-
-        
-        if($fonts) {
-            $fonts_arr = implode($fonts, '|');
-            wp_register_style('google-font-1', 'https://fonts.googleapis.com/css?family='.$fonts_arr);
-            wp_enqueue_style( 'google-font-1' );
-        }
 
         # fontawesome
         wp_register_style('fontawesome', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
         wp_enqueue_style( 'fontawesome' );
 
-        # bootstrap CSS Grid
-        wp_register_style('bootstrapCSS', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css');
-        wp_enqueue_style( 'bootstrapCSS' );
-
         # animation on scroll
         wp_register_style('aos', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css');
         wp_enqueue_style( 'aos' );
-
-        # theme JS
-        wp_register_script('aos', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js', array( 'jquery', 'main' ),'', false);
+        wp_register_script('aos', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js', array( 'jquery', 'main' ));
         wp_enqueue_script( 'aos' );
 
+        # bootstrap CSS Grid
+        wp_register_style('bootstrapCSS', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css');
+        wp_enqueue_style( 'bootstrapCSS' );
+  
         # bootstrap
-        wp_register_script( 'bootstrapJS', get_template_directory_uri().'/assets/thirdparty/bootstrap/bootstrap.min.js', '', '', false);
+        wp_register_script( 'bootstrapJS', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js');
+
+
+
         wp_enqueue_script( 'bootstrapJS' );
 
-        # theme JS
-        wp_register_script('main', get_template_directory_uri().'/assets/js/themeJS.js', array( 'jquery' ), '', false);
-        wp_enqueue_script( 'main' );
+        # theme CSS and JS
+        wp_register_style('mainCSS', get_template_directory_uri().'/style.css');
+        wp_register_script('mainJS', get_template_directory_uri().'/assets/js/themeJS.js', array( 'jquery' ), '', true);
 
         # theme CSS
         $option = ef_get_option('styles-scripts');
-
-        wp_register_style('main', get_template_directory_uri().'/style.css');
-
+       
         if(is_child_theme()) {
-            wp_register_style('main-child', get_stylesheet_directory_uri().'/style.css');
-            wp_enqueue_style( 'main-child' );
-            
-            $child_theme = get_stylesheet();
-            $option = get_option('styles-scripts-'.$child_theme);
-            
-            if(isset($option['use-parent-style']))
-            wp_enqueue_style( 'main' );
-            
-        } else {
-            wp_enqueue_style( 'main' );
+            wp_register_script('mainJS-child', get_stylesheet_directory_uri().'/assets/js/themeJS.js', array( 'jquery' ), '', true);
+            wp_enqueue_script( 'mainJS-child' );
+
+            if(isset($option['use-parent-js'])) {
+                wp_enqueue_script( 'mainJS' );
+            }
+
+        } else  {
+            wp_enqueue_script( 'mainJS' );
         }
         
+        if(is_child_theme()) {
+            wp_register_style('mainCSS-child', get_stylesheet_directory_uri().'/style.css');
+            wp_enqueue_style( 'mainCSS-child' );
+
+            if(isset($option['use-parent-style'])) {
+                wp_enqueue_style( 'mainCSS' );
+            }
+            
+        } else {
+            wp_enqueue_style( 'mainCSS' );
+        }
     }
 }
-add_action('wp_enqueue_scripts', 'enqueue_styles_and_scripts');
+
+add_action('wp_enqueue_scripts', 'enqueue_styles_and_scripts', 1);
 
 ################################################################################################################################################## 
 ### backend
@@ -188,7 +186,6 @@ function enqueue_admin_styles_and_scripts() {
 
 }
 add_action( 'admin_enqueue_scripts', 'enqueue_admin_styles_and_scripts'); 
-
 
 ################################################################################################################################################## 
 ### prettifier script tags
@@ -236,10 +233,6 @@ function prettifier_scripts_comment_footer() {
     ef_html_comment('Scripts');
 }
 add_filter('wp_print_footer_scripts', 'prettifier_scripts_comment_footer', 0);
-
-
-
-
 
 
 ?>

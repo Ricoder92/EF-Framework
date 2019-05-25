@@ -176,51 +176,43 @@ function seo_add_wp_head() {
         if(isset($meta_data['seo-no-index']))
            echo "\t<meta name=\"robots\" content=\"noindex,nofollow\">\n";
 
-
         foreach($meta_tags as $meta_tag) {
 
-                if(isset($meta_data['seo-'.$meta_tag]))
-                    $meta = $meta_data['seo-'.$meta_tag];
-                else    
-                    $meta = null;
+            if(isset($meta_data['seo-'.$meta_tag]))
+                $meta = $meta_data['seo-'.$meta_tag];
+            else    
+                $meta = null;
 
-                $options = $option['global-'.$meta_tag];
+            $options = $option['global-'.$meta_tag];
 
-                if(!(is_array($meta_disable_seo_meta) && array_key_exists($meta_tag, $meta_disable_seo_meta)) ) {
+            if(!(is_array($meta_disable_seo_meta) && array_key_exists($meta_tag, $meta_disable_seo_meta)) ) {
 
-                    if(!(is_array($global_disable_seo_meta) && array_key_exists($meta_tag, $global_disable_seo_meta)) ) {
+                if(!(is_array($global_disable_seo_meta) && array_key_exists($meta_tag, $global_disable_seo_meta)) ) {
 
-                        if($meta_tag == 'keywords') {
+                    if($meta_tag == 'keywords') {
 
-                            if($meta != "" && $options != "")
-                                $meta .= ', '.$options;
+                        if($meta != "" && $options != "")
+                            $meta .= ', '.$options;
 
-                            if(isset($meta)) 
-                                echo "\t<meta name=\"keywords\" content=\"".$meta."\"/>\n";
-                            else if($options)
-                                echo "\t<meta name=\"keywords\" content=\"".$options."\"/>\n";
+                        if(isset($meta)) 
+                            echo "\t<meta name=\"keywords\" content=\"".$meta."\"/>\n";
+                        else if($options)
+                            echo "\t<meta name=\"keywords\" content=\"".$options."\"/>\n";
 
-                        } else {
+                    } else {
 
-                            if($meta)
-                                echo "\t<meta name=\"".$meta_tag."\" content=\"".$meta."\"/>\n";
-                            else if($options)
-                                echo "\t<meta name=\"".$meta_tag."\" content=\"".$options."\"/>\n";
-                        }
-
+                        if($meta)
+                            echo "\t<meta name=\"".$meta_tag."\" content=\"".$meta."\"/>\n";
+                        else if($options)
+                            echo "\t<meta name=\"".$meta_tag."\" content=\"".$options."\"/>\n";
                     }
-
-                
-
+                }
             }
-         
         }
-
     }
-
 }
 
-add_action('wp_head', 'seo_add_wp_head', -998);
+add_action('wp_head', 'seo_add_wp_head', -1);
 
 
 ################################################################################################################################################## 
@@ -230,17 +222,26 @@ add_action('wp_head', 'seo_add_wp_head', -998);
 function wpdocs_filter_wp_title( $title, $sep ) {
     global $paged, $page;
  
-    if( is_front_page() || is_home()) 
-        return get_bloginfo('name');
-
-    if(is_archive() && !is_tax())
-        return post_type_archive_title('', true).' '.$sep.' ';
-
-    if(is_tax()) {
+    if (is_category()) {
+        $category = get_category(get_query_var('cat'));
+        $cat_id = $category->cat_ID;
+        return get_cat_name($cat_id).' '.$sep.' ';
+    } else if (is_tag()) {
         global $wp_query;
         $term = $wp_query->get_queried_object();
         return $term->name.' '.$sep.' ';
-    }
+    } else if(is_single() || is_page()) {
+       return get_the_title().' '.$sep.' ';
+   } else if(is_archive() && !is_tax()) {
+        return post_type_archive_title('', true).' '.$sep.' ';
+    } else if(is_tax()) {
+        global $wp_query;
+        $term = $wp_query->get_queried_object();
+        return $term->name.' '.$sep.' ';
+    } else if(is_home())
+        return get_bloginfo('name');
+    else if(is_front_page())
+        return get_bloginfo('name');
 
     ## get post meta
     $meta_data = get_post_meta(get_the_id(), 'seo-meta-data', true);
@@ -256,7 +257,7 @@ function wpdocs_filter_wp_title( $title, $sep ) {
     }
  
 }
-add_filter( 'wp_title', 'wpdocs_filter_wp_title', 10, 2 );
+#add_filter( 'wp_title', 'wpdocs_filter_wp_title', 10, 2 );
 
 
 ?>

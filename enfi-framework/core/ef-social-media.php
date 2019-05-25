@@ -110,9 +110,26 @@ function sm_add_wp_head() {
         # post title
         if(isset($meta_data['og-title']) && $meta_data['og-title'] != '')
             echo "\t<meta property=\"og:title\" content=\"".$meta_data['og-title']."\"/>\n";
-        else {
-            echo "\t<meta property=\"og:title\" content=\"".get_the_title()."\"/>\n";
+        else if (is_category()) {
+            $category = get_category(get_query_var('cat'));
+            $cat_id = $category->cat_ID;
+            echo "\t<meta property=\"og:title\" content=\"".get_cat_name($cat_id)."\">\n";
         }
+        else if (is_tag()) {
+            global $wp_query;
+            $term = $wp_query->get_queried_object();
+            echo "\t<meta property=\"og:title\" content=\"".$term->name."\">\n";
+        }
+        else if(is_single() || is_page())
+            echo "\t<meta property=\"og:title\" content=\"".get_the_title()."\">\n";
+        else if(is_archive() && !is_tax())
+            echo "\t<meta property=\"og:title\" content=\"".post_type_archive_title()."\">\n";
+        else if(is_tax()) 
+            echo "\t<meta property=\"og:title\" content=\"".post_type_archive_title()."\">\n";
+        else if(is_home())
+            echo "\t<meta property=\"og:title\" content=\"".get_bloginfo('name')."\">\n";
+        else if(is_front_page())
+            echo "\t<meta property=\"og:title\" content=\"".get_bloginfo('name')."\">\n";
 
         # site name
         if(isset($meta_data['og-site-name']) && $meta_data['og-site-name'] != '')
@@ -166,10 +183,20 @@ function sm_add_wp_head() {
         }
 
         # url
-        if(is_single())
-            echo "\t<meta property=\"og:url\" content=\"".get_the_permalink()."\"/>\n";
-        else if(is_archive() || is_tax())
-            echo "\t<meta property=\"og:url\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\"/>\n";
+        if (is_category()) 
+            echo "\t<meta property=\"og:url\" content=\"".get_category_link(get_query_var('cat'))."\">\n";
+        else if (is_tag()) 
+            echo "\t<meta property=\"og:url\" content=\"".get_tag_link(get_queried_object()->term_id)."\">\n";
+        else if(is_single() || is_page())
+            echo "\t<meta property=\"og:url\" content=\"".get_the_permalink()."\">\n";
+        else if(is_archive() && !is_tax())
+            echo "\t<meta property=\"og:url\" content=\"".get_post_type_archive_link(get_query_var( 'post_type' ))."\">\n";
+        else if(is_tax()) 
+            echo "\t<meta property=\"og:url\" content=\"".get_term_link($wp_query->get_queried_object())."\">\n";
+        else if(is_home())
+            echo "\t<meta property=\"og:url\" content=\"".get_post_type_archive_link('post')."\">\n";
+        else if(is_frontpage())
+            echo "\t<meta property=\"og:url\" content=\"".site_url()."\">\n";
 
         # latitude
         if(isset($meta_data['og-latitude']) && $meta_data['og-latitude'] != '')
@@ -218,7 +245,7 @@ function sm_add_wp_head() {
     echo "\n";
         
 }
-add_action('wp_head', 'sm_add_wp_head', -997);
+add_action('wp_head', 'sm_add_wp_head', -1);
 
 # check if for post type enable
 function sm_check_post_type_enable() {

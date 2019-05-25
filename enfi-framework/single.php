@@ -31,7 +31,7 @@ if(is_child_theme()) {
 
     else    
 
-        $path = get_template_directory().'/templates/post-types/post/'.$suffix.'.php';
+        $path = get_template_directory().'/'.$suffix.'-post.php';
 
 } else {
 
@@ -45,7 +45,7 @@ if(is_child_theme()) {
 
     else    
 
-        $path = get_template_directory().'/templates/post-types/post/'.$suffix.'.php';
+        $path = get_template_directory().'/'.$suffix.'-post.php';
 
 }
 

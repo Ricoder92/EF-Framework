@@ -19,14 +19,14 @@
     <?php get_template_part('templates/content/content', 'loop'); ?>  
 
     <?php endwhile; ?>
-    
+
+    <?php wp_reset_postdata(); ?>
+
 <?php else : ?>
 
     <?php get_template_part('templates/content/content', 'no-post'); ?>  
 
 <?php endif; ?>
-
-<?php wp_reset_postdata(); ?>
 
 <?php get_template_part('templates/content/content', 'after'); ?>  
 

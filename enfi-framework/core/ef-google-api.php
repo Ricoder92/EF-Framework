@@ -21,5 +21,23 @@ $google_analytics_page->addSection('google-fonts', __('Google Analytics', 'ef'))
 
 $google_analytics_page->setDefaultValues();
 
+################################################################################################################################################## 
+### add google fonts
+##################################################################################################################################################
+
+add_action('wp_enqueue_scripts', function() {
+
+    # google Font
+    $option = ef_get_option('google-api');
+    $fonts = $option['google-fonts'];
+
+    if($fonts) {
+        $fonts_arr = implode($fonts, '|');
+        wp_register_style('google-font-1', 'https://fonts.googleapis.com/css?family='.$fonts_arr);
+        wp_enqueue_style( 'google-font-1' );
+    }
+            
+})
+
 
 ?>
