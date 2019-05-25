@@ -33,7 +33,7 @@ add_action('wp_enqueue_scripts', function() {
 
     if($fonts) {
         $fonts_arr = implode($fonts, '|');
-        wp_register_style('google-font-1', 'https://fonts.googleapis.com/css?family='.$fonts_arr);
+        wp_register_style('google-font-1', 'https://fonts.googleapis.com/css?family='.$fonts_arr.'&display=swap');
         wp_enqueue_style( 'google-font-1' );
     }
             
