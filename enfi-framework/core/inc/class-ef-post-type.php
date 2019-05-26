@@ -154,7 +154,7 @@ class EF_Post_Type_Create {
 ### settings page
 ##################################################################################################################################################
 
-$plugins_page = new EF_Settings_Page('post-types', __('Manage pPost types', 'ef'), __('Manage post types', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'post-types', 'fa-puzzle-piece', 9);
+$plugins_page = new EF_Settings_Page('ef-post-types', __('Post Types', 'ef'), __('Post Types', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'post-types', 'fa-puzzle-piece', 9);
 $plugins_page->addContent('post_types_render');
 
 # post type list 
@@ -163,8 +163,8 @@ function post_types_render() {
     $plugins_path_child =  get_stylesheet_directory().'/post-types';
     $plugins_path =  get_template_directory().'/post-types';
 
-    $option = ef_get_option('post-types');
-    $name = ef_get_child_name('post-types');
+    $option = ef_get_option('ef-post-types');
+    $name = ef_get_child_name('ef-post-types');
 
     # post type table
     echo '<table class="ef-admin-table">';
@@ -239,7 +239,7 @@ function post_types_render() {
 ### load all active post types
 ##################################################################################################################################################
 
-$active_post_types = ef_get_option('post-types');
+$active_post_types = ef_get_option('ef-post-types');
 
 if($active_post_types) {
     foreach($active_post_types as $key => $module) {

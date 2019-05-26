@@ -5,7 +5,7 @@
 ##################################################################################################################################################
 
 
-$cover = new EF_Settings_Page('ef-cover', __('Cover', 'ef'), __('Cover', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'layout', '', 0);
+$cover = new EF_Settings_Page('ef-cover', __('Cover', 'ef'), __('Cover', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'layout', '', 7);
 
 $cover->addSection('settings', __('Settings', 'ef'));
 $cover->addField('settings', 'enable-post-types', __('Post Types', 'ef'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));

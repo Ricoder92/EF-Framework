@@ -43,12 +43,12 @@ $title_style = array(
 $seo_page = new EF_Settings_Page('ef-seo', __('Search Engine Optimization', 'ef'), __('Search Engine Optimization', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-search-dollar', 2);
 
 ## settinfs for post type and other stuff
-$seo_page->addSection('settings', __('Search Machine Optimization', 'ef'));
+$seo_page->addSection('settings', __('Search Engine Optimization', 'ef'));
 $seo_page->addField('settings', 'post-types', __('Post Types', 'ef'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
 $seo_page->addField('settings', 'no-index', __('No-Index', 'ef'), null, 'checkbox', null, array('checkboxText' => __('No-Index', 'ef')));
 
 ## global meta tags
-$seo_page->addSection('seo-tags', __('Search Machine Optimization', 'ef'));
+$seo_page->addSection('seo-tags', __('Search Engine Optimization', 'ef'));
 $seo_page->addField('seo-tags', 'global-title-seperator', __('Title Seperator', 'ef'), null, 'button-group', '|', array( 'options' => $title_seperators ));
 $seo_page->addField('seo-tags', 'global-title-style', __('Title Seperator', 'ef'), null, 'button-group', 'left', array( 'options' => $title_style ));
 $seo_page->addField('seo-tags', 'global-keywords', __('Keywords', 'ef'), null, 'text', null);

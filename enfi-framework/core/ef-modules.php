@@ -4,7 +4,7 @@
 ### module handler
 ##################################################################################################################################################
 
-$modules_page = new EF_Settings_Page('ef-modules', __('Manage modules', 'ef'), __('Manage modules', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'modules', 'fa-puzzle-piece', 9);
+$modules_page = new EF_Settings_Page('ef-modules', __('Modules', 'ef'), __('Modules', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'modules', 'fa-puzzle-piece', 9);
 $modules_page->addContent('modules_render');
 
 function modules_render() {

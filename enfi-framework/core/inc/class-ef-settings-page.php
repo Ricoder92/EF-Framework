@@ -65,7 +65,7 @@ class EF_Settings_Page {
 
         add_action('ef-admin-navigation-'.$this->menu, function() {
         
-            echo '<li><a href="'.admin_url('/admin.php?page='.$this->slug).'"><i class="icon fas '.$this->icon.' fa-1x"></i>'.$this->menuName.'</a></li>';
+            echo '<li><a href="'.admin_url('/admin.php?page='.$this->slug).'"><i class="icon fas '.$this->icon.' fa-1x"></i>'.__($this->menuName, 'ef').'</a></li>';
 
         }, $this->prio);
 
@@ -75,8 +75,8 @@ class EF_Settings_Page {
         
             echo '<div class="col-lg-3 col-md-6">';
                 echo '<div onclick="location.href=\''.$url.'\';" class="ef-admin-navigation-main-page-card">';
-                    echo '<div align="center"><i class="icon fas '.$this->icon.' fa-2x"></i><br/><h3> '.$this->menuName.'</h3></div>';
-                    echo '<p>'.$this->description.'</p>';
+                    echo '<div align="center"><i class="icon fas '.$this->icon.' fa-2x"></i><br/><h3> '.__($this->menuName, 'ef').'</h3></div>';
+                    echo '<p>'.__($this->description, 'ef').'</p>';
                 echo '</div>';
             echo '</div>';
 
@@ -89,7 +89,7 @@ class EF_Settings_Page {
             global $wp_admin_bar;
         
             $menu_id = 'ef-framework';
-            $wp_admin_bar->add_menu(array('parent' => $menu_id, 'title' =>  $this->menuName, 'id' =>  $this->slug, 'href' => '/wp-admin/admin.php?page='.$this->slug));
+            $wp_admin_bar->add_menu(array('parent' => $menu_id, 'title' =>  __($this->menuName, 'ef'), 'id' =>  $this->slug, 'href' => '/wp-admin/admin.php?page='.$this->slug));
         
         }, $this->prio);
       
