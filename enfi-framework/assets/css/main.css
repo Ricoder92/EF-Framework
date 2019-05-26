@@ -1,14 +1,13 @@
 /* body */
 
 body {
-    font-display: initial;
     margin: 0;
     padding: 0;
     color: rgba(0, 0, 0, 0.8);
 }
 
 
-/* links */
+/* anchor */
 
 a {
     text-decoration: none;
@@ -263,29 +262,29 @@ button:focus .btn:active,
     border-bottom: 0;
 }
 
-.blog-item {
+.post-item {
     margin-bottom: 40px;
     padding: 40px;
     background: white;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
 }
 
-.blog-item .title {
+.post-item .title {
     font-size: 0.8rem;
     color: rgba(0, 0 0, 0.4);
 }
 
-.blog-item .author-date {
+.post-item .author-date {
     font-size: 0.8rem;
     color: rgba(0, 0 0, 0.4);
     margin-top: 10px;
 }
 
-.blog-item .content {
+.post-item .content {
     margin-top: 10px;
 }
 
-.blog-item .read-more {
+.post-item .read-more {
     display: inline-block;
     border: 1px solid rgba(0, 0, 0, 1);
     color: black;
@@ -295,7 +294,7 @@ button:focus .btn:active,
     margin-top: 10px;
 }
 
-.blog-item .read-more:hover {
+.post-item .read-more:hover {
     background-color: black;
     color: white;
     transition: 200ms;

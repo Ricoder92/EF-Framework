@@ -101,7 +101,7 @@ function enqueue_styles_and_scripts() {
         wp_enqueue_style( 'bootstrapCSS' );
   
         # bootstrap
-        wp_register_script( 'bootstrapJS', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js');
+        wp_register_script( 'bootstrapJS', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js', array('jquery'));
 
 
 
