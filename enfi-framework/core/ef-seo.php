@@ -5,7 +5,7 @@
 ##################################################################################################################################################
 
 ## get post meta
-$meta_data = get_post_meta(get_the_id(), 'seo-meta-data', true);
+$meta_data = get_post_meta(get_the_id(), 'ef-seo-meta-data', true);
 
 ## if null, set to empty array
 if(!is_array($meta_data))
@@ -17,8 +17,8 @@ $disable_meta_tags = array(
     array( 'key' => 'description' ,'text' =>  __('Description', 'ef'), 'value' => true),
     array( 'key' => 'keywords' ,'text' =>  __('Keywords', 'ef'), 'value' => true),
     array( 'key' => 'topic' ,'text' =>  __('Topic', 'ef'), 'value' => true),
-    array( 'key' => 'web-author' ,'text' =>  __('Webpost Author Name', 'ef'), 'value' => true),
-    array( 'key' => 'web-author-email' ,'text' =>  __('Webpost Author Email', 'ef'), 'value' => true),
+    array( 'key' => 'web-author' ,'text' =>  __('Post Author Name', 'ef'), 'value' => true),
+    array( 'key' => 'web-author-email' ,'text' =>  __('Post Author Email', 'ef'), 'value' => true),
     array( 'key' => 'web-designer' ,'text' =>  __('Designer', 'ef'), 'value' => true),
     array( 'key' => 'copyright' ,'text' =>  __('Copyright', 'ef'), 'value' => true)
 );
@@ -40,7 +40,7 @@ $title_style = array(
 );
 
 ## add module page
-$seo_page = new EF_Settings_Page('seo', __('Search Engine Optimization', 'ef'), __('Search Engine Optimization', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-search-dollar', 2);
+$seo_page = new EF_Settings_Page('ef-seo', __('Search Engine Optimization', 'ef'), __('Search Engine Optimization', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-search-dollar', 2);
 
 ## settinfs for post type and other stuff
 $seo_page->addSection('settings', __('Search Machine Optimization', 'ef'));
@@ -54,7 +54,7 @@ $seo_page->addField('seo-tags', 'global-title-style', __('Title Seperator', 'ef'
 $seo_page->addField('seo-tags', 'global-keywords', __('Keywords', 'ef'), null, 'text', null);
 $seo_page->addField('seo-tags', 'global-description', __('Description', 'ef'), null, 'text', null);
 $seo_page->addField('seo-tags', 'global-topic', __('Topic', 'ef'), null, 'text', null);
-$seo_page->addField('seo-tags', 'global-author', __('Webpost Author Name', 'ef'), null, 'text', 'Enrico Fischer');
+$seo_page->addField('seo-tags', 'global-author', __('Post Author Name', 'ef'), null, 'text', 'Enrico Fischer');
 $seo_page->addField('seo-tags', 'global-designer', __('Designer', 'ef'), null, 'text', null);
 $seo_page->addField('seo-tags', 'global-copyright', __('Copyright', 'ef'), null, 'text', null);
 $seo_page->addField('seo-tags', 'global-disable-seo-meta', __('Disable SEO Meta Tags', 'ef'), null, 'checkbox-group', null, array( 'options' => $disable_meta_tags));
@@ -70,7 +70,7 @@ $typeOptions = array(
 );
 
 ## get option data
-$option_data = get_option('seo');
+$option_data = ef_get_option('ef-seo');
 
 ## enable for post types
 if(array_key_exists('post-types', $option_data)) {
@@ -79,7 +79,7 @@ if(array_key_exists('post-types', $option_data)) {
     $post_types = $option_data['post-types'];   
  
     ## create meta box for post types
-    $meta = new EF_Metabox('seo-meta-data', __('SEO', 'ef'), $post_types);
+    $meta = new EF_Metabox('ef-seo-meta-data', __('SEO', 'ef'), $post_types);
     $meta->addField('seo-disable', __('Disable', 'ef'), 'Aktivieren, um die Suchmaschinenoptimierung für diese Seite/Beitrag auszuschalten.', 'checkbox', array('checkboxText' => __('Disable SEO for this post', 'ef')));
     $meta->addField('seo-no-index', __('No-Index', 'ef'), 'Aktivieren, um Suchmaschinen davon abzuhalten, diesen Beitrag/Seite zu indexieren.', 'checkbox', array('checkboxText' => __('Stop search engines from crawling this post', 'ef')));
     $meta->addField('seo-title', __('Post title', 'ef'), __('Overwrite post title', 'ef'), 'text');
@@ -95,13 +95,8 @@ if(array_key_exists('post-types', $option_data)) {
 # is seo for post type active?
 function check_post_type_enable() {
 
-    if(is_child_theme()) {
-        $child_theme = get_stylesheet();
-        $option = get_option('seo-'.$child_theme, array());
-    } else {
-        $option = get_option('seo', array());
-    }
-
+    $option = ef_get_option('ef-seo', array());
+ 
     $post_type = get_post_type();
 
     if(array_key_exists('post-types', $option) && is_array($option['post-types']))
@@ -115,9 +110,9 @@ function check_post_type_enable() {
 
 function check_post_enable() {
 
-    $meta_data = get_post_meta(get_the_id(), 'seo-meta-data', array());
+    $meta_data = get_post_meta(get_the_id(), 'ef-seo-meta-data', array());
 
-    if(array_key_exists('seo-disable', $meta_data))
+    if(is_array($meta_data) && array_key_exists('seo-disable', $meta_data))
         return false;
     else        
         return true;
@@ -129,7 +124,7 @@ function check_post_enable() {
 ##################################################################################################################################################
 
 function check_meta_tag_disable($global_disable_seo_meta, $key) {
-    if(array_key_exists($key, $global_disable_seo_meta)) {
+    if(is_array($global_disable_seo_meta) && array_key_exists($key, $global_disable_seo_meta)) {
         return false;
     } else 
         return true;
@@ -144,19 +139,15 @@ function seo_add_wp_head() {
     if(check_post_type_enable() && check_post_enable()) {
         
         ## get post meta
-        $meta_data = get_post_meta(get_the_id(), 'seo-meta-data', true);
+        $meta_data = get_post_meta(get_the_id(), 'ef-seo-meta-data', true);
 
         ## if null, set to empty array
         if(!is_array($meta_data))
             $meta_data = array();
         
-        ## get seo option (+child)
-        if(is_child_theme()) {
-            $child_theme = get_stylesheet();
-            $option = get_option('seo-'.$child_theme);
-        } else {
-            $option = get_option('seo');
-        }
+
+         $option = ef_get_option('ef-seo');
+
 
         ## check disable seo meta tags
         if(array_key_exists('global-disable-seo-meta', $option))
@@ -191,10 +182,10 @@ function seo_add_wp_head() {
 
                     if($meta_tag == 'keywords') {
 
-                        if($meta != "" && $options != "")
+                        if($meta != '' && $options != '')
                             $meta .= ', '.$options;
 
-                        if(isset($meta)) 
+                        if($meta)
                             echo "\t<meta name=\"keywords\" content=\"".$meta."\"/>\n";
                         else if($options)
                             echo "\t<meta name=\"keywords\" content=\"".$options."\"/>\n";
@@ -244,7 +235,7 @@ function wpdocs_filter_wp_title( $title, $sep ) {
         return get_bloginfo('name');
 
     ## get post meta
-    $meta_data = get_post_meta(get_the_id(), 'seo-meta-data', true);
+    $meta_data = get_post_meta(get_the_id(), 'ef-seo-meta-data', true);
 
     ## if null, set to empty array
     if(!is_array($meta_data)) 

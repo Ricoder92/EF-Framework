@@ -44,16 +44,16 @@ class EF_Widget_Archive extends WP_Widget {
 	 * @param array $instance The widget options
 	 */
 	public function form( $instance ) {
-        $title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'enfi' );
-        $post_type = ! empty( $instance['post-type'] ) ? $instance['post-type'] : esc_html__( 'post', 'enfi' );
+        $title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'ef' );
+        $post_type = ! empty( $instance['post-type'] ) ? $instance['post-type'] : esc_html__( 'post', 'ef' );
 		?>
 		<p>
-		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'enfi' ); ?></label> 
+		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title', 'ef' ); ?></label> 
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
 
         <p>
-		<label for="<?php echo esc_attr( $this->get_field_id( 'post-type' ) ); ?>"><?php esc_attr_e( 'Post Type:', 'enfi' ); ?></label> 
+		<label for="<?php echo esc_attr( $this->get_field_id( 'post-type' ) ); ?>"><?php esc_attr_e( 'Post Type', 'ef' ); ?></label> 
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'post-type' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post-type' ) ); ?>" type="text" value="<?php echo esc_attr( $post_type ); ?>">
 		</p>
 		<?php 

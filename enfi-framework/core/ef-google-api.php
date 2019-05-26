@@ -9,7 +9,7 @@ $google_fonts_default = array(
     2 => 'Open+Sans:400,700',
 );
 
-$google_analytics_page = new EF_Settings_Page('google-api', __('Google API', 'ef'), __('Google API', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-chart-line', 7);
+$google_analytics_page = new EF_Settings_Page('ef-google-api', __('Google API', 'ef'), __('Google API', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-chart-line', 7);
 
 $google_analytics_page->addSection('google-analytics', __('Google Analytics', 'ef'));
     $google_analytics_page->addField('google-analytics', 'google-analtyics-enable', __('Enable Google Analytics', 'ef'), null, 'checkbox', null, array( 'checkboxText' => __('Enable', 'ef') ));
@@ -28,7 +28,7 @@ $google_analytics_page->setDefaultValues();
 add_action('wp_enqueue_scripts', function() {
 
     # google Font
-    $option = ef_get_option('google-api');
+    $option = ef_get_option('ef-google-api');
     $fonts = $option['google-fonts'];
 
     if($fonts) {

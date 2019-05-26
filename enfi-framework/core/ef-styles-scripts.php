@@ -4,7 +4,7 @@
 ### style and script stuff
 ##################################################################################################################################################
 
-$styles_scripts = new EF_Settings_Page('styles-scripts', __('Styles & Scripts', 'ef'), __('Styles & Scripts', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'layout', '', 6);
+$styles_scripts = new EF_Settings_Page('ef-styles-scripts', __('Styles & Scripts', 'ef'), __('Styles & Scripts', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'layout', '', 6);
 $styles_scripts->addContent('styles_scripts_render');
 
 $styles_scripts->addSection('settings', __('Settings', 'ef'));
@@ -112,7 +112,7 @@ function enqueue_styles_and_scripts() {
         wp_register_script('mainJS', get_template_directory_uri().'/assets/js/themeJS.js', array( 'jquery' ), '', true);
 
         # theme CSS
-        $option = ef_get_option('styles-scripts');
+        $option = ef_get_option('ef-styles-scripts');
        
         if(is_child_theme()) {
             wp_register_script('mainJS-child', get_stylesheet_directory_uri().'/assets/js/themeJS.js', array( 'jquery' ), '', true);

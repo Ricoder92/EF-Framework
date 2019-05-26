@@ -4,7 +4,7 @@
 ### module handler
 ##################################################################################################################################################
 
-$modules_page = new EF_Settings_Page('modules', __('Manage modules', 'ef'), __('Manage modules', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'modules', 'fa-puzzle-piece', 9);
+$modules_page = new EF_Settings_Page('ef-modules', __('Manage modules', 'ef'), __('Manage modules', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'modules', 'fa-puzzle-piece', 9);
 $modules_page->addContent('modules_render');
 
 function modules_render() {
@@ -12,8 +12,8 @@ function modules_render() {
     $modules_path_child =  get_stylesheet_directory().'/modules';
     $modules_path =  get_template_directory().'/modules';
 
-    $option = ef_get_option('modules');
-    $name = ef_get_child_name('modules');
+    $option = ef_get_option('ef-modules');
+    $name = ef_get_child_name('ef-modules');
 
     echo '<table class="ef-admin-table">';
 
@@ -88,9 +88,9 @@ function modules_render() {
 ### load active moduls
 ##################################################################################################################################################
 
-$active_modules = ef_get_option('modules');
+$active_modules = ef_get_option('ef-modules');
 
-if($active_modules) {
+if(is_array($active_modules)) {
     foreach($active_modules as $key => $module) {
         if(file_exists(get_template_directory().'/modules/'.$key.'/init.php'))
             require_once get_template_directory().'/modules/'.$key.'/init.php';

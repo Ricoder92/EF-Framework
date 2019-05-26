@@ -34,7 +34,7 @@ function ef_shortcode_post_grid( $atts ) {
                 echo '<div class="date">'.__('Posted on ', 'ef').get_the_date().'</div>';
                 echo '<h4>'.get_the_title().'</h4>';
                 echo '<p>'.get_the_excerpt().'</p>';
-                echo '<button>'.__('Read more', 'ef').'</button>';
+                echo '<button>'.__('read more', 'ef').'</button>';
                 echo '</div>';
             echo '</div></div>';
         endwhile;

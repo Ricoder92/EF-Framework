@@ -5,15 +5,15 @@
 ##################################################################################################################################################
 
 
-$cover = new EF_Settings_Page('cover', __('Cover', 'ef'), __('Cover', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'layout', '', 0);
+$cover = new EF_Settings_Page('ef-cover', __('Cover', 'ef'), __('Cover', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'layout', '', 0);
 
 $cover->addSection('settings', __('Settings', 'ef'));
 $cover->addField('settings', 'enable-post-types', __('Post Types', 'ef'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
 
-$post_types = ef_get_option('cover');
+$post_types = ef_get_option('ef-cover');
 $post_types = $post_types['enable-post-types'];
 
-if($post_types) {
+if(is_array($post_types)) {
     foreach($post_types as $post_type) {
         $_cpt = get_post_type_object($post_type);
     
@@ -22,8 +22,6 @@ if($post_types) {
         $cover->addField($post_type, $post_type.'-bg-image', __('Background-Image', 'ef'), null, 'image', null);
     }
 }
-
-
 
 
 $cover->setDefaultValues();
@@ -51,7 +49,7 @@ function ef_cover_get_title() {
 }
 
 function ef_cover_get_bg_image() {
-    $image = ef_get_option('cover');
+    $image = ef_get_option('ef-cover');
 
     if(is_single()) {
         $post_type = 'post';
@@ -77,7 +75,7 @@ function ef_cover_get_bg_image() {
 }
 
 function ef_cover_get_bg_color() {
-    $image = ef_get_option('cover');
+    $image = ef_get_option('ef-cover');
 
     if(is_single()) {
         $post_type = 'post';

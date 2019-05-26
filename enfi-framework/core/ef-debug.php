@@ -4,7 +4,7 @@
 ### debug settings page
 ##################################################################################################################################################
 
-$debug_page = new EF_Settings_Page('debug', __('Maintenance & Debug', 'ef'), __('Maintenance & Debug', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-bug', 8);
+$debug_page = new EF_Settings_Page('ef-debug', __('Maintenance & Debug', 'ef'), __('Maintenance & Debug', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-bug', 8);
 
 $debug_page->addSection('debug-settings', __('Debug Settings', 'ef'));
 $debug_page->addField('debug-settings', 'debug-mode-enable', __('Enable', 'ef'), null, 'checkbox', null, array('checkboxText' => __('Enable', 'ef')));
@@ -23,13 +23,7 @@ $debug_page->addField('404', '404-page', __('404 Error page', 'ef'), null, 'sele
 
 function enfi_filter_post_state_404( $post_states, $post ) {
     
-    # get option
-    if(!is_child_theme()) 
-        $option = get_option('debug');
-    else {
-        $child_theme = get_stylesheet();
-        $option = get_option('debug-'.$child_theme);
-    }
+    $option = ef_get_option('ef-debug');
     
     $option = $option['404-page'];
     
@@ -47,12 +41,7 @@ add_filter( 'display_post_states', 'enfi_filter_post_state_404', 10, 2 );
 
 function enfi_filter_post_state_maintenance( $post_states, $post ) {
     
-    if(!is_child_theme()) 
-        $option = get_option('debug');
-    else {
-        $child_theme = get_stylesheet();
-        $option = get_option('debug-'.$child_theme);
-    }
+    $option = ef_get_option('ef-debug');
     
     $option = $option['maintenance-page'];
     
@@ -70,13 +59,7 @@ add_filter( 'display_post_states', 'enfi_filter_post_state_maintenance', 10, 2 )
 
 function enfi_maintenance_maintenance_mode() {
 
-    # get options
-    if(!is_child_theme()) 
-        $enable = get_option('debug');
-    else {
-        $child_theme = get_stylesheet();
-        $enable = get_option('debug-'.$child_theme);
-    }
+    $option = ef_get_option('ef-debug');
 
     if(isset($enable['maintenance-enable']))
         $enable = true;
@@ -107,12 +90,7 @@ add_action( 'parse_query', 'enfi_maintenance_maintenance_mode' );
 
 function ef_is_debug_mode() {
 
-    if(!is_child_theme()) 
-        $enable = get_option('debug');
-    else {
-        $child_theme = get_stylesheet();
-        $enable = get_option('debug-'.$child_theme);
-    }
+    #$option = ef_get_option('ef-debug');
 
     return true;
 

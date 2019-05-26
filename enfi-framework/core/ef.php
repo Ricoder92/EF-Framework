@@ -134,8 +134,8 @@ class EF_Framework {
     
         # nav menus
         register_nav_menus( array(
-            'header' => __( 'Hauptmenü', 'ef'),
-            'footer'  => __( 'FooterMenü', 'ef'),
+            'header' => __( 'Main Menu', 'ef'),
+            'footer'  => __( 'Footer Menu', 'ef'),
         ) );
 
         # remove emojis and rss stuff
@@ -184,7 +184,7 @@ class EF_Framework {
     
         # header left
         register_sidebar( array(
-            'name'          => __('Header Obere Leiste Links', 'ef'),
+            'name'          => __('Header top', 'ef'),
             'id'            => 'header-top-bar-left',
             'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.', 'ef'),
             'before_widget' => '',
@@ -195,7 +195,7 @@ class EF_Framework {
 
         # header right
         register_sidebar( array(
-            'name'          => __('Header Obere Leiste Rechts', 'ef'),
+            'name'          => __('Header right', 'ef'),
             'id'            => 'header-top-bar-right',
             'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.','ef'),
             'before_widget' => '',
@@ -206,7 +206,7 @@ class EF_Framework {
 
         # footer
         register_sidebar( array(
-            'name'          => __('Fußbereich', 'ef'),
+            'name'          => __('Footer', 'ef'),
             'id'            => 'footer',
             'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.','ef'),
             'before_widget' => '<div class="col-lg">',

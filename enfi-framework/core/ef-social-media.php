@@ -4,7 +4,7 @@
 ### social media
 ##################################################################################################################################################
 
-$social_media_page = new EF_Settings_Page('social-media', __('Social Media', 'ef'), __('Social Media', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-hashtag', 3);
+$social_media_page = new EF_Settings_Page('ef-social-media', __('Social Media', 'ef'), __('Social Media', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-hashtag', 3);
 
     # social media channels
     $social_media_page->addSection('social-media-channels', __('Social Media Channels', 'ef'));
@@ -48,16 +48,16 @@ $social_media_page = new EF_Settings_Page('social-media', __('Social Media', 'ef
 $social_media_page->setDefaultValues();
 
 # get option data
-$option = ef_get_option('social-media');
+$option = ef_get_option('ef-social-media');
 
 # enable for post types
-if(array_key_exists('post-types', $option)) {
+if(is_array($option) && array_key_exists('post-types', $option)) {
 
     # get post types
     $post_types = $option['post-types'];   
 
     # create meta box for post types
-    $meta = new EF_Metabox('social-media-meta', __('Social Media', 'ef'), $post_types);
+    $meta = new EF_Metabox('ef-social-media-meta', __('Social Media', 'ef'), $post_types);
     $meta->addField('og-disable', __('Disable', 'ef'), 'Aktivieren, um die Suchmaschinenoptimierung für diese Seite/Beitrag auszuschalten.', 'checkbox', array('checkboxText' => __('Disable Social Media Meta Data for this post', 'ef')));
     $meta->addField('og-title', __('Social media post title', 'ef'), 'Seitentitel für Social Media Beiträge', 'text');
     $meta->addField('og-site-name', __('Social media site name', 'ef'), 'Seitenbeschreibung für Social Media Beiträge', 'text');
@@ -82,21 +82,15 @@ function sm_add_wp_head() {
     if(sm_check_post_type_enable()) {
 
         # get post meta
-        $meta_data = get_post_meta(get_the_id(), 'social-media-meta', true);
+        $meta_data = get_post_meta(get_the_id(), 'ef-social-media-meta', true);
 
         # if null, set to empty array
         if(!is_array($meta_data))
             $meta_data = array();
         
-        # get seo option (+child)
-        if(is_child_theme()) {
-            $child_theme = get_stylesheet();
-            $option = get_option('social-media-'.$child_theme);
-        } else {
-            $option = get_option('social-media');
-        }
+        $option = ef_get_option('ef-social-media');
 
-        ef_html_comment('Social Media');
+        ef_html_comment('OpenGraph tags');
 
         echo "\t<meta property=\"og:locale\" content=\"".get_locale()."\"/>\n";
 
@@ -250,10 +244,10 @@ add_action('wp_head', 'sm_add_wp_head', -1);
 # check if for post type enable
 function sm_check_post_type_enable() {
 
-    $option = ef_get_option('social-media', array());
+    $option = ef_get_option('ef-social-media', array());
     $post_type = get_post_type();
 
-    if(array_key_exists('post-types', $option) && is_array($option['post-types']))
+    if(is_array($option) && array_key_exists('post-types', $option) && is_array($option['post-types']))
         return in_array($post_type, $option['post-types']);
 }
 

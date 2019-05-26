@@ -1,4 +1,4 @@
-(function (wp) {
+(function(wp) {
 
     // core 
 
@@ -30,7 +30,7 @@
     // register
     registerBlockType('enfi/test', {
 
-        title: 'Enfi Test',
+        title 'Enfi Test',
         icon: 'smiley',
         category: 'enfi-blocks',
 
@@ -46,7 +46,7 @@
         reusable: false,
 
         attributes: {
-            title: {
+            title {
                 type: 'string',
             },
             text: {
@@ -56,7 +56,7 @@
                 type: 'string',
                 default: 'rgb(140,140,140)'
             },
-            backgroundColorTitle: {
+            backgroundColortitle {
                 type: 'string',
             },
             backgroundColorText: {
@@ -73,7 +73,7 @@
                 type: 'url',
                 default: ''
             },
-            orderTitle: {
+            ordertitle {
                 type: 'string',
                 default: 'order-first'
             },
@@ -142,7 +142,7 @@
         },
 
 
-        edit: function (props) {
+        edit: function(props) {
 
             // Text
             var title = props.attributes.title;
@@ -331,7 +331,7 @@
 
             function onChangeTitle(newContent) {
                 props.setAttributes({
-                    title: newContent
+                    title newContent
                 });
             }
 
@@ -350,7 +350,7 @@
 
             function onChangeBackgroundColorTitle(newColor) {
                 props.setAttributes({
-                    backgroundColorTitle: newColor
+                    backgroundColortitle newColor
                 });
             }
 
@@ -376,12 +376,12 @@
 
                 if (state) {
                     props.setAttributes({
-                        orderTitle: 'order-last',
+                        ordertitle 'order-last',
                         orderText: 'order-first'
                     });
                 } else {
                     props.setAttributes({
-                        orderTitle: 'order-first',
+                        ordertitle 'order-first',
                         orderText: 'order-last'
                     });
                 }
@@ -470,7 +470,7 @@
                 });
             }
 
-            var onSelectImage = function (media) {
+            var onSelectImage = function(media) {
                 return props.setAttributes({
                     imageURL: media.url,
                     imageID: media.id,
@@ -544,7 +544,7 @@
                         el(InspectorControls, null,
 
                             el(PanelBody, {
-                                    title: "Text",
+                                    title "Text",
                                     initialOpen: false
                                 },
 
@@ -565,7 +565,7 @@
                                 })
                             ),
                             el(PanelBody, {
-                                    title: 'Text-Eigenschaften',
+                                    title 'Text-Eigenschaften',
                                     initialOpen: false
                                 },
                                 el(BaseControl, {
@@ -588,7 +588,7 @@
                             ),
 
                             el(PanelBody, {
-                                    title: "Hintergrund",
+                                    title "Hintergrund",
                                     initialOpen: false
                                 },
                                 el(BaseControl, {
@@ -626,20 +626,18 @@
                                     onSelect: onSelectImage,
                                     type: 'image',
                                     value: props.imageID,
-                                    render: function (obj) {
+                                    render: function(obj) {
                                         return el(IconButton, {
-                                                className: props.imageID ? 'image-button' : 'button button-large',
-                                                onClick: obj.open
-                                            },
-                                            !props.imageID ? 'Hintergrundbild festlegen' : el('img', {
-                                                src: props.imageURL
-                                            })
-                                        );
+                                            className: props.imageID ? 'image-button' : 'button button-large',
+                                            onClick: obj.open
+                                        }, !props.imageID ? 'Hintergrundbild festlegen' : el('img', {
+                                            src: props.imageURL
+                                        }));
                                     }
                                 })
                             ),
                             el(PanelBody, {
-                                    title: "Animation",
+                                    title "Animation",
                                     initialOpen: false
                                 },
                                 el(SelectControl, {
@@ -690,7 +688,7 @@
             );
         },
 
-        save: function (props) {
+        save: function(props) {
             var title = props.attributes.title;
             var text = props.attributes.text;
             var backgroundColor = props.attributes.backgroundColor;

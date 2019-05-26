@@ -41,11 +41,11 @@ class EF_Settings_Page {
         add_action( 'admin_menu', function() {
 
             add_submenu_page( 
-                null,                   # Parent Page
+                null,                           # Parent Page
                 $this->name,                    # Title
                 $this->menuName,                # MenuName
                 $this->capability,              # Capability
-                'ef-framework-'.$this->slug,  # Slug
+                $this->slug,                    # Slug
                 array(&$this, 'render')         # Callback
             );
 
@@ -65,13 +65,13 @@ class EF_Settings_Page {
 
         add_action('ef-admin-navigation-'.$this->menu, function() {
         
-            echo '<li><a href="'.admin_url('/admin.php?page=ef-framework-'.$this->slug).'"><i class="icon fas '.$this->icon.' fa-1x"></i>'.$this->menuName.'</a></li>';
+            echo '<li><a href="'.admin_url('/admin.php?page='.$this->slug).'"><i class="icon fas '.$this->icon.' fa-1x"></i>'.$this->menuName.'</a></li>';
 
         }, $this->prio);
 
         add_action('ef-admin-navigation-main-page-'.$this->menu, function() {
 
-            $url = admin_url("/admin.php?page=ef-framework-".$this->slug);
+            $url = admin_url("/admin.php?page=".$this->slug);
         
             echo '<div class="col-lg-3 col-md-6">';
                 echo '<div onclick="location.href=\''.$url.'\';" class="ef-admin-navigation-main-page-card">';
@@ -89,7 +89,7 @@ class EF_Settings_Page {
             global $wp_admin_bar;
         
             $menu_id = 'ef-framework';
-            $wp_admin_bar->add_menu(array('parent' => $menu_id, 'title' =>  $this->menuName, 'id' =>  $this->slug, 'href' => '/wp-admin/admin.php?page=ef-framework-'.$this->slug));
+            $wp_admin_bar->add_menu(array('parent' => $menu_id, 'title' =>  $this->menuName, 'id' =>  $this->slug, 'href' => '/wp-admin/admin.php?page='.$this->slug));
         
         }, $this->prio);
       
@@ -104,7 +104,7 @@ class EF_Settings_Page {
                 $this->slug.$id, 
                 $title, 
                 null, 
-                'ef-framework-'.$this->slug
+                $this->slug
             );
         });
        
@@ -145,7 +145,7 @@ class EF_Settings_Page {
                 $id,
                 $name,
                 array(&$this, 'sanitize'), 
-                'ef-framework-'.$this->slug,
+                $this->slug,
                 $this->slug.$section_id,
                 $data
             );
@@ -184,8 +184,8 @@ class EF_Settings_Page {
                 echo '<div class="col-lg-8">';
                     echo '<div class="ef-admin-page-content ef-admin-form-settings">';
                         settings_fields ($this->slug);
-                        do_settings_sections ('ef-framework-'.$this->slug);
-                        do_action('ef-framework-content-'.$this->slug);
+                        do_settings_sections ($this->slug);
+                        do_action($this->slug);
                     echo '</div>';
                 
                     echo '<div class="ef-admin-page-footer">';
