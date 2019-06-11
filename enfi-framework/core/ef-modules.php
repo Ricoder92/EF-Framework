@@ -4,7 +4,7 @@
 ### module handler
 ##################################################################################################################################################
 
-$modules_page = new EF_Settings_Page('ef-modules', __('Modules', 'ef'), __('Modules', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'modules', 'fa-puzzle-piece', 9);
+$modules_page = new EF_Settings_Page('ef-modules', __('MODULES', 'ef'), __('MODULES', 'ef'), __('MODULES_DESCRIPTION', 'ef'), 'modules', 'fa-puzzle-piece', 9);
 $modules_page->addContent('modules_render');
 
 function modules_render() {
@@ -18,9 +18,9 @@ function modules_render() {
     echo '<table class="ef-admin-table">';
 
         echo '<thead><tr>';
-            echo '<th class="center">'.__('Enable', 'ef').'</th>';
-            echo '<th class="left">'.__('Name', 'ef').'</th>';
-            echo '<th class="left">'.__('Description', 'ef').'</th>';
+            echo '<th class="center">'.__('ENABLE', 'ef').'</th>';
+            echo '<th class="left">'.__('NAME', 'ef').'</th>';
+            echo '<th class="left">'.__('DESCRIPTION', 'ef').'</th>';
         echo '</tr></thead>';
 
         

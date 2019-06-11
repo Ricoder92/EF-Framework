@@ -32,10 +32,15 @@ class EF_Admin_Navigation {
         # sidebar on settings page
         add_action('ef-admin-navigation', function() use ($id, $name) {
 
-            echo '<ul class="enfi-framework-admin-navigation">';
-                echo '<li class="head">'.$name.'</li>';
-                do_action('ef-admin-navigation-'.$id);
-            echo '</ul>';
+            echo '<div class="ef-framework-admin-navigation">';
+            
+                echo '<div class="head">'.__($name, 'ef').'</div>';
+                
+                echo '<ul class="navigation">';
+                    do_action('ef-admin-navigation-'.$id);
+                echo '</ul>';
+
+            echo '</div>';
             
         });
 
@@ -52,8 +57,8 @@ class EF_Admin_Navigation {
 ### navigation categories
 ##################################################################################################################################################
 
-new EF_Admin_Navigation('settings',     __('Settings', 'ef'),   '', 0);
-new EF_Admin_Navigation('layout',       __('Layout', 'ef'),     '', 1);
-new EF_Admin_Navigation('post-types',   __('Post Types', 'ef'), '', 2);
-new EF_Admin_Navigation('texonomies',      __('Taxonomies', 'ef'),    '', 3);
-new EF_Admin_Navigation('modules',      __('Modules', 'ef'),    '', 3);
+new EF_Admin_Navigation('settings', __('SETTINGS', 'ef'),   '', 0);
+new EF_Admin_Navigation('layout', __('LAYOUT', 'ef'),     '', 1);
+new EF_Admin_Navigation('post-types', __('POST_TYPES', 'ef'), '', 2);
+new EF_Admin_Navigation('texonomies', __('TAXONOMIES', 'ef'),    '', 3);
+new EF_Admin_Navigation('modules', __('MODULES', 'ef'),    '', 3);

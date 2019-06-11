@@ -19,7 +19,7 @@
                 <div class="author-date"><span class="author"><?php the_author(); ?> | <span class="date"><?php echo get_the_date();?></div>
                 <div class="content"><?php echo the_excerpt(); ?></div>
                 <div class="tags">Tags: <?php echo ef_print_terms('ef-blog-tags'); ?></div>
-                <a href="<?php the_permalink(); ?>" class="read-more"><?php _e('read more', 'ef');?></a>
+                <a href="<?php the_permalink(); ?>" class="read-more"><?php _e('READ_MORE', 'ef');?></a>
 
             </div>
     

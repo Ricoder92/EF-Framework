@@ -1,228 +1,262 @@
-.ef-admin-page-head {
-    margin-left: -20px;
-    padding: 30px 0;
-    background-color: white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-}
-
-.ef-admin-page-head .icon {
-    position: relative;
-    top: -11px;
-    left: 0px;
-    display: inline-block;
-}
-
-.ef-admin-page-head .title-description {
-    display: inline-block;
-    margin-left: 20px;
-}
-
-.enfi-admin-page-navigation {
-    margin-left: 20px;
-    width: 300px;
-    color: rgba(0, 0, 0, 0.6);
-    float: left;
-}
-
-.ef-admin-page-content {
-    color: rgba(0, 0, 0, 0.6);
-}
-
-.ef-admin-form-settings h2 {
-    background: white;
-    padding: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    margin: 0px;
-    border-bottom: none;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-
-.ef-admin-table,
-.ef-admin-page-content .form-table {
-    margin: 0 auto 20px auto;
-    padding: 0px;
-    border-collapse: collapse;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100%;
-}
-
-.ef-admin-table .left {
-    text-align: left;
-}
-
-.ef-admin-table .center {
-    text-align: center;
-}
-
-.ef-admin-table tr,
-.ef-admin-page-content .form-table tr {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.ef-admin-table th,
-.ef-admin-page-content .form-table th {
-    background-color: white;
-    color: rgba(0, 0, 0, 0.6);
-    padding: 16px 10px;
-    margin: 1px;
-}
-
-.ef-admin-table td,
-.ef-admin-page-content .form-table td {
-    background-color: white;
-    color: rgba(0, 0, 0, 0.6);
-    padding: 5px;
-}
-
-.ef-admin-page-content .form-table tr:nth-child(even) td,
-.ef-admin-page-content .form-table tr:nth-child(even) th {}
-
-.ef-admin-page-content .form-table th {
-    background-color: white;
-    color: rgba(0, 0, 0, 0.6);
-    margin-bottom: 1px;
-    vertical-align: middle;
-    padding-left: 20px;
-    text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-    font-size: 0.8rem;
-    font-weight: normal;
-}
-
-.ef-admin-page-content pre {
-    padding: 30px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.ef-admin-page-footer {
-    margin-left: -20px;
-    padding: 40px;
-}
-
-.ef-admin-list-modules .row {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    display: block;
-}
-
-.ef-admin-list-modules .row:hover {
-    transition: 200ms;
-    background-color: rgba(0, 0, 0, 0.02);
-}
-
-.ef-admin-list-modules .row:last-child {
-    border-bottom: 0px;
-}
-
-.ef-admin-list-modules .col {
-    padding: 15px 30px;
-}
-
-.ef-admin-list-modules .item {
-    padding: 15px 30px;
-}
-
-.ef-admin-list-modules .description {
-    margin: 10px 0px;
-    font-style: normal;
-}
-
-.ef-admin-list-modules .title {
-    margin: 0px 0px 20px 0;
-}
-
-.ef-admin-list-modules .info {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6);
-    display: none;
-}
-
-.ef-admin-list-modules .description {
-    font-size: 0.8rem;
-    color: rgba(0, 0, 0, 0.6);
-    display: inline;
-}
-
-.ef-admin-list-modules li {
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    display: block;
-    margin: 0 20px 20px 0;
-    color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-}
-
-.enfi-framework-admin-navigation {
-    display: inline-block;
-    width: 100%;
-    margin: 0 0 20px 0;
-    padding: 0px;
-}
-
-.enfi-framework-admin-navigation .head {
-    display: block;
-    padding: 16px 12px;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.8);
-    text-decoration: none;
-}
-
-.enfi-framework-admin-navigation li {
-    margin: 0px;
-}
-
-.enfi-framework-admin-navigation li a {
-    display: block;
-    padding: 16px 12px;
-    background-color: white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.4);
-    text-decoration: none;
-}
-
-.enfi-framework-admin-navigation li a.current {
-    display: block;
-    padding: 16px 12px;
-    background-color: white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.8);
-    text-decoration: none;
-}
-
-.enfi-framework-admin-navigation li a:active,
-.enfi-framework-admin-navigation li a:focus {
-    box-shadow: none;
-}
-
-.enfi-framework-admin-navigation li a .icon {
-    margin-right: 5px;
-}
-
-.enfi-framework-admin-navigation li a:hover {
-    color: rgba(0, 0, 0, 0.8);
-}
-
-.ef-admin-navigation-main-page-card {
-    padding: 40px;
-    background-color: white;
-    margin: 20px 0;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    min-height: 300px;
-}
-
-.ef-admin-navigation-main-page-card:hover {
-    cursor: pointer;
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    transition: 200ms;
-}
-
-.ef-sidebar-content {
-    padding: 15px;
-}
+    .ef-admin-page-head {
+        margin-left: -20px;
+        padding: 30px 0;
+        background-color: white;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+    }
+    
+    .ef-admin-page-head .icon {
+        position: relative;
+        top: -11px;
+        left: 0px;
+        display: inline-block;
+    }
+    
+    .ef-admin-page-head .title-description {
+        display: inline-block;
+        margin-left: 20px;
+    }
+    
+    .enfi-admin-page-navigation {
+        margin-left: 20px;
+        width: 300px;
+        color: rgba(0, 0, 0, 0.6);
+        float: left;
+    }
+    
+    .ef-admin-page-content {
+        color: rgba(0, 0, 0, 0.6);
+    }
+    
+    .ef-admin-form-settings>h2 {
+        background: white;
+        padding: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin: 0px;
+        border-bottom: none;
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+    
+    .ef-admin-table,
+    .ef-admin-page-content .form-table {
+        margin: 0 auto 20px auto;
+        padding: 0px;
+        border-collapse: collapse;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
+    
+    .ef-admin-table .left {
+        text-align: left;
+    }
+    
+    .ef-admin-table .center {
+        text-align: center;
+    }
+    
+    .ef-admin-table tr,
+    .ef-admin-page-content .form-table tr {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .ef-admin-table th,
+    .ef-admin-page-content .form-table th {
+        background-color: white;
+        color: rgba(0, 0, 0, 0.6);
+        padding: 16px 10px;
+        margin: 1px;
+    }
+    
+    .ef-admin-table td,
+    .ef-admin-page-content .form-table td {
+        background-color: white;
+        color: rgba(0, 0, 0, 0.6);
+        padding: 5px;
+    }
+    
+    .ef-admin-page-content .form-table tr:nth-child(even) td,
+    .ef-admin-page-content .form-table tr:nth-child(even) th {}
+    
+    .ef-admin-page-content .form-table th {
+        background-color: white;
+        color: rgba(0, 0, 0, 0.6);
+        margin-bottom: 1px;
+        vertical-align: middle;
+        padding-left: 20px;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        font-size: 0.8rem;
+        font-weight: normal;
+    }
+    
+    .ef-admin-page-content pre {
+        padding: 30px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    .ef-admin-page-footer {
+        margin-left: -20px;
+        padding: 40px;
+    }
+    
+    .ef-admin-list-modules .row {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        display: block;
+    }
+    
+    .ef-admin-list-modules .row:hover {
+        transition: 200ms;
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+    
+    .ef-admin-list-modules .row:last-child {
+        border-bottom: 0px;
+    }
+    
+    .ef-admin-list-modules .col {
+        padding: 15px 30px;
+    }
+    
+    .ef-admin-list-modules .item {
+        padding: 15px 30px;
+    }
+    
+    .ef-admin-list-modules .description {
+        margin: 10px 0px;
+        font-style: normal;
+    }
+    
+    .ef-admin-list-modules .title {
+        margin: 0px 0px 20px 0;
+    }
+    
+    .ef-admin-list-modules .info {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.6);
+        display: none;
+    }
+    
+    .ef-admin-list-modules .description {
+        font-size: 0.8rem;
+        color: rgba(0, 0, 0, 0.6);
+        display: inline;
+    }
+    
+    .ef-admin-list-modules li {
+        background: white;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        display: block;
+        margin: 0 20px 20px 0;
+        color: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+    }
+    
+    .ef-framework-admin-navigation .head {
+        display: block;
+        padding: 16px 12px;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: rgba(0, 0, 0, 0.8);
+        text-decoration: none;
+    }
+    
+    .ef-framework-admin-navigation .navigation {
+        display: inline-block;
+        width: 100%;
+        margin: 0 0 20px 0;
+        padding: 0px;
+    }
+    
+    .ef-framework-admin-navigation .navigation li {
+        margin: 0px;
+        padding: 1px;
+        background-color: white;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .ef-framework-admin-navigation .navigation a {
+        display: block;
+        padding: 16px 12px;
+        color: rgba(0, 0, 0, 0.4);
+        text-decoration: none;
+        margin: 0px;
+    }
+    
+    .ef-framework-admin-navigation .navigation li a.current {
+        display: block;
+        padding: 16px 12px;
+        background-color: white;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        color: rgba(0, 0, 0, 0.8);
+        text-decoration: none;
+    }
+    
+    .ef-framework-admin-navigation .navigation li a:active,
+    .ef-framework-admin-navigation .navigation li a:focus {
+        box-shadow: none;
+    }
+    
+    .ef-framework-admin-navigation .navigation li a .icon {
+        margin-right: 5px;
+    }
+    
+    .ef-framework-admin-navigation .navigation li a:hover {
+        color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    
+    .ef-admin-navigation-main-page-card {
+        padding: 40px;
+        background-color: white;
+        margin: 20px 0;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        min-height: 300px;
+    }
+    
+    .ef-admin-navigation-main-page-card:hover {
+        cursor: pointer;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        transition: 200ms;
+    }
+    
+    .ef-sidebar-content {
+        padding: 15px;
+    }
+    
+    .ef-update-version-check {
+        background: white;
+        padding: 40px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .ef-update-version-check .version-container {
+        display: inline-block;
+        text-align: center;
+        width: 50%;
+    }
+    
+    .ef-update-version-check .version-container h2 {
+        display: block;
+        text-align: center;
+        font-size: 2.5rem;
+    }
+    
+    .ef-update-version-check .version-container p {
+        display: block;
+        text-align: center;
+    }
+    
+    .ef-update-version-check .update-process-container {
+        text-align: center;
+    }
+    
+    .ef-update-version-check .no-update-aviable {
+        color: green;
+    }

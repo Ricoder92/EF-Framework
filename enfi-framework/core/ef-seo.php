@@ -40,56 +40,49 @@ $title_style = array(
 );
 
 ## add module page
-$seo_page = new EF_Settings_Page('ef-seo', __('Search Engine Optimization', 'ef'), __('Search Engine Optimization', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', 'fa-search-dollar', 2);
+$seo_page = new EF_Settings_Page('ef-seo', __('SEARCH_ENGINE_OPTIMIZATION', 'ef'), __('SEARCH_ENGINE_OPTIMIZATION', 'ef'), __('SEARCH_ENGINE_OPTIMIZATION_DESCRIPTION', 'ef'), 'settings', 'fa-search-dollar', 2);
 
 ## settinfs for post type and other stuff
-$seo_page->addSection('settings', __('Search Engine Optimization', 'ef'));
-$seo_page->addField('settings', 'post-types', __('Post Types', 'ef'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
-$seo_page->addField('settings', 'no-index', __('No-Index', 'ef'), null, 'checkbox', null, array('checkboxText' => __('No-Index', 'ef')));
+$seo_page->addSection('settings', __('SEARCH_ENGINE_OPTIMIZATION', 'ef'));
+$seo_page->addField('settings', 'post-types', __('POST_TYPES', 'ef'), __('POST_TYPES_DESCRIPTION', 'ef'), 'checkbox-group', null, array( 'post_types' => get_post_types()));
+$seo_page->addField('settings', 'no-index', __('NO_INDEX', 'ef'), __('NO_INDEX_DESCRIPTION', 'ef'), 'checkbox', null, array('checkboxText' => __('No-Index', 'ef')));
 
 ## global meta tags
-$seo_page->addSection('seo-tags', __('Search Engine Optimization', 'ef'));
-$seo_page->addField('seo-tags', 'global-title-seperator', __('Title Seperator', 'ef'), null, 'button-group', '|', array( 'options' => $title_seperators ));
-$seo_page->addField('seo-tags', 'global-title-style', __('Title Seperator', 'ef'), null, 'button-group', 'left', array( 'options' => $title_style ));
-$seo_page->addField('seo-tags', 'global-keywords', __('Keywords', 'ef'), null, 'text', null);
-$seo_page->addField('seo-tags', 'global-description', __('Description', 'ef'), null, 'text', null);
-$seo_page->addField('seo-tags', 'global-topic', __('Topic', 'ef'), null, 'text', null);
-$seo_page->addField('seo-tags', 'global-author', __('Post Author Name', 'ef'), null, 'text', 'Enrico Fischer');
-$seo_page->addField('seo-tags', 'global-designer', __('Designer', 'ef'), null, 'text', null);
-$seo_page->addField('seo-tags', 'global-copyright', __('Copyright', 'ef'), null, 'text', null);
-$seo_page->addField('seo-tags', 'global-disable-seo-meta', __('Disable SEO Meta Tags', 'ef'), null, 'checkbox-group', null, array( 'options' => $disable_meta_tags));
+$seo_page->addSection('seo-tags', __('SEARCH_ENGINE_OPTIMIZATION', 'ef'));
+$seo_page->addField('seo-tags', 'global-title-seperator', __('TITLE_SEPERATOR', 'ef'), null, 'button-group', '|', array( 'options' => $title_seperators ));
+$seo_page->addField('seo-tags', 'global-title-style', __('TITLE_STYLE', 'ef'), null, 'button-group', 'left', array( 'options' => $title_style ));
+$seo_page->addField('seo-tags', 'global-keywords', __('KEYWORDS', 'ef'), null, 'text', null);
+$seo_page->addField('seo-tags', 'global-description', __('DESCRIPTION', 'ef'), null, 'text', null);
+$seo_page->addField('seo-tags', 'global-topic', __('TOPIC', 'ef'), null, 'text', null);
+$seo_page->addField('seo-tags', 'global-author', __('POST_AUTHOR_NAME', 'ef'), null, 'text', 'Enrico Fischer');
+$seo_page->addField('seo-tags', 'global-designer', __('DESIGNER', 'ef'), null, 'text', null);
+$seo_page->addField('seo-tags', 'global-copyright', __('COPYRIGHT', 'ef'), null, 'text', null);
+$seo_page->addField('seo-tags', 'global-disable-seo-meta', __('DISABLE_SEO_META_TAGS', 'ef'), null, 'checkbox-group', null, array( 'options' => $disable_meta_tags));
 
 ## set defaults
 $seo_page->setDefaultValues();
-
-## type options for "type" meta tag
-$typeOptions = array(
-    array( 'key' => 'movie', 'text' =>  __('Movie', 'ef'), 'value' => 'movie'),
-    array( 'key' => 'audio','text' =>  __('Audio', 'ef'), 'value' => 'Audio'),
-    array( 'key' => 'article','text' =>  __('Article', 'ef'), 'value' => 'article'),
-);
 
 ## get option data
 $option_data = ef_get_option('ef-seo');
 
 ## enable for post types
-if(array_key_exists('post-types', $option_data)) {
+if(is_array($option_data) && array_key_exists('post-types', $option_data)) {
     
     ## get post types
     $post_types = $option_data['post-types'];   
  
     ## create meta box for post types
     $meta = new EF_Metabox('ef-seo-meta-data', __('SEO', 'ef'), $post_types);
-    $meta->addField('seo-disable', __('Disable', 'ef'), 'Aktivieren, um die Suchmaschinenoptimierung für diese Seite/Beitrag auszuschalten.', 'checkbox', array('checkboxText' => __('Disable SEO for this post', 'ef')));
-    $meta->addField('seo-no-index', __('No-Index', 'ef'), 'Aktivieren, um Suchmaschinen davon abzuhalten, diesen Beitrag/Seite zu indexieren.', 'checkbox', array('checkboxText' => __('Stop search engines from crawling this post', 'ef')));
-    $meta->addField('seo-title', __('Post title', 'ef'), __('Overwrite post title', 'ef'), 'text');
-    $meta->addField('seo-description', __('Post description', 'ef'), __('Post description'), 'text');
-    $meta->addField('seo-keywords', __('Keywords', 'ef'), 'Keywörter für diesen Beitrag angeben', 'text');
-    $meta->addField('seo-topic', __('Topic', 'ef'), __('Topic', 'ef'), 'text');
-    $meta->addField('seo-author', __('Web Author Name', 'ef'), __('Web Author', 'ef'), 'text');
-    $meta->addField('seo-designer', __('Webdesigner', 'ef'), __('Webdesigner', 'ef'), 'text');
-    $meta->addField('seo-copyright', __('Copyright', 'ef'), __('Copyright', 'ef'), 'text');
-    $meta->addField('seo-disable-seo-meta', __('Disable SEO Meta Tags', 'ef'), __('Copyright', 'ef'), 'checkbox-group', array( 'options' => $disable_meta_tags));
+    $meta->addField('seo-disable', __('DISABLE_SEO_META', 'ef'), __('DISABLE_SEO_META_DESCRIPTION', 'ef'), 'checkbox', array('checkboxText' => __('DISABLE_SEO_META_CHECKBOXTEXT', 'ef')));
+    $meta->addField('seo-no-index', __('NO_INDEX', 'ef'), __('NO_INDEX_DESCRIPTION', 'ef'), 'checkbox', array('checkboxText' => __('Stop search engines from crawling this post', 'ef')));
+    $meta->addField('seo-title', __('POST_TITLE', 'ef'), __('POST_TITLE_DESCRIPTION', 'ef'), 'text');
+    $meta->addField('seo-description', __('POST_DESCRIPTION', 'ef'), __('POST_DESCRIPTION_DESCRIPTION'), 'text');
+    $meta->addField('seo-keywords', __('KEYWORDS', 'ef'), __('KEYWORDS_DESCRIPTION', 'ef'), 'text');
+    $meta->addField('seo-topic', __('TOPIC', 'ef'), __('TOPIC_DESCRIPTION', 'ef'), 'text');
+    $meta->addField('seo-author', __('POST_AUTHOR_NAME', 'ef'), __('POST_AUTHOR_NAME_DESCRIPTION', 'ef'), 'text');
+    $meta->addField('seo-designer', __('DESIGNER', 'ef'), __('DESIGNER_DESCRIPTION', 'ef'), 'text');
+    $meta->addField('seo-copyright', __('COPYRIGHT', 'ef'), __('COPYRIGHT_DESCRIPTION', 'ef'), 'text');
+    $meta->addField('seo-disable-seo-meta', __('DISABLE_SEO_META_TAGS', 'ef'), __('DISABLE_SEO_META_TAGS_DESCRIPTION', 'ef'), 'checkbox-group', array( 'options' => $disable_meta_tags));
 }
 
 # is seo for post type active?
@@ -99,7 +92,7 @@ function check_post_type_enable() {
  
     $post_type = get_post_type();
 
-    if(array_key_exists('post-types', $option) && is_array($option['post-types']))
+    if(is_array($option) && array_key_exists('post-types', $option) && is_array($option['post-types']))
         return in_array($post_type, $option['post-types']);
 
 }

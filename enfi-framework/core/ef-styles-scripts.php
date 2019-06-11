@@ -4,12 +4,12 @@
 ### style and script stuff
 ##################################################################################################################################################
 
-$styles_scripts = new EF_Settings_Page('ef-styles-scripts', __('Styles & Scripts', 'ef'), __('Styles & Scripts', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'layout', '', 6);
+$styles_scripts = new EF_Settings_Page('ef-styles-scripts', __('STYLES_SCRIPTS', 'ef'), __('STYLES_SCRIPTS', 'ef'), __('STYLES_SCRIPTS_DESCRIPTION', 'ef'), 'layout', '', 6);
 $styles_scripts->addContent('styles_scripts_render');
 
-$styles_scripts->addSection('settings', __('Settings', 'ef'));
-$styles_scripts->addField('settings', 'use-parent-style', __('Use parent CSS style', 'ef'), null, 'checkbox', true, array('checkboxText' => __('Enable', 'ef')));
-$styles_scripts->addField('settings', 'use-parent-js', __('Use parent JS', 'ef'), null, 'checkbox', true, array('checkboxText' => __('Enable', 'ef')));
+$styles_scripts->addSection('settings', __('STYLES_SCRIPTS_SETTINGS', 'ef'));
+$styles_scripts->addField('settings', 'use-parent-style', __('STYLES_SCRIPTS_USE_PARRENT_CSS', 'ef'), null, 'checkbox', true, array('checkboxText' => __('STYLES_SCRIPTS_USE_PARRENT_CSS_CHECKBOXTEXT', 'ef')));
+$styles_scripts->addField('settings', 'use-parent-js', __('STYLES_SCRIPTS_USE_PARRENT_JS', 'ef'), null, 'checkbox', true, array('checkboxText' => __('STYLES_SCRIPTS_USE_PARRENT_JS_CHECKBOXTEXT', 'ef')));
 
 $styles_scripts->setDefaultValues();
 
@@ -17,11 +17,11 @@ function styles_scripts_render() {
  echo '<table class="ef-admin-table">';
 
     echo '<thead><tr>';
-        echo '<th class="center" style="width:10%;">Frontend</th>';
-        echo '<th class="center" style="width:10%;">Backend</th>';
-        echo '<th class="left" style="width:20%;">Slug</th>';
-        echo '<th class="left" style="width:40%;">URL</th>';
-        echo '<th class="left" style="width:20%;">Dependend</th>';
+        echo '<th class="center" style="width:10%;">'.__('FRONTEND', 'ef').'</th>';
+        echo '<th class="center" style="width:10%;">'.__('BACKEND', 'ef').'</th>';
+        echo '<th class="left" style="width:20%;">'.__('SLUG', 'ef').'</th>';
+        echo '<th class="left" style="width:40%;">'.__('URL', 'ef').'</th>';
+        echo '<th class="left" style="width:20%;">'.__('DEPENDENCE', 'ef').'</th>';
     echo '</tr></thead>';
 
     echo '<tbody><tr  align="center">';
@@ -79,11 +79,11 @@ function enqueue_styles_and_scripts() {
         wp_deregister_script( 'jquery' );
 
         # jQuery
-        wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.4.1.min.js', '', '', true);
+        wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.4.1.min.js');
         wp_enqueue_script( 'jquery' );
 
         # jQuery UI
-        wp_register_script( 'jqueryUI',  'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js', array( 'jquery' ),'', true);
+        wp_register_script( 'jqueryUI',  'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js', array( 'jquery' ));
         wp_enqueue_script( 'jqueryUI' );
 
         # fontawesome
@@ -109,13 +109,13 @@ function enqueue_styles_and_scripts() {
 
         # theme CSS and JS
         wp_register_style('mainCSS', get_template_directory_uri().'/style.css');
-        wp_register_script('mainJS', get_template_directory_uri().'/assets/js/themeJS.js', array( 'jquery' ), '', true);
+        wp_register_script('mainJS', get_template_directory_uri().'/assets/js/themeJS.js', array( 'jquery' ));
 
         # theme CSS
         $option = ef_get_option('ef-styles-scripts');
        
         if(is_child_theme()) {
-            wp_register_script('mainJS-child', get_stylesheet_directory_uri().'/assets/js/themeJS.js', array( 'jquery' ), '', true);
+            wp_register_script('mainJS-child', get_stylesheet_directory_uri().'/assets/js/themeJS.js', array( 'jquery' ));
             wp_enqueue_script( 'mainJS-child' );
 
             if(isset($option['use-parent-js'])) {
@@ -183,7 +183,6 @@ function enqueue_admin_styles_and_scripts() {
 
     # bootstrap grid
     wp_register_style('bootstrap-grid', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css', array('enfi-admin'),'', false);
-
 }
 add_action( 'admin_enqueue_scripts', 'enqueue_admin_styles_and_scripts'); 
 

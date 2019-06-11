@@ -4,25 +4,24 @@
 ### Cover WIP!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ##################################################################################################################################################
 
+$cover = new EF_Settings_Page('ef-cover', __('COVER', 'ef'), __('COVER', 'ef'), __('COVER_DESCRIPTION', 'ef'), 'layout', '', 7);
 
-$cover = new EF_Settings_Page('ef-cover', __('Cover', 'ef'), __('Cover', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'layout', '', 7);
+$cover->addSection('settings', __('COVER_SETTINGS', 'ef'));
+$cover->addField('settings', 'enable-post-types', __('POST_TYPES', 'ef'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
 
-$cover->addSection('settings', __('Settings', 'ef'));
-$cover->addField('settings', 'enable-post-types', __('Post Types', 'ef'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
+$post_types = ef_get_option('ef-cover', false);
 
-$post_types = ef_get_option('ef-cover');
-$post_types = $post_types['enable-post-types'];
+if($post_types != null) {
+    $post_types = $post_types['enable-post-types'];
 
-if(is_array($post_types)) {
     foreach($post_types as $post_type) {
         $_cpt = get_post_type_object($post_type);
     
-        $cover->addSection($post_type, __($_cpt->labels->name, 'ef'));
-        $cover->addField($post_type, $post_type.'-bg-color', __('Background-Color', 'ef'), null, 'color-picker', null);
-        $cover->addField($post_type, $post_type.'-bg-image', __('Background-Image', 'ef'), null, 'image', null);
+        $cover->addSection($post_type, __($_cpt->labels->name));
+        $cover->addField($post_type, $post_type.'-bg-color', __('COVER_BACKGROUND_COLOR', 'ef'), __('COVER_BACKGROUND_COLOR', 'ef'), 'color-picker', null);
+        $cover->addField($post_type, $post_type.'-bg-image', __('COVER_BACKGROUND_IMAGE', 'ef'), __('COVER_BACKGROUND_IMAGE', 'ef'), 'image', null);
     }
 }
-
 
 $cover->setDefaultValues();
 

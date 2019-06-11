@@ -5,9 +5,9 @@ class EF_Widget_Archive extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array( 
 			'classname' => 'ef_widget_archive',
-			'description' => 'Display Archive ',
+			'description' => __('EF_WIDGET_ARCHIVE_DESCRIPTION', 'ef'),
 		);
-		parent::__construct( 'ef_widget_archive', __('EF Archive', 'ef'), $widget_ops );
+		parent::__construct( 'ef_widget_archive', __('EF_WIDGET_ARCHIVE_NAME', 'ef'), $widget_ops );
 	}
 
 	/**
@@ -45,15 +45,15 @@ class EF_Widget_Archive extends WP_Widget {
 	 */
 	public function form( $instance ) {
         $title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'ef' );
-        $post_type = ! empty( $instance['post-type'] ) ? $instance['post-type'] : esc_html__( 'post', 'ef' );
+        $post_type = ! empty( $instance['post-type'] ) ? $instance['post-type'] : esc_html__('post' );
 		?>
 		<p>
-		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title', 'ef' ); ?></label> 
+		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e('TITLE', 'ef' ); ?></label> 
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
 
         <p>
-		<label for="<?php echo esc_attr( $this->get_field_id( 'post-type' ) ); ?>"><?php esc_attr_e( 'Post Type', 'ef' ); ?></label> 
+		<label for="<?php echo esc_attr( $this->get_field_id( 'post-type' ) ); ?>"><?php esc_attr_e('POST_TYPE', 'ef' ); ?></label> 
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'post-type' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post-type' ) ); ?>" type="text" value="<?php echo esc_attr( $post_type ); ?>">
 		</p>
 		<?php 

@@ -12,19 +12,13 @@ $duration = array(
 );
 
 # cookie law admin page with settings
-$cookie_law_page = new EF_Settings_Page('ef-cookie', __('Cookie Consent', 'ef'), __('Cookie Consent', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'),'settings','fa-cookie', 4);
-$cookie_law_page->addSection('cookie-banner', __('Cookie banner', 'ef'));
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-enable', __('Enable', 'ef'), __('Activate cookie banner', 'ef'), 'checkbox', null, array('checkboxText' => __('Enable', 'ef')));
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-title', __('Cookie banner title', 'ef'),__('Cookie banner title', 'ef'), 'text', __('Privacy Policy', 'ef'));
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-text', __('Cookie banner text', 'ef'),__('Cookie banner text', 'ef'), 'textarea', __('Privacy Policy', 'ef'));
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-background-color', __('Cookie banner background color', 'ef'),__('Cookie banner background color', 'ef'), 'color-picker', '#f9f9f9');
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-title-color', __('Cookie banner title color', 'ef'),__('Cookie banner title color', 'ef'), 'color-picker', '#000');
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-text-color', __('Cookie banner text color', 'ef'),__('Cookie banner text color', 'ef'), 'color-picker', '#000');
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-button-background-color', __('Cookie banner button background color', 'ef'),__('Cookie banner button background color', 'ef'), 'color-picker', '#000');
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-button-text-color', __('Cookie banner button text color', 'ef'),__('Cookie banner button text color', 'ef'), 'color-picker', '#fff');
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-private-policy-page', __('Cookie banner private policy page', 'ef'), __('Cookie banner private policy page', 'ef'), 'selection', null, array( 'posts' => 'page'));
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-duration', __('Duration', 'ef'),__('Duration', 'ef'), 'selection', '30', array('options' => $duration));
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-id', __('Cookie banner id', 'ef'),__('Cookie banner id', 'ef'), 'text', 'cookie-1');
+$cookie_law_page = new EF_Settings_Page('ef-cookie', __('COOKIE_CONSENT', 'ef'), __('COOKIE_CONSENT', 'ef'), __('COOKIE_CONSENT_DESCRIPTION', 'ef'),'settings','fa-cookie', 4);
+$cookie_law_page->addSection('cookie-banner', __('COOKIE_CONSENT', 'ef'));
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-enable', __('COOKIE_CONSENT_ENABLE', 'ef'), __('COOKIE_CONSENT_ENABLE_DESCRIPTION', 'ef'), 'checkbox', null, array('checkboxText' => __('COOKIE_CONSENT_ENABLE_CHECKBOXTEXT', 'ef')));
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-title', __('COOKIE_CONSENT_TITLE', 'ef'),__('COOKIE_CONSENT_TITLE_DESCRIPTION', 'ef'), 'text');
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-text', __('COOKIE_CONSENT_TEXT', 'ef'),__('COOKIE_CONSENT_TEXT_DESCRIPTION', 'ef'), 'textarea');
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-duration', __('COOKIE_CONSENT_DURATION', 'ef'),__('COOKIE_CONSENT_DURATION_DESCRIPTION', 'ef'), 'selection', '30', array('options' => $duration));
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-id', __('COOKIE_CONSENT_ID', 'ef'),__('COOKIE_CONSENT_ID_DESCRIPTION', 'ef'), 'text', '1');
 
 # print cookie banner
 function enfi_cookieconsent_print() {
@@ -33,18 +27,22 @@ function enfi_cookieconsent_print() {
     if (checkConditions()) {
 
         $option = get_option('ef-cookie');
+
+        echo '<div class="ef-cookieconsent-blur-bg"></div>';
         
-        echo '<div class="enfi-cookieconsent">';
-        
-            echo '<div class="title">';
-                echo '<h3>'.$option['cookie-banner-title'].'</h3>';
-            echo '</div>';
-            
-            echo '<div class="content">';
-                echo '<p>'.$option['cookie-banner-text'].'</p>';
+        echo '<div class="ef-cookieconsent">';
+
+            echo '<div class="container h-100">';
+
+                echo '<div class="row align-items-center h-100">';
+                    echo '<div class="offset-lg-3 col-lg-6">';
+                        echo '<div class="title"><h3>'.$option['cookie-banner-title'].'</h3></div>';
+                        echo '<div class="text"><p>'.$option['cookie-banner-text'].'</p></div>';
+                        echo '<div class="accept" id="ef-cookieconsent-accept"><button>'.__('Accept', 'ef').'</button></div>';
+                    echo '</div>';
                 echo '</div>';
-                
-            echo '<div class="accept" id="enfi-cookieconsent-accept"><button>'.__('Accept', 'ef').'</button></div>';
+
+            echo '</div>';
         echo '</div>';
     }
 }
@@ -55,24 +53,9 @@ function enfi_cookieconsent_css_enqueue() {
 
     if(checkConditions()) {
 
-        $option = get_option('ef-cookie');
-
         wp_register_style('ef-cookieconsent', get_template_directory_uri().'/core/assets/modules/css/ef-cookie-law.css');
         wp_enqueue_style('ef-cookieconsent'); 
 
-        ## set custom colors from backend 
-        $titleColor =  $option['cookie-banner-title-color'];
-        $textColor =  $option['cookie-banner-text-color'];
-        $buttonTextColor =  $option['cookie-banner-button-text-color'];
-        $buttonBackgroundColor =  $option['cookie-banner-button-background-color'];
-        $bgColor =  $option['cookie-banner-background-color'];
-        $custom_css = "
-        \t.enfi-cookieconsent .title        {   color: {$titleColor}!important; }
-        \t.enfi-cookieconsent .content      {   color: {$textColor}!important; }
-        \t.enfi-cookieconsent               {   background-color: {$bgColor}!important; }
-        \t.enfi-cookieconsent .accept       {   background: {$buttonBackgroundColor} !importantn; color: {$buttonTextColor}!important; }";
-        
-        wp_add_inline_style( 'ef-cookieconsent', "".$custom_css );
     }
 }
 add_action('wp_enqueue_scripts', 'enfi_cookieconsent_css_enqueue', 999);
@@ -80,10 +63,11 @@ add_action('wp_enqueue_scripts', 'enfi_cookieconsent_css_enqueue', 999);
 # check if cookie not set and module is enable
 function checkConditions() {
 
-    $option = get_option('ef-cookie');
+    $option = ef_get_option('ef-cookie');
 
-    $enable = $option['cookie-banner-enable'];
-    $cookie = $option['cookie-banner-id'];
+    @$enable = $option['cookie-banner-enable'];
+    @$cookie = $option['cookie-banner-id'];
+
 
     if(!is_admin() && !isset($_COOKIE[$cookie]) && http_response_code() != 503 && $enable)
         return true;

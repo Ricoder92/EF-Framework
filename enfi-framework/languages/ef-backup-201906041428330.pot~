@@ -1,0 +1,781 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: EF Framework\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-26 18:37+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.2.2; wp-5.2.1"
+
+#: front-page.php:42 archive-post.php:22
+#: taxonomies/ef-blog-tags/templates/template.php:21
+#: taxonomies/ef-blog-categories/templates/template.php:21
+#: editor/shortcodes/ef-post-grid/init.php:37
+msgid "read more"
+msgstr ""
+
+#: footer.php:30
+msgid "© Copyright"
+msgstr ""
+
+#: footer.php:30
+msgid "All Rights Reserved"
+msgstr ""
+
+#: maintenance.php:16 maintenance.php:23
+msgid "Maintenance Mode - 503"
+msgstr ""
+
+#: core/ef-cover.php:8
+msgid "Cover"
+msgstr ""
+
+#: core/ef-cover.php:8 core/ef-seo.php:43 core/ef-cookie-law.php:15
+#: core/ef-social-media.php:7 core/ef-layout.php:7 core/ef-modules.php:7
+#: core/ef-debug.php:7 core/ef-styles-scripts.php:7 core/ef-google-api.php:12
+#: core/inc/class-ef-post-type.php:157 core/inc/class-ef-settings-page.php:282
+msgid ""
+"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy "
+"eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam "
+"voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet "
+"clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+msgstr ""
+
+#: core/ef-cover.php:10 core/ef-styles-scripts.php:10
+#: core/inc/class-ef-navigation.php:55 core/inc/class-ef-settings-page.php:282
+#: core/inc/class-ef-settings-page.php:282
+msgid "Settings"
+msgstr ""
+
+#: core/ef-cover.php:11 core/ef-seo.php:47 core/ef-social-media.php:17
+#: core/ef-social-media.php:18 core/inc/class-ef-post-type.php:157
+#: core/inc/class-ef-post-type.php:157 core/inc/class-ef-navigation.php:57
+msgid "Post Types"
+msgstr ""
+
+#: core/ef-cover.php:21
+msgid "Background-Color"
+msgstr ""
+
+#: core/ef-cover.php:22
+msgid "Background-Image"
+msgstr ""
+
+#: core/ef-seo.php:17 core/ef-seo.php:55 core/ef-modules.php:23
+#: core/inc/class-ef-post-type.php:175
+msgid "Description"
+msgstr ""
+
+#: core/ef-seo.php:18 core/ef-seo.php:54 core/ef-seo.php:87
+msgid "Keywords"
+msgstr ""
+
+#: core/ef-seo.php:19 core/ef-seo.php:56 core/ef-seo.php:88 core/ef-seo.php:88
+msgid "Topic"
+msgstr ""
+
+#: core/ef-seo.php:20 core/ef-seo.php:57
+msgid "Post Author Name"
+msgstr ""
+
+#: core/ef-seo.php:21
+msgid "Post Author Email"
+msgstr ""
+
+#: core/ef-seo.php:22 core/ef-seo.php:58
+msgid "Designer"
+msgstr ""
+
+#: core/ef-seo.php:23 core/ef-seo.php:59 core/ef-seo.php:91 core/ef-seo.php:91
+#: core/ef-seo.php:92
+msgid "Copyright"
+msgstr ""
+
+#: core/ef-seo.php:38 core/ef-seo.php:39
+msgid "{Post name}"
+msgstr ""
+
+#: core/ef-seo.php:43 core/ef-seo.php:46 core/ef-seo.php:51
+msgid "Search Engine Optimization"
+msgstr ""
+
+#: core/ef-seo.php:48 core/ef-seo.php:84
+msgid "No-Index"
+msgstr ""
+
+#: core/ef-seo.php:52 core/ef-seo.php:53
+msgid "Title Seperator"
+msgstr ""
+
+#: core/ef-seo.php:60 core/ef-seo.php:92
+msgid "Disable SEO Meta Tags"
+msgstr ""
+
+#: core/ef-seo.php:67 core/ef-social-media.php:22
+msgid "Movie"
+msgstr ""
+
+#: core/ef-seo.php:68 core/ef-social-media.php:23
+msgid "Audio"
+msgstr ""
+
+#: core/ef-seo.php:69 core/ef-social-media.php:24
+msgid "Article"
+msgstr ""
+
+#: core/ef-seo.php:82
+msgid "SEO"
+msgstr ""
+
+#: core/ef-seo.php:83 core/ef-social-media.php:61
+msgid "Disable"
+msgstr ""
+
+#: core/ef-seo.php:83
+msgid "Disable SEO for this post"
+msgstr ""
+
+#: core/ef-seo.php:84
+msgid "Stop search engines from crawling this post"
+msgstr ""
+
+#: core/ef-seo.php:85
+msgid "Post title"
+msgstr ""
+
+#: core/ef-seo.php:85
+msgid "Overwrite post title"
+msgstr ""
+
+#: core/ef-seo.php:86
+msgid "Post description"
+msgstr ""
+
+#: core/ef-seo.php:89
+msgid "Web Author Name"
+msgstr ""
+
+#: core/ef-seo.php:89
+msgid "Web Author"
+msgstr ""
+
+#: core/ef-seo.php:90
+msgid "Webdesigner"
+msgstr ""
+
+#: core/ef-cookie-law.php:15
+msgid "Cookie Consent"
+msgstr ""
+
+#: core/ef-cookie-law.php:16
+msgid "Cookie banner"
+msgstr ""
+
+#: core/ef-cookie-law.php:17 core/ef-modules.php:21 core/ef-debug.php:10
+#: core/ef-debug.php:10 core/ef-debug.php:13 core/ef-debug.php:13
+#: core/ef-styles-scripts.php:11 core/ef-styles-scripts.php:12
+#: core/ef-google-api.php:15 core/inc/class-ef-post-type.php:173
+msgid "Enable"
+msgstr ""
+
+#: core/ef-cookie-law.php:17
+msgid "Activate cookie banner"
+msgstr ""
+
+#: core/ef-cookie-law.php:18
+msgid "Cookie banner title"
+msgstr ""
+
+#: core/ef-cookie-law.php:18 core/ef-cookie-law.php:19
+msgid "Privacy Policy"
+msgstr ""
+
+#: core/ef-cookie-law.php:19
+msgid "Cookie banner text"
+msgstr ""
+
+#: core/ef-cookie-law.php:20
+msgid "Cookie banner background color"
+msgstr ""
+
+#: core/ef-cookie-law.php:21
+msgid "Cookie banner title color"
+msgstr ""
+
+#: core/ef-cookie-law.php:22
+msgid "Cookie banner text color"
+msgstr ""
+
+#: core/ef-cookie-law.php:23
+msgid "Cookie banner button background color"
+msgstr ""
+
+#: core/ef-cookie-law.php:24
+msgid "Cookie banner button text color"
+msgstr ""
+
+#: core/ef-cookie-law.php:25
+msgid "Cookie banner private policy page"
+msgstr ""
+
+#: core/ef-cookie-law.php:26
+msgid "Duration"
+msgstr ""
+
+#: core/ef-cookie-law.php:27
+msgid "Cookie banner id"
+msgstr ""
+
+#: core/ef-cookie-law.php:47
+msgid "Accept"
+msgstr ""
+
+#: core/ef-social-media.php:7 core/ef-social-media.php:60
+msgid "Social Media"
+msgstr ""
+
+#: core/ef-social-media.php:10
+msgid "Social Media Channels"
+msgstr ""
+
+#: core/ef-social-media.php:11
+msgid "Facebook-site ID"
+msgstr ""
+
+#: core/ef-social-media.php:12
+msgid "Youtube Channel"
+msgstr ""
+
+#: core/ef-social-media.php:13 core/ef-social-media.php:75
+#: editor/widgets/ef-share-post/init.php:50
+#: editor/widgets/ef-share-post/init.php:105
+msgid "Twitter"
+msgstr ""
+
+#: core/ef-social-media.php:14
+msgid "Instagram"
+msgstr ""
+
+#: core/ef-social-media.php:25
+msgid "Actor"
+msgstr ""
+
+#: core/ef-social-media.php:26
+msgid "Website"
+msgstr ""
+
+#: core/ef-social-media.php:30
+msgid "OpenGraph Meta Tags"
+msgstr ""
+
+#: core/ef-social-media.php:31 editor/widgets/ef-archive/init.php:51
+msgid "Title"
+msgstr ""
+
+#: core/ef-social-media.php:32
+msgid "Type"
+msgstr ""
+
+#: core/ef-social-media.php:33
+msgid "Image"
+msgstr ""
+
+#: core/ef-social-media.php:34
+msgid "Site Name"
+msgstr ""
+
+#: core/ef-social-media.php:35
+msgid "Site Description"
+msgstr ""
+
+#: core/ef-social-media.php:36 editor/widgets/ef-share-post/init.php:53
+#: editor/widgets/ef-share-post/init.php:110
+msgid "E-Mail"
+msgstr ""
+
+#: core/ef-social-media.php:37
+msgid "Phone Number"
+msgstr ""
+
+#: core/ef-social-media.php:38
+msgid "Fax Number"
+msgstr ""
+
+#: core/ef-social-media.php:39 core/ef-social-media.php:67
+msgid "Latitude"
+msgstr ""
+
+#: core/ef-social-media.php:40 core/ef-social-media.php:68
+msgid "Longitude"
+msgstr ""
+
+#: core/ef-social-media.php:41 core/ef-social-media.php:69
+#: core/fields/person-address.php:23
+msgid "Street"
+msgstr ""
+
+#: core/ef-social-media.php:42 core/ef-social-media.php:70
+#: core/fields/person-address.php:25
+msgid "ZIP Code"
+msgstr ""
+
+#: core/ef-social-media.php:43 core/ef-social-media.php:71
+#: core/fields/person-address.php:26
+msgid "City"
+msgstr ""
+
+#: core/ef-social-media.php:44 core/ef-social-media.php:72
+msgid "Region"
+msgstr ""
+
+#: core/ef-social-media.php:45
+msgid "Land"
+msgstr ""
+
+#: core/ef-social-media.php:61
+msgid "Disable Social Media Meta Data for this post"
+msgstr ""
+
+#: core/ef-social-media.php:62
+msgid "Social media post title"
+msgstr ""
+
+#: core/ef-social-media.php:63
+msgid "Social media site name"
+msgstr ""
+
+#: core/ef-social-media.php:64
+msgid "Social media post description"
+msgstr ""
+
+#: core/ef-social-media.php:65
+msgid "Social media thumbnail"
+msgstr ""
+
+#: core/ef-social-media.php:66
+msgid "Article type"
+msgstr ""
+
+#: core/ef-social-media.php:67 core/ef-social-media.php:68
+#: core/ef-social-media.php:69 core/ef-social-media.php:70
+#: core/ef-social-media.php:71 core/ef-social-media.php:72
+#: core/ef-social-media.php:73
+msgid "Globale Keywörter für alle Seiten und Beiträge"
+msgstr ""
+
+#: core/ef-social-media.php:73
+msgid "Country"
+msgstr ""
+
+#: core/ef-social-media.php:74 editor/widgets/ef-share-post/init.php:47
+#: editor/widgets/ef-share-post/init.php:100
+msgid "Facebook"
+msgstr ""
+
+#: core/ef-layout.php:7
+msgid "Layout Einstellungen"
+msgstr ""
+
+#: core/ef-layout.php:7 core/inc/class-ef-navigation.php:56
+msgid "Layout"
+msgstr ""
+
+#: core/ef-layout.php:188
+msgid "Home"
+msgstr ""
+
+#: core/ef-modules.php:7 core/inc/class-ef-navigation.php:59
+msgid "Modules"
+msgstr ""
+
+#: core/ef-modules.php:22 core/inc/class-ef-post-type.php:174
+msgid "Name"
+msgstr ""
+
+#: core/ef-debug.php:7
+msgid "Maintenance & Debug"
+msgstr ""
+
+#: core/ef-debug.php:9
+msgid "Debug Settings"
+msgstr ""
+
+#: core/ef-debug.php:12 core/ef-debug.php:49
+msgid "Maintenance"
+msgstr ""
+
+#: core/ef-debug.php:14
+msgid "Page Maintenance"
+msgstr ""
+
+#: core/ef-debug.php:16 core/ef-debug.php:17 core/ef-debug.php:31
+msgid "404 Error page"
+msgstr ""
+
+#: core/ef.php:137
+msgid "Main Menu"
+msgstr ""
+
+#: core/ef.php:138
+msgid "Footer Menu"
+msgstr ""
+
+#: core/ef.php:187
+msgid "Header top"
+msgstr ""
+
+#: core/ef.php:189 core/ef.php:200 core/ef.php:211 core/ef.php:222
+msgid ""
+"Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches "
+"nebeneinander dynamisch angezeigt werden."
+msgstr ""
+
+#: core/ef.php:198
+msgid "Header right"
+msgstr ""
+
+#: core/ef.php:209
+msgid "Footer"
+msgstr ""
+
+#: core/ef.php:220
+msgid "Post Sidebar"
+msgstr ""
+
+#. Name of the theme
+#: core/ef.php:322
+msgid "EF Framework"
+msgstr ""
+
+#: core/ef.php:322
+msgid ""
+"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy "
+"eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam "
+"voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet "
+"clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+"DebugLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam "
+"nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed "
+"diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet "
+"clita kasd gubergren, no sea takimata sanctus est "
+msgstr ""
+
+#: core/ef-styles-scripts.php:7
+msgid "Styles & Scripts"
+msgstr ""
+
+#: core/ef-styles-scripts.php:11
+msgid "Use parent CSS style"
+msgstr ""
+
+#: core/ef-styles-scripts.php:12
+msgid "Use parent JS"
+msgstr ""
+
+#: core/ef-google-api.php:12
+msgid "Google API"
+msgstr ""
+
+#: core/ef-google-api.php:14 core/ef-google-api.php:18
+msgid "Google Analytics"
+msgstr ""
+
+#: core/ef-google-api.php:15
+msgid "Enable Google Analytics"
+msgstr ""
+
+#: core/ef-google-api.php:16
+msgid "Tracking Code"
+msgstr ""
+
+#: core/ef-google-api.php:19
+msgid "Google Fonts"
+msgstr ""
+
+#: core/inc/class-ef-meta-box.php:135 core/inc/class-ef-settings-page.php:218
+msgid "Insert text here..."
+msgstr ""
+
+#: core/inc/class-ef-navigation.php:58
+msgid "Taxonomies"
+msgstr ""
+
+#: core/fields/aos-effect.php:59
+msgid "Effect duration"
+msgstr ""
+
+#: core/fields/aos-effect.php:60
+msgid "Effect delay"
+msgstr ""
+
+#: core/fields/form-of-adress.php:6
+msgid "Female"
+msgstr ""
+
+#: core/fields/form-of-adress.php:7
+msgid "Male"
+msgstr ""
+
+#: core/fields/image.php:16
+msgid "Remove Image"
+msgstr ""
+
+#: core/fields/list.php:26
+msgid "Add Field"
+msgstr ""
+
+#: core/fields/padding.php:23
+msgid "top"
+msgstr ""
+
+#: core/fields/padding.php:24
+msgid "right"
+msgstr ""
+
+#: core/fields/padding.php:25
+msgid "down"
+msgstr ""
+
+#: core/fields/padding.php:26
+msgid "left"
+msgstr ""
+
+#: core/fields/person-address.php:24
+msgid "Street Addition"
+msgstr ""
+
+#: core/fields/person-name.php:13
+msgid "Firstname"
+msgstr ""
+
+#: core/fields/person-name.php:14
+msgid "Lastname"
+msgstr ""
+
+#: core/fields/person-title.php:6
+msgid "Dr."
+msgstr ""
+
+#: core/fields/person-title.php:7
+msgid "Dr. Prof."
+msgstr ""
+
+#: core/fields/person-title.php:8
+msgid "Prof."
+msgstr ""
+
+#: core/fields/selection.php:8
+msgid "-- No option --"
+msgstr ""
+
+#: taxonomies/ef-blog-tags/init.php:14
+msgctxt "taxonomy general name"
+msgid "Tags"
+msgstr ""
+
+#: taxonomies/ef-blog-tags/init.php:16
+msgid "Search Tags"
+msgstr ""
+
+#: taxonomies/ef-blog-tags/init.php:17
+msgid "All Tags"
+msgstr ""
+
+#: taxonomies/ef-blog-tags/init.php:18
+msgid "Parent-Tags"
+msgstr ""
+
+#: taxonomies/ef-blog-tags/init.php:19
+msgid "Parent-Tags: "
+msgstr ""
+
+#: taxonomies/ef-blog-tags/init.php:20
+msgid "Edit Tag"
+msgstr ""
+
+#: taxonomies/ef-blog-tags/init.php:21
+msgid "Update Tag"
+msgstr ""
+
+#: taxonomies/ef-blog-tags/init.php:22
+msgid "Add new Tag"
+msgstr ""
+
+#: taxonomies/ef-blog-tags/init.php:23
+msgid "New Tag"
+msgstr ""
+
+#: taxonomies/ef-blog-tags/init.php:24
+msgid "Tags"
+msgstr ""
+
+#: taxonomies/ef-blog-categories/init.php:14
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr ""
+
+#: taxonomies/ef-blog-categories/init.php:16
+msgid "Search Categories"
+msgstr ""
+
+#: taxonomies/ef-blog-categories/init.php:17
+msgid "All Categories"
+msgstr ""
+
+#: taxonomies/ef-blog-categories/init.php:18
+msgid "Parent-Category"
+msgstr ""
+
+#: taxonomies/ef-blog-categories/init.php:19
+msgid "Parent-Category: "
+msgstr ""
+
+#: taxonomies/ef-blog-categories/init.php:20
+msgid "Edit Category"
+msgstr ""
+
+#: taxonomies/ef-blog-categories/init.php:21
+msgid "Update Category"
+msgstr ""
+
+#: taxonomies/ef-blog-categories/init.php:22
+msgid "Add new Category"
+msgstr ""
+
+#: taxonomies/ef-blog-categories/init.php:23
+msgid "New Category"
+msgstr ""
+
+#: taxonomies/ef-blog-categories/init.php:24
+msgid "Categories"
+msgstr ""
+
+#: editor/shortcodes/ef-post-grid/init.php:34
+msgid "Posted on "
+msgstr ""
+
+#: editor/widgets/ef-archive/init.php:10
+msgid "EF Archive"
+msgstr ""
+
+#: editor/widgets/ef-archive/init.php:47
+#: editor/widgets/ef-cagetories/init.php:50
+#: editor/widgets/ef-recent-comments/init.php:84
+#: editor/widgets/ef-recent-posts/init.php:63
+#: editor/widgets/ef-tagcloud/init.php:49
+msgid "New title"
+msgstr ""
+
+#: editor/widgets/ef-archive/init.php:48
+#: editor/widgets/ef-recent-comments/init.php:85
+#: editor/widgets/ef-recent-posts/init.php:64
+msgid "post"
+msgstr ""
+
+#: editor/widgets/ef-archive/init.php:56
+#: editor/widgets/ef-recent-comments/init.php:95
+#: editor/widgets/ef-recent-posts/init.php:74
+msgid "Post Type"
+msgstr ""
+
+#: editor/widgets/ef-cagetories/init.php:10
+msgid "EF Categories"
+msgstr ""
+
+#: editor/widgets/ef-cagetories/init.php:54
+#: editor/widgets/ef-recent-comments/init.php:90
+#: editor/widgets/ef-recent-posts/init.php:69
+#: editor/widgets/ef-share-post/init.php:89
+#: editor/widgets/ef-tagcloud/init.php:53
+msgid "title"
+msgstr ""
+
+#: editor/widgets/ef-cagetories/init.php:59
+msgid "Category:"
+msgstr ""
+
+#: editor/widgets/ef-recent-comments/init.php:8
+#: editor/widgets/ef-recent-posts/init.php:8
+msgid "Display x recent Posts of post type y"
+msgstr ""
+
+#: editor/widgets/ef-recent-comments/init.php:10
+msgid "EF Recent Comments"
+msgstr ""
+
+#: editor/widgets/ef-recent-comments/init.php:86
+#: editor/widgets/ef-recent-posts/init.php:65
+msgid "10"
+msgstr ""
+
+#: editor/widgets/ef-recent-comments/init.php:100
+#: editor/widgets/ef-recent-posts/init.php:79
+msgid "Posts"
+msgstr ""
+
+#: editor/widgets/ef-recent-posts/init.php:10
+msgid "EF Recent Posts"
+msgstr ""
+
+#: editor/widgets/ef-share-post/init.php:8
+msgid "Share something!"
+msgstr ""
+
+#: editor/widgets/ef-share-post/init.php:10
+msgid "EF Share Post"
+msgstr ""
+
+#: editor/widgets/ef-share-post/init.php:56
+#: editor/widgets/ef-share-post/init.php:115
+msgid "Pinterest"
+msgstr ""
+
+#: editor/widgets/ef-share-post/init.php:59
+#: editor/widgets/ef-share-post/init.php:120
+msgid "Google+"
+msgstr ""
+
+#: editor/widgets/ef-share-post/init.php:62
+#: editor/widgets/ef-share-post/init.php:125
+msgid "LinkedIn"
+msgstr ""
+
+#: editor/widgets/ef-share-post/init.php:95
+msgid "Show as Icon"
+msgstr ""
+
+#: editor/widgets/ef-tagcloud/init.php:10
+msgid "EF Tagcloud"
+msgstr ""
+
+#: editor/widgets/ef-tagcloud/init.php:58
+msgid "Taxonomy:"
+msgstr ""
+
+#. Description of the theme
+msgid ""
+"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy "
+"eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam "
+"voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet "
+"clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+" Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy "
+"eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam "
+"voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet "
+"clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+msgstr ""
+
+#. URI of the theme
+#. Author URI of the theme
+msgid "http://www.ricoder.de"
+msgstr ""
+
+#. Author of the theme
+msgid "Enrico Fischer"
+msgstr ""

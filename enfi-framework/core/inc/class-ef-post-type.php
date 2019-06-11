@@ -154,7 +154,7 @@ class EF_Post_Type_Create {
 ### settings page
 ##################################################################################################################################################
 
-$plugins_page = new EF_Settings_Page('ef-post-types', __('Post Types', 'ef'), __('Post Types', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'post-types', 'fa-puzzle-piece', 9);
+$plugins_page = new EF_Settings_Page('ef-post-types', __('POST_TYPES', 'ef'), __('POST_TYPES', 'ef'), __('POST_TYPES_DESCRIPTION', 'ef'), 'post-types', 'fa-puzzle-piece', 9);
 $plugins_page->addContent('post_types_render');
 
 # post type list 
@@ -170,9 +170,9 @@ function post_types_render() {
     echo '<table class="ef-admin-table">';
 
         echo '<thead><tr>';
-            echo '<th class="center">'.__('Enable', 'ef').'</th>';
-            echo '<th class="left">'.__('Name', 'ef').'</th>';
-            echo '<th class="left">'.__('Description', 'ef').'</th>';
+            echo '<th class="center">'.__('ENABLE', 'ef').'</th>';
+            echo '<th class="left">'.__('NAME', 'ef').'</th>';
+            echo '<th class="left">'.__('DESCRIPTION', 'ef').'</th>';
         echo '</tr></thead>';
 
     # list all post types 

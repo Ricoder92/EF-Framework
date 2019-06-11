@@ -1,16 +1,18 @@
 jQuery(document).ready(function() {
 
-    $('.enfi-cookieconsent').delay(200).fadeIn(200);
+    $('.ef-cookieconsent-blur-bg').delay(150).fadeIn(200);
+    $('.ef-cookieconsent').delay(200).fadeIn(600);
 
-    jQuery('#enfi-cookieconsent-accept button').click(function(){
+    jQuery('#ef-cookieconsent-accept button').click(function() {
 
         var data = {
-            action: 'enfi_cookieconsent_setcookie' 
+            action: 'enfi_cookieconsent_setcookie'
         };
 
         jQuery.post(cookie_object.ajax_url, data);
-        
-        $('.enfi-cookieconsent').fadeOut();
+
+        $('.ef-cookieconsent-blur-bg').fadeOut();
+        $('.ef-cookieconsent').fadeOut();
 
     });
 

@@ -48,6 +48,7 @@ class EF_Framework {
         require_once get_template_directory().'/core/inc/class-ef-taxonomy.php';
         require_once get_template_directory().'/core/inc/class-ef-navigation.php';
 
+        #require_once get_template_directory().'/core/ef-update.php';
         require_once get_template_directory().'/core/ef-styles-scripts.php';
         require_once get_template_directory().'/core/ef-layout.php';
         require_once get_template_directory().'/core/ef-debug.php';
@@ -75,17 +76,17 @@ class EF_Framework {
     function admin_bar_link($admin_bar){
         $admin_bar->add_menu( array(
             'id'    => 'ef-framework',
-            'title' => __('EF Framework'),
+            'title' => __('EF_FRAMEWORK', 'ef'),
             'href'  => site_url().'/wp-admin/themes.php?page=ef-framework',
             'meta'  => array(
-                'title' => __('EF Framework'),            
+                'title' => __('EF_FRAMEWORK', 'ef'),            
             ),
         ));
     }
 
     # function for admin menu
     function admin_menu() {
-        add_menu_page('EF Framework','EF Framework','manage_options','ef-framework',array($this,'admin_menu_render'),'','99');
+        add_menu_page(__('EF_FRAMEWORK', 'ef'),__('EF_FRAMEWORK', 'ef'),'manage_options','ef-framework',array($this,'admin_menu_render'),'','99');
     }
 
     # function for admin menu render
@@ -98,8 +99,8 @@ class EF_Framework {
                 echo '<div class="row">';
                     echo '<div class="col-lg-12">';
                         echo '<div class="title-description">';
-                            echo '<h1>'.__($this->title).'</h1>';
-                            echo '<p>'.__($this->description).'</p>';
+                            echo '<h1>'.__($this->title, 'ef').'</h1>';
+                            echo '<p>'.__($this->description, 'ef').'</p>';
                         echo '</div>';
                     echo '</div>';
                 echo '</div>';   
@@ -134,8 +135,8 @@ class EF_Framework {
     
         # nav menus
         register_nav_menus( array(
-            'header' => __( 'Main Menu', 'ef'),
-            'footer'  => __( 'Footer Menu', 'ef'),
+            'header' => __( 'MENU_HEADER', 'ef'),
+            'footer'  => __( 'MENU_FOOTER', 'ef'),
         ) );
 
         # remove emojis and rss stuff
@@ -184,9 +185,9 @@ class EF_Framework {
     
         # header left
         register_sidebar( array(
-            'name'          => __('Header top', 'ef'),
+            'name'          => __('SIDEBAR_HEADER_TOP', 'ef'),
             'id'            => 'header-top-bar-left',
-            'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.', 'ef'),
+            'description'   => __('SIDEBAR_HEADER_TOP_DESCRIPTION', 'ef'),
             'before_widget' => '',
             'after_widget'  => '',
             'before_title'  => '<span style="display:none;">',
@@ -195,9 +196,9 @@ class EF_Framework {
 
         # header right
         register_sidebar( array(
-            'name'          => __('Header right', 'ef'),
+            'name'          => __('SIDEBAR_HEADER_RIGHT', 'ef'),
             'id'            => 'header-top-bar-right',
-            'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.','ef'),
+            'description'   => __('SIDEBAR_HEADER_RIGHT_DESCRIPTION','ef'),
             'before_widget' => '',
             'after_widget'  => '',
             'before_title'  => '<span style="display:none;">',
@@ -206,9 +207,9 @@ class EF_Framework {
 
         # footer
         register_sidebar( array(
-            'name'          => __('Footer', 'ef'),
+            'name'          => __('SIDEBAR_FOOTER', 'ef'),
             'id'            => 'footer',
-            'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.','ef'),
+            'description'   => __('SIDEBAR_FOOTER_DESCRIPTION','ef'),
             'before_widget' => '<div class="col-lg">',
             'after_widget'  => '</div>',
             'before_title'  => '<span style="display:none;">',
@@ -217,9 +218,9 @@ class EF_Framework {
 
         # post 
         register_sidebar( array(
-            'name'          => __('Post Sidebar', 'ef'),
+            'name'          => __('POST_SIDEBAR', 'ef'),
             'id'            => 'post-archive-sidebar',
-            'description'   => __('Hier können Widgets plaziert werden, die oberhalb des Header-Bereiches nebeneinander dynamisch angezeigt werden.','ef'),
+            'description'   => __('POST_SIDEBAR_DESCRIPTION','ef'),
             'before_widget' => '<div class="widget-container">',
             'after_widget'  => '</div>',
             'before_title'  => '<div class="title"><h4>',
@@ -319,6 +320,6 @@ class EF_Framework {
 ### und ab die Post....
 ##################################################################################################################################################
 
-new EF_Framework(__('EF Framework', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.DebugLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est ', 'ef'), 'upload_themes');
+new EF_Framework(__('EF_FRAMEWORK', 'ef'), __('EF_FRAMEWORK_DESCRIPTION', 'ef'), 'upload_themes');
 
 ?>

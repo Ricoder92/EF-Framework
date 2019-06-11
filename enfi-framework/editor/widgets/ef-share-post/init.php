@@ -5,9 +5,9 @@ class EF_Widget_Share_Post extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array( 
 			'classname' => 'ef_widget_share_post',
-			'description' => __('Share something!', 'ef'),
+			'description' => __('EF_WIDGET_SHARE_DESCRIPTION', 'ef'),
 		);
-		parent::__construct( 'ef_widget_share_post', __('EF Share Post', 'ef'), $widget_ops );
+		parent::__construct( 'ef_widget_share_post', __('EF_WIDGET_SHARE_NAME', 'ef'), $widget_ops );
 	}
 
 	public function widget($args, $instance ) {
@@ -44,22 +44,22 @@ class EF_Widget_Share_Post extends WP_Widget {
             echo '<ul>';
             
             if($facebook)
-                echo '<li><a target="_BLANK" href="'.$facebook_share_url.'">'.__('Facebook', 'ef').'</a></li>';
+                echo '<li><a target="_BLANK" href="'.$facebook_share_url.'">'.__('FACEBOOK', 'ef').'</a></li>';
 
             if($twitter)
-                echo '<li><a target="_BLANK" href="'.$twitter_share_url.'">'.__('Twitter', 'ef').'</a></li>';
+                echo '<li><a target="_BLANK" href="'.$twitter_share_url.'">'.__('TWITTER', 'ef').'</a></li>';
 
             if($email)
-                echo '<li><a target="_BLANK" href="'.$twitter_share_url.'">'.__('E-Mail', 'ef').'</a></li>';
+                echo '<li><a target="_BLANK" href="'.$twitter_share_url.'">'.__('EMAIL', 'ef').'</a></li>';
 
             if($pinterest)
-                echo '<li><a target="_BLANK" href="'.$pinterest_share_url.'">'.__('Pinterest', 'ef').'</a></li>';
+                echo '<li><a target="_BLANK" href="'.$pinterest_share_url.'">'.__('PINTEREST', 'ef').'</a></li>';
 
             if($google_plus)
-                echo '<li><a target="_BLANK" href="'.$google_plus_share_url.'">'.__('Google+', 'ef').'</a></li>';
+                echo '<li><a target="_BLANK" href="'.$google_plus_share_url.'">'.__('GOOGLEPLUS', 'ef').'</a></li>';
 
             if($linkedin)
-                echo '<li><a target="_BLANK" href="'.$linkedin_share_url.'">'.__('LinkedIn', 'ef').'</a></li>';
+                echo '<li><a target="_BLANK" href="'.$linkedin_share_url.'">'.__('LINKEDIN', 'ef').'</a></li>';
 
             echo '</ul>';
 
@@ -71,7 +71,7 @@ class EF_Widget_Share_Post extends WP_Widget {
 	}
 
 	public function form( $instance ) {
-        $title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'enfi' );
+        $title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title' );
 
         $as_icon = $instance['as_icon'];
 
@@ -86,43 +86,43 @@ class EF_Widget_Share_Post extends WP_Widget {
         ?>
 
         <p>
-		    <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'title', 'ef' ); ?></label> 
+		    <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'TITLE', 'ef' ); ?></label> 
 		    <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
 
         <p>
             <input class="checkbox" type="checkbox" <?php checked( $instance['as_icon'], 'on' ); ?> id="<?php echo $this->get_field_id( 'as_icon' ); ?>" name="<?php echo $this->get_field_name( 'as_icon' ); ?>" /> 
-            <label for="<?php echo $this->get_field_id( 'as_icon' ); ?>"><?php _e('Show as Icon', 'ef');?></label>
+            <label for="<?php echo $this->get_field_id( 'as_icon' ); ?>"><?php _e('EF_WIDGET_SHARE_SHOW_AS_ICON', 'ef');?></label>
         </p>
 
         <p>
             <input class="checkbox" type="checkbox" <?php checked( $instance['facebook'], 'on' ); ?> id="<?php echo $this->get_field_id( 'facebook' ); ?>" name="<?php echo $this->get_field_name( 'facebook' ); ?>" /> 
-            <label for="<?php echo $this->get_field_id( 'facebook' ); ?>"><?php _e('Facebook', 'ef'); ?></label>
+            <label for="<?php echo $this->get_field_id( 'facebook' ); ?>"><?php _e('FACEBOOK', 'ef'); ?></label>
         </p>
 
         <p>
             <input class="checkbox" type="checkbox" <?php checked( $instance['twitter'], 'on' ); ?> id="<?php echo $this->get_field_id( 'twitter' ); ?>" name="<?php echo $this->get_field_name( 'twitter' ); ?>" /> 
-            <label for="<?php echo $this->get_field_id( 'twitter' ); ?>"><?php _e('Twitter', 'ef'); ?></label>
+            <label for="<?php echo $this->get_field_id( 'twitter' ); ?>"><?php _e('TWITTER', 'ef'); ?></label>
         </p>
 
         <p>
             <input class="checkbox" type="checkbox" <?php checked( $instance['email'], 'on' ); ?> id="<?php echo $this->get_field_id( 'email' ); ?>" name="<?php echo $this->get_field_name( 'email' ); ?>" /> 
-            <label for="<?php echo $this->get_field_id( 'email' ); ?>"><?php _e('E-Mail', 'ef'); ?></label>
+            <label for="<?php echo $this->get_field_id( 'email' ); ?>"><?php _e('EMAIL', 'ef'); ?></label>
         </p>
 
         <p>
             <input class="checkbox" type="checkbox" <?php checked( $instance['pinterest'], 'on' ); ?> id="<?php echo $this->get_field_id( 'pinterest' ); ?>" name="<?php echo $this->get_field_name( 'pinterest' ); ?>" /> 
-            <label for="<?php echo $this->get_field_id( 'pinterest' ); ?>"><?php _e('Pinterest', 'ef'); ?></label>
+            <label for="<?php echo $this->get_field_id( 'pinterest' ); ?>"><?php _e('PINTEREST', 'ef'); ?></label>
         </p>
 
         <p>
             <input class="checkbox" type="checkbox" <?php checked( $instance['google_plus'], 'on' ); ?> id="<?php echo $this->get_field_id( 'google_plus' ); ?>" name="<?php echo $this->get_field_name( 'google_plus' ); ?>" /> 
-            <label for="<?php echo $this->get_field_id( 'google_plus' ); ?>"><?php _e('Google+', 'ef'); ?></label>
+            <label for="<?php echo $this->get_field_id( 'google_plus' ); ?>"><?php _e('GOOGLEPLUS', 'ef'); ?></label>
         </p>
         
         <p>
             <input class="checkbox" type="checkbox" <?php checked( $instance['linkedin'], 'on' ); ?> id="<?php echo $this->get_field_id( 'linkedin' ); ?>" name="<?php echo $this->get_field_name( 'linkedin' ); ?>" /> 
-            <label for="<?php echo $this->get_field_id( 'linkedin' ); ?>"><?php _e('LinkedIn', 'ef'); ?></label>
+            <label for="<?php echo $this->get_field_id( 'linkedin' ); ?>"><?php _e('LINKEDIN', 'ef'); ?></label>
         </p>
 
 		<?php 

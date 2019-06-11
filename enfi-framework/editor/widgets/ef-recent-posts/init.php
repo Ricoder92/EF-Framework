@@ -5,9 +5,9 @@ class EF_Widget_Recent_Posts extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array( 
 			'classname' => 'ef_widget_recent_posts',
-			'description' => __('Display x recent Posts of post type y', 'ef'),
+			'description' => __('EF_WIDGET_RECENT_POSTS_DESCRIPTION', 'ef'),
 		);
-		parent::__construct( 'ef_widget_recent_posts', __('EF Recent Posts', 'ef'), $widget_ops );
+		parent::__construct( 'ef_widget_recent_posts', __('EF_WIDGET_RECENT_POSTS_DESCRIPTION', 'ef'), $widget_ops );
 	}
 
 	/**
@@ -60,23 +60,23 @@ class EF_Widget_Recent_Posts extends WP_Widget {
 	 * @param array $instance The widget options
 	 */
 	public function form( $instance ) {
-        $title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'ef' );
-        $post_type = ! empty( $instance['post_type'] ) ? $instance['post_type'] : esc_html__( 'post', 'ef' );
-        $posts_per_page = ! empty( $instance['posts_per_page'] ) ? $instance['posts_per_page'] : esc_html__( '10', 'ef' );
+        $title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title' );
+        $post_type = ! empty( $instance['post_type'] ) ? $instance['post_type'] : esc_html__( 'post' );
+        $posts_per_page = ! empty( $instance['posts_per_page'] ) ? $instance['posts_per_page'] : esc_html__( '10' );
 
 		?>
 		<p>
-		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'title', 'ef' ); ?></label> 
+		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'TITLE', 'ef' ); ?></label> 
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
 
         <p>
-		<label for="<?php echo esc_attr( $this->get_field_id( 'post_type' ) ); ?>"><?php esc_attr_e( 'Post Type', 'ef' ); ?></label> 
+		<label for="<?php echo esc_attr( $this->get_field_id( 'post_type' ) ); ?>"><?php esc_attr_e( 'POST_TYPE', 'ef' ); ?></label> 
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'post_type' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_type' ) ); ?>" type="text" value="<?php echo esc_attr( $post_type ); ?>">
 		</p>
 
         <p>
-		<label for="<?php echo esc_attr( $this->get_field_id( 'posts_per_page' ) ); ?>"><?php esc_attr_e( 'Posts', 'ef' ); ?></label> 
+		<label for="<?php echo esc_attr( $this->get_field_id( 'posts_per_page' ) ); ?>"><?php esc_attr_e( 'POSTS_PER_PAGE', 'ef' ); ?></label> 
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'posts_per_page' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'posts_per_page' ) ); ?>" type="text" value="<?php echo esc_attr( $posts_per_page ); ?>">
 		</p>
         <?php 

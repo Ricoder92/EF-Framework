@@ -28,11 +28,11 @@
     var PanelBody = wp.components.PanelBody;
 
     // register
-    registerBlockType('enfi/test', {
+    registerBlockType('ef/title', {
 
-        title 'Enfi Test',
+        title: 'EF Title',
         icon: 'smiley',
-        category: 'enfi-blocks',
+        category: 'ef-blocks',
 
         supports: {
             align: ['full', 'wide'],
@@ -46,7 +46,7 @@
         reusable: false,
 
         attributes: {
-            title {
+            title: {
                 type: 'string',
             },
             text: {
@@ -56,7 +56,7 @@
                 type: 'string',
                 default: 'rgb(140,140,140)'
             },
-            backgroundColortitle {
+            backgroundColortitle: {
                 type: 'string',
             },
             backgroundColorText: {
@@ -73,7 +73,7 @@
                 type: 'url',
                 default: ''
             },
-            ordertitle {
+            ordertitle: {
                 type: 'string',
                 default: 'order-first'
             },
@@ -331,7 +331,7 @@
 
             function onChangeTitle(newContent) {
                 props.setAttributes({
-                    title newContent
+                    title: newContent
                 });
             }
 
@@ -350,7 +350,7 @@
 
             function onChangeBackgroundColorTitle(newColor) {
                 props.setAttributes({
-                    backgroundColortitle newColor
+                    backgroundColortitle: newColor
                 });
             }
 
@@ -376,12 +376,12 @@
 
                 if (state) {
                     props.setAttributes({
-                        ordertitle 'order-last',
+                        ordertitle: 'order-last',
                         orderText: 'order-first'
                     });
                 } else {
                     props.setAttributes({
-                        ordertitle 'order-first',
+                        ordertitle: 'order-first',
                         orderText: 'order-last'
                     });
                 }
@@ -479,7 +479,7 @@
 
             return el(
                 'div', {
-                    className: props.className,
+                    className: props.className + ' ef-slide',
 
                 },
                 el('div', {
@@ -544,7 +544,7 @@
                         el(InspectorControls, null,
 
                             el(PanelBody, {
-                                    title "Text",
+                                    title: "Text",
                                     initialOpen: false
                                 },
 
@@ -565,7 +565,7 @@
                                 })
                             ),
                             el(PanelBody, {
-                                    title 'Text-Eigenschaften',
+                                    title: 'Text-Eigenschaften',
                                     initialOpen: false
                                 },
                                 el(BaseControl, {
@@ -588,7 +588,7 @@
                             ),
 
                             el(PanelBody, {
-                                    title "Hintergrund",
+                                    title: "Hintergrund",
                                     initialOpen: false
                                 },
                                 el(BaseControl, {
@@ -637,7 +637,7 @@
                                 })
                             ),
                             el(PanelBody, {
-                                    title "Animation",
+                                    title: "Animation",
                                     initialOpen: false
                                 },
                                 el(SelectControl, {
@@ -716,7 +716,7 @@
 
             return el(
                 'div', {
-                    className: props.className,
+                    className: props.className + ' ef-slide',
                 },
                 el('div', {
                     className: 'bg-image',

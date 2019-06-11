@@ -112,7 +112,7 @@ class EF_Settings_Page {
 
     public function addContent($function) {
 
-        add_action('ef-framework-content-'.$this->slug, function() use ($function) {
+        add_action($this->slug, function() use ($function) {
             call_user_func($function);
         });
        
@@ -139,11 +139,11 @@ class EF_Settings_Page {
 
             $data['type'] = $type;
             $data['args'] = $args;
-            $data['description'] = $description;
+            $data['description'] = __($description, 'ef');
 
             add_settings_field(
                 $id,
-                $name,
+                __($name, 'ef'),
                 array(&$this, 'sanitize'), 
                 $this->slug,
                 $this->slug.$section_id,
@@ -167,8 +167,8 @@ class EF_Settings_Page {
                     echo '<div class="row">';
                         echo '<div class="col-lg-12">';
                             echo '<div class="title-description">';
-                                echo '<h1>'.__($this->name).'</h1>';
-                                echo '<p>'.__($this->description).'</p>';
+                                echo '<h1>'.__($this->name, 'ef').'</h1>';
+                                echo '<p>'.__($this->description, 'ef').'</p>';
                             echo '</div>';
                         echo '</div>';
                     echo '</div>';   
@@ -215,7 +215,7 @@ class EF_Settings_Page {
         if(isset($data['placeholder']))
             $placeholder = $data['placeholder'];
         else    
-            $placeholder = __('Insert text here...', 'ef');
+            $placeholder = __('INSERT_TEXT_HERE', 'ef');
 
         $sanitized_field_template = get_template_directory() . "/core/fields/".$type.".php";
 
@@ -279,7 +279,7 @@ function parseOptions($args) {
 ### example settings page
 ##################################################################################################################################################
 
-$settings_page = new EF_Settings_Page('settings', __('Settings', 'ef'), __('Settings', 'ef'), __('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 'ef'), 'settings', null, 1);
+$settings_page = new EF_Settings_Page('settings', __('SETTINGS', 'ef'), __('SETTINGS', 'ef'), __('SETTINGS_DESCRIPTION', 'ef'), 'settings', null, 1);
 
 $options = array(
     array( 'text' =>  '30', 'value' => 30),
@@ -291,7 +291,7 @@ $options = array(
     array( 'text' =>  '90', 'value' => 90)
 );
 
-$settings_page->addSection(1, 'Settings');
+$settings_page->addSection(1, __('SETTINGS', 'ef'));
     $settings_page->addField(1, 'textbox', 'Text', null, 'text');
     $settings_page->addField(1, 'ttretextbox', 'Text', null, 'text');
     $settings_page->addField(1, 'texttrebox', 'Text', null, 'text');

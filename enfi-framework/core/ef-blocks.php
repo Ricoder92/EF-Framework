@@ -12,7 +12,7 @@ class EF_Blocks {
     # get all blocks from the folder
     public function activateBlocks() {
 
-        $blocks_path =  get_template_directory().'/blocks';
+        $blocks_path =  get_template_directory().'/editor/blocks';
         
         foreach(glob($blocks_path.'/*/init.php') as $file){
             
@@ -33,8 +33,8 @@ class EF_Blocks {
     # get block script and style assets
     public function enqueueblockCSSandJS($name) {
 
-        $path = get_template_directory().'/blocks/'.$name;
-        $path_uri = get_template_directory_uri().'/blocks/'.$name;
+        $path = get_template_directory().'/editor/blocks/'.$name;
+        $path_uri = get_template_directory_uri().'/editor/blocks/'.$name;
         
         # get block script and style assets
         add_action('enqueue_block_editor_assets', function() use ($name, $path, $path_uri) {
@@ -62,8 +62,8 @@ class EF_Blocks {
         # get block styles
         add_action('wp_enqueue_scripts', function() use ($name, $path, $path_uri) {
 
-            $path = get_template_directory().'/blocks/'.$name;
-            $path_uri = get_template_directory_uri().'/blocks/'.$name;
+            $path = get_template_directory().'/editor/blocks/'.$name;
+            $path_uri = get_template_directory_uri().'/editor/blocks/'.$name;
 
             if(is_dir($path)) {
                 if(!is_admin()) {
@@ -89,8 +89,8 @@ class EF_Blocks {
             $categories,
             array(
                 array(
-                    'slug' => 'enfi-blocks',
-                    'title' => __( 'Enfi Blocks', 'enfi' ),
+                    'slug' => 'ef-blocks',
+                    'title' => __( 'EF Blocks', 'ef' ),
                     'icon'  => 'wordpress',
                 ),
             )
