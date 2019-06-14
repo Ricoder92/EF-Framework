@@ -28,7 +28,7 @@ foreach($options as $option) {
     }
 
     else if(isset($data['posts'])) {
-        $textItem = $option->post_title.' ('.$option->ID.')';
+        $textItem = $option->ID. ' - '.$option->post_title;
         $valueItem = $option->ID;
     }
 

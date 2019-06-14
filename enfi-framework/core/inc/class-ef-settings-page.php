@@ -64,8 +64,13 @@ class EF_Settings_Page {
         });
 
         add_action('ef-admin-navigation-'.$this->menu, function() {
+
+            if($_GET['page'] == $this->slug)
+                $css = 'class="current"';
+            else    
+                $css = null;
         
-            echo '<li><a href="'.admin_url('/admin.php?page='.$this->slug).'"><i class="icon fas '.$this->icon.' fa-1x"></i>'.__($this->menuName, 'ef').'</a></li>';
+            echo '<li><a '.$css.' href="'.admin_url('/admin.php?page='.$this->slug).'"><i class="icon fas '.$this->icon.' fa-1x"></i>'.__($this->menuName, 'ef').'</a></li>';
 
         }, $this->prio);
 
@@ -73,12 +78,12 @@ class EF_Settings_Page {
 
             $url = admin_url("/admin.php?page=".$this->slug);
         
-            echo '<div class="col-lg-3 col-md-6">';
-                echo '<div onclick="location.href=\''.$url.'\';" class="ef-admin-navigation-main-page-card">';
+           
+                echo '<div onclick="location.href=\''.$url.'\';" class="ef-dashboard-card">';
                     echo '<div align="center"><i class="icon fas '.$this->icon.' fa-2x"></i><br/><h3> '.__($this->menuName, 'ef').'</h3></div>';
                     echo '<p>'.__($this->description, 'ef').'</p>';
                 echo '</div>';
-            echo '</div>';
+           
 
                 
 
@@ -102,7 +107,7 @@ class EF_Settings_Page {
         add_action('admin_init', function() use ($id, $title) {
             add_settings_section (
                 $this->slug.$id, 
-                $title, 
+                __($title, 'ef'), 
                 null, 
                 $this->slug
             );
@@ -110,7 +115,7 @@ class EF_Settings_Page {
        
     }
 
-    public function addContent($function) {
+    public function addContent($section_id, $function) {
 
         add_action($this->slug, function() use ($function) {
             call_user_func($function);
@@ -162,41 +167,33 @@ class EF_Settings_Page {
 
         echo '<form method="post" action="options.php">';
 
-            echo '<div class="ef-admin-page-head">';
-                echo '<div class="container-fluid">';
-                    echo '<div class="row">';
-                        echo '<div class="col-lg-12">';
-                            echo '<div class="title-description">';
-                                echo '<h1>'.__($this->name, 'ef').'</h1>';
-                                echo '<p>'.__($this->description, 'ef').'</p>';
-                            echo '</div>';
-                        echo '</div>';
-                    echo '</div>';   
+            echo '<div class="ef-dashboard-head">';    
+                echo '<div class="title-description">';
+                    echo '<h1>'.__($this->name, 'ef').'</h1>';
+                    echo '<p>'.__($this->description, 'ef').'</p>';
                 echo '</div>';
             echo '</div>';
 
-            echo '<div class="container-fluid"><div class="row">';
-                
-                echo '<div class="col-lg-2">';
-                    do_action('ef-admin-navigation');
-                echo '</div>';
+            echo '<div class="ef-dashboard-content">';
+                echo '<div class="ef-dashboard-settings-page">';
 
-                echo '<div class="col-lg-8">';
-                    echo '<div class="ef-admin-page-content ef-admin-form-settings">';
+                    echo '<div class="navigation">';
+                        do_action('ef-admin-navigation');
+                    echo '</div>';
+
+                    echo '<div class="content ef-admin-form-settings">';
                         settings_fields ($this->slug);
                         do_settings_sections ($this->slug);
                         do_action($this->slug);
                     echo '</div>';
                 
-                    echo '<div class="ef-admin-page-footer">';
+                    echo '<div class="ef-dashboard-footer">';
                         submit_button();
                     echo '</div>';
 
                 echo '</div>';
 
             echo '</div>';
-
-        echo '</div>';
 
     echo '</form>';
 
@@ -279,34 +276,34 @@ function parseOptions($args) {
 ### example settings page
 ##################################################################################################################################################
 
-$settings_page = new EF_Settings_Page('settings', __('SETTINGS', 'ef'), __('SETTINGS', 'ef'), __('SETTINGS_DESCRIPTION', 'ef'), 'settings', null, 1);
+#$settings_page = new EF_Settings_Page('settings2', __('SETTINGS_TEMPLATE', 'ef'), __('SETTINGS_TEMPLATE', 'ef'), __('SETTINGS_DESCRIPTION', 'ef'), 'settings', null, 1);
 
-$options = array(
-    array( 'text' =>  '30', 'value' => 30),
-    array( 'text' =>  '60', 'value' => 60),
-    array( 'text' =>  '90', 'value' => 90),
-    array( 'text' =>  '90', 'value' => 90),
-    array( 'text' =>  '90', 'value' => 90),
-    array( 'text' =>  '90', 'value' => 90),
-    array( 'text' =>  '90', 'value' => 90)
-);
+#$options = array(
+#    array( 'text' =>  '30', 'value' => 30),
+#    array( 'text' =>  '60', 'value' => 60),
+#    array( 'text' =>  '90', 'value' => 90),
+#    array( 'text' =>  '90', 'value' => 90),
+#    array( 'text' =>  '90', 'value' => 90),
+#    array( 'text' =>  '90', 'value' => 90),
+#    array( 'text' =>  '90', 'value' => 90)
+#);
 
-$settings_page->addSection(1, __('SETTINGS', 'ef'));
-    $settings_page->addField(1, 'textbox', 'Text', null, 'text');
-    $settings_page->addField(1, 'ttretextbox', 'Text', null, 'text');
-    $settings_page->addField(1, 'texttrebox', 'Text', null, 'text');
-    $settings_page->addField(1, 'tex432box', 'Text', null, 'text');
-    $settings_page->addField(1, 'textb42ox', 'Text', null, 'text');
-    $settings_page->addField(1, 'te66xtbox', 'Text', null, 'text');
-    $settings_page->addField(1, 'selection', 'Selection', null, 'selection', '', array('options' => $options));
-    $settings_page->addField(1, 'selection-post-types', 'Selection Group', null, 'selection', null, array('post_types' => get_post_types()));
-    $settings_page->addField(1, 'checkbox', 'Checkbox', null, 'checkbox', null, array('checkboxText' => 'test'));
-    $settings_page->addField(1, 'checkbox-group-options', 'Checkbox-Group Options', null, 'checkbox-group', null, array('options' => $options));
-    $settings_page->addField(1, 'checkbox-group-post-types', 'Checkbox-Group Post-Types', null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
-    $settings_page->addField(1, 'checkbox-group-posts', 'Checkbox-Group Posts', null, 'checkbox-group', null, array( 'posts' => 'page'));
-    $settings_page->addField(1, 'list', 'Liste', null, 'list', null);
-    $settings_page->addField(1, 'color-picker', 'Color-Picker', null, 'color-picker',  null);
-    $settings_page->addField(1, 'image', 'Image', null, 'image', null);
-    $settings_page->addField(1, 'button-group', 'Button group', null, 'text-align', 'left');
-    $settings_page->addField(1, 'button-group245156156', 'Button group', null, 'button-group', null, array( 'options' => $options ));
-    $settings_page->addField(1, 'button-group245156gtre156', 'Button group', null, 'button-group', null, array( 'options' => $options, 'vertical' => true ));
+#$settings_page->addSection(1, __('SETTINGS', 'ef'));
+#$settings_page->addField(1, 'textbox', 'Text', null, 'text');
+#$settings_page->addField(1, 'ttretextbox', 'Text', null, 'text');
+#$settings_page->addField(1, 'texttrebox', 'Text', null, 'text');
+#$settings_page->addField(1, 'tex432box', 'Text', null, 'text');
+#$settings_page->addField(1, 'textb42ox', 'Text', null, 'text');
+#$settings_page->addField(1, 'te66xtbox', 'Text', null, 'text');
+#$settings_page->addField(1, 'selection', 'Selection', null, 'selection', '', array('options' => $options));
+#$settings_page->addField(1, 'selection-post-types', 'Selection Group', null, 'selection', null, array('post_types' => get_post_types()));
+#$settings_page->addField(1, 'checkbox', 'Checkbox', null, 'checkbox', null, array('checkboxText' => 'test'));
+#$settings_page->addField(1, 'checkbox-group-options', 'Checkbox-Group Options', null, 'checkbox-group', null, array('options' => $options));
+#$settings_page->addField(1, 'checkbox-group-post-types', 'Checkbox-Group Post-Types', null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
+#$settings_page->addField(1, 'checkbox-group-posts', 'Checkbox-Group Posts', null, 'checkbox-group', null, array( 'posts' => 'page'));
+#$settings_page->addField(1, 'list', 'Liste', null, 'list', null);
+#$settings_page->addField(1, 'color-picker', 'Color-Picker', null, 'color-picker',  null);
+#$settings_page->addField(1, 'image', 'Image', null, 'image', null);
+#$settings_page->addField(1, 'button-group', 'Button group', null, 'text-align', 'left');
+#$settings_page->addField(1, 'button-group245156156', 'Button group', null, 'button-group', null, array( 'options' => $options ));
+#$settings_page->addField(1, 'button-group245156gtre156', 'Button group', null, 'button-group', null, array( 'options' => $options, 'vertical' => true ));

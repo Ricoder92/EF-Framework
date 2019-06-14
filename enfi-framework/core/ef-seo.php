@@ -124,11 +124,12 @@ function check_meta_tag_disable($global_disable_seo_meta, $key) {
 }
 
 ################################################################################################################################################## 
-### loop
+### add seo meta tags to wp_head 
 ##################################################################################################################################################
 
-function seo_add_wp_head() {
+add_action('wp_head', function() {
 
+    # if seo meta tags enable for current post type and check if enable for current post
     if(check_post_type_enable() && check_post_enable()) {
         
         ## get post meta
@@ -137,10 +138,9 @@ function seo_add_wp_head() {
         ## if null, set to empty array
         if(!is_array($meta_data))
             $meta_data = array();
-        
-
-         $option = ef_get_option('ef-seo');
-
+    
+        # get ef global settings
+        $option = ef_get_option('ef-seo');
 
         ## check disable seo meta tags
         if(array_key_exists('global-disable-seo-meta', $option))
@@ -153,13 +153,19 @@ function seo_add_wp_head() {
         else 
             $meta_disable_seo_meta = array();
 
-        $meta_tags = array('keywords', 'description', 'topic', 'author', 'designer', 'copyright');
-
+            
         ef_html_comment('SEO');
-
+          
+        # set (no)follow
         if(isset($meta_data['seo-no-index']))
-           echo "\t<meta name=\"robots\" content=\"noindex,nofollow\">\n";
-
+            echo "<meta name=\"robots\" content=\"noindex,nofollow\">\n";
+        else
+            echo "<meta name=\"robots\" content=\"index,follow\">\n";
+            
+        # set array with meta name parameters
+        $meta_tags = array('keywords', 'description', 'topic', 'author', 'designer', 'copyright');
+        
+        # for each meta 
         foreach($meta_tags as $meta_tag) {
 
             if(isset($meta_data['seo-'.$meta_tag]))
@@ -179,24 +185,24 @@ function seo_add_wp_head() {
                             $meta .= ', '.$options;
 
                         if($meta)
-                            echo "\t<meta name=\"keywords\" content=\"".$meta."\"/>\n";
+                            echo "<meta name=\"keywords\" content=\"".$meta."\"/>\n";
                         else if($options)
-                            echo "\t<meta name=\"keywords\" content=\"".$options."\"/>\n";
+                            echo "<meta name=\"keywords\" content=\"".$options."\"/>\n";
 
                     } else {
 
                         if($meta)
-                            echo "\t<meta name=\"".$meta_tag."\" content=\"".$meta."\"/>\n";
+                            echo "<meta name=\"".$meta_tag."\" content=\"".$meta."\"/>\n";
                         else if($options)
-                            echo "\t<meta name=\"".$meta_tag."\" content=\"".$options."\"/>\n";
+                            echo "<meta name=\"".$meta_tag."\" content=\"".$options."\"/>\n";
+
                     }
                 }
             }
         }
     }
-}
 
-add_action('wp_head', 'seo_add_wp_head', -1);
+}, -1);
 
 
 ################################################################################################################################################## 
@@ -243,5 +249,28 @@ function wpdocs_filter_wp_title( $title, $sep ) {
 }
 #add_filter( 'wp_title', 'wpdocs_filter_wp_title', 10, 2 );
 
+add_filter( 'get_canonical_url', 'filter_function_name_4269', 10, 2 );
+
+
+add_action('wp_head', function() {
+
+    ef_html_comment('Title');
+
+    if(is_front_page() || is_home()) 
+        $title = get_bloginfo('name');
+    else 
+        $title = wp_title('|', false, 'right').get_bloginfo('name'); 
+
+    echo "<title>".$title."</title>\n";
+
+},-99);
+
+#WIP
+function filter_function_name_4269( $canonical_url, $post ){
+    ef_html_comment('Cannnial URL and Shortlink');
+	$canonical_url = $canonical_url;
+
+	return $canonical_url;
+}
 
 ?>

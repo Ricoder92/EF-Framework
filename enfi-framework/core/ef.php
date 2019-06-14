@@ -25,18 +25,7 @@ class EF_Framework {
         # widgets hook
         add_action( 'widgets_init',  array(&$this, 'register_widgets' ));
 
-        # adminbar link hook
-        add_action('admin_bar_menu', array(&$this, 'admin_bar_link'), 100);
-
-        # remove wp embed
-        add_action( 'init', array(&$this, 'ef_remove_wp_embed'), 9999 );
-
-        # remove rss
-        add_action('wp_head', array(&$this, 'ef_head'), -1);
-        remove_action('wp_head', 'rsd_link');
-        remove_action('wp_head', 'wlwmanifest_link');
-
-        # global header stuff (except titletag)
+        add_action('wp_head', array(&$this, 'ef_head'), -9999);
         add_action( 'wp_head', array(&$this, 'global_header') ,-1);
       
         # require some ef stuff
@@ -48,7 +37,7 @@ class EF_Framework {
         require_once get_template_directory().'/core/inc/class-ef-taxonomy.php';
         require_once get_template_directory().'/core/inc/class-ef-navigation.php';
 
-        #require_once get_template_directory().'/core/ef-update.php';
+        require_once get_template_directory().'/core/ef-generel.php';
         require_once get_template_directory().'/core/ef-styles-scripts.php';
         require_once get_template_directory().'/core/ef-layout.php';
         require_once get_template_directory().'/core/ef-debug.php';
@@ -61,15 +50,46 @@ class EF_Framework {
         require_once get_template_directory().'/core/ef-cookie-law.php';
         require_once get_template_directory().'/core/ef-cover.php';
 
+        $options = ef_get_option('settings');
+
+        #disable some stuff
+        if(isset($options['disable-posts']))
+            require_once get_template_directory().'/core/inc/ef-disable-posts.php';
+
+        if(isset($options['disable-comments']))
+            require_once get_template_directory().'/core/inc/ef-disable-comments.php';
+
+        if(isset($options['disable-emoji']))
+            require_once get_template_directory().'/core/inc/ef-disable-emoji.php';
+
+        if(isset($options['disable-oembed']))
+            require_once get_template_directory().'/core/inc/ef-disable-oembed.php';
+
+        if(isset($options['disable-rss']))
+            require_once get_template_directory().'/core/inc/ef-disable-rss.php';
+
+        if(isset($options['disable-rsd']))
+            remove_action('wp_head', 'rsd_link');
+        
+        if(isset($options['disable-wlwmanifest']))
+            remove_action('wp_head', 'wlwmanifest_link');
+
+        if(isset($options['disable-generator']))
+            remove_action('wp_head', 'wp_generator');
+
+        # adminbar link hook
+        if(!isset($options['disable-admin-bar']))
+            add_action('admin_bar_menu', array(&$this, 'admin_bar_link'), 100);
+    
     }
 
     # ef head
     function ef_head() {
-        echo "\n\t<!--#################################################################\n";
-        echo "\t\tpowered by EF Framework\n";
-        echo "\t\tcreated by Enrico Fischer - Halle(Saale)\n";
-        echo "\t\twww.ricoder.de | info@ricoder.de \n";
-        echo "\t#################################################################--!>\n";
+        echo "\n<!--#################################################################\n";
+        echo "powered by EF Framework\n";
+        echo "created by Enrico Fischer - Halle(Saale)\n";
+        echo "www.ricoder.de | info@ricoder.de \n";
+        echo "#################################################################--!>\n";
     }
 
     # admin bar link
@@ -92,27 +112,19 @@ class EF_Framework {
     # function for admin menu render
     function admin_menu_render() {
 
-        wp_enqueue_style('bootstrap-grid');
+        #wp_enqueue_style('bootstrap-grid');
 
-        echo '<div class="ef-admin-page-head">';
-            echo '<div class="container-fluid">';
-                echo '<div class="row">';
-                    echo '<div class="col-lg-12">';
-                        echo '<div class="title-description">';
-                            echo '<h1>'.__($this->title, 'ef').'</h1>';
-                            echo '<p>'.__($this->description, 'ef').'</p>';
-                        echo '</div>';
-                    echo '</div>';
-                echo '</div>';   
+        echo '<div class="ef-dashboard-head">';
+            echo '<div class="title-description">';
+                echo '<h1>'.__($this->title, 'ef').'</h1>';
+                echo '<p>'.__($this->description, 'ef').'</p>';
             echo '</div>';
         echo '</div>';
 
-        echo '<div class="ef-admin-page-content">';
-            echo '<div class="container-fluid">';
-                echo '<div class="row">';
-                    do_action('ef-admin-navigation-main-page');
-                echo '</div>';   
-            echo '</div>';
+        echo '<div class="ef-dashboard-content">';
+            echo '<div class="ef-dashboard-list-cards">';
+                do_action('ef-admin-navigation-main-page');
+            echo '</div>';   
         echo '</div>';
     }
 
@@ -138,45 +150,6 @@ class EF_Framework {
             'header' => __( 'MENU_HEADER', 'ef'),
             'footer'  => __( 'MENU_FOOTER', 'ef'),
         ) );
-
-        # remove emojis and rss stuff
-        remove_action('wp_head', 'print_emoji_detection_script', 7);
-        remove_action('admin_print_scripts', 'print_emoji_detection_script');
-        remove_action('admin_print_styles', 'print_emoji_styles');
-        remove_action('wp_print_styles', 'print_emoji_styles');
-        remove_filter('the_content_feed', 'wp_staticize_emoji');
-        remove_filter('comment_text_rss', 'wp_staticize_emoji');
-        remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
-        #add_filter('tiny_mce_plugins', 'remove_tinymce_emoji');
-        add_filter( 'emoji_svg_url', '__return_false' );
-        remove_action('wp_head', 'wp_generator');
-	    remove_post_type_support( 'page', 'custom-fields' );
-    
-    }
-
-    function ef_remove_wp_embed() {
-
-        // Remove the REST API endpoint.
-        remove_action( 'rest_api_init', 'wp_oembed_register_route' );
-
-        // Turn off oEmbed auto discovery.
-        add_filter( 'embed_oembed_discover', '__return_false' );
-
-        // Don't filter oEmbed results.
-        remove_filter( 'oembed_dataparse', 'wp_filter_oembed_result', 10 );
-
-        // Remove oEmbed discovery links.
-        remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
-
-        // Remove oEmbed-specific JavaScript from the front-end and back-end.
-        remove_action( 'wp_head', 'wp_oembed_add_host_js' );
-        add_filter( 'tiny_mce_plugins', array(&$this, 'disable_embeds_tiny_mce_plugin'));
-
-        // Remove all embeds rewrite rules.
-        add_filter( 'rewrite_rules_array', array(&$this, 'disable_embeds_rewrites'));
-
-        // Remove filter of the oEmbed result before any HTTP requests are made.
-        remove_filter( 'pre_oembed_result', 'wp_filter_pre_oembed_result', 10 );
 
     }
 
@@ -237,7 +210,7 @@ class EF_Framework {
 
         # meta tags
         ef_html_comment('Metatags');
-        echo "\t<meta charset=\"UTF-8\" />\n";
+        echo "<meta charset=\"UTF-8\" />\n";
         
         # set url
         if (is_category())
@@ -260,58 +233,46 @@ class EF_Framework {
             $url = site_url();
          
         # print url
-        echo "\t<meta name=\"URL\" content=\"".$url."\">\n";
-        echo "\t<meta name=\"identifier-URL\" content=\"".$url."\">\n";
+        echo "<meta name=\"URL\" content=\"".$url."\">\n";
+        echo "<meta name=\"identifier-URL\" content=\"".$url."\">\n";
            
         # viewport
-        echo "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n";
+        echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n";
 
         # language
-        echo "\t<meta name=\"language\" content=\"".get_locale()."\">\n";
+        echo "<meta name=\"language\" content=\"".get_locale()."\">\n";
 
         # apple tags
         ef_html_comment('Apple metatags');
-        echo "\t<meta name=\"format-detection\" content=\"telephone=yes\">\n";
-        echo "\t<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n";
-        echo "\t<meta name=\"apple-touch-fullscreen\" content=\"yes\">\n";
-        echo "\t<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">\n";
+        echo "<meta name=\"format-detection\" content=\"telephone=yes\">\n";
+        echo "<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n";
+        echo "<meta name=\"apple-touch-fullscreen\" content=\"yes\">\n";
+        echo "<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">\n";
         $icon_url = get_site_icon_url();
 
         if($icon_url != null) {
 
-            echo "\t<link rel=\"apple-touch-icon\" href=\"".$icon_url."\" />\n";
-            echo "\t<link rel=\"apple-touch-icon\" type=\"image/png\" href=\"".$icon_url."\" />\n";
+            echo "<link rel=\"apple-touch-icon\" href=\"".$icon_url."\" />\n";
+            echo "<link rel=\"apple-touch-icon\" type=\"image/png\" href=\"".$icon_url."\" />\n";
 
             $icon_url_2 = get_site_icon_url(72);
-            echo "\t<link rel=\"apple-touch-icon\" sizes=\"72x72\" href=\"".$icon_url_2."\" />\n";
+            echo "<link rel=\"apple-touch-icon\" sizes=\"72x72\" href=\"".$icon_url_2."\" />\n";
 
             $icon_url_3 = get_site_icon_url(114);
-            echo "\t<link rel=\"apple-touch-icon\" sizes=\"114x114\" href=\"".$icon_url_3."\" />\n";
+            echo "<link rel=\"apple-touch-icon\" sizes=\"114x114\" href=\"".$icon_url_3."\" />\n";
             
         }
 
         # internet explorer tags
         ef_html_comment('Internet Exploter metatags');
-        echo "\t<meta name=\"msapplication-starturl\" content=\"".get_home_url()."\">\n";
-        echo "\t<meta name=\"msapplication-navbutton-color\" content=\"black\">\n";
-        echo "\t<meta name=\"application-name\" content=\"".get_bloginfo('name')."\">\n";
+        echo "<meta name=\"msapplication-starturl\" content=\"".get_home_url()."\">\n";
+        echo "<meta name=\"msapplication-navbutton-color\" content=\"black\">\n";
+        echo "<meta name=\"application-name\" content=\"".get_bloginfo('name')."\">\n";
         if($icon_url != null) {
-            echo "\t<link rel=\"shortcut icon\" href=\"".$icon_url."\" />\n";
+            echo "<link rel=\"shortcut icon\" href=\"".$icon_url."\" />\n";
         }
     }
 
-    function disable_embeds_tiny_mce_plugin($plugins) {
-        return array_diff($plugins, array('wpembed'));
-    }
-    
-    function disable_embeds_rewrites($rules) {
-        foreach($rules as $rule => $rewrite) {
-            if(false !== strpos($rewrite, 'embed=true')) {
-                unset($rules[$rule]);
-            }
-        }
-        return $rules;
-    }
 
 }
 

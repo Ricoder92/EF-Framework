@@ -6,18 +6,15 @@
 
 $debug_page = new EF_Settings_Page('ef-debug', __('UPDATE_MAINTENANCE_DEBUG', 'ef'), __('UPDATE_MAINTENANCE_DEBUG', 'ef'), __('UPDATE_MAINTENANCE_DEBUG_DESCRIPTION', 'ef'), 'settings', 'fa-bug', 8);
 
-$debug_page->addSection('debug-settings', __('DEBUG', 'ef'));
-$debug_page->addField('debug-settings', 'debug-mode-enable', __('DEBUG_ENABLE', 'ef'), __('DEBUG_ENABLE_DESCRIPTION', 'ef'), 'checkbox', null, array('checkboxText' => __('DEBUG_ENABLE_CHECKBOXTEXT', 'ef')));
-
 $debug_page->addSection('maintenance', __('MAINTENANCE', 'ef'));
-$debug_page->addField('maintenance', 'maintenance-enable', __('MAINTENANCE_ENABLE', 'ef'), __('MAINTENANCE_ENABLE_DESCRIPTION', 'ef'), 'checkbox', null, array('checkboxText' => __('MAINTENANCE_ENABLE_CHECKBOXTEXT', 'ef')));
-$debug_page->addField('maintenance', 'maintenance-page', __('MAINTENANCE_SITE', 'ef'), __('MAINTENANCE_SITE_DESCRIPTION', 'ef'), 'selection', null, array( 'posts' => 'page'));
+$debug_page->addField('maintenance', 'maintenance-enable', __('MAINTENANCE_ENABLE', 'ef'), null, 'checkbox', null, array('checkboxText' => __('ENABLE', 'ef')));
+$debug_page->addField('maintenance', 'maintenance-page', __('MAINTENANCE_SITE', 'ef'), null, 'selection', null, array( 'posts' => 'page'));
 
 $debug_page->addSection('404', __('404_ERROR', 'ef'));
-$debug_page->addField('404', '404-page', __('404_ERROR_PAGE', 'ef'), __('404_ERROR_PAGE_DESCRIPTION', 'ef'), 'selection', null, array( 'posts' => 'page'));
+$debug_page->addField('404', '404-page', __('404_ERROR_PAGE', 'ef'),null, 'selection', null, array( 'posts' => 'page'));
 
-$debug_page->addSection('settings', __('UPDATE_CHECK', 'ef'));
-$debug_page->addContent('check_for_update_render');
+$debug_page->addSection('update', __('UPDATE_CHECK', 'ef'));
+$debug_page->addContent('update', 'check_for_update_render');
 
 function check_for_update_render() {
 

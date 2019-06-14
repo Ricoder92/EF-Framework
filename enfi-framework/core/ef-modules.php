@@ -5,7 +5,9 @@
 ##################################################################################################################################################
 
 $modules_page = new EF_Settings_Page('ef-modules', __('MODULES', 'ef'), __('MODULES', 'ef'), __('MODULES_DESCRIPTION', 'ef'), 'modules', 'fa-puzzle-piece', 9);
-$modules_page->addContent('modules_render');
+
+$modules_page->addSection('modules_render', 'Modules');
+$modules_page->addContent('modules_render','modules_render');
 
 function modules_render() {
 

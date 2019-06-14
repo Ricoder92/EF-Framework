@@ -14,19 +14,24 @@ $duration = array(
 # cookie law admin page with settings
 $cookie_law_page = new EF_Settings_Page('ef-cookie', __('COOKIE_CONSENT', 'ef'), __('COOKIE_CONSENT', 'ef'), __('COOKIE_CONSENT_DESCRIPTION', 'ef'),'settings','fa-cookie', 4);
 $cookie_law_page->addSection('cookie-banner', __('COOKIE_CONSENT', 'ef'));
-$cookie_law_page->addField('cookie-banner', 'cookie-banner-enable', __('COOKIE_CONSENT_ENABLE', 'ef'), __('COOKIE_CONSENT_ENABLE_DESCRIPTION', 'ef'), 'checkbox', null, array('checkboxText' => __('COOKIE_CONSENT_ENABLE_CHECKBOXTEXT', 'ef')));
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-enable', __('COOKIE_CONSENT_ENABLE', 'ef'), __('COOKIE_CONSENT_ENABLE_DESCRIPTION', 'ef'), 'checkbox', null, array('checkboxText' => __('ENABLE', 'ef')));
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-disable-css', __('COOKIE_CONSENT_DISABLE_CSS', 'ef'), __('COOKIE_CONSENT_DISABLE_CSS_DESCRIPTION', 'ef'), 'checkbox', null, array('checkboxText' => __('COOKIE_CONSENT_DONT_LOAD_CSS', 'ef')));
 $cookie_law_page->addField('cookie-banner', 'cookie-banner-title', __('COOKIE_CONSENT_TITLE', 'ef'),__('COOKIE_CONSENT_TITLE_DESCRIPTION', 'ef'), 'text');
 $cookie_law_page->addField('cookie-banner', 'cookie-banner-text', __('COOKIE_CONSENT_TEXT', 'ef'),__('COOKIE_CONSENT_TEXT_DESCRIPTION', 'ef'), 'textarea');
 $cookie_law_page->addField('cookie-banner', 'cookie-banner-duration', __('COOKIE_CONSENT_DURATION', 'ef'),__('COOKIE_CONSENT_DURATION_DESCRIPTION', 'ef'), 'selection', '30', array('options' => $duration));
 $cookie_law_page->addField('cookie-banner', 'cookie-banner-id', __('COOKIE_CONSENT_ID', 'ef'),__('COOKIE_CONSENT_ID_DESCRIPTION', 'ef'), 'text', '1');
+$cookie_law_page->addField('cookie-banner', 'cookie-banner-css-class', __('COOKIE_CONSENT_CUSTOM_CSS_CLASS', 'ef'), null, 'text');
 
-# print cookie banner
-function enfi_cookieconsent_print() {
+################################################################################################################################################## 
+### print banner
+##################################################################################################################################################
+
+add_action('wp_footer', function() {
 
     # check of cookie not set and module is enable
     if (checkConditions()) {
 
-        $option = get_option('ef-cookie');
+        $option = ef_get_option('ef-cookie');
 
         echo '<div class="ef-cookieconsent-blur-bg"></div>';
         
@@ -36,19 +41,24 @@ function enfi_cookieconsent_print() {
 
                 echo '<div class="row align-items-center h-100">';
                     echo '<div class="offset-lg-3 col-lg-6">';
-                        echo '<div class="title"><h3>'.$option['cookie-banner-title'].'</h3></div>';
-                        echo '<div class="text"><p>'.$option['cookie-banner-text'].'</p></div>';
-                        echo '<div class="accept" id="ef-cookieconsent-accept"><button>'.__('Accept', 'ef').'</button></div>';
+                        echo '<div class="content">';
+                            echo '<div class="title"><h3>'.$option['cookie-banner-title'].'</h3></div>';
+                            echo '<div class="text"><p>'.$option['cookie-banner-text'].'</p></div>';
+                            echo '<div class="accept" id="ef-cookieconsent-accept"><button>'.__('Accept', 'ef').'</button></div>';
+                        echo '</div>';
                     echo '</div>';
                 echo '</div>';
 
             echo '</div>';
         echo '</div>';
     }
-}
-add_action('wp_footer', 'enfi_cookieconsent_print');
 
-# get css for cookie law banner
+});
+
+################################################################################################################################################## 
+### get css
+##################################################################################################################################################
+
 function enfi_cookieconsent_css_enqueue() {
 
     if(checkConditions()) {
@@ -60,14 +70,16 @@ function enfi_cookieconsent_css_enqueue() {
 }
 add_action('wp_enqueue_scripts', 'enfi_cookieconsent_css_enqueue', 999);
 
-# check if cookie not set and module is enable
+################################################################################################################################################## 
+### check conditions
+##################################################################################################################################################
+
 function checkConditions() {
 
     $option = ef_get_option('ef-cookie');
 
     @$enable = $option['cookie-banner-enable'];
     @$cookie = $option['cookie-banner-id'];
-
 
     if(!is_admin() && !isset($_COOKIE[$cookie]) && http_response_code() != 503 && $enable)
         return true;
@@ -76,10 +88,13 @@ function checkConditions() {
 
 }
 
-# ajax callback, set cookie!
+################################################################################################################################################## 
+### set ajax cookie
+##################################################################################################################################################
+
 function enfi_cookieconsent_setcookie_callback() {
 
-    $option = get_option('ef-cookie');
+    $option = ef_get_option('ef-cookie');
 
     $id = $option['cookie-banner-id'];
     $hour = $option['cookie-banner-duration'];
@@ -90,7 +105,10 @@ function enfi_cookieconsent_setcookie_callback() {
 add_action( 'wp_ajax_nopriv_enfi_cookieconsent_setcookie', 'enfi_cookieconsent_setcookie_callback' );
 add_action('wp_ajax_enfi_cookieconsent_setcookie', 'enfi_cookieconsent_setcookie_callback');
 
-# get assets
+################################################################################################################################################## 
+### load js
+##################################################################################################################################################
+
 function get_ajax_url(){
     if(checkConditions()) {
         wp_enqueue_script( 'enfi-cookieconsent', get_template_directory_uri(). '/core/assets/modules/js/ef-cookie-law.js', array('jquery'));

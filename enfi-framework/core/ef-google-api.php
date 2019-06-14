@@ -12,8 +12,8 @@ $google_fonts_default = array(
 $google_analytics_page = new EF_Settings_Page('ef-google-api', __('GOOGLE_API', 'ef'), __('GOOGLE_API', 'ef'), __('GOOGLE_API_DESCRIPTION', 'ef'), 'settings', 'fa-chart-line', 7);
 
 $google_analytics_page->addSection('google-analytics', __('GOOGLE_ANALYTICS', 'ef'));
-    $google_analytics_page->addField('google-analytics', 'google-analytics-enable', __('GOOGLE_ANALYTICS_ENABLE', 'ef'), __('GOOGLE_ANALYTICS_ENABLE_DESCRIPTION', 'ef'), 'checkbox', null, array( 'checkboxText' => __('GOOGLE_ANALYTICS_ENABLE_CHECKBOXTEXT', 'ef') ));
-    $google_analytics_page->addField('google-analytics', 'google-analytics-code', __('GOOGLE_ANALYTICS_TRACKING_CODE', 'ef'), __('GOOGLE_ANALYTICS_TRACKING_CODE_DESCRIPTION', 'ef'), 'text', null);
+    $google_analytics_page->addField('google-analytics', 'google-analytics-enable', __('GOOGLE_ANALYTICS_ENABLE', 'ef'), null, 'checkbox', null, array( 'checkboxText' => __('ENABLE', 'ef') ));
+    $google_analytics_page->addField('google-analytics', 'google-analytics-code', __('GOOGLE_ANALYTICS_TRACKING_CODE', 'ef'), null, 'text', null);
 
 $google_analytics_page->addSection('google-fonts', __('GOOGLE_FONTS', 'ef'));
     $google_analytics_page->addField('google-fonts', 'google-fonts', __('GOOGLE_FONTS', 'ef'), __('GOOGLE_FONTS_DESCRIPTION', 'ef'), 'list', $google_fonts_default);

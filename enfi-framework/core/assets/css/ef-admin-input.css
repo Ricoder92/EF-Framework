@@ -1,8 +1,7 @@
 /* Text */
 
 .ef-admin-form-settings .description {
-    padding: 10px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 10px 0;
     color: rgba(0, 0, 0, 0.4);
     margin: 0;
 }

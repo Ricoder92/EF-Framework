@@ -11,6 +11,6 @@ if(isset($data['checkboxText']))
 else   
     $checkboxText = '';
 
-$output .= '<input id="'.$name.'" type="checkbox" value="1" name="'.$name.'" '.$checked.'><label for="'.$name.'">'.$checkboxText.'</label>';
+$output .= '<input id="'.$name.'" type="checkbox" value="1" name="'.$name.'" '.$checked.'><label for="'.$name.'">'.__($checkboxText, 'ef').'</label>';
 ?>
 

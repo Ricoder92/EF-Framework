@@ -4,7 +4,7 @@
 ### layout settings page
 ##################################################################################################################################################
 
-$layout_page = new EF_Settings_Page('ef-layout', __('LAYOUT', 'ef'), __('LAYOUT', 'ef'), __('LAYOUT_DESCRIPTON', 'ef'), 'settings', 'fa-object-group', 5);
+$layout_page = new EF_Settings_Page('ef-layout', __('LAYOUT', 'ef'), __('LAYOUT', 'ef'), __('LAYOUT_DESCRIPTON', 'ef'), 'layout', 'fa-object-group', 5);
 
     // $layout_page->addSection('header', __('Header', 'ef'));
     //     $layout_page->addField('header', 'header', __('Header Layout', 'ef'), null, 'selection', 'default', array('options' => ef_layout_get_templates_list('header'), 'defaultOptionValue' => 'default'));

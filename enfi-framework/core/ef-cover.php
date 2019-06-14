@@ -9,12 +9,11 @@ $cover = new EF_Settings_Page('ef-cover', __('COVER', 'ef'), __('COVER', 'ef'), 
 $cover->addSection('settings', __('COVER_SETTINGS', 'ef'));
 $cover->addField('settings', 'enable-post-types', __('POST_TYPES', 'ef'), null, 'checkbox-group', null, array( 'post_types' => get_post_types()));
 
-$post_types = ef_get_option('ef-cover', false);
+$post_types = ef_get_option('ef-cover');
 
-if($post_types != null) {
-    $post_types = $post_types['enable-post-types'];
+if(array_key_exists('enable-post-types', $post_types)) {
 
-    foreach($post_types as $post_type) {
+    foreach($post_types['enable-post-types'] as $post_type) {
         $_cpt = get_post_type_object($post_type);
     
         $cover->addSection($post_type, __($_cpt->labels->name));

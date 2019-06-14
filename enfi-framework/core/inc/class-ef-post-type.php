@@ -154,8 +154,8 @@ class EF_Post_Type_Create {
 ### settings page
 ##################################################################################################################################################
 
-$plugins_page = new EF_Settings_Page('ef-post-types', __('POST_TYPES', 'ef'), __('POST_TYPES', 'ef'), __('POST_TYPES_DESCRIPTION', 'ef'), 'post-types', 'fa-puzzle-piece', 9);
-$plugins_page->addContent('post_types_render');
+#$plugins_page = new EF_Settings_Page('ef-post-types', __('POST_TYPES', 'ef'), __('POST_TYPES', 'ef'), __('POST_TYPES_DESCRIPTION', 'ef'), 'post-types', 'fa-puzzle-piece', 9);
+#$plugins_page->addContent('post_types_render');
 
 # post type list 
 function post_types_render() {

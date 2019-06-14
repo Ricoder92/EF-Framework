@@ -31,7 +31,7 @@ class EF_Metabox {
  
     # add metabox
     public function add_metabox() {
-        add_meta_box($this->id, $this->title, array( $this, 'render_metabox' ), $this->post_types, 'advanced', 'default');
+        add_meta_box($this->id, __($this->title), array( $this, 'render_metabox' ), $this->post_types, 'advanced', 'default');
     }
 
     # render metabox
@@ -98,7 +98,7 @@ class EF_Metabox {
             #print_r($args['value']);
 
             echo '<tr>';
-                echo '<th><label for="'.$this->id.'['.$key.']">'.$title.'</label></th>';
+                echo '<th><label for="'.$this->id.'['.$key.']">'.__($title, 'ef').'</label></th>';
                 echo '<td>'.$this->sanitize($args).'</td>';
             echo '</tr>';  
 
