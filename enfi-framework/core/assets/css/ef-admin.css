@@ -29,7 +29,8 @@
 
 
 /* dashboard mainpage cards */
-@media only screen and (min-width: 1367px) { 
+
+@media only screen and (min-width: 1367px) {
     .ef-dashboard-list-cards {
         display: grid;
         grid-gap: 20px;
@@ -38,7 +39,7 @@
     }
 }
 
-@media only screen and (max-width:1366px) { 
+@media only screen and (max-width:1366px) {
     .ef-dashboard-list-cards {
         display: grid;
         grid-gap: 20px;
@@ -47,7 +48,7 @@
     }
 }
 
-@media only screen and (max-width: 768px) { 
+@media only screen and (max-width: 768px) {
     .ef-dashboard-list-cards {
         display: grid;
         grid-gap: 20px;
@@ -77,7 +78,7 @@
 
 /* dashboard settigns page */
 
-@media only screen and (min-width: 1367px) { 
+@media only screen and (min-width: 1367px) {
     .ef-dashboard-settings-page {
         display: grid;
         grid-gap: 20px;
@@ -86,7 +87,7 @@
     }
 }
 
-@media only screen and (max-width:1366px) { 
+@media only screen and (max-width:1366px) {
     .ef-dashboard-settings-page {
         display: grid;
         grid-gap: 20px;
@@ -95,7 +96,7 @@
     }
 }
 
-@media only screen and (max-width: 768px) { 
+@media only screen and (max-width: 768px) {
     .ef-dashboard-settings-page {
         display: grid;
         grid-gap: 20px;
@@ -103,8 +104,6 @@
         justify-content: center;
     }
 }
-
-
 
 .ef-dashboard-settings-page .navigation {}
 
@@ -116,20 +115,19 @@
 .ef-admin-form-settings>h2 {
     background: white;
     padding: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     margin: 0px;
-    border-bottom: none;
     font-size: 0.9rem;
     font-weight: bold;
 }
 
 .ef-admin-table,
-.form-table {
+.ef-admin-form-settings .form-table {
     margin: 0 auto 20px auto;
     padding: 0px;
     border-collapse: collapse;
-    border: 1px solid rgba(0, 0, 0, 0.1);
     width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .ef-admin-table .left {
@@ -141,12 +139,12 @@
 }
 
 .ef-admin-table tr,
-.ef-dashboard-content .form-table tr {
+.ef-admin-form-settings .form-table tr {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .ef-admin-table th,
-.ef-dashboard-content .form-table th {
+.ef-admin-form-settings .form-table th {
     background-color: white;
     color: rgba(0, 0, 0, 0.6);
     padding: 16px 10px;
@@ -154,16 +152,16 @@
 }
 
 .ef-admin-table td,
-.form-table td {
+.ef-admin-form-settings .form-table td {
     background-color: white;
     color: rgba(0, 0, 0, 0.6);
     padding: 5px;
 }
 
-.ef-dashboard-content .form-table tr:nth-child(even) td,
-.ef-dashboard-content .form-table tr:nth-child(even) th {}
+.ef-admin-form-settings .form-table tr:nth-child(even) td,
+.ef-admin-form-settings .form-table tr:nth-child(even) th {}
 
-.ef-dashboard-content .form-table th {
+.ef-admin-form-settings .form-table th {
     background-color: white;
     color: rgba(0, 0, 0, 0.6);
     margin-bottom: 1px;

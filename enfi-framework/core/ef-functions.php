@@ -25,6 +25,20 @@ function ef_get_option($string, $default = false) {
 }
 
 ################################################################################################################################################## 
+### get meta
+##################################################################################################################################################
+
+function ef_get_meta($string, $single = false, $post_id = null) {
+
+    if($post_id != null)
+        $post_type = get_the_id();
+
+    $option = get_post_meta($post_id, $string, $single);
+
+    return $option;
+}
+
+################################################################################################################################################## 
 ### set/get child name
 ##################################################################################################################################################
 
@@ -65,6 +79,22 @@ function ef_render_copyright() {
     echo ' | ';
     _e('A_WEBSITE_BY_ENRICO_FISCHER', 'ef');
     echo '</div>';
+}
+
+function ef_get_type_of_post() {
+
+    if(is_single()) 
+        return 'post';
+    else if(is_page()) 
+        return 'page';
+    else if(is_home()) 
+        return 'post';
+    else if(is_archive() & !is_tax()) 
+        return get_query_var( 'post_type' );
+    else if(is_tax()) 
+        return get_query_var( 'taxonomy' );
+    else 
+        return null;
 }
 
 ?>

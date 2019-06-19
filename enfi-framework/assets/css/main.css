@@ -78,14 +78,8 @@ button:focus .btn:active,
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-.content-cover h1 {
     color: white;
 }
-
-
-/* title */
 
 .content-title {
     background: rgba(0, 0, 0, 0.6);
