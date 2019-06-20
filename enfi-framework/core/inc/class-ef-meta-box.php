@@ -37,7 +37,7 @@ class EF_Metabox {
     # render metabox
     public function render_metabox( $post ) {
 
-        echo '<table class="form-table enfi-admin-form-meta-box">';
+        echo '<table class="form-table ef-admin-form-meta-box">';
 
             do_action('enfi_meta_box_'.$this->id);
 

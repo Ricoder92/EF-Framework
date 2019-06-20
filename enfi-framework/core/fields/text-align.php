@@ -1,6 +1,6 @@
 <?php
 
-$output .= '<div class="enfi-admin-input-button-group">';
+$output .= '<div class="ef-admin-input-button-group">';
 
         if($value == 'left')
             $cssCurrent_left = ' class="current"';

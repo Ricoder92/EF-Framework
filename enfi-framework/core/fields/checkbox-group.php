@@ -5,7 +5,7 @@ $options = parseOptions($data);
 
 $i = 0;
 
-$output.= '<div class="enfi-admin-input-checkbox-group">';
+$output.= '<div class="ef-admin-input-checkbox-group">';
 
 foreach($options as $option) {
 

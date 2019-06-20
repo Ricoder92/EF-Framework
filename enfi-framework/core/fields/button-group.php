@@ -8,9 +8,9 @@ $count = count($options);
 $percent = 100 / $count;
 
 if(!isset($data['vertical']))
-    $output .= '<div class="enfi-admin-input-button-group">';
+    $output .= '<div class="ef-admin-input-button-group">';
 else 
-    $output .= '<div class="enfi-admin-input-button-group-vertical">';
+    $output .= '<div class="ef-admin-input-button-group-vertical">';
 
 foreach($options as $option) {
 

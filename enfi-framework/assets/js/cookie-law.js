@@ -7,7 +7,7 @@ jQuery(document).ready(function() {
     jQuery('#ef-cookieconsent-accept button').click(function() {
 
         var data = {
-            action: 'enfi_cookieconsent_setcookie'
+            action: 'ef_cookie_law_setcookie'
         };
 
         jQuery.post(cookie_object.ajax_url, data);

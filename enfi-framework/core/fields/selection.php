@@ -12,7 +12,7 @@ if(isset($data['defaultOptionValue']))
 else 
     $defaultOptionValue = '';
 
-$output .= '<select for="'.$name.'" name="'.$name.'" class="enfi-admin-input-selection">';
+$output .= '<select for="'.$name.'" name="'.$name.'" class="ef-admin-input-selection">';
 $output .= '<option value="'.$defaultOptionValue.'"'.selected( $value, $defaultOptionValue, false ).'>'.$defaultOptionText.'</option>';
 
 foreach($options as $option) {

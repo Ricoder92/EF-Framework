@@ -12,5 +12,5 @@ Text Domain: ef
 
 */
 
-@import url("assets/css/main.css") (min-width: 992px);
-@import url("assets/css/main-mobile.css") (max-width: 991px);
+@import url("assets/css/frontend.css") (min-width: 992px);
+@import url("assets/css/frontend-mobile.css") (max-width: 991px);

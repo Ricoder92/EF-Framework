@@ -1,0 +1,1 @@
+window.onload = function() { $('#ef-loading-screen').delay(500).fadeOut(); }

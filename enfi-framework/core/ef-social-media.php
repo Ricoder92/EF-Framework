@@ -6,43 +6,43 @@
 
 $social_media_page = new EF_Settings_Page('ef-social-media', __('SOCIAL_MEDIA', 'ef'), __('SOCIAL_MEDIA', 'ef'), __('SOCIA_MEDIA_DESCRIPTION', 'ef'), 'settings', 'fa-hashtag', 3);
 
-    # SOCIAL_MEDIA channels
-    $social_media_page->addSection('social-media-channels', __('SOCIAL_MEDIA_CHANELS', 'ef'));
-        $social_media_page->addField('social-media-channels', 'facebook', __('FACEBOOK_SITE_ID', 'ef'), null, 'text', null);
-        $social_media_page->addField('social-media-channels', 'youtube', __('YOUTUBE_CHANNEL_ID', 'ef'), null, 'text', null);
-        $social_media_page->addField('social-media-channels', 'twitter', __('TWITTER_ID', 'ef'), null, 'text');
-        $social_media_page->addField('social-media-channels', 'instagram', __('INSTAGRAM_ID', 'ef'), null, 'text', null);
+# SOCIAL_MEDIA channels
+$social_media_page->addSection('social-media-channels', __('SOCIAL_MEDIA_CHANELS', 'ef'));
+$social_media_page->addField('social-media-channels', 'facebook', __('FACEBOOK_SITE_ID', 'ef'), null, 'text', null);
+$social_media_page->addField('social-media-channels', 'youtube', __('YOUTUBE_CHANNEL_ID', 'ef'), null, 'text', null);
+$social_media_page->addField('social-media-channels', 'twitter', __('TWITTER_ID', 'ef'), null, 'text');
+$social_media_page->addField('social-media-channels', 'instagram', __('INSTAGRAM_ID', 'ef'), null, 'text', null);
 
-    # SOCIAL_MEDIA enable for post-types
-    $social_media_page->addSection('og-post-types', __('Post Types', 'ef'));
-        $social_media_page->addField('og-post-types', 'post-types', __('POST_TYPES', 'ef'), __('POST_TYPES_DESCRIPTION', 'ef'), 'checkbox-group', null, array( 'post_types' => get_post_types()));
-    
-        # article type options
-    $typeOptions = array(
-        array( 'text' =>  __('MOVIE', 'ef'), 'value' => 'movie'),
-        array( 'text' =>  __('AUDIO', 'ef'), 'value' => 'audio'),
-        array( 'text' =>  __('ARTICLE', 'ef'), 'value' => 'article'),
-        array( 'text' =>  __('ACTOR', 'ef'), 'value' => 'actor'),
-        array( 'text' =>  __('WEBSITE', 'ef'), 'value' => 'website'),
-    );
-    
-    # SOCIAL_MEDIA global tags
-    $social_media_page->addSection('og-tags', __('OPENGRAPH_META_TAGS', 'ef'));
-        $social_media_page->addField('og-tags', 'title', __('TITLE', 'ef'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'type', __('TYPE', 'ef'), null, 'selection', null, array('options' => $typeOptions));
-        $social_media_page->addField('og-tags', 'image', __('IMAGE', 'ef'), null, 'image', null);
-        $social_media_page->addField('og-tags', 'site-name', __('SITE_NAME', 'ef'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'site-description', __('SITE_DESCRIPTION', 'ef'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'email', __('E-MAIL', 'ef'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'phone', __('PHONE_NUMBER', 'ef'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'fax', __('FAX_NUMBER', 'ef'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'latitude', __('LATITUDE', 'ef'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'longitude', __('LONGITUDE', 'ef'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'street', __('STREET', 'ef'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'zip', __('ZIP_CODE', 'ef'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'city', __('CITY', 'ef'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'region', __('REGION', 'ef'), null, 'text', null);
-        $social_media_page->addField('og-tags', 'country', __('LAND', 'ef'), null, 'text', null);
+# SOCIAL_MEDIA enable for post-types
+$social_media_page->addSection('og-post-types', __('Post Types', 'ef'));
+$social_media_page->addField('og-post-types', 'post-types', __('POST_TYPES', 'ef'), __('POST_TYPES_DESCRIPTION', 'ef'), 'checkbox-group', null, array( 'post_types' => get_post_types()));
+
+# article type options
+$typeOptions = array(
+    array( 'text' =>  __('MOVIE', 'ef'), 'value' => 'movie'),
+    array( 'text' =>  __('AUDIO', 'ef'), 'value' => 'audio'),
+    array( 'text' =>  __('ARTICLE', 'ef'), 'value' => 'article'),
+    array( 'text' =>  __('ACTOR', 'ef'), 'value' => 'actor'),
+    array( 'text' =>  __('WEBSITE', 'ef'), 'value' => 'website'),
+);
+
+# SOCIAL_MEDIA global tags
+$social_media_page->addSection('og-tags', __('OPENGRAPH_META_TAGS', 'ef'));
+$social_media_page->addField('og-tags', 'title', __('TITLE', 'ef'), null, 'text', null);
+$social_media_page->addField('og-tags', 'type', __('TYPE', 'ef'), null, 'selection', null, array('options' => $typeOptions));
+$social_media_page->addField('og-tags', 'image', __('IMAGE', 'ef'), null, 'image', null);
+$social_media_page->addField('og-tags', 'site-name', __('SITE_NAME', 'ef'), null, 'text', null);
+$social_media_page->addField('og-tags', 'site-description', __('SITE_DESCRIPTION', 'ef'), null, 'text', null);
+$social_media_page->addField('og-tags', 'email', __('E-MAIL', 'ef'), null, 'text', null);
+$social_media_page->addField('og-tags', 'phone', __('PHONE_NUMBER', 'ef'), null, 'text', null);
+$social_media_page->addField('og-tags', 'fax', __('FAX_NUMBER', 'ef'), null, 'text', null);
+$social_media_page->addField('og-tags', 'latitude', __('LATITUDE', 'ef'), null, 'text', null);
+$social_media_page->addField('og-tags', 'longitude', __('LONGITUDE', 'ef'), null, 'text', null);
+$social_media_page->addField('og-tags', 'street', __('STREET', 'ef'), null, 'text', null);
+$social_media_page->addField('og-tags', 'zip', __('ZIP_CODE', 'ef'), null, 'text', null);
+$social_media_page->addField('og-tags', 'city', __('CITY', 'ef'), null, 'text', null);
+$social_media_page->addField('og-tags', 'region', __('REGION', 'ef'), null, 'text', null);
+$social_media_page->addField('og-tags', 'country', __('LAND', 'ef'), null, 'text', null);
 
 # set defaults
 $social_media_page->setDefaultValues();
@@ -241,7 +241,7 @@ function sm_add_wp_head() {
 }
 add_action('wp_head', 'sm_add_wp_head', -1);
 
-# check if for post type enable
+# check if post type enable
 function sm_check_post_type_enable() {
 
     $option = ef_get_option('ef-social-media', array());

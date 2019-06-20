@@ -12,14 +12,14 @@
         $cssRemoveButton = 'remove-disable';
     } 
 
-    $output.= '<div class="enfi-admin-input-list"><div class="sortableList">';
+    $output.= '<div class="ef-admin-input-list"><div class="sortableList">';
 
     for($i = 0; $i < $lenght; $i++) {
 
         $output.= '<div class="field sortable">';
             $output.= '<a class="move"><i class="fas fa-arrows-alt-v"></i></a>';
             $output.= '<a class="'.$cssRemoveButton.'"><i class="fas fa-trash-alt"></i></a>';
-            $output.= '<input type="text" class="enfi-admin-input" id="'.$name.'-'.$i.'"  name="'.$name.'['.$i.']"  placeholder="'.$placeholder.'" value="'.$value[$i].'" />';
+            $output.= '<input type="text" class="ef-admin-input" id="'.$name.'-'.$i.'"  name="'.$name.'['.$i.']"  placeholder="'.$placeholder.'" value="'.$value[$i].'" />';
         $output.= '</div>';
     }
 

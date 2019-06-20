@@ -35,43 +35,43 @@ function styles_scripts_render() {
     echo '</tr></thead>';
 
     echo '<tbody><tr  align="center">';
-        echo '<td class="center"><input class="enfi-admin-input-checkbox"  type="checkbox"></th>';
-        echo '<td class="center"><input class="enfi-admin-input-checkbox" type="checkbox"></th>';
-        echo '<td class="left"><input class="enfi-admin-input-text" placeholder="'.__('Slug here').'"type="text"></th>';
-        echo '<td class="left"><input class="enfi-admin-input-text" placeholder="'.__('URL here').'"type="text"></th>';
-        echo '<td class="left"><input class="enfi-admin-input-text" placeholder="'.__('Dependenies here').'"type="text"></th>';
+        echo '<td class="center"><input class="ef-admin-input-checkbox"  type="checkbox"></th>';
+        echo '<td class="center"><input class="ef-admin-input-checkbox" type="checkbox"></th>';
+        echo '<td class="left"><input class="ef-admin-input-text" placeholder="'.__('Slug here').'"type="text"></th>';
+        echo '<td class="left"><input class="ef-admin-input-text" placeholder="'.__('URL here').'"type="text"></th>';
+        echo '<td class="left"><input class="ef-admin-input-text" placeholder="'.__('Dependenies here').'"type="text"></th>';
     echo '</tr><tbody>';
 
     echo '<tr  align="center">';
-        echo '<td><input class="enfi-admin-input-checkbox"  type="checkbox"></th>';
-        echo '<td><input class="enfi-admin-input-checkbox" type="checkbox"></th>';
-        echo '<td><input class="enfi-admin-input-text" placeholder="'.__('Slug here').'"type="text"></th>';
-        echo '<td><input class="enfi-admin-input-text" placeholder="'.__('URL here').'"type="text"></th>';
-        echo '<td><input class="enfi-admin-input-text" placeholder="'.__('Dependenies here').'"type="text"></th>';
+        echo '<td><input class="ef-admin-input-checkbox"  type="checkbox"></th>';
+        echo '<td><input class="ef-admin-input-checkbox" type="checkbox"></th>';
+        echo '<td><input class="ef-admin-input-text" placeholder="'.__('Slug here').'"type="text"></th>';
+        echo '<td><input class="ef-admin-input-text" placeholder="'.__('URL here').'"type="text"></th>';
+        echo '<td><input class="ef-admin-input-text" placeholder="'.__('Dependenies here').'"type="text"></th>';
     echo '</tr>';    echo '<tr  align="center">';
-    echo '<td><input class="enfi-admin-input-checkbox"  type="checkbox"></th>';
-    echo '<td><input class="enfi-admin-input-checkbox" type="checkbox"></th>';
-    echo '<td><input class="enfi-admin-input-text" placeholder="'.__('Slug here').'"type="text"></th>';
-    echo '<td><input class="enfi-admin-input-text" placeholder="'.__('URL here').'"type="text"></th>';
-    echo '<td><input class="enfi-admin-input-text" placeholder="'.__('Dependenies here').'"type="text"></th>';
+    echo '<td><input class="ef-admin-input-checkbox"  type="checkbox"></th>';
+    echo '<td><input class="ef-admin-input-checkbox" type="checkbox"></th>';
+    echo '<td><input class="ef-admin-input-text" placeholder="'.__('Slug here').'"type="text"></th>';
+    echo '<td><input class="ef-admin-input-text" placeholder="'.__('URL here').'"type="text"></th>';
+    echo '<td><input class="ef-admin-input-text" placeholder="'.__('Dependenies here').'"type="text"></th>';
 echo '</tr>';    echo '<tr  align="center">';
-echo '<td><input class="enfi-admin-input-checkbox"  type="checkbox"></th>';
-echo '<td><input class="enfi-admin-input-checkbox" type="checkbox"></th>';
-echo '<td><input class="enfi-admin-input-text" placeholder="'.__('Slug here').'"type="text"></th>';
-echo '<td><input class="enfi-admin-input-text" placeholder="'.__('URL here').'"type="text"></th>';
-echo '<td><input class="enfi-admin-input-text" placeholder="'.__('Dependenies here').'"type="text"></th>';
+echo '<td><input class="ef-admin-input-checkbox"  type="checkbox"></th>';
+echo '<td><input class="ef-admin-input-checkbox" type="checkbox"></th>';
+echo '<td><input class="ef-admin-input-text" placeholder="'.__('Slug here').'"type="text"></th>';
+echo '<td><input class="ef-admin-input-text" placeholder="'.__('URL here').'"type="text"></th>';
+echo '<td><input class="ef-admin-input-text" placeholder="'.__('Dependenies here').'"type="text"></th>';
 echo '</tr>';    echo '<tr  align="center">';
-echo '<td><input class="enfi-admin-input-checkbox"  type="checkbox"></th>';
-echo '<td><input class="enfi-admin-input-checkbox" type="checkbox"></th>';
-echo '<td><input class="enfi-admin-input-text" placeholder="'.__('Slug here').'"type="text"></th>';
-echo '<td><input class="enfi-admin-input-text" placeholder="'.__('URL here').'"type="text"></th>';
-echo '<td><input class="enfi-admin-input-text" placeholder="'.__('Dependenies here').'"type="text"></th>';
+echo '<td><input class="ef-admin-input-checkbox"  type="checkbox"></th>';
+echo '<td><input class="ef-admin-input-checkbox" type="checkbox"></th>';
+echo '<td><input class="ef-admin-input-text" placeholder="'.__('Slug here').'"type="text"></th>';
+echo '<td><input class="ef-admin-input-text" placeholder="'.__('URL here').'"type="text"></th>';
+echo '<td><input class="ef-admin-input-text" placeholder="'.__('Dependenies here').'"type="text"></th>';
 echo '</tr>';    echo '<tr  align="center">';
-echo '<td><input class="enfi-admin-input-checkbox"  type="checkbox"></th>';
-echo '<td><input class="enfi-admin-input-checkbox" type="checkbox"></th>';
-echo '<td><input class="enfi-admin-input-text" placeholder="'.__('Slug here').'"type="text"></th>';
-echo '<td><input class="enfi-admin-input-text" placeholder="'.__('URL here').'"type="text"></th>';
-echo '<td><input class="enfi-admin-input-text" placeholder="'.__('Dependenies here').'"type="text"></th>';
+echo '<td><input class="ef-admin-input-checkbox"  type="checkbox"></th>';
+echo '<td><input class="ef-admin-input-checkbox" type="checkbox"></th>';
+echo '<td><input class="ef-admin-input-text" placeholder="'.__('Slug here').'"type="text"></th>';
+echo '<td><input class="ef-admin-input-text" placeholder="'.__('URL here').'"type="text"></th>';
+echo '<td><input class="ef-admin-input-text" placeholder="'.__('Dependenies here').'"type="text"></th>';
 echo '</tr>';
 
     echo '</table>';
@@ -108,7 +108,7 @@ function enqueue_styles_and_scripts() {
         if(isset($options['aos'])) {
             wp_register_style('aos', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css');
             wp_enqueue_style( 'aos' );
-            wp_register_script('aos', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js', array( 'jquery', 'main' ));
+            wp_register_script('aos', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js', array( 'jquery', 'ef-frontendJS' ));
             wp_enqueue_script( 'aos' );
         }
 
@@ -121,32 +121,32 @@ function enqueue_styles_and_scripts() {
         }
 
         # theme CSS and JS
-        wp_register_style('mainCSS', get_template_directory_uri().'/style.css');
-        wp_register_script('mainJS', get_template_directory_uri().'/assets/js/themeJS.js', array( 'jquery' ));
+        wp_register_style('ef-frontend', get_template_directory_uri().'/style.css');
+        wp_register_script('ef-frontendJS', get_template_directory_uri().'/assets/js/frontend.js', array( 'jquery' ));
 
        
         if(is_child_theme()) {
-            wp_register_script('mainJS-child', get_stylesheet_directory_uri().'/assets/js/themeJS.js', array( 'jquery' ));
-            wp_enqueue_script( 'mainJS-child' );
+            wp_register_script('ef-frontendJS-child', get_stylesheet_directory_uri().'/assets/js/frontend.js', array( 'jquery' ));
+            wp_enqueue_script( 'ef-frontendJS-child' );
 
             if(isset($options['use-parent-js'])) {
-                wp_enqueue_script( 'mainJS' );
+                wp_enqueue_script( 'ef-frontendJS' );
             }
 
         } else  {
-            wp_enqueue_script( 'mainJS' );
+            wp_enqueue_script( 'ef-frontendJS' );
         }
         
         if(is_child_theme()) {
-            wp_register_style('mainCSS-child', get_stylesheet_directory_uri().'/style.css');
-            wp_enqueue_style( 'mainCSS-child' );
+            wp_register_style('ef-frontend-child', get_stylesheet_directory_uri().'/style.css');
+            wp_enqueue_style( 'ef-frontend-child' );
 
             if(isset($options['use-parent-style'])) {
-                wp_enqueue_style( 'mainCSS' );
+                wp_enqueue_style( 'ef-frontend' );
             }
             
         } else {
-            wp_enqueue_style( 'mainCSS' );
+            wp_enqueue_style( 'ef-frontend' );
         }
     }
 }
@@ -158,18 +158,6 @@ add_action('wp_enqueue_scripts', 'enqueue_styles_and_scripts', 1);
 ##################################################################################################################################################
 
 function enqueue_admin_styles_and_scripts() {
-
-    # load all css files in admin/assets/css
-    foreach(glob(get_template_directory() . "/core/assets/css/*.css") as $file){
-        wp_register_style(basename($file, ".css"), get_template_directory_uri() . "/core/assets/css/".basename($file));
-        wp_enqueue_style(basename($file, ".css"));
-    }
-
-    # load all js files in admin/assets/js
-    foreach(glob(get_template_directory() . "/core/assets/js/*.js") as $file){
-        wp_register_script(basename($file, ".js"), get_template_directory_uri() . "/core/assets/js/".basename($file));
-        wp_enqueue_script(basename($file, ".js"));
-    }
 
     # wp default color picker
     wp_enqueue_style( 'wp-color-picker');
@@ -185,12 +173,12 @@ function enqueue_admin_styles_and_scripts() {
     wp_enqueue_style( 'fontawesome' );
 
     # theme admin CSS
-    wp_register_style('enfi-admin', get_template_directory_uri().'/assets/css/admin.css', '', '', false);
-    wp_enqueue_style( 'enfi-admin' );
+    wp_register_style('ef-backend', get_template_directory_uri().'/assets/css/backend.css', '', '', false);
+    wp_enqueue_style( 'ef-backend' );
 
     # theme admin js
-    wp_register_script('enfi-admin-script', get_template_directory_uri().'/assets/js/admin-themeJS.js');
-    wp_enqueue_script( 'enfi-admin-script' );
+    wp_register_script('ef-backendJS', get_template_directory_uri().'/assets/js/backend.js');
+    wp_enqueue_script( 'ef-backendJS' );
 
     # bootstrap grid
     #wp_register_style('bootstrap-grid', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css', array('enfi-admin'),'', false);

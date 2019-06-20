@@ -166,6 +166,21 @@ function enfi_filter_post_state_404( $post_states, $post ) {
 }
 add_filter( 'display_post_states', 'enfi_filter_post_state_404', 10, 2 );
 
+function ef_404_get_content() {
+
+    $settings = ef_get_option('ef-debug');
+
+    if($settings['404-page']) {
+        $id= $settings['404-page']; 
+        $post = get_post($id); 
+        $content = apply_filters('the_content', $post->post_content); 
+        return $content;  
+    } else {
+        return _e('404_CONTENT', 'ef');
+    }
+
+}
+
 ################################################################################################################################################## 
 ### set states for pages in dashboard
 ##################################################################################################################################################
@@ -214,6 +229,36 @@ function enfi_maintenance_maintenance_mode() {
     }
 }
 add_action( 'parse_query', 'enfi_maintenance_maintenance_mode' );
+
+function ef_maintenance_get_content() {
+
+    $settings = ef_get_option('ef-debug');
+
+    if($settings['maintenance-page']) {
+        $id= $settings['maintenance-page']; 
+        $post = get_post($id); 
+        $content = apply_filters('the_content', $post->post_content); 
+        return $content;  
+    } else {
+        return _e('MAINTENANCE_MODE_503_CONTENT', 'ef');
+    }
+
+}
+
+function ef_maintenance_get_title() {
+
+    $settings = ef_get_option('ef-debug');
+
+    if($settings['maintenance-page']) {
+        $id= $settings['maintenance-page']; 
+        $post = get_post($id); 
+        $content = apply_filters('the_title', $post->post_title); 
+        return $content;  
+    } else {
+        return _e('MAINTENANCE_MODE_503_TITLE', 'ef');
+    }
+
+}
 
 ################################################################################################################################################## 
 ### if is debug mode

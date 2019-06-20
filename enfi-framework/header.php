@@ -2,9 +2,10 @@
 ################################################################################################################################################## 
 ### enqueue scripts
 ##################################################################################################################################################
-ef_register_enqueue_css('header', 'assets/css/header/header.css');
-ef_register_enqueue_js('header', 'assets/js/header/header.js');
-ef_register_enqueue_css('footer', 'assets/css/footer/footer.css'); 
+
+ef_register_enqueue_css('header', 'assets/css/header.css');
+ef_register_enqueue_js('header', 'assets/js/header.js');
+ef_register_enqueue_css('footer', 'assets/css/footer.css'); 
 ?>
 
 <!DOCTYPE html>

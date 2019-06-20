@@ -12,6 +12,8 @@ class EF_Framework {
         $this->title = $title;
         $this->description = $description;
 
+        add_editor_style();
+
         # dashboard Menu
         add_action( 'admin_menu', array(&$this, 'admin_menu') );
 
@@ -41,7 +43,6 @@ class EF_Framework {
         require_once get_template_directory().'/core/ef-styles-scripts.php';
         require_once get_template_directory().'/core/ef-layout.php';
         require_once get_template_directory().'/core/ef-debug.php';
-        require_once get_template_directory().'/core/ef-loader.php';
         require_once get_template_directory().'/core/ef-google-api.php';
         require_once get_template_directory().'/core/ef-modules.php';
         require_once get_template_directory().'/core/ef-seo.php';
@@ -49,6 +50,16 @@ class EF_Framework {
         require_once get_template_directory().'/core/ef-blocks.php';
         require_once get_template_directory().'/core/ef-cookie-law.php';
         require_once get_template_directory().'/core/ef-cover.php';
+
+        # load shortcodes
+        foreach(glob(get_template_directory() . "/editor/shortcodes/*/init.php") as $file){
+            require_once $file;
+        }
+
+        # load widgets
+        foreach(glob(get_template_directory() . "/editor/widgets/*/init.php") as $file){
+            require_once $file;
+        }
 
         $options = ef_get_option('settings');
 
@@ -214,13 +225,13 @@ class EF_Framework {
         
         # set url
         if (is_category())
-        $url = get_category_link(get_query_var('cat'));
+            $url = get_category_link(get_query_var('cat'));
         else if (is_tag())
-        $url = get_tag_link(get_queried_object()->term_id);
+            $url = get_tag_link(get_queried_object()->term_id);
         else if(is_single() || is_page())
-        $url = get_the_permalink();
+            $url = get_the_permalink();
         else if(is_archive() && !is_tax())
-        $url = get_post_type_archive_link(get_query_var( 'post_type' ));
+            $url = get_post_type_archive_link(get_query_var( 'post_type' ));
         else if(is_tax()) {
             global $wp_query;
             $url = get_term_link($wp_query->get_queried_object());

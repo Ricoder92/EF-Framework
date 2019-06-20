@@ -10,8 +10,8 @@
     else 
         $unit = "";
 
-    $output .= '<input type="text" class="enfi-admin-input" id="'.$name.'-field"  name="'.$name.'[value]"  placeholder="'.$placeholder.'" value="'.$height.'" />';
-    $output .= '<select for="'.$name.'-field" name="'.$name.'[unit]" class="enfi-admin-input">';
+    $output .= '<input type="text" class="ef-admin-input" id="'.$name.'-field"  name="'.$name.'[value]"  placeholder="'.$placeholder.'" value="'.$height.'" />';
+    $output .= '<select for="'.$name.'-field" name="'.$name.'[unit]" class="ef-admin-input">';
         $output .= '<option value=""'.selected( '0', $unit, false ).'>-- keine Auswahl --</option>';
         $output .= '<option value="%" '.selected( '%', $unit, false ).'>%</option>';
         $output .= '<option value="px" '.selected( 'px', $unit, false ).'>px</option>';

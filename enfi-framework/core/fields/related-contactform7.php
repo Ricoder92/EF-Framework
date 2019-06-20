@@ -9,7 +9,7 @@ $posts = get_posts([
   ]);
 
 $options = $data['options'];
-$output .= '<select for="'.$name.'-field" name="'.$name.'" class="enfi-admin-input">';
+$output .= '<select for="'.$name.'-field" name="'.$name.'" class="ef-admin-input">';
 $output .= '<option value="0"'.selected( $value, '0', false ).'>-- keine Auswahl --</option>';
 foreach($posts  as $post) {
 

@@ -19,7 +19,12 @@
 
 <body>
 
-<h1><?php _e('MAINTENANCE_MODE_503', 'ef'); ?></h1>
+<div class="maintenance-container">
+    <h1><?php echo ef_maintenance_get_title(); ?></h1>
+    <?php echo ef_maintenance_get_content(); ?>
+</div>
+
+
 
 <?php wp_footer(); ?>
 </body>

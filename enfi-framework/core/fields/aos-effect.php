@@ -35,7 +35,7 @@ if(isset($value['effect']))
 else    
     $value = "";
 
-$output .= '<select for="'.$name.'[effect]" name="'.$name.'[effect]" class="enfi-admin-input">';
+$output .= '<select for="'.$name.'[effect]" name="'.$name.'[effect]" class="ef-admin-input">';
 $output .= '<option value="0"'.selected( $value, "0", false ).'>-- keine Auswahl --</option>';
 
 
@@ -56,6 +56,6 @@ if(isset($value['delay']))
 else    
     $value_delay = "";
 
-    $output .= '<br/><input type="text" class="enfi-admin-input" id="'.$name.'-field"  name="'.$name.'[duration]"  placeholder="'.__('Effect duration', 'ef').'" value="'.$value_duration.'" />';
-    $output .= '<br/><input type="text" class="enfi-admin-input" id="'.$name.'-field"  name="'.$name.'[delay]"  placeholder="'.__('Effect delay', 'ef').'" value="'.$value_delay.'" />';
+    $output .= '<br/><input type="text" class="ef-admin-input" id="'.$name.'-field"  name="'.$name.'[duration]"  placeholder="'.__('Effect duration', 'ef').'" value="'.$value_duration.'" />';
+    $output .= '<br/><input type="text" class="ef-admin-input" id="'.$name.'-field"  name="'.$name.'[delay]"  placeholder="'.__('Effect delay', 'ef').'" value="'.$value_delay.'" />';
 ?>
