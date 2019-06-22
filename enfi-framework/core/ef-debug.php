@@ -16,13 +16,14 @@ $debug_page->addField('404', '404-page', __('404_ERROR_PAGE', 'ef'),null, 'selec
 $debug_page->addSection('update', __('UPDATE_CHECK', 'ef'));
 $debug_page->addContent('update', 'check_for_update_render');
 
+# render update stuff
 function check_for_update_render() {
 
     # get current theme version
     $my_theme = wp_get_theme();
     $current_version = $my_theme->get( 'Version' );
 
-    # get aviable theme version
+    # get new theme version
     $json = file_get_contents('http://ricoder.de/ziptest/version.php');
     $data = json_decode($json,true);
     $aviable_version = $data['version'];
@@ -57,6 +58,7 @@ function check_for_update_render() {
 
     $is_update = false;
 
+    # download new update, zip it and remove orphan files
     if($is_update) {
         
         $temp_path = get_template_directory().'/update/update.zip';
@@ -66,14 +68,9 @@ function check_for_update_render() {
         unzip_new_update($temp_path, $update_destination);
         remove_orphan_failes(get_files_to_remove());
     }
-
-
-
-
 }
 
-
-
+# download and safe update
 function download_safe_update($temp_path) {
   
     # source
@@ -92,6 +89,7 @@ function download_safe_update($temp_path) {
     fclose($file);
 }
 
+# unzip new update
 function unzip_new_update($temp_path) {
     WP_Filesystem();
     $unzipfile = unzip_file( $temp_path, $update_destination);
@@ -103,6 +101,7 @@ function unzip_new_update($temp_path) {
     }
 }
 
+# get current files and compare with new one
 function get_current_files($dir = null, &$results = array()){
     
     if($dir == null) 
@@ -121,6 +120,7 @@ function get_current_files($dir = null, &$results = array()){
     return $results;
 }
 
+# get überflüssige files
 function get_files_to_remove($update_files, $current_files) {
     $files_update = $update_files;
     $files_current = $current_files;
@@ -128,12 +128,14 @@ function get_files_to_remove($update_files, $current_files) {
     return $result;
 }
 
+# remove überflüssige files
 function remove_orphan_failes($files_to_remove) {
     foreach($files_to_remove as $file) {
         unlink($file);
     }
 }
 
+# get new files
 function get_files_from_update($temp_path) {
     $zip = zip_open($temp_path);
     if (is_resource($zip)) {  
@@ -151,6 +153,7 @@ function get_files_from_update($temp_path) {
 ### set states for pages in dashboard
 ##################################################################################################################################################
 
+# set page state
 function enfi_filter_post_state_404( $post_states, $post ) {
     
     $option = ef_get_option('ef-debug');
@@ -163,7 +166,7 @@ function enfi_filter_post_state_404( $post_states, $post ) {
 }
 add_filter( 'display_post_states', 'enfi_filter_post_state_404', 10, 2 );
 
-#404 jackpow not found !
+# 404 jackpow not found !
 function ef_404_get_content() {
     
     $settings = ef_get_option('ef-debug');
@@ -225,7 +228,6 @@ function enfi_maintenance_maintenance_mode() {
     }
 }
 add_action( 'parse_query', 'enfi_maintenance_maintenance_mode' );
-
 
 function ef_maintenance_get_content() {
     
