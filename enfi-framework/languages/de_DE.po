@@ -46,7 +46,7 @@ msgstr "Titelbilder für Beiträge und Seiten."
 
 #: core/ef-cover.php:9
 msgid "COVER_SETTINGS"
-msgstr "EInstellungen"
+msgstr "Einstellungen"
 
 #: core/ef-cover.php:10 core/ef-seo.php:47 core/ef-social-media.php:18
 #: core/inc/class-ef-post-type.php:157 core/inc/class-ef-post-type.php:157
