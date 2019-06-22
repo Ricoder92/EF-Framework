@@ -50,8 +50,8 @@ msgid "COVER_SETTINGS"
 msgstr ""
 
 #: core/ef-cover.php:10 core/ef-seo.php:47 core/ef-social-media.php:18
-#: core/inc/class-ef-post-type.php:157 core/inc/class-ef-post-type.php:157
-#: core/inc/class-ef-navigation.php:57
+#: core/class-ef-post-type.php:157 core/class-ef-post-type.php:157
+#: core/class-ef-navigation.php:57
 msgid "POST_TYPES"
 msgstr ""
 
@@ -104,7 +104,7 @@ msgid "SEARCH_ENGINE_OPTIMIZATION_DESCRIPTION"
 msgstr ""
 
 #: core/ef-seo.php:47 core/ef-social-media.php:18
-#: core/inc/class-ef-post-type.php:157
+#: core/class-ef-post-type.php:157
 msgid "POST_TYPES_DESCRIPTION"
 msgstr ""
 
@@ -133,7 +133,7 @@ msgid "KEYWORDS"
 msgstr ""
 
 #: core/ef-seo.php:55 core/ef-modules.php:23
-#: core/inc/class-ef-post-type.php:175
+#: core/class-ef-post-type.php:175
 msgid "DESCRIPTION"
 msgstr ""
 
@@ -477,7 +477,7 @@ msgstr ""
 msgid "EF Blocks"
 msgstr ""
 
-#: core/ef-layout.php:7 core/inc/class-ef-navigation.php:56
+#: core/ef-layout.php:7 core/class-ef-navigation.php:56
 msgid "LAYOUT"
 msgstr ""
 
@@ -489,7 +489,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: core/ef-modules.php:7 core/inc/class-ef-navigation.php:59
+#: core/ef-modules.php:7 core/class-ef-navigation.php:59
 msgid "MODULES"
 msgstr ""
 
@@ -497,11 +497,11 @@ msgstr ""
 msgid "MODULES_DESCRIPTION"
 msgstr ""
 
-#: core/ef-modules.php:21 core/inc/class-ef-post-type.php:173
+#: core/ef-modules.php:21 core/class-ef-post-type.php:173
 msgid "ENABLE"
 msgstr ""
 
-#: core/ef-modules.php:22 core/inc/class-ef-post-type.php:174
+#: core/ef-modules.php:22 core/class-ef-post-type.php:174
 msgid "NAME"
 msgstr ""
 
@@ -725,25 +725,25 @@ msgstr ""
 msgid "GOOGLE_FONTS_DESCRIPTION"
 msgstr ""
 
-#: core/inc/class-ef-meta-box.php:135
+#: core/class-ef-meta-box.php:135
 msgid "Insert text here..."
 msgstr ""
 
-#: core/inc/class-ef-navigation.php:55 core/inc/class-ef-settings-page.php:282
-#: core/inc/class-ef-settings-page.php:282
-#: core/inc/class-ef-settings-page.php:294
+#: core/class-ef-navigation.php:55 core/class-ef-settings-page.php:282
+#: core/class-ef-settings-page.php:282
+#: core/class-ef-settings-page.php:294
 msgid "SETTINGS"
 msgstr ""
 
-#: core/inc/class-ef-navigation.php:58
+#: core/class-ef-navigation.php:58
 msgid "TAXONOMIES"
 msgstr ""
 
-#: core/inc/class-ef-settings-page.php:218
+#: core/class-ef-settings-page.php:218
 msgid "INSERT_TEXT_HERE"
 msgstr ""
 
-#: core/inc/class-ef-settings-page.php:282
+#: core/class-ef-settings-page.php:282
 msgid "SETTINGS_DESCRIPTION"
 msgstr ""
 

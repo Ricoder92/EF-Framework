@@ -8,7 +8,7 @@
 
 <?php get_header(); ?>
 
-<?php get_template_part('templates/content/content', 'before'); ?>  
+<?php get_template_part('templates/content', 'before'); ?>  
 
 <div class="row">
     <div class="col-lg-12">
@@ -21,6 +21,6 @@
 </div>
 
 
-<?php get_template_part('templates/content/content', 'after'); ?>
+<?php get_template_part('templates/content', 'after'); ?>
 
 <?php get_footer(); ?>

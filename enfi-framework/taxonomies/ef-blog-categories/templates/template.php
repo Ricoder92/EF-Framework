@@ -1,9 +1,9 @@
     
 <?php get_header(); ?>
 
-<?php get_template_part('templates/content/content-title'); ?>  
+<?php get_template_part('templates/content-title'); ?>  
 
-    <?php get_template_part('templates/content/content-before'); ?>  
+    <?php get_template_part('templates/content-before'); ?>  
 
     <div class="row">
 
@@ -27,10 +27,10 @@
         <?php wp_reset_postdata(); ?>
 
         <?php else : ?>
-            <?php get_template_part('templates/content/content-no-entries'); ?>
+            <?php get_template_part('templates/content-no-entries'); ?>
         <?php endif; ?>
 
-        <?php get_template_part('templates/content/content-pagination'); ?>
+        <?php get_template_part('templates/content-pagination'); ?>
 
     </div>
 
@@ -40,7 +40,7 @@
                     <?php } ?>
                 </div>
 
-    <?php get_template_part('templates/content/content-after'); ?>
+    <?php get_template_part('templates/content-after'); ?>
 
     <?php wp_reset_postdata(); ?>
 

@@ -33,11 +33,11 @@ class EF_Framework {
         # require some ef stuff
         require_once get_template_directory().'/core/ef-functions.php';
 
-        require_once get_template_directory().'/core/inc/class-ef-settings-page.php';
-        require_once get_template_directory().'/core/inc/class-ef-meta-box.php';
-        require_once get_template_directory().'/core/inc/class-ef-post-type.php';
-        require_once get_template_directory().'/core/inc/class-ef-taxonomy.php';
-        require_once get_template_directory().'/core/inc/class-ef-navigation.php';
+        require_once get_template_directory().'/core/class-ef-settings-page.php';
+        require_once get_template_directory().'/core/class-ef-meta-box.php';
+        require_once get_template_directory().'/core/class-ef-post-type.php';
+        require_once get_template_directory().'/core/class-ef-taxonomy.php';
+        require_once get_template_directory().'/core/class-ef-navigation.php';
 
         require_once get_template_directory().'/core/ef-generel.php';
         require_once get_template_directory().'/core/ef-styles-scripts.php';
@@ -65,19 +65,19 @@ class EF_Framework {
 
         #disable some stuff
         if(isset($options['disable-posts']))
-            require_once get_template_directory().'/core/inc/ef-disable-posts.php';
+            require_once get_template_directory().'/core/ef-disable-posts.php';
 
         if(isset($options['disable-comments']))
-            require_once get_template_directory().'/core/inc/ef-disable-comments.php';
+            require_once get_template_directory().'/core/ef-disable-comments.php';
 
         if(isset($options['disable-emoji']))
-            require_once get_template_directory().'/core/inc/ef-disable-emoji.php';
+            require_once get_template_directory().'/core/ef-disable-emoji.php';
 
         if(isset($options['disable-oembed']))
-            require_once get_template_directory().'/core/inc/ef-disable-oembed.php';
+            require_once get_template_directory().'/core/ef-disable-oembed.php';
 
         if(isset($options['disable-rss']))
-            require_once get_template_directory().'/core/inc/ef-disable-rss.php';
+            require_once get_template_directory().'/core/ef-disable-rss.php';
 
         if(isset($options['disable-rsd']))
             remove_action('wp_head', 'rsd_link');
@@ -241,6 +241,8 @@ class EF_Framework {
         else if(is_front_page())
             $url = site_url();
         else if(is_404())
+            $url = site_url();
+        else 
             $url = site_url();
          
         # print url
