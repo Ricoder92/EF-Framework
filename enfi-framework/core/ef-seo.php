@@ -47,6 +47,51 @@ $seo_page->addSection('settings', __('SEARCH_ENGINE_OPTIMIZATION', 'ef'));
 $seo_page->addField('settings', 'post-types', __('POST_TYPES', 'ef'), __('POST_TYPES_DESCRIPTION', 'ef'), 'checkbox-group', null, array( 'post_types' => get_post_types()));
 $seo_page->addField('settings', 'no-index', __('NO_INDEX', 'ef'), __('NO_INDEX_DESCRIPTION', 'ef'), 'checkbox', null, array('checkboxText' => __('No-Index', 'ef')));
 
+$seo_page->addSection('sitemap', __('SEARCH_ENGINE_OPTIMIZATION_SITEMAP', 'ef'));
+$seo_page->addField('sitemap', 'post-types-sitemap', __('POST_TYPES', 'ef'), __('POST_TYPES_DESCRIPTION', 'ef'), 'checkbox-group', null, array( 'post_types' => get_post_types()));
+
+$option = ef_get_option('ef-seo');
+
+if(array_key_exists('post-types-sitemap', $option)) {
+
+    foreach($option['post-types-sitemap'] as $post_type) {
+
+        $_cpt = get_post_type_object($post_type);
+        $_post_type_label = $_cpt->labels->name;
+
+        $prio = array(
+            array( 'text' =>  '0.1', 'value' => '0.1'),
+            array( 'text' =>  '0.2', 'value' => '0.2'),
+            array( 'text' =>  '0.3', 'value' => '0.3'),
+            array( 'text' =>  '0.4', 'value' => '0.4'),
+            array( 'text' =>  '0.5', 'value' => '0.5'),
+            array( 'text' =>  '0.6', 'value' => '0.6'),
+            array( 'text' =>  '0.7', 'value' => '0.7'),
+            array( 'text' =>  '0.8', 'value' => '0.8'),
+            array( 'text' =>  '0.9', 'value' => '0.9'),
+            array( 'text' =>  '1.0', 'value' => '1.0'),
+        );
+
+        $seo_page->addField('sitemap', 'sitemap-prio-'.$post_type, __('SITEMAP_PRIO_FOR', 'ef').' '.__($_post_type_label), null, 'button-group', '|', array( 'options' => $prio ));
+    }
+
+    foreach($option['post-types-sitemap'] as $post_type) {
+
+        $_cpt = get_post_type_object($post_type);
+        $_post_type_label = $_cpt->labels->name;
+
+        $frequence = array(
+            array( 'text' =>  'daily', 'value' => 'daily'),
+            array( 'text' =>  'weekly', 'value' => 'weekly'),
+            array( 'text' =>  'monthly', 'value' => 'monthly'),
+            array( 'text' =>  'yearly', 'value' => 'yearly'),
+        );
+
+        $seo_page->addField('sitemap', 'sitemap-changefrequence-'.$post_type, __('SITEMAP_FREQUENCE_FOR', 'ef').' '.__($_post_type_label), null, 'button-group', '|', array( 'options' => $frequence ));
+    }
+
+}
+
 ## global meta tags
 $seo_page->addSection('seo-tags', __('SEARCH_ENGINE_OPTIMIZATION', 'ef'));
 $seo_page->addField('seo-tags', 'global-title-seperator', __('TITLE_SEPERATOR', 'ef'), null, 'button-group', '|', array( 'options' => $title_seperators ));
@@ -273,4 +318,57 @@ function filter_function_name_4269( $canonical_url, $post ){
 	return $canonical_url;
 }
 
-?>
+add_action( 'publish_post', 'ef_seo_create_sitemap' );
+add_action( 'publish_page', 'ef_seo_create_sitemap' );
+
+ef_seo_create_sitemap();
+function ef_seo_create_sitemap() {
+
+    $option = ef_get_option('ef-seo');
+
+    if(array_key_exists('post-types-sitemap', $option)) {
+
+        $sitemap = '<?xml version="1.0" encoding="UTF-8"?>';
+        $sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+        
+        foreach($option['post-types-sitemap'] as $post_type) {
+            
+            $postsForSitemap = get_posts(array(
+                'numberposts' => -1,
+                'orderby' => 'modified',
+                'post_type'  =>  $post_type,
+                'order'    => 'DESC'
+            ));
+
+            foreach( $postsForSitemap as $post ) {
+                setup_postdata( $post );
+                
+                $postdate = explode( " ", $post->post_modified );
+                
+                $sitemap .= '<url>'.
+                '<loc>' . get_permalink( $post->ID ) . '</loc>' .
+                '<lastmod>' . $postdate[0] . '</lastmod>' .
+                '<changefreq>monthly</changefreq>' .
+                '<priority>0.8</priority>' .
+                '</url>';
+            }
+            
+        }
+            
+        $sitemap .= '</urlset>';
+        
+      
+        
+    } else {
+
+        $sitemap = null;
+    }
+        
+        
+    $fp = fopen( ABSPATH . 'sitemap.xml', 'w' );
+        
+    fwrite( $fp, $sitemap );
+    fclose( $fp );
+}
+    
+    ?>

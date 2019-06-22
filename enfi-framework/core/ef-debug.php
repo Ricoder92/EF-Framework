@@ -156,9 +156,7 @@ function enfi_filter_post_state_404( $post_states, $post ) {
     
     $option = ef_get_option('ef-debug');
     
-    $option = $option['404-page'];
-    
-	if( $post->ID == $option) {
+	if( $post->ID == $option['404-page']) {
         $post_states[] = __('404 Error page', 'ef');
     }
     
@@ -166,12 +164,13 @@ function enfi_filter_post_state_404( $post_states, $post ) {
 }
 add_filter( 'display_post_states', 'enfi_filter_post_state_404', 10, 2 );
 
+#404 jackpow not found !
 function ef_404_get_content() {
-
+    
     $settings = ef_get_option('ef-debug');
-
-    if($settings['404-page']) {
-        $id= $settings['404-page']; 
+    
+    if(array_key_exists('404-page', $settings))  {
+        $id = $settings['404-page']; 
         $post = get_post($id); 
         $content = apply_filters('the_content', $post->post_content); 
         return $content;  
@@ -189,9 +188,7 @@ function enfi_filter_post_state_maintenance( $post_states, $post ) {
     
     $option = ef_get_option('ef-debug');
     
-    $option = $option['maintenance-page'];
-    
-	if( $post->ID == $option) {
+	if( $post->ID == $option['maintenance-page']) {
         $post_states[] = __('Maintenance', 'ef');
     }
     
@@ -205,9 +202,9 @@ add_filter( 'display_post_states', 'enfi_filter_post_state_maintenance', 10, 2 )
 
 function enfi_maintenance_maintenance_mode() {
 
-    $option = ef_get_option('ef-debug');
+    $settings = ef_get_option('ef-debug');
 
-    if(isset($option['maintenance-enable']))
+    if(array_key_exists('maintenance-page', $settings)) 
         $enable = true;
     else   
         $enable = false;
@@ -230,34 +227,35 @@ function enfi_maintenance_maintenance_mode() {
 }
 add_action( 'parse_query', 'enfi_maintenance_maintenance_mode' );
 
+
 function ef_maintenance_get_content() {
-
+    
     $settings = ef_get_option('ef-debug');
-
-    if($settings['maintenance-page']) {
-        $id= $settings['maintenance-page']; 
+    
+    if(array_key_exists('maintenance-page', $settings)) {
+        $id = $settings['maintenance-page']; 
         $post = get_post($id); 
         $content = apply_filters('the_content', $post->post_content); 
         return $content;  
     } else {
         return _e('MAINTENANCE_MODE_503_CONTENT', 'ef');
     }
-
+    
 }
 
 function ef_maintenance_get_title() {
-
+    
     $settings = ef_get_option('ef-debug');
-
-    if($settings['maintenance-page']) {
-        $id= $settings['maintenance-page']; 
+    
+    if(array_key_exists('maintenance-page', $settings)) {
+        $id = $settings['maintenance-page']; 
         $post = get_post($id); 
         $content = apply_filters('the_title', $post->post_title); 
         return $content;  
     } else {
         return _e('MAINTENANCE_MODE_503_TITLE', 'ef');
     }
-
+    
 }
 
 ################################################################################################################################################## 
@@ -265,11 +263,11 @@ function ef_maintenance_get_title() {
 ##################################################################################################################################################
 
 function ef_is_debug_mode() {
-
+    
     #$option = ef_get_option('ef-debug');
-
+    
     return true;
-
+    
 }
 
 

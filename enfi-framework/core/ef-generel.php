@@ -24,7 +24,7 @@ $settings_page->addField('loading-screen', 'enable-loading-screen', __('GENEREL_
 $settings = ef_get_option('settings');
 
 # loading screen
-if($settings['enable-loading-screen']) {
+if(array_key_exists('enable-loading-screen', $settings)) {
 
     # css and js
     add_action('wp_enqueue_scripts', function() {
