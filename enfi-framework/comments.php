@@ -22,6 +22,8 @@ echo "<div class=\" comment\">";
     comment_form( $comments_args ); 
 echo "</div>"; ?>
 
+
+
 	<?php
 		//Gather comments for a specific page/post 
 		$comments = get_comments(array(

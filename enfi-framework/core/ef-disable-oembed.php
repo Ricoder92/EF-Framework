@@ -1,10 +1,6 @@
 <?php
 
-################################################################################################################################################## 
-### disable oembed
-### thanks to https://kinsta.com/knowledgebase/disable-embeds-wordpress/
-##################################################################################################################################################
-
+// https://kinsta.com/knowledgebase/disable-embeds-wordpress/
 
 function disable_embeds_code_init() {
 

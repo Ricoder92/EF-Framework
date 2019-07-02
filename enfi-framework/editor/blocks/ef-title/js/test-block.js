@@ -479,7 +479,7 @@
 
             return el(
                 'div', {
-                    className: props.className + ' ef-slide',
+                    className: props.className + ' ef-swiper-slide',
 
                 },
                 el('div', {
@@ -716,7 +716,7 @@
 
             return el(
                 'div', {
-                    className: props.className + ' ef-slide',
+                    className: props.className + ' ef-swiper-slide',
                 },
                 el('div', {
                     className: 'bg-image',

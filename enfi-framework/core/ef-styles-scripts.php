@@ -17,6 +17,7 @@ $styles_scripts->addField('thirdparty', 'jqueryui', __('JQUERY_UI', 'ef'), null,
 $styles_scripts->addField('thirdparty', 'bootstrap', __('BOOTSTRAP', 'ef'), null, 'checkbox', true, array('checkboxText' => __('ENABLE', 'ef')));
 $styles_scripts->addField('thirdparty', 'aos', __('AOS', 'ef'), null, 'checkbox', true, array('checkboxText' => __('ENABLE', 'ef')));
 $styles_scripts->addField('thirdparty', 'fontawesome', __('FONTAWESOME', 'ef'), null, 'checkbox', true, array('checkboxText' => __('ENABLE', 'ef')));
+$styles_scripts->addField('thirdparty', 'swiper', __('SWIPER', 'ef'), null, 'checkbox', true, array('checkboxText' => __('ENABLE', 'ef')));
 
 $styles_scripts->addSection('styles_scripts_render', __('STYLES_SCRIPTS_SETTINGS', 'ef'));
 $styles_scripts->addContent('styles_scripts_render', 'styles_scripts_render');
@@ -115,9 +116,15 @@ function enqueue_styles_and_scripts() {
         # bootstrap
         if(isset($options['bootstrap'])) {
             wp_register_style('bootstrapCSS', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css');
-            wp_enqueue_style( 'bootstrapCSS' );
-            wp_register_script( 'bootstrapJS', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js', array('jquery'));
-            wp_enqueue_script( 'bootstrapJS' );
+            wp_enqueue_style('bootstrapCSS');
+            wp_register_script('bootstrapJS', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js', array('jquery'));
+            wp_enqueue_script('bootstrapJS');
+        }
+
+        # swiper
+        if(isset($options['swiper'])) {
+            wp_register_style('swiper',  get_template_directory_uri().'/assets/css/swiper.css');
+            wp_register_script('swiper', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js', array('jquery'));
         }
 
         # theme CSS and JS
@@ -167,6 +174,10 @@ function enqueue_admin_styles_and_scripts() {
     wp_enqueue_script('media-upload');
     wp_enqueue_script('thickbox');
     wp_enqueue_style('thickbox');
+
+    # roboto font
+    wp_register_style('google-font-roboto', 'https://fonts.googleapis.com/css?family=Roboto&display=swap');
+    wp_enqueue_style( 'google-font-roboto' );
 
     # fontawesome
     wp_register_style('fontawesome', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css');

@@ -1,57 +1,57 @@
 <?php
 
-function ef_slider_render($id) {
+function ef_productboxes_render() {
 
     wp_enqueue_style('swiper');
-    wp_enqueue_style('swiper-ef');
     wp_enqueue_script('swiper');
 
-    echo '<!-- https://idangero.us/swiper/ <3 -->';
+    echo '<div class="row">';
 
-    echo '<div class="ef-swiper-container ef-swiper-container-'.$id.'" style="height: 400px">';
+        echo '<div class="col-lg-12">';
+            echo '<div class="ef-swiper-container">';
 
-        # slides
-        echo '<div class="ef-swiper-wrapper">';
-        $args = array(
-            'ID'        => $id,
-            'post_type'=> 'slider',
-        );              
+                # slides
+                echo '<div class="ef-swiper-wrapper">';
+
+                $args = array(
+                    'post_type'=> 'ef-productbox',
+                    'orderby' => 'menu_order',
+	                'order'=> 'DESC',
+                );              
         
-            $posts_array = get_posts($args);
-            foreach($posts_array as $post)
-            {
-                echo $post->post_content;
-            } 
+                $posts_array = get_posts($args);
+
+
+                foreach($posts_array as $post)
+                {
+                    echo '<div class="ef-swiper-slide">';
+                        echo '<div class="productbox">';
+                            echo '<div class="title"><h3>'.$post->post_title.'</h3></div>';
+                            echo '<div class="content">'.$post->post_content.'</div>';
+                        echo '</div>';
+                    echo '</div>';
+                } 
+                echo '</div>';
+
+                # pagination
+                echo '<div class="ef-swiper-pagination"></div>';
+
+
+
+            echo '</div>';
         echo '</div>';
 
-        # pagination
-        echo '<div class="ef-swiper-pagination"></div>';
-
-        # buttons
-        echo '<div class="ef-swiper-button-prev"></div>';
-        echo '<div class="ef-swiper-button-next"></div>';
-
-        # scrollbar
-        echo '<div class="ef-swiper-scrollbar"></div>';
-
     echo '</div>';
+
+  
+
+    
 
     ?>
 <script>
 window.onload = function () {
  
-    var slider_<?php echo $id; ?> = new Swiper ('.ef-swiper-container-<?php echo $id; ?>', {
-
-        <?php
-
-        $data = array('direction','speed','grabCursor','freemode','loop','navigation','scrollbar','pagination');
-        $meta_data = get_post_meta($id, 'ef-swiper-meta', true);
-
-        foreach($data as $meta) {
-            ef_slider_get_print_meta($meta, $meta_data);
-        }
-
-        ?>
+    var slider = new Swiper ('.ef-swiper-container', {
 
         /* generell */
         direction:                      'horizontal',
@@ -62,8 +62,7 @@ window.onload = function () {
         nested:                         false,
 
         /* slides grid */
-        spaceBetween:                   0,
-        slidesPerView:                  1,
+        spaceBetween:                   10,
         slidesPerColumn:                1,
         slidesPerColumnFill:            'column',
         slidesPerGroup:                 1,
@@ -74,8 +73,8 @@ window.onload = function () {
         centerInsufficientSlides:       false,
 
         /* freemode */
-        grabCursor:                     false,
-        freeMode:                       false,
+        grabCursor:                     true,
+        freeMode:                       true,
         freeModeMomentum:               true,
         freeModeMomentumRatio:          1,
         freeModeMomentumVelocityRatio:  1,
@@ -90,14 +89,10 @@ window.onload = function () {
         },
 
         /* effect */
-        effect:                         'fade',
+        effect:                         'slide',
         
-        fadeEffect: {
-            crossFade:                  true
-        },
-
         /* loop */
-        loop:                           false,
+        loop:                           true,
 
         /* keybinds */
         mousewheel: {
@@ -141,14 +136,21 @@ window.onload = function () {
             hiddenClass:                'ef-swiper-button-hidden'
         },
 
+        breakpointsInverse: true,
+        breakpoints: {
+
+            320: {
+            slidesPerView: 1,
+            },
+            480: {
+            slidesPerView: 1,
+            },
+            640: {
+            slidesPerView: 3,
+            }
+  }
+
         /* scrollbar */
-        scrollbar: {
-            el:                         '.ef-swiper-scrollbar',
-            lockClass:                  'ef-swiper-scrollbar-lock',
-            dragClass:                  'ef-swiper-scrollbar-drag',
-            draggable:                  true,
-            snapOnRelease:              true,
-        },
 
     })
 };
@@ -160,9 +162,5 @@ window.onload = function () {
 
 }
 
-function ef_slider_get_print_meta($meta, $meta_data) {
-
-
-}
 
 ?>

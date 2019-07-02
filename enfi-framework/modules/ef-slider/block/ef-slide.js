@@ -1,15 +1,15 @@
 (function(blocks, element) {
     var el = element.createElement;
 
-    blocks.registerBlockType('ef-slider/slide', {
+    blocks.registerBlockType('ef-swiper/slide', {
         title: 'EF Slide',
         icon: 'universal-access-alt',
-        category: 'ef-slider',
+        category: 'ef-swiper',
         edit: function() {
-            return 'div', '', el('div', { className: 'ef-slide' }, 'test')
+            return 'div', '', el('div', { className: 'ef-swiper-slide' }, 'test')
         },
         save: function() {
-            return 'div', '', el('div', { className: 'ef-slide' }, 'test')
+            return 'div', '', el('div', { className: 'ef-swiper-slide' }, 'test')
         },
     });
 }(

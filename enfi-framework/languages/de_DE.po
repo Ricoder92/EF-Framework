@@ -834,115 +834,115 @@ msgstr ""
 msgid "--NO_OPTION--"
 msgstr "-- keine Auswahl --"
 
-#: modules/ef-slider/init.php:31
+#: modules/ef-swiper-slider/init.php:31
 msgid "EF Slider"
 msgstr ""
 
-#: modules/ef-slider/init.php:54
+#: modules/ef-swiper-slider/init.php:54
 msgid "Horizontal"
 msgstr ""
 
-#: modules/ef-slider/init.php:55
+#: modules/ef-swiper-slider/init.php:55
 msgid "Vertical"
 msgstr ""
 
-#: modules/ef-slider/init.php:58
+#: modules/ef-swiper-slider/init.php:58
 msgid "SLIDER_SETTINGS"
 msgstr "Einstellungen"
 
-#: modules/ef-slider/init.php:60
+#: modules/ef-swiper-slider/init.php:60
 msgid "SLIDER_DIRECTION"
 msgstr "Richtung"
 
-#: modules/ef-slider/init.php:61
+#: modules/ef-swiper-slider/init.php:61
 msgid "SLIDER_SPEED"
 msgstr "Geschwindigkeit"
 
-#: modules/ef-slider/init.php:63
+#: modules/ef-swiper-slider/init.php:63
 msgid "SLIDER_GRAB_CURSOR"
 msgstr "Grab-Mauszeiger"
 
-#: modules/ef-slider/init.php:63 modules/ef-slider/init.php:64
-#: modules/ef-slider/init.php:65 modules/ef-slider/init.php:66
-#: modules/ef-slider/init.php:67 modules/ef-slider/init.php:68
-#: modules/ef-slider/init.php:69
+#: modules/ef-swiper-slider/init.php:63 modules/ef-swiper-slider/init.php:64
+#: modules/ef-swiper-slider/init.php:65 modules/ef-swiper-slider/init.php:66
+#: modules/ef-swiper-slider/init.php:67 modules/ef-swiper-slider/init.php:68
+#: modules/ef-swiper-slider/init.php:69
 msgid "Enable"
 msgstr ""
 
-#: modules/ef-slider/init.php:64
+#: modules/ef-swiper-slider/init.php:64
 msgid "SLIDER_FREEMODE"
 msgstr "Freier Modus"
 
-#: modules/ef-slider/init.php:65
+#: modules/ef-swiper-slider/init.php:65
 msgid "SLIDER_LOOP"
 msgstr "Schleife"
 
-#: modules/ef-slider/init.php:66
+#: modules/ef-swiper-slider/init.php:66
 msgid "SLIDER_MOUSEWHEEL_SCROLLING"
 msgstr ""
 
-#: modules/ef-slider/init.php:67
+#: modules/ef-swiper-slider/init.php:67
 msgid "SLIDER_NAVIGATION"
 msgstr "Navigation"
 
-#: modules/ef-slider/init.php:68
+#: modules/ef-swiper-slider/init.php:68
 msgid "SLIDER_SCROLLBAR"
 msgstr "Scrolleiste"
 
-#: modules/ef-slider/init.php:69
+#: modules/ef-swiper-slider/init.php:69
 msgid "SLIDER_PAGINATION"
 msgstr "Seitenpunkte-Navigation"
 
-#: modules/ef-slider/post-type.php:4 modules/ef-slider/post-type.php:6
-#: modules/ef-slider/post-type.php:7
+#: modules/ef-swiper-slider/post-type.php:4 modules/ef-swiper-slider/post-type.php:6
+#: modules/ef-swiper-slider/post-type.php:7
 msgid "Slides"
 msgstr ""
 
-#: modules/ef-slider/post-type.php:5
+#: modules/ef-swiper-slider/post-type.php:5
 msgid "Slider"
 msgstr ""
 
-#: modules/ef-slider/post-type.php:8
+#: modules/ef-swiper-slider/post-type.php:8
 msgid "Add New"
 msgstr ""
 
-#: modules/ef-slider/post-type.php:9
+#: modules/ef-swiper-slider/post-type.php:9
 msgid "Add New Slider"
 msgstr ""
 
-#: modules/ef-slider/post-type.php:10
+#: modules/ef-swiper-slider/post-type.php:10
 msgid "New Slider"
 msgstr ""
 
-#: modules/ef-slider/post-type.php:11
+#: modules/ef-swiper-slider/post-type.php:11
 msgid "Edit Slider"
 msgstr ""
 
-#: modules/ef-slider/post-type.php:12
+#: modules/ef-swiper-slider/post-type.php:12
 msgid "View Slider"
 msgstr ""
 
-#: modules/ef-slider/post-type.php:13
+#: modules/ef-swiper-slider/post-type.php:13
 msgid "All Sliders"
 msgstr ""
 
-#: modules/ef-slider/post-type.php:14
+#: modules/ef-swiper-slider/post-type.php:14
 msgid "Search Sliders"
 msgstr ""
 
-#: modules/ef-slider/post-type.php:15
+#: modules/ef-swiper-slider/post-type.php:15
 msgid "Parent Sliders:"
 msgstr ""
 
-#: modules/ef-slider/post-type.php:16
+#: modules/ef-swiper-slider/post-type.php:16
 msgid "No Sliders found."
 msgstr ""
 
-#: modules/ef-slider/post-type.php:17
+#: modules/ef-swiper-slider/post-type.php:17
 msgid "No Sliders found in Trash."
 msgstr ""
 
-#: modules/ef-slider/post-type.php:22
+#: modules/ef-swiper-slider/post-type.php:22
 msgid "Description."
 msgstr ""
 

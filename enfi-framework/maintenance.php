@@ -20,10 +20,15 @@
 <body>
 
 <div class="maintenance-container">
-    <h1><?php echo ef_maintenance_get_title(); ?></h1>
-    <?php echo ef_maintenance_get_content(); ?>
+    <div class="container">
+        <div class="row align-items-center h-100">
+            <div class="col-lg-12">
+                <h1><?php echo ef_maintenance_get_title(); ?></h1>
+                <?php echo ef_maintenance_get_content(); ?>
+            </div>
+        </div>
+    </div>
 </div>
-
 
 
 <?php wp_footer(); ?>

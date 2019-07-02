@@ -202,7 +202,7 @@ add_action('wp_head', function() {
         ef_html_comment('SEO');
           
         # set (no)follow
-        if(isset($meta_data['seo-no-index']))
+        if(isset($meta_data['seo-no-index']) || isset($option['no-index']))
             echo "<meta name=\"robots\" content=\"noindex,nofollow\">\n";
         else
             echo "<meta name=\"robots\" content=\"index,follow\">\n";

@@ -46,6 +46,7 @@
 
 .ef-dashboard-content {
     margin-left: -20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -83,6 +84,8 @@
     background-color: white;
     min-height: 200px;
     text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
 }
 
 .ef-dashboard-card:hover {
@@ -90,6 +93,12 @@
     transition: 200ms;
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
+}
+
+.ef-dashboard-list-cards h3 {
+    font-weight: normal;
+    font-size: 1.2rem;
+    letter-spacing: 0;
 }
 
 .ef-dashboard-card:hover h3 {
