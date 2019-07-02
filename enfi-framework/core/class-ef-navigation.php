@@ -34,7 +34,7 @@ class EF_Admin_Navigation {
 
             echo '<div class="ef-dashboard-side-navigation">';
             
-                echo '<div class="head">'.__($name, 'ef').'</div>';
+                echo '<div class="head"><h4>'.__($name, 'ef').'</h4></div>';
                 
                 echo '<ul class="navigation">';
                     do_action('ef-admin-navigation-'.$id);
