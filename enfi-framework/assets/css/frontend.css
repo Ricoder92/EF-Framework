@@ -293,3 +293,23 @@ button:focus .btn:active,
     color: white;
     transition: 200ms;
 }
+
+.archive-list-item {
+    margin-bottom: 20px;
+}
+
+.archive-list-item:last-of-type {
+    margin-bottom: 0;
+}
+
+.archive-list-item .thumbnail {}
+
+.archive-list-item .title {}
+
+.archive-list-item .text {}
+
+.archive-list-item .info {}
+
+.archive-list-item .read-more {}
+
+.archive-list-item .tags {}

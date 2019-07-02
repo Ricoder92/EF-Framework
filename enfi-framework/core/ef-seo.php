@@ -253,45 +253,7 @@ add_action('wp_head', function() {
 ### set WP_TITLE
 ##################################################################################################################################################
 
-function wpdocs_filter_wp_title( $title, $sep ) {
-    global $paged, $page;
- 
-    if (is_category()) {
-        $category = get_category(get_query_var('cat'));
-        $cat_id = $category->cat_ID;
-        return get_cat_name($cat_id).' '.$sep.' ';
-    } else if (is_tag()) {
-        global $wp_query;
-        $term = $wp_query->get_queried_object();
-        return $term->name.' '.$sep.' ';
-    } else if(is_single() || is_page()) {
-       return get_the_title().' '.$sep.' ';
-   } else if(is_archive() && !is_tax()) {
-        return post_type_archive_title('', true).' '.$sep.' ';
-    } else if(is_tax()) {
-        global $wp_query;
-        $term = $wp_query->get_queried_object();
-        return $term->name.' '.$sep.' ';
-    } else if(is_home())
-        return get_bloginfo('name');
-    else if(is_front_page())
-        return get_bloginfo('name');
 
-    ## get post meta
-    $meta_data = get_post_meta(get_the_id(), 'ef-seo-meta-data', true);
-
-    ## if null, set to empty array
-    if(!is_array($meta_data)) 
-        $meta_data = array();
-
-    if(array_key_exists('seo-title', $meta_data) && $meta_data['seo-title'] != '') {
-        return $meta_data['seo-title'].' '.$sep.' ';
-    } else {
-        return get_the_title().' '.$sep.' ';
-    }
- 
-}
-#add_filter( 'wp_title', 'wpdocs_filter_wp_title', 10, 2 );
 
 ################################################################################################################################################## 
 ### add title tag
@@ -300,13 +262,18 @@ function wpdocs_filter_wp_title( $title, $sep ) {
 add_action('wp_head', function() {
     
     ef_html_comment('Title');
-    
-    if(is_front_page() || is_home()) 
-    $title = get_bloginfo('name');
-    else 
-    $title = wp_title('|', false, 'right').get_bloginfo('name'); 
-    
-    echo "<title>".$title."</title>\n";
+
+    if(!ef_maintenance_mode_is_active()) {
+
+     
+        if(is_front_page() || is_home()) 
+            $title = get_bloginfo('name');
+        else 
+            $title = wp_title('|', false, 'right').get_bloginfo('name'); 
+
+        echo "<title>".$title."</title>\n";
+
+    }   
     
 },-99);
 
@@ -314,7 +281,7 @@ add_action('wp_head', function() {
 ### canonical url
 ##################################################################################################################################################
 
-add_filter( 'get_canonical_url', 'filter_function_name_4269', 10, 2 );
+#add_filter( 'get_canonical_url', 'filter_function_name_4269', 10, 2 );
 function filter_function_name_4269( $canonical_url, $post ){
     ef_html_comment('Cannnial URL and Shortlink');
 	$canonical_url = $canonical_url;

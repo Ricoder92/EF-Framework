@@ -202,22 +202,25 @@ add_filter( 'display_post_states', 'enfi_filter_post_state_maintenance', 10, 2 )
 ### maintenance loop
 ##################################################################################################################################################
 
-function enfi_maintenance_maintenance_mode() {
+function ef_maintenance_mode_is_active() {
 
     $settings = ef_get_option('ef-debug');
 
     if(array_key_exists('maintenance-enable', $settings)) 
-        $enable = true;
+        return true;
     else   
-        $enable = false;
+        return false;
+}
+
+function enfi_maintenance_maintenance_mode() {
 
     #if maintenance is enable
-    if($enable) {
+    if(ef_maintenance_mode_is_active()) {
 
         global $pagenow;
 
         if ( $pagenow !== 'wp-login.php' && ! current_user_can( 'manage_options' ) && ! is_admin() ) {
-       
+            http_response_code(503);
             header( $_SERVER["SERVER_PROTOCOL"] . ' 503 Service Temporarily Unavailable', true, 503 );
             header( 'Content-Type: text/html; charset=utf-8' );
 

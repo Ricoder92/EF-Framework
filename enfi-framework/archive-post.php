@@ -13,13 +13,13 @@
 
         <?php while ( have_posts() ) : the_post(); ?>
 
-            <div class="blog-item">
+            <div class="archive-list-item">
             
                 <div class="title"><h3><?php echo the_title(); ?></h3></div>
-                <div class="author-date"><span class="author"><?php the_author(); ?> | <span class="date"><?php echo get_the_date();?></div>
-                <div class="content"><?php echo the_excerpt(); ?></div>
+                <div class="info"><?php the_author(); ?> | <?php echo get_the_date();?></div>
+                <div class="text"><?php echo the_excerpt(); ?></div>
                 <div class="tags">Tags: <?php echo ef_print_terms('ef-blog-tags'); ?></div>
-                <a href="<?php the_permalink(); ?>" class="read-more"><?php _e('READ_MORE', 'ef');?></a>
+                <div class="read-more"><a href="<?php the_permalink(); ?>"><?php _e('READ_MORE', 'ef');?></a></div>
 
             </div>
     
@@ -29,9 +29,9 @@
 
         <?php else : ?>
 
-        <?php get_template_part('templates/content', 'no-post'); ?> 
-        <?php endif; ?>
+            <?php get_template_part('templates/content', 'no-post'); ?> 
 
+        <?php endif; ?>
 
         <?php get_template_part('templates/content', 'pagination'); ?> 
 
