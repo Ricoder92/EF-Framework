@@ -246,7 +246,6 @@ add_action('wp_head', function() {
             }
         }
     }
-
 }, -1);
 
 
@@ -294,23 +293,28 @@ function wpdocs_filter_wp_title( $title, $sep ) {
 }
 #add_filter( 'wp_title', 'wpdocs_filter_wp_title', 10, 2 );
 
-add_filter( 'get_canonical_url', 'filter_function_name_4269', 10, 2 );
-
+################################################################################################################################################## 
+### add title tag
+##################################################################################################################################################
 
 add_action('wp_head', function() {
-
+    
     ef_html_comment('Title');
-
+    
     if(is_front_page() || is_home()) 
-        $title = get_bloginfo('name');
+    $title = get_bloginfo('name');
     else 
-        $title = wp_title('|', false, 'right').get_bloginfo('name'); 
-
+    $title = wp_title('|', false, 'right').get_bloginfo('name'); 
+    
     echo "<title>".$title."</title>\n";
-
+    
 },-99);
 
-#WIP
+################################################################################################################################################## 
+### canonical url
+##################################################################################################################################################
+
+add_filter( 'get_canonical_url', 'filter_function_name_4269', 10, 2 );
 function filter_function_name_4269( $canonical_url, $post ){
     ef_html_comment('Cannnial URL and Shortlink');
 	$canonical_url = $canonical_url;
@@ -318,10 +322,21 @@ function filter_function_name_4269( $canonical_url, $post ){
 	return $canonical_url;
 }
 
-add_action( 'publish_post', 'ef_seo_create_sitemap' );
-add_action( 'publish_page', 'ef_seo_create_sitemap' );
+################################################################################################################################################## 
+### create sitemap
+##################################################################################################################################################
 
-ef_seo_create_sitemap();
+# set sitemap on new posts
+if(is_array($option['post-types-sitemap'])) {
+
+    foreach($option['post-types-sitemap'] as $post_type) {
+       add_action( 'publish_'.$post_type, 'ef_seo_create_sitemap' );
+
+   }
+
+}
+
+# create sitemap with new post
 function ef_seo_create_sitemap() {
 
     $option = ef_get_option('ef-seo');
@@ -340,6 +355,17 @@ function ef_seo_create_sitemap() {
                 'order'    => 'DESC'
             ));
 
+            if(array_key_exists('sitemap-prio-'.$post_type, $option))
+                $priority = $option['sitemap-prio-'.$post_type];
+            else    
+                $priority = 0.8;
+
+            if(array_key_exists('sitemap-changefrequence-'.$post_type, $option))
+                $frequence = $option['sitemap-changefrequence-'.$post_type];
+            else    
+                $frequence = 'monthly';
+
+
             foreach( $postsForSitemap as $post ) {
                 setup_postdata( $post );
                 
@@ -348,8 +374,8 @@ function ef_seo_create_sitemap() {
                 $sitemap .= '<url>'.
                 '<loc>' . get_permalink( $post->ID ) . '</loc>' .
                 '<lastmod>' . $postdate[0] . '</lastmod>' .
-                '<changefreq>monthly</changefreq>' .
-                '<priority>0.8</priority>' .
+                '<changefreq>'.$frequence.'</changefreq>' .
+                '<priority>'.$priority.'</priority>' .
                 '</url>';
             }
             
@@ -357,18 +383,26 @@ function ef_seo_create_sitemap() {
             
         $sitemap .= '</urlset>';
         
-      
-        
-    } else {
+    } else 
 
         $sitemap = null;
-    }
-        
-        
+    
     $fp = fopen( ABSPATH . 'sitemap.xml', 'w' );
         
     fwrite( $fp, $sitemap );
     fclose( $fp );
+
+    add_filter('robots_txt', 'wpse_248124_robots_txt', 10,  2);
+}
+
+################################################################################################################################################## 
+### robots.txt
+##################################################################################################################################################
+
+function wpse_248124_robots_txt($output, $public) {
+    $output = "# EF Framework robots.txt\n";
+    $output .= "\nSitemap: ".site_url()."/sitemap.xml";
+    return $output;
 }
     
     ?>

@@ -150,40 +150,46 @@ function ef_cover_get_text_align() {
 
 function ef_cover_get_bg_style() {
 
-    $styles = array();
-    $return = '';
+    $option = ef_get_option('ef-cover');
 
-    // styles
-    $image = ef_cover_get_bg_image();
-    $color = ef_cover_get_bg_color();
-    $height = ef_cover_get_height();
-    $text_color = ef_cover_get_text_color();
-    $text_align = ef_cover_get_text_align();
+    if(is_array($option['enable-post-types']) && array_key_exists(get_post_type(), $option['enable-post-types'])) {
 
-    if($image)
-        array_push($styles, 'background-image: url(\''.wp_get_attachment_url($image).'\');');
-    
-    if($color)
-        array_push($styles, 'background-color: '.$color.';');
+        $styles = array();
+        $return = '';
 
-    if($height)
-        array_push($styles, 'height: '.$height.'px;');
+        // styles
+        $image = ef_cover_get_bg_image();
+        $color = ef_cover_get_bg_color();
+        $height = ef_cover_get_height();
+        $text_color = ef_cover_get_text_color();
+        $text_align = ef_cover_get_text_align();
 
-    if($text_color)
-        array_push($styles, 'color: '.$text_color.';');
+        if($image)
+            array_push($styles, 'background-image: url(\''.wp_get_attachment_url($image).'\');');
+        
+        if($color)
+            array_push($styles, 'background-color: '.$color.';');
 
-    if($text_align)
-        array_push($styles, 'text-align: '.$text_align.';');
+        if($height)
+            array_push($styles, 'height: '.$height.'px;');
 
-    if(count($styles) > 0) {
-        $return = 'style="';
-        foreach($styles as $style) {
-            $return .= $style;
+        if($text_color)
+            array_push($styles, 'color: '.$text_color.';');
+
+        if($text_align)
+            array_push($styles, 'text-align: '.$text_align.';');
+
+        if(count($styles) > 0) {
+            $return = 'style="';
+            foreach($styles as $style) {
+                $return .= $style;
+            }
+            $return .= '"';
         }
-        $return .= '"';
-    }
 
-    return $return;
+        return $return;
+
+    }
 
 }
 

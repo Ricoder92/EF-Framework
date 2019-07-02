@@ -206,7 +206,7 @@ function enfi_maintenance_maintenance_mode() {
 
     $settings = ef_get_option('ef-debug');
 
-    if(array_key_exists('maintenance-page', $settings)) 
+    if(array_key_exists('maintenance-enable', $settings)) 
         $enable = true;
     else   
         $enable = false;
