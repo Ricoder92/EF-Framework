@@ -17,16 +17,8 @@ function modules_render() {
     $option = ef_get_option('ef-modules');
     $name = ef_get_child_name('ef-modules');
 
-    echo '<table class="ef-admin-table">';
+    echo '<table class="ef-admin-table ef-admin-table-modules">';
 
-        echo '<thead><tr>';
-            echo '<th class="center">'.__('ENABLE', 'ef').'</th>';
-            echo '<th class="left">'.__('NAME', 'ef').'</th>';
-            echo '<th class="left">'.__('DESCRIPTION', 'ef').'</th>';
-        echo '</tr></thead>';
-
-        
-    
     foreach(glob($modules_path.'/*/init.php') as $file){
            
         $filedata = get_file_data($file, array(
@@ -47,9 +39,8 @@ function modules_render() {
         }     
 
         echo '<tbody><tr>';
-            echo '<td class="center"><input type="checkbox" id="'.$filedata['slug'].'" value="true" name="'.$name.'['.$filedata['slug'].']" '.$checked.'></td>';
-            echo '<td>'.$filedata['name'].'</td>';
-            echo '<td>'.$filedata['description'].' - '.$filedata['author'].' - '.$filedata['version'].'</td>';
+            echo '<td class="center"><input class="ef-admin-input-checkbox" type="checkbox" id="'.$filedata['slug'].'" value="true" name="'.$name.'['.$filedata['slug'].']" '.$checked.'><label class="ef-admin-input-checkbox-label" for="'.$filedata['slug'].'">'.$filedata['name'].'</label></td>';
+            echo '<td>'.$filedata['description'].' <br /> '.$filedata['author'].' - '.$filedata['version'].'</td>';
         echo '</tr></tbody>';
 
     }
@@ -74,11 +65,10 @@ function modules_render() {
                 $checked = null;
             }     
 
-            echo '<tr>';
-                echo '<td>'.$filedata['name'].'</td>';
-                echo '<td>'.$filedata['description'].'</td>';
-                echo '<td><input type="checkbox" id="'.$filedata['slug'].'" value="true" name="ef-pluugs['.$filedata['slug'].']" '.$checked.'><label for="'.$filedata['slug'].'">Aktivieren</label></td>';
-            echo '</tr>';
+            echo '<tbody><tr>';
+                echo '<td class="center"><input class="ef-admin-input-checkbox" type="checkbox" id="'.$filedata['slug'].'" value="true" name="'.$name.'['.$filedata['slug'].']" '.$checked.'><label class="ef-admin-input-checkbox-label" for="'.$filedata['slug'].'">'.$filedata['name'].'</label></td>';
+                echo '<td>'.$filedata['description'].' <br /> '.$filedata['author'].' - '.$filedata['version'].'</td>';
+            echo '</tr></tbody>';
 
         }
 

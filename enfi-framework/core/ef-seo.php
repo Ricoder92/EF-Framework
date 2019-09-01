@@ -203,9 +203,9 @@ add_action('wp_head', function() {
           
         # set (no)follow
         if(isset($meta_data['seo-no-index']) || isset($option['no-index']))
-            echo "<meta name=\"robots\" content=\"noindex,nofollow\">\n";
+            echo "<meta name=\"robots\" content=\"noindex,nofollow\" />\n";
         else
-            echo "<meta name=\"robots\" content=\"index,follow\">\n";
+            echo "<meta name=\"robots\" content=\"index,follow\" />\n";
             
         # set array with meta name parameters
         $meta_tags = array('keywords', 'description', 'topic', 'author', 'designer', 'copyright');
@@ -230,16 +230,16 @@ add_action('wp_head', function() {
                             $meta .= ', '.$options;
 
                         if($meta)
-                            echo "<meta name=\"keywords\" content=\"".$meta."\"/>\n";
+                            echo "<meta name=\"keywords\" content=\"".$meta."\" />\n";
                         else if($options)
-                            echo "<meta name=\"keywords\" content=\"".$options."\"/>\n";
+                            echo "<meta name=\"keywords\" content=\"".$options."\" />\n";
 
                     } else {
 
                         if($meta)
-                            echo "<meta name=\"".$meta_tag."\" content=\"".$meta."\"/>\n";
+                            echo "<meta name=\"".$meta_tag."\" content=\"".$meta."\" />\n";
                         else if($options)
-                            echo "<meta name=\"".$meta_tag."\" content=\"".$options."\"/>\n";
+                            echo "<meta name=\"".$meta_tag."\" content=\"".$options."\" />\n";
 
                     }
                 }
@@ -247,13 +247,6 @@ add_action('wp_head', function() {
         }
     }
 }, -1);
-
-
-################################################################################################################################################## 
-### set WP_TITLE
-##################################################################################################################################################
-
-
 
 ################################################################################################################################################## 
 ### add title tag
@@ -263,9 +256,8 @@ add_action('wp_head', function() {
     
     ef_html_comment('Title');
 
-    if(!ef_maintenance_mode_is_active()) {
+    if(!ef_maintenance_mode_is_active() || current_user_can('administrator')) {
 
-     
         if(is_front_page() || is_home()) 
             $title = get_bloginfo('name');
         else 

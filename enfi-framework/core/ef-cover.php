@@ -43,7 +43,7 @@ $cover->setDefaultValues();
 
 function ef_cover_get_title() {
 
-    if( is_single() || is_page()) 
+    if( is_page()) 
         return get_the_title();
 
     if(is_home()) {
@@ -52,7 +52,12 @@ function ef_cover_get_title() {
     }
 
     if(is_archive()) {
-        return post_type_archive_title();
+        return post_type_archive_title( '', false );
+    }
+
+    if(is_single()) {
+        $_cpt = get_post_type_object(get_query_var( 'post_type' ));
+        return $_cpt->labels->name;
     }
 
     if(is_tax()) {

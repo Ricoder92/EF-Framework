@@ -123,7 +123,7 @@ class EF_Framework {
     # function for admin menu render
     function admin_menu_render() {
 
-        #wp_enqueue_style('bootstrap-grid');
+        wp_enqueue_style( 'bootstrap' );
 
         echo '<div class="ef-dashboard-head">';
             echo '<div class="title-description">';
@@ -137,6 +137,7 @@ class EF_Framework {
                 do_action('ef-admin-navigation-main-page');
             echo '</div>';   
         echo '</div>';
+
     }
 
     # set "defer" tag to javascript for more performance

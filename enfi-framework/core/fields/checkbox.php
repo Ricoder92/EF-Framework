@@ -11,6 +11,9 @@ if(isset($data['checkboxText']))
 else   
     $checkboxText = '';
 
-$output .= '<input id="'.$name.'" type="checkbox" value="1" name="'.$name.'" '.$checked.'><label for="'.$name.'">'.__($checkboxText, 'ef').'</label>';
-?>
+    $output .= '<div class="custom-control custom-checkbox">';
+        $output .= '<input type="checkbox" class="custom-control-input" id="'.$name.'" name="'.$name.'">';
+        $output .= '<label class="custom-control-label" for="'.$name.'">'.__($checkboxText, 'ef').'</label>';
+    $output .= '</div>';
 
+?>

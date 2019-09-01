@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EF Framework\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-03 09:51+0000\n"
+"POT-Creation-Date: 2019-07-03 09:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -988,16 +988,13 @@ msgstr ""
 msgid "SLIDER_PAGINATION"
 msgstr ""
 
-#: modules/ef-slider/post-type.php:4 modules/ef-slider/post-type.php:7
+#: modules/ef-slider/post-type.php:4 modules/ef-slider/post-type.php:6
+#: modules/ef-slider/post-type.php:7
 msgid "SLIDERS"
 msgstr ""
 
 #: modules/ef-slider/post-type.php:5
 msgid "SLIDER"
-msgstr ""
-
-#: modules/ef-slider/post-type.php:6
-msgid "SLIDERS_MENU_NAME"
 msgstr ""
 
 #: modules/ef-slider/post-type.php:12 modules/ef-productboxes/post-type.php:12
@@ -1025,7 +1022,8 @@ msgstr ""
 msgid "PHOTOALBUM"
 msgstr ""
 
-#: modules/ef-blog/post-type.php:4 modules/ef-blog/post-type.php:7
+#: modules/ef-blog/post-type.php:4 modules/ef-blog/post-type.php:6
+#: modules/ef-blog/post-type.php:7
 msgid "BLOG"
 msgstr ""
 
@@ -1033,20 +1031,13 @@ msgstr ""
 msgid "BLOG_SINGULAR"
 msgstr ""
 
-#: modules/ef-blog/post-type.php:6
-msgid "BLOG_MENU_NAME"
-msgstr ""
-
-#: modules/ef-news/post-type.php:4 modules/ef-news/post-type.php:7
+#: modules/ef-news/post-type.php:4 modules/ef-news/post-type.php:6
+#: modules/ef-news/post-type.php:7
 msgid "NEWS"
 msgstr ""
 
 #: modules/ef-news/post-type.php:5
 msgid "NEWS_SINGULAR"
-msgstr ""
-
-#: modules/ef-news/post-type.php:6
-msgid "NEWS_MENU_NAME"
 msgstr ""
 
 #: editor/shortcodes/ef-post-grid/init.php:34

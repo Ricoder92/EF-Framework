@@ -28,7 +28,6 @@
                 <div class="title"><h3><?php echo the_title(); ?></h3></div>
                 <div class="content"><?php echo the_excerpt(); ?></div>
 
-            
 
                 <?php 
 

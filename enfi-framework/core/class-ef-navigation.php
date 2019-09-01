@@ -28,19 +28,19 @@ class EF_Admin_Navigation {
 
         $id = $this->id;
         $name = $this->name;
-    
+
+
         # sidebar on settings page
         add_action('ef-admin-navigation', function() use ($id, $name) {
 
-            echo '<div class="ef-dashboard-side-navigation">';
-            
-                echo '<div class="head"><h4>'.__($name, 'ef').'</h4></div>';
+            echo '<div class="ef-navigation-block">';
+                echo '<div class="list-group">';
                 
-                echo '<ul class="navigation">';
+                    echo '<button type="button" class="list-group-item list-group-item-action" disabled>'.__($name, 'ef').'</button>';
                     do_action('ef-admin-navigation-'.$id);
-                echo '</ul>';
-
+                echo '</div>';
             echo '</div>';
+        
             
         });
 

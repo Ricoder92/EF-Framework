@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EF Framework\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-04 14:28+0000\n"
-"PO-Revision-Date: 2019-06-07 11:30+0000\n"
+"POT-Creation-Date: 2019-07-03 09:51+0000\n"
+"PO-Revision-Date: 2019-07-03 09:59+0000\n"
 "Last-Translator: Enrico Fischer <enrico.fischer92@gmail.com>\n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -12,25 +12,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.3.0; wp-5.2.1"
+"X-Loco-Version: 2.3.0; wp-5.2.2"
 
-#: front-page.php:42 taxonomies/ef-blog-tags/templates/template.php:21
-#: taxonomies/ef-blog-categories/templates/template.php:21
-#: editor/shortcodes/ef-post-grid/init.php:37
+#: front-page.php:42 editor/shortcodes/ef-post-grid/init.php:37
 msgid "read more"
 msgstr "weiterlesen"
 
-#: footer.php:30
+#: footer.php:32
 msgid "© Copyright"
 msgstr "@ Copyright"
 
-#: footer.php:30
+#: footer.php:32
 msgid "All Rights Reserved"
 msgstr ""
-
-#: maintenance.php:16 maintenance.php:23
-msgid "MAINTENANCE_MODE_503"
-msgstr "Wartungsmodus - 503"
 
 #: archive-post.php:22
 msgid "READ_MORE"
@@ -44,23 +38,58 @@ msgstr "Cover"
 msgid "COVER_DESCRIPTION"
 msgstr "Titelbilder für Beiträge und Seiten."
 
-#: core/ef-cover.php:9
-msgid "COVER_SETTINGS"
-msgstr "EInstellungen"
+#: core/ef-cover.php:10 core/ef-cover.php:34 core/ef-cover.php:34
+msgid "COVER_GLOBAL_HEIGHT"
+msgstr ""
 
-#: core/ef-cover.php:10 core/ef-seo.php:47 core/ef-social-media.php:18
-#: core/inc/class-ef-post-type.php:157 core/inc/class-ef-post-type.php:157
-#: core/inc/class-ef-navigation.php:57
+#: core/ef-cover.php:11 core/ef-cover.php:35 core/ef-cover.php:35
+msgid "COVER_GLOBAL_TEXT_COLOR"
+msgstr ""
+
+#: core/ef-cover.php:12 core/ef-cover.php:36 core/ef-cover.php:36
+msgid "COVER_GLOBAL_TEXT_ALIGN"
+msgstr ""
+
+#: core/ef-cover.php:13 core/ef-cover.php:37 core/ef-cover.php:37
+msgid "COVER_GLOBAL_BACKGROUND_COLOR"
+msgstr ""
+
+#: core/ef-cover.php:14 core/ef-cover.php:38 core/ef-cover.php:38
+msgid "COVER_GLOBAL_BACKGROUND_IMAGE"
+msgstr ""
+
+#: core/ef-cover.php:16
+msgid "COVER_SETTINGS"
+msgstr "Einstellungen"
+
+#: core/ef-cover.php:17 core/ef-seo.php:47 core/ef-seo.php:51
+#: core/ef-social-media.php:18
 msgid "POST_TYPES"
 msgstr "Inhaltstypen"
 
-#: core/ef-cover.php:21
+#: core/ef-cover.php:27
+msgid "COVER_HEIGHT"
+msgstr ""
+
+#: core/ef-cover.php:28
+msgid "COVER_TEXT_COLOR"
+msgstr ""
+
+#: core/ef-cover.php:29
+msgid "COVER_TEXT_ALIGN"
+msgstr ""
+
+#: core/ef-cover.php:30
 msgid "COVER_BACKGROUND_COLOR"
 msgstr "Cover Hintergrundfarbe"
 
-#: core/ef-cover.php:22
+#: core/ef-cover.php:31
 msgid "COVER_BACKGROUND_IMAGE"
 msgstr "Cover Hintergrundbild"
+
+#: core/ef-cover.php:33
+msgid "COVER_SETTINGS_META"
+msgstr ""
 
 #: core/ef-seo.php:17
 msgid "Description"
@@ -94,24 +123,23 @@ msgstr ""
 msgid "{Post name}"
 msgstr ""
 
-#: core/ef-seo.php:43 core/ef-seo.php:46 core/ef-seo.php:51
+#: core/ef-seo.php:43 core/ef-seo.php:46 core/ef-seo.php:96
 msgid "SEARCH_ENGINE_OPTIMIZATION"
 msgstr "Suchmaschinenoptimierung"
 
 #: core/ef-seo.php:43
 msgid "SEARCH_ENGINE_OPTIMIZATION_DESCRIPTION"
-msgstr ""
+msgstr "Optimieren Sie Ihre Website für Suchmaschinen"
 
-#: core/ef-seo.php:47 core/ef-social-media.php:18
-#: core/inc/class-ef-post-type.php:157
+#: core/ef-seo.php:47 core/ef-seo.php:51 core/ef-social-media.php:18
 msgid "POST_TYPES_DESCRIPTION"
 msgstr ""
 
-#: core/ef-seo.php:48 core/ef-seo.php:77
+#: core/ef-seo.php:48 core/ef-seo.php:122
 msgid "NO_INDEX"
 msgstr "No-Index"
 
-#: core/ef-seo.php:48 core/ef-seo.php:77
+#: core/ef-seo.php:48 core/ef-seo.php:122
 msgid "NO_INDEX_DESCRIPTION"
 msgstr ""
 
@@ -119,104 +147,115 @@ msgstr ""
 msgid "No-Index"
 msgstr ""
 
-#: core/ef-seo.php:52
+#: core/ef-seo.php:50
+msgid "SEARCH_ENGINE_OPTIMIZATION_SITEMAP"
+msgstr ""
+
+#: core/ef-seo.php:75
+msgid "SITEMAP_PRIO_FOR"
+msgstr ""
+
+#: core/ef-seo.php:90
+msgid "SITEMAP_FREQUENCE_FOR"
+msgstr ""
+
+#: core/ef-seo.php:97
 msgid "TITLE_SEPERATOR"
 msgstr "Titel-Trennzeichen"
 
-#: core/ef-seo.php:53
+#: core/ef-seo.php:98
 msgid "TITLE_STYLE"
 msgstr "Titel-Stil"
 
-#: core/ef-seo.php:54 core/ef-seo.php:80
+#: core/ef-seo.php:99 core/ef-seo.php:125
 msgid "KEYWORDS"
 msgstr "Schlagwörter"
 
-#: core/ef-seo.php:55 core/ef-modules.php:23
-#: core/inc/class-ef-post-type.php:175
+#: core/ef-seo.php:100 core/ef-modules.php:25 core/class-ef-post-type.php:175
 msgid "DESCRIPTION"
 msgstr "Beschreibung"
 
-#: core/ef-seo.php:56 core/ef-seo.php:81
+#: core/ef-seo.php:101 core/ef-seo.php:126
 msgid "TOPIC"
 msgstr "Thema"
 
-#: core/ef-seo.php:57 core/ef-seo.php:82
+#: core/ef-seo.php:102 core/ef-seo.php:127
 msgid "POST_AUTHOR_NAME"
 msgstr "Author des Beitrages"
 
-#: core/ef-seo.php:58 core/ef-seo.php:83
+#: core/ef-seo.php:103 core/ef-seo.php:128
 msgid "DESIGNER"
 msgstr "Designer"
 
-#: core/ef-seo.php:59 core/ef-seo.php:84
+#: core/ef-seo.php:104 core/ef-seo.php:129
 msgid "COPYRIGHT"
 msgstr "Copyright"
 
-#: core/ef-seo.php:60 core/ef-seo.php:85
+#: core/ef-seo.php:105 core/ef-seo.php:130
 msgid "DISABLE_SEO_META_TAGS"
 msgstr "Meta Tags deaktivieren"
 
-#: core/ef-seo.php:75
+#: core/ef-seo.php:120
 msgid "SEO"
 msgstr "SEO"
 
-#: core/ef-seo.php:76
+#: core/ef-seo.php:121
 msgid "DISABLE_SEO_META"
 msgstr "SEO Meta Tags Deaktivieren"
 
-#: core/ef-seo.php:76
+#: core/ef-seo.php:121
 msgid "DISABLE_SEO_META_DESCRIPTION"
 msgstr ""
 
-#: core/ef-seo.php:76
+#: core/ef-seo.php:121
 msgid "DISABLE_SEO_META_CHECKBOXTEXT"
 msgstr "Deaktivieren"
 
-#: core/ef-seo.php:77
+#: core/ef-seo.php:122
 msgid "Stop search engines from crawling this post"
 msgstr ""
 
-#: core/ef-seo.php:78
+#: core/ef-seo.php:123
 msgid "POST_TITLE"
 msgstr "Titel"
 
-#: core/ef-seo.php:78
+#: core/ef-seo.php:123
 msgid "POST_TITLE_DESCRIPTION"
 msgstr ""
 
-#: core/ef-seo.php:79
+#: core/ef-seo.php:124
 msgid "POST_DESCRIPTION"
 msgstr "Beschreibung"
 
-#: core/ef-seo.php:80
+#: core/ef-seo.php:125
 msgid "KEYWORDS_DESCRIPTION"
 msgstr ""
 
-#: core/ef-seo.php:81
+#: core/ef-seo.php:126
 msgid "TOPIC_DESCRIPTION"
 msgstr ""
 
-#: core/ef-seo.php:82
+#: core/ef-seo.php:127
 msgid "POST_AUTHOR_NAME_DESCRIPTION"
 msgstr ""
 
-#: core/ef-seo.php:83
+#: core/ef-seo.php:128
 msgid "DESIGNER_DESCRIPTION"
 msgstr ""
 
-#: core/ef-seo.php:84
+#: core/ef-seo.php:129
 msgid "COPYRIGHT_DESCRIPTION"
 msgstr "Urheber der Website"
 
-#: core/ef-seo.php:85
+#: core/ef-seo.php:130
 msgid "DISABLE_SEO_META_TAGS_DESCRIPTION"
 msgstr ""
 
-#: core/ef-cookie-law.php:15 core/ef-cookie-law.php:16
+#: core/ef-cookie-law.php:8 core/ef-cookie-law.php:9
 msgid "COOKIE_CONSENT"
 msgstr "Cookiebanner"
 
-#: core/ef-cookie-law.php:15
+#: core/ef-cookie-law.php:8
 msgid "COOKIE_CONSENT_DESCRIPTION"
 msgstr ""
 "Sie müssen Ihre Besucher mit einem Banner darauf hinweise, dass ihre Website "
@@ -224,63 +263,159 @@ msgstr ""
 "zwischenzuspeichern und ermöglichen bessere Erfahrungen und sich nötig für "
 "diverse Funktionen."
 
-#: core/ef-cookie-law.php:17
+#: core/ef-cookie-law.php:10
 msgid "COOKIE_CONSENT_ENABLE"
 msgstr "Cookiebanner aktivieren"
 
-#: core/ef-cookie-law.php:17
+#: core/ef-cookie-law.php:10
 msgid "COOKIE_CONSENT_ENABLE_DESCRIPTION"
 msgstr "Aktiviert den Cookiebanner"
 
-#: core/ef-cookie-law.php:17
-msgid "COOKIE_CONSENT_ENABLE_CHECKBOXTEXT"
+#: core/ef-cookie-law.php:10 core/ef-generel.php:17 core/ef-generel.php:21
+#: core/ef-modules.php:23 core/ef-debug.php:10 core/ef-styles-scripts.php:11
+#: core/ef-styles-scripts.php:12 core/ef-styles-scripts.php:16
+#: core/ef-styles-scripts.php:17 core/ef-styles-scripts.php:18
+#: core/ef-styles-scripts.php:19 core/ef-styles-scripts.php:20
+#: core/class-ef-post-type.php:173 core/ef-google-api.php:15
+msgid "ENABLE"
 msgstr "Aktivieren"
 
-#: core/ef-cookie-law.php:18
+#: core/ef-cookie-law.php:11
+msgid "COOKIE_CONSENT_DISABLE_CSS"
+msgstr ""
+
+#: core/ef-cookie-law.php:11
+msgid "COOKIE_CONSENT_DISABLE_CSS_DESCRIPTION"
+msgstr ""
+
+#: core/ef-cookie-law.php:11
+msgid "COOKIE_CONSENT_DONT_LOAD_CSS"
+msgstr ""
+
+#: core/ef-cookie-law.php:12
 msgid "COOKIE_CONSENT_TITLE"
 msgstr "Titel"
 
-#: core/ef-cookie-law.php:18
+#: core/ef-cookie-law.php:12
 msgid "COOKIE_CONSENT_TITLE_DESCRIPTION"
 msgstr "Titel, der im Banner angezeigt werden soll."
 
-#: core/ef-cookie-law.php:19
+#: core/ef-cookie-law.php:13
 msgid "COOKIE_CONSENT_TEXT"
 msgstr "Text"
 
-#: core/ef-cookie-law.php:19
+#: core/ef-cookie-law.php:13
 msgid "COOKIE_CONSENT_TEXT_DESCRIPTION"
 msgstr "Text, der im Banner anzeigt werden soll."
 
-#: core/ef-cookie-law.php:20
+#: core/ef-cookie-law.php:14
 msgid "COOKIE_CONSENT_DURATION"
 msgstr "Dauer"
 
-#: core/ef-cookie-law.php:20
+#: core/ef-cookie-law.php:14
 msgid "COOKIE_CONSENT_DURATION_DESCRIPTION"
 msgstr "Nach wie vielen Tagen muss der Nutzer erneut bestätigen?"
 
-#: core/ef-cookie-law.php:21
+#: core/ef-cookie-law.php:15
 msgid "COOKIE_CONSENT_ID"
 msgstr "Cookie-ID"
 
-#: core/ef-cookie-law.php:21
+#: core/ef-cookie-law.php:15
 msgid "COOKIE_CONSENT_ID_DESCRIPTION"
 msgstr ""
 "Cookie ID ändern, um den Banner bei allen Nutzern zurückzusetzen. Nutzer "
 "müssen erneut bestätigen. ID ist beliebig wählbar."
 
+#: core/ef-cookie-law.php:16
+msgid "COOKIE_CONSENT_CUSTOM_CSS_CLASS"
+msgstr ""
+
 #: core/ef-cookie-law.php:41
 msgid "Accept"
 msgstr "Akzeptieren"
 
-#: core/ef-functions.php:64
+#: core/ef-functions.php:78
 msgid "ALL_RIGHTS_RESERVED"
 msgstr "Alle Rechte vorbehalten"
 
-#: core/ef-functions.php:66
+#: core/ef-functions.php:80
 msgid "A_WEBSITE_BY_ENRICO_FISCHER"
 msgstr "Eine Website von Enrico Fischer"
+
+#: core/ef-generel.php:3 core/class-ef-navigation.php:60
+msgid "SETTINGS"
+msgstr "Einstellungen"
+
+#: core/ef-generel.php:3
+msgid "SETTINGS_DESCRIPTION"
+msgstr "Allgemeine Einstellungen zu Ihrer Website."
+
+#: core/ef-generel.php:5
+msgid "GENEREL_WP_FUNCTIONS"
+msgstr ""
+
+#: core/ef-generel.php:6
+msgid "GENEREL_SETTINGS_DISABLE_POSTS"
+msgstr ""
+
+#: core/ef-generel.php:6 core/ef-generel.php:7 core/ef-generel.php:8
+#: core/ef-generel.php:9 core/ef-generel.php:10 core/ef-generel.php:11
+#: core/ef-generel.php:12 core/ef-generel.php:13 core/ef-generel.php:14
+#: core/ef-generel.php:18
+msgid "DISABLE"
+msgstr ""
+
+#: core/ef-generel.php:7
+msgid "GENEREL_SETTINGS_DISABLE_COMMENTS"
+msgstr ""
+
+#: core/ef-generel.php:8
+msgid "GENEREL_SETTINGS_DISABLE_EMOJI"
+msgstr ""
+
+#: core/ef-generel.php:9
+msgid "GENEREL_SETTINGS_DISABLE_RSS"
+msgstr ""
+
+#: core/ef-generel.php:10
+msgid "GENEREL_SETTINGS_DISABLE_OEMBED"
+msgstr ""
+
+#: core/ef-generel.php:11
+msgid "GENEREL_SETTINGS_DISABLE_PING"
+msgstr ""
+
+#: core/ef-generel.php:12
+msgid "GENEREL_SETTINGS_DISABLE_RSD"
+msgstr ""
+
+#: core/ef-generel.php:13
+msgid "GENEREL_SETTINGS_DISABLE_WLWMANIFEST"
+msgstr ""
+
+#: core/ef-generel.php:14
+msgid "GENEREL_SETTINGS_DISABLE_GENERATOR"
+msgstr ""
+
+#: core/ef-generel.php:16
+msgid "GENEREL_EF_FUNCTIONS"
+msgstr ""
+
+#: core/ef-generel.php:17
+msgid "GENEREL_SETTINGS_ENABLE_DARK_MODE"
+msgstr ""
+
+#: core/ef-generel.php:18
+msgid "GENEREL_SETTINGS_DISABLE_ADMIN_BAR"
+msgstr ""
+
+#: core/ef-generel.php:20
+msgid "GENEREL_LOADING_SCREEN"
+msgstr ""
+
+#: core/ef-generel.php:21
+msgid "GENEREL_SETTINGS_ENABLE_LOADING_SCREEN"
+msgstr ""
 
 #: core/ef-social-media.php:7 core/ef-social-media.php:60
 msgid "SOCIAL_MEDIA"
@@ -484,31 +619,31 @@ msgstr "Facebook Seite"
 msgid "EF Blocks"
 msgstr ""
 
-#: core/ef-layout.php:7 core/inc/class-ef-navigation.php:56
+#: core/ef-layout.php:7 core/class-ef-navigation.php:61
 msgid "LAYOUT"
 msgstr "Layout"
 
 #: core/ef-layout.php:7
 msgid "LAYOUT_DESCRIPTON"
-msgstr ""
+msgstr "Nehmen Sie Einstellungen zu ihrem Layout vor."
 
 #: core/ef-layout.php:188
 msgid "Home"
 msgstr ""
 
-#: core/ef-modules.php:7 core/inc/class-ef-navigation.php:59
+#: core/class-ef-meta-box.php:135
+msgid "Insert text here..."
+msgstr ""
+
+#: core/ef-modules.php:7 core/class-ef-navigation.php:62
 msgid "MODULES"
 msgstr "Module"
 
 #: core/ef-modules.php:7
 msgid "MODULES_DESCRIPTION"
-msgstr ""
+msgstr "Verwalten Sie ihre EF Framework Module"
 
-#: core/ef-modules.php:21 core/inc/class-ef-post-type.php:173
-msgid "ENABLE"
-msgstr "Aktivieren"
-
-#: core/ef-modules.php:22 core/inc/class-ef-post-type.php:174
+#: core/ef-modules.php:24 core/class-ef-post-type.php:174
 msgid "NAME"
 msgstr "Name"
 
@@ -519,130 +654,113 @@ msgstr "Update, Wartung und Debug"
 #: core/ef-debug.php:7
 msgid "UPDATE_MAINTENANCE_DEBUG_DESCRIPTION"
 msgstr ""
+"Warten Sie Ihre Seite. Hier können Sie den Wartungsmodus aktivieren oder auf "
+"die neuste Version von EF Framework aktualisieren."
 
 #: core/ef-debug.php:9
-msgid "DEBUG"
-msgstr "Fehlerbehebung"
-
-#: core/ef-debug.php:10
-msgid "DEBUG_ENABLE"
-msgstr "Fehlerbehebung aktivieren"
-
-#: core/ef-debug.php:10
-msgid "DEBUG_ENABLE_DESCRIPTION"
-msgstr "Modus zur Fehlerbehebung aktivieren."
-
-#: core/ef-debug.php:10
-msgid "DEBUG_ENABLE_CHECKBOXTEXT"
-msgstr "Aktivieren"
-
-#: core/ef-debug.php:12
 msgid "MAINTENANCE"
 msgstr "Wartungsmodus"
 
-#: core/ef-debug.php:13
+#: core/ef-debug.php:10
 msgid "MAINTENANCE_ENABLE"
 msgstr "Wartungsmodus aktiveren"
 
-#: core/ef-debug.php:13
-msgid "MAINTENANCE_ENABLE_DESCRIPTION"
-msgstr ""
-
-#: core/ef-debug.php:13
-msgid "MAINTENANCE_ENABLE_CHECKBOXTEXT"
-msgstr "Aktivieren"
-
-#: core/ef-debug.php:14
+#: core/ef-debug.php:11
 msgid "MAINTENANCE_SITE"
 msgstr "Wartungsmodus-Seite"
 
-#: core/ef-debug.php:14
-msgid "MAINTENANCE_SITE_DESCRIPTION"
-msgstr ""
-
-#: core/ef-debug.php:16
+#: core/ef-debug.php:13
 msgid "404_ERROR"
 msgstr "404 Fehler"
 
-#: core/ef-debug.php:17
+#: core/ef-debug.php:14
 msgid "404_ERROR_PAGE"
 msgstr "404 Fehlerseite"
 
-#: core/ef-debug.php:17
-msgid "404_ERROR_PAGE_DESCRIPTION"
-msgstr "Fehlerseite, die angezeigt werden soll"
-
-#: core/ef-debug.php:19
+#: core/ef-debug.php:16
 msgid "UPDATE_CHECK"
 msgstr "Auf Aktualisierung prüfen"
 
-#: core/ef-debug.php:35
+#: core/ef-debug.php:33
 msgid "UPDATE_CURRENT_THEME_VERSION"
 msgstr "Aktuelle Version"
 
-#: core/ef-debug.php:36
+#: core/ef-debug.php:34
 msgid "UPDATE_AVIABLE_THEME_VERSION"
 msgstr "Bereitstehende Version"
 
-#: core/ef-debug.php:54
+#: core/ef-debug.php:52
 msgid "NO_UPDATE_AVIABLE"
 msgstr "Keine Aktualisierung vorhanden"
 
-#: core/ef-debug.php:165
+#: core/ef-debug.php:162
 msgid "404 Error page"
 msgstr "404 Fehlerseite"
 
-#: core/ef-debug.php:183
+#: core/ef-debug.php:180
+msgid "404_CONTENT"
+msgstr "404 - Seite nicht gefunden"
+
+#: core/ef-debug.php:194
 msgid "Maintenance"
 msgstr "Wartung"
 
-#: core/ef.php:79 core/ef.php:82 core/ef.php:89 core/ef.php:89 core/ef.php:323
+#: core/ef-debug.php:245
+msgid "MAINTENANCE_MODE_503_CONTENT"
+msgstr ""
+
+#: core/ef-debug.php:260
+msgid "MAINTENANCE_MODE_503_TITLE"
+msgstr ""
+
+#: core/ef.php:110 core/ef.php:113 core/ef.php:120 core/ef.php:120
+#: core/ef.php:297
 msgid "EF_FRAMEWORK"
 msgstr "EF Framework"
 
-#: core/ef.php:138
+#: core/ef.php:161
 msgid "MENU_HEADER"
 msgstr "Kopfzeile"
 
-#: core/ef.php:139
+#: core/ef.php:162
 msgid "MENU_FOOTER"
 msgstr "Fußzeile"
 
-#: core/ef.php:188
+#: core/ef.php:172
 msgid "SIDEBAR_HEADER_TOP"
 msgstr "Kopfzeile-Oben"
 
-#: core/ef.php:190
+#: core/ef.php:174
 msgid "SIDEBAR_HEADER_TOP_DESCRIPTION"
 msgstr ""
 
-#: core/ef.php:199
+#: core/ef.php:183
 msgid "SIDEBAR_HEADER_RIGHT"
 msgstr "Kopfzeile-Rechts"
 
-#: core/ef.php:201
+#: core/ef.php:185
 msgid "SIDEBAR_HEADER_RIGHT_DESCRIPTION"
 msgstr ""
 
-#: core/ef.php:210
+#: core/ef.php:194
 msgid "SIDEBAR_FOOTER"
 msgstr "Fußzeile"
 
-#: core/ef.php:212
+#: core/ef.php:196
 msgid "SIDEBAR_FOOTER_DESCRIPTION"
 msgstr ""
 
-#: core/ef.php:221
+#: core/ef.php:205
 msgid "POST_SIDEBAR"
 msgstr "Archivseite von Beiträgen"
 
-#: core/ef.php:223
+#: core/ef.php:207
 msgid "POST_SIDEBAR_DESCRIPTION"
 msgstr ""
 
-#: core/ef.php:323
+#: core/ef.php:297
 msgid "EF_FRAMEWORK_DESCRIPTION"
-msgstr ""
+msgstr "Das mächtigste Framework für Wordpress aller Zeiten!"
 
 #: core/ef-styles-scripts.php:7
 msgid "STYLES_SCRIPTS"
@@ -652,7 +770,7 @@ msgstr "Styles und Scripts"
 msgid "STYLES_SCRIPTS_DESCRIPTION"
 msgstr "Verwalten Sie CSS und JavaScript Dateien für Ihre Website"
 
-#: core/ef-styles-scripts.php:10
+#: core/ef-styles-scripts.php:10 core/ef-styles-scripts.php:22
 msgid "STYLES_SCRIPTS_SETTINGS"
 msgstr "Einstellungen"
 
@@ -660,35 +778,51 @@ msgstr "Einstellungen"
 msgid "STYLES_SCRIPTS_USE_PARRENT_CSS"
 msgstr "Benutze Eltern-CSS"
 
-#: core/ef-styles-scripts.php:11
-msgid "STYLES_SCRIPTS_USE_PARRENT_CSS_CHECKBOXTEXT"
-msgstr "Aktivieren"
-
 #: core/ef-styles-scripts.php:12
 msgid "STYLES_SCRIPTS_USE_PARRENT_JS"
 msgstr "Benutze Eltern-JS"
 
-#: core/ef-styles-scripts.php:12
-msgid "STYLES_SCRIPTS_USE_PARRENT_JS_CHECKBOXTEXT"
-msgstr "Aktivieren"
+#: core/ef-styles-scripts.php:15
+msgid "STYLES_SCRIPTS_THIRDPARTY"
+msgstr ""
+
+#: core/ef-styles-scripts.php:16
+msgid "JQUERY_UI"
+msgstr ""
+
+#: core/ef-styles-scripts.php:17
+msgid "BOOTSTRAP"
+msgstr ""
+
+#: core/ef-styles-scripts.php:18
+msgid "AOS"
+msgstr "AOS Framework"
+
+#: core/ef-styles-scripts.php:19
+msgid "FONTAWESOME"
+msgstr ""
 
 #: core/ef-styles-scripts.php:20
+msgid "SWIPER"
+msgstr ""
+
+#: core/ef-styles-scripts.php:31
 msgid "FRONTEND"
 msgstr "Frontend"
 
-#: core/ef-styles-scripts.php:21
+#: core/ef-styles-scripts.php:32
 msgid "BACKEND"
 msgstr "Backend"
 
-#: core/ef-styles-scripts.php:22
+#: core/ef-styles-scripts.php:33
 msgid "SLUG"
 msgstr "Slug"
 
-#: core/ef-styles-scripts.php:23
+#: core/ef-styles-scripts.php:34
 msgid "URL"
 msgstr "URL"
 
-#: core/ef-styles-scripts.php:24
+#: core/ef-styles-scripts.php:35
 msgid "DEPENDENCE"
 msgstr "Abhängigkeiten"
 
@@ -698,7 +832,7 @@ msgstr "Google Schnittstellen"
 
 #: core/ef-google-api.php:12
 msgid "GOOGLE_API_DESCRIPTION"
-msgstr ""
+msgstr "Nutzen Sie Google Schnittstellen"
 
 #: core/ef-google-api.php:14
 msgid "GOOGLE_ANALYTICS"
@@ -708,21 +842,9 @@ msgstr "Google Analytics"
 msgid "GOOGLE_ANALYTICS_ENABLE"
 msgstr "Google Analytics aktivieren"
 
-#: core/ef-google-api.php:15
-msgid "GOOGLE_ANALYTICS_ENABLE_DESCRIPTION"
-msgstr ""
-
-#: core/ef-google-api.php:15
-msgid "GOOGLE_ANALYTICS_ENABLE_CHECKBOXTEXT"
-msgstr "Aktivieren"
-
 #: core/ef-google-api.php:16
 msgid "GOOGLE_ANALYTICS_TRACKING_CODE"
 msgstr "Tracking Code"
-
-#: core/ef-google-api.php:16
-msgid "GOOGLE_ANALYTICS_TRACKING_CODE_DESCRIPTION"
-msgstr ""
 
 #: core/ef-google-api.php:18 core/ef-google-api.php:19
 msgid "GOOGLE_FONTS"
@@ -730,29 +852,11 @@ msgstr "Google Schriftarten"
 
 #: core/ef-google-api.php:19
 msgid "GOOGLE_FONTS_DESCRIPTION"
-msgstr ""
+msgstr "Google Schriftarten"
 
-#: core/inc/class-ef-meta-box.php:135
-msgid "Insert text here..."
-msgstr ""
-
-#: core/inc/class-ef-navigation.php:55 core/inc/class-ef-settings-page.php:282
-#: core/inc/class-ef-settings-page.php:282
-#: core/inc/class-ef-settings-page.php:294
-msgid "SETTINGS"
-msgstr "Einstellungen"
-
-#: core/inc/class-ef-navigation.php:58
-msgid "TAXONOMIES"
-msgstr "Taxonomies"
-
-#: core/inc/class-ef-settings-page.php:218
+#: core/class-ef-settings-page.php:215
 msgid "INSERT_TEXT_HERE"
 msgstr "Text hier einfügen..."
-
-#: core/inc/class-ef-settings-page.php:282
-msgid "SETTINGS_DESCRIPTION"
-msgstr ""
 
 #: core/fields/aos-effect.php:59
 msgid "Effect duration"
@@ -834,206 +938,136 @@ msgstr ""
 msgid "--NO_OPTION--"
 msgstr "-- keine Auswahl --"
 
-#: modules/ef-swiper-slider/init.php:31
+#: modules/ef-slider/init.php:31
 msgid "EF Slider"
 msgstr ""
 
-#: modules/ef-swiper-slider/init.php:54
+#: modules/ef-slider/init.php:54
 msgid "Horizontal"
 msgstr ""
 
-#: modules/ef-swiper-slider/init.php:55
+#: modules/ef-slider/init.php:55
 msgid "Vertical"
 msgstr ""
 
-#: modules/ef-swiper-slider/init.php:58
+#: modules/ef-slider/init.php:58
 msgid "SLIDER_SETTINGS"
 msgstr "Einstellungen"
 
-#: modules/ef-swiper-slider/init.php:60
+#: modules/ef-slider/init.php:60
 msgid "SLIDER_DIRECTION"
 msgstr "Richtung"
 
-#: modules/ef-swiper-slider/init.php:61
+#: modules/ef-slider/init.php:61
 msgid "SLIDER_SPEED"
 msgstr "Geschwindigkeit"
 
-#: modules/ef-swiper-slider/init.php:63
+#: modules/ef-slider/init.php:63
 msgid "SLIDER_GRAB_CURSOR"
 msgstr "Grab-Mauszeiger"
 
-#: modules/ef-swiper-slider/init.php:63 modules/ef-swiper-slider/init.php:64
-#: modules/ef-swiper-slider/init.php:65 modules/ef-swiper-slider/init.php:66
-#: modules/ef-swiper-slider/init.php:67 modules/ef-swiper-slider/init.php:68
-#: modules/ef-swiper-slider/init.php:69
+#: modules/ef-slider/init.php:63 modules/ef-slider/init.php:64
+#: modules/ef-slider/init.php:65 modules/ef-slider/init.php:66
+#: modules/ef-slider/init.php:67 modules/ef-slider/init.php:68
+#: modules/ef-slider/init.php:69
 msgid "Enable"
 msgstr ""
 
-#: modules/ef-swiper-slider/init.php:64
+#: modules/ef-slider/init.php:64
 msgid "SLIDER_FREEMODE"
 msgstr "Freier Modus"
 
-#: modules/ef-swiper-slider/init.php:65
+#: modules/ef-slider/init.php:65
 msgid "SLIDER_LOOP"
 msgstr "Schleife"
 
-#: modules/ef-swiper-slider/init.php:66
+#: modules/ef-slider/init.php:66
 msgid "SLIDER_MOUSEWHEEL_SCROLLING"
 msgstr ""
 
-#: modules/ef-swiper-slider/init.php:67
+#: modules/ef-slider/init.php:67
 msgid "SLIDER_NAVIGATION"
 msgstr "Navigation"
 
-#: modules/ef-swiper-slider/init.php:68
+#: modules/ef-slider/init.php:68
 msgid "SLIDER_SCROLLBAR"
 msgstr "Scrolleiste"
 
-#: modules/ef-swiper-slider/init.php:69
+#: modules/ef-slider/init.php:69
 msgid "SLIDER_PAGINATION"
 msgstr "Seitenpunkte-Navigation"
 
-#: modules/ef-swiper-slider/post-type.php:4 modules/ef-swiper-slider/post-type.php:6
-#: modules/ef-swiper-slider/post-type.php:7
-msgid "Slides"
+#: modules/ef-slider/post-type.php:4 modules/ef-slider/post-type.php:7
+msgid "SLIDERS"
 msgstr ""
 
-#: modules/ef-swiper-slider/post-type.php:5
-msgid "Slider"
+#: modules/ef-slider/post-type.php:5
+msgid "SLIDER"
 msgstr ""
 
-#: modules/ef-swiper-slider/post-type.php:8
-msgid "Add New"
+#: modules/ef-slider/post-type.php:6
+msgid "SLIDERS_MENU_NAME"
 msgstr ""
 
-#: modules/ef-swiper-slider/post-type.php:9
-msgid "Add New Slider"
-msgstr ""
-
-#: modules/ef-swiper-slider/post-type.php:10
-msgid "New Slider"
-msgstr ""
-
-#: modules/ef-swiper-slider/post-type.php:11
-msgid "Edit Slider"
-msgstr ""
-
-#: modules/ef-swiper-slider/post-type.php:12
-msgid "View Slider"
-msgstr ""
-
-#: modules/ef-swiper-slider/post-type.php:13
-msgid "All Sliders"
-msgstr ""
-
-#: modules/ef-swiper-slider/post-type.php:14
-msgid "Search Sliders"
-msgstr ""
-
-#: modules/ef-swiper-slider/post-type.php:15
-msgid "Parent Sliders:"
-msgstr ""
-
-#: modules/ef-swiper-slider/post-type.php:16
-msgid "No Sliders found."
-msgstr ""
-
-#: modules/ef-swiper-slider/post-type.php:17
-msgid "No Sliders found in Trash."
-msgstr ""
-
-#: modules/ef-swiper-slider/post-type.php:22
+#: modules/ef-slider/post-type.php:12 modules/ef-productboxes/post-type.php:12
+#: modules/ef-photoalbum/init.php:22 modules/ef-blog/post-type.php:12
+#: modules/ef-news/post-type.php:12
 msgid "Description."
 msgstr ""
 
-#: taxonomies/ef-blog-tags/init.php:14
-msgctxt "taxonomy general name"
-msgid "Tags"
-msgstr ""
+#: modules/ef-productboxes/post-type.php:4
+#: modules/ef-productboxes/post-type.php:6
+#: modules/ef-productboxes/post-type.php:7
+msgid "PRODUCTBOXES"
+msgstr "Produktpreisboxen"
 
-#: taxonomies/ef-blog-tags/init.php:16
-msgid "Search Tags"
-msgstr ""
+#: modules/ef-productboxes/post-type.php:5
+msgid "PRODUCTBOX"
+msgstr "Produktpreisbox"
 
-#: taxonomies/ef-blog-tags/init.php:17
-msgid "All Tags"
-msgstr ""
+#: modules/ef-photoalbum/init.php:14 modules/ef-photoalbum/init.php:16
+#: modules/ef-photoalbum/init.php:17
+msgid "PHOTOALBUMS"
+msgstr "Fotoalben"
 
-#: taxonomies/ef-blog-tags/init.php:18
-msgid "Parent-Tags"
-msgstr ""
+#: modules/ef-photoalbum/init.php:15
+msgid "PHOTOALBUM"
+msgstr "Fotoalbum"
 
-#: taxonomies/ef-blog-tags/init.php:19
-msgid "Parent-Tags: "
-msgstr ""
+#: modules/ef-blog/post-type.php:4 modules/ef-blog/post-type.php:7
+msgid "BLOG"
+msgstr "Blog"
 
-#: taxonomies/ef-blog-tags/init.php:20
-msgid "Edit Tag"
-msgstr ""
+#: modules/ef-blog/post-type.php:5
+msgid "BLOG_SINGULAR"
+msgstr "Blog"
 
-#: taxonomies/ef-blog-tags/init.php:21
-msgid "Update Tag"
-msgstr "Tag aktualisieren"
+#: modules/ef-blog/post-type.php:6
+msgid "BLOG_MENU_NAME"
+msgstr "Blog"
 
-#: taxonomies/ef-blog-tags/init.php:22
-msgid "Add new Tag"
-msgstr ""
+#: modules/ef-news/post-type.php:4 modules/ef-news/post-type.php:7
+msgid "NEWS"
+msgstr "Neuigkeiten"
 
-#: taxonomies/ef-blog-tags/init.php:23
-msgid "New Tag"
-msgstr ""
+#: modules/ef-news/post-type.php:5
+msgid "NEWS_SINGULAR"
+msgstr "Neuigkeit"
 
-#: taxonomies/ef-blog-tags/init.php:24
-msgid "Tags"
-msgstr ""
-
-#: taxonomies/ef-blog-categories/init.php:14
-msgctxt "taxonomy general name"
-msgid "Categories"
-msgstr ""
-
-#: taxonomies/ef-blog-categories/init.php:16
-msgid "Search Categories"
-msgstr ""
-
-#: taxonomies/ef-blog-categories/init.php:17
-msgid "All Categories"
-msgstr ""
-
-#: taxonomies/ef-blog-categories/init.php:18
-msgid "Parent-Category"
-msgstr ""
-
-#: taxonomies/ef-blog-categories/init.php:19
-msgid "Parent-Category: "
-msgstr ""
-
-#: taxonomies/ef-blog-categories/init.php:20
-msgid "Edit Category"
-msgstr ""
-
-#: taxonomies/ef-blog-categories/init.php:21
-msgid "Update Category"
-msgstr "Kategorie aktualisieren"
-
-#: taxonomies/ef-blog-categories/init.php:22
-msgid "Add new Category"
-msgstr ""
-
-#: taxonomies/ef-blog-categories/init.php:23
-msgid "New Category"
-msgstr ""
-
-#: taxonomies/ef-blog-categories/init.php:24
-msgid "Categories"
+#: modules/ef-news/post-type.php:6
+msgid "NEWS_MENU_NAME"
 msgstr ""
 
 #: editor/shortcodes/ef-post-grid/init.php:34
 msgid "Posted on "
 msgstr ""
 
+#: editor/widgets/ef-archive/init.php:8
+msgid "EF_WIDGET_ARCHIVE_DESCRIPTION"
+msgstr ""
+
 #: editor/widgets/ef-archive/init.php:10
-msgid "EF Archive"
+msgid "EF_WIDGET_ARCHIVE_NAME"
 msgstr ""
 
 #: editor/widgets/ef-archive/init.php:47

@@ -13,8 +13,8 @@ $debug_page->addField('maintenance', 'maintenance-page', __('MAINTENANCE_SITE', 
 $debug_page->addSection('404', __('404_ERROR', 'ef'));
 $debug_page->addField('404', '404-page', __('404_ERROR_PAGE', 'ef'),null, 'selection', null, array( 'posts' => 'page'));
 
-$debug_page->addSection('update', __('UPDATE_CHECK', 'ef'));
-$debug_page->addContent('update', 'check_for_update_render');
+#$debug_page->addSection('update', __('UPDATE_CHECK', 'ef'));
+#$debug_page->addContent('update', 'check_for_update_render');
 
 # render update stuff
 function check_for_update_render() {

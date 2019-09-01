@@ -50,7 +50,7 @@ foreach($options as $option) {
 
     $output.= '<div class="item">';
         
-        $output .= '<input type="checkbox" id="'.$name.'['.$keyitem.']" value="'.$valueItem.'" name="'.$name.'['.$keyitem.']" '.$checked.'><label for="'.$name.'['.$keyitem.']"">'.$textItem.'</label>';
+        $output .= '<input class="ef-admin-input-checkbox" type="checkbox" id="'.$name.'['.$keyitem.']" value="'.$valueItem.'" name="'.$name.'['.$keyitem.']" '.$checked.'><label class="ef-admin-input-checkbox-label" for="'.$name.'['.$keyitem.']"">'.$textItem.'</label>';
         
         if(isset($descriptionItem))
             $output .=  "- ".$descriptionItem;

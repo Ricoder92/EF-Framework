@@ -1,31 +1,21 @@
 <?php
 
 $labels = array(
-    'name'               => __( 'Slides', 'ef' ),
-    'singular_name'      => __( 'Slider', 'ef' ),
-    'menu_name'          => __( 'Slides', 'ef' ),
-    'name_admin_bar'     => __( 'Slides', 'ef' ),
-    'add_new'            => __( 'Add New', 'ef' ),
-    'add_new_item'       => __( 'Add New Slider', 'ef' ),
-    'new_item'           => __( 'New Slider', 'ef' ),
-    'edit_item'          => __( 'Edit Slider', 'ef' ),
-    'view_item'          => __( 'View Slider', 'ef' ),
-    'all_items'          => __( 'All Sliders', 'ef' ),
-    'search_items'       => __( 'Search Sliders', 'ef' ),
-    'parent_item_colon'  => __( 'Parent Sliders:', 'ef' ),
-    'not_found'          => __( 'No Sliders found.', 'ef' ),
-    'not_found_in_trash' => __( 'No Sliders found in Trash.', 'ef' )
+    'name'               => __( 'SLIDERS','ef'),
+    'singular_name'      => __( 'SLIDER','ef'),
+    'menu_name'          => __( 'SLIDERS_MENU_NAME','ef'),
+    'name_admin_bar'     => __( 'SLIDERS','ef'),
 );
 
 $args = array(
     'labels'             => $labels,
-    'description'        => __( 'Description.', 'ef' ),
+    'description'        => __( 'Description.', 'ef'),
     'public'             => true,
     'publicly_queryable' => true,
     'show_ui'            => true,
     'show_in_menu'       => true,
     'query_var'          => true,
-    'rewrite'            => array( 'slug' => 'slider' ),
+    'rewrite'            => array( 'slug' => 'slider'),
     'capability_type'    => 'post',
     'has_archive'        => true,
     'hierarchical'       => false,

@@ -1,20 +1,10 @@
 <?php
 
 $labels = array(
-    'name'               => __( 'News', 'ef' ),
-    'singular_name'      => __( 'News', 'ef' ),
-    'menu_name'          => __( 'News', 'ef' ),
-    'name_admin_bar'     => __( 'News', 'ef' ),
-    'add_new'            => __( 'Add New', 'ef' ),
-    'add_new_item'       => __( 'Add New Post', 'ef' ),
-    'new_item'           => __( 'New Post', 'ef' ),
-    'edit_item'          => __( 'Edit Post', 'ef' ),
-    'view_item'          => __( 'View Post', 'ef' ),
-    'all_items'          => __( 'All Posts', 'ef' ),
-    'search_items'       => __( 'Search Post', 'ef' ),
-    'parent_item_colon'  => __( 'Parent Post:', 'ef' ),
-    'not_found'          => __( 'No Post found.', 'ef' ),
-    'not_found_in_trash' => __( 'No Post found in Trash.', 'ef' )
+    'name'               => __('NEWS', 'ef'),
+    'singular_name'      => __('NEWS_SINGULAR', 'ef'),
+    'menu_name'          => __('News', 'ef'),
+    'name_admin_bar'     => __('NEWS', 'ef'),
 );
 
 $args = array(
@@ -31,28 +21,13 @@ $args = array(
     'hierarchical'       => false,
     'menu_position'      => null,
     'show_in_rest'       => true,
-    'supports'           => array( 'title', 'editor', 'thumbnail', 'comments'),
+    'supports'           => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments'),
 );
 
 register_post_type( 'ef-news', $args );
 
-$labels_tax = array(
-    'name'              => __( 'Categories', 'ef' ),
-    'singular_name'     => __( 'Categories', 'ef' ),
-    'search_items'      => __( 'Search Categories', 'ef' ),
-    'all_items'         => __( 'All Categories', 'ef' ),
-    'parent_item'       => __( 'Parent-Category', 'ef' ),
-    'parent_item_colon' => __( 'Parent-Category: ', 'ef' ),
-    'edit_item'         => __( 'Edit Category', 'ef' ),
-    'update_item'       => __( 'Update Category', 'ef' ),
-    'add_new_item'      => __( 'Add new Category', 'ef' ),
-    'new_item_name'     => __( 'New Category', 'ef' ),
-    'menu_name'         => __( 'Categories', 'ef' )
-);
-
 $args_tax = array(
     'hierarchical'      => true,
-    'labels'            => $labels_tax,
     'show_ui'           => true,
     'show_admin_column' => true,
     'query_var'         => true,

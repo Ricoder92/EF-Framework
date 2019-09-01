@@ -11,20 +11,10 @@ Author: Enrico Fischer
 */
 
 $labels = array(
-    'name'               => __( 'Photoalbums', 'ef' ),
-    'singular_name'      => __( 'Photoalbum', 'ef' ),
-    'menu_name'          => __( 'Photoalbums', 'ef' ),
-    'name_admin_bar'     => __( 'Photoalbum', 'ef' ),
-    'add_new'            => __( 'Add New', 'ef' ),
-    'add_new_item'       => __( 'Add New Photoalbum', 'ef' ),
-    'new_item'           => __( 'New Photoalbum', 'ef' ),
-    'edit_item'          => __( 'Edit Photoalbum', 'ef' ),
-    'view_item'          => __( 'View Photoalbum', 'ef' ),
-    'all_items'          => __( 'All Photoalbums', 'ef' ),
-    'search_items'       => __( 'Search Photoalbums', 'ef' ),
-    'parent_item_colon'  => __( 'Parent Photoalbum:', 'ef' ),
-    'not_found'          => __( 'No Photoalbum found.', 'ef' ),
-    'not_found_in_trash' => __( 'No Photoalbum found in Trash.', 'ef' )
+    'name'               => __( 'PHOTOALBUMS', 'ef' ),
+    'singular_name'      => __( 'PHOTOALBUM', 'ef' ),
+    'menu_name'          => __( 'PHOTOALBUMS', 'ef' ),
+    'name_admin_bar'     => __( 'PHOTOALBUMS', 'ef' ),
 );
 
 $args = array(

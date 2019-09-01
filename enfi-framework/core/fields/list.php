@@ -16,14 +16,20 @@
 
     for($i = 0; $i < $lenght; $i++) {
 
-        $output.= '<div class="field sortable">';
-            $output.= '<a class="move"><i class="fas fa-arrows-alt-v"></i></a>';
-            $output.= '<a class="'.$cssRemoveButton.'"><i class="fas fa-trash-alt"></i></a>';
-            $output.= '<input type="text" class="ef-admin-input" id="'.$name.'-'.$i.'"  name="'.$name.'['.$i.']"  placeholder="'.$placeholder.'" value="'.$value[$i].'" />';
+        $output.= '<div class="input-group">';
+            $output.= '<input type="text" class="form-control" aria-label="Recipients username" aria-describedby="basic-addon2" id="'.$name.'-'.$i.'"  name="'.$name.'['.$i.']"  placeholder="'.$placeholder.'" value="'.$value[$i].'">';
+            $output.= '<div class="input-group-append">';
+                $output.= '<button class="btn btn-outline-secondary" type="button">Hoch</button>';
+                $output.= '<button class="btn btn-outline-secondary" type="button">Runter</button>';
+                $output.= '<button class="btn btn-outline-secondary" type="button">Löschen</button>';
+            $output.= '</div>';
         $output.= '</div>';
+
     }
 
-    $output.= '</div><a class="add" data-input="list" data-field="'.$name.'" data-placeholder="'.$placeholder.' "><i class="fas fa-plus"></i> '.__('LIST_ADD_NEW_FIELD', 'ef').'</a></div>';
+    $output.= '</div>';
+    
+    $output.= '<br/><button type="button" class="add btn btn-success btn-sm" data-input="list" data-field="'.$name.'">'.__('LIST_ADD_NEW_FIELD', 'ef').'</button>';
 
 
 ?>

@@ -24,7 +24,7 @@ class EF_Blocks {
                 'author' => 'Author'
             ));   
 
-            $this->enqueueblockCSSandJS($filedata['slug']);
+            #$this->enqueueblockCSSandJS($filedata['slug']);
 
         }
 

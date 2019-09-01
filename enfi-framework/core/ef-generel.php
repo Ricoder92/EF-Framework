@@ -24,33 +24,33 @@ $settings_page->addField('loading-screen', 'enable-loading-screen', __('GENEREL_
 $settings = ef_get_option('settings');
 
 # loading screen
-if(array_key_exists('enable-loading-screen', $settings)) {
+#if(array_key_exists('enable-loading-screen', $settings)) {
+#
+ #   # css and js
+  #  add_action('wp_enqueue_scripts', function() {
 
-    # css and js
-    add_action('wp_enqueue_scripts', function() {
-
-        wp_register_style('ef-loading-screen', get_template_directory_uri().'/assets/css/loading-screen.css');
-        wp_enqueue_style( 'ef-loading-screen' );
-        wp_register_script('ef-loading-screen', get_template_directory_uri().'/assets/js/loading-screen.js', array( 'jquery', 'ef-frontendJS' ));
-        wp_enqueue_script( 'ef-loading-screen' );
-
-
-    });
+  #      wp_register_style('ef-loading-screen', get_template_directory_uri().'/assets/css/loading-screen.css');
+   #     wp_enqueue_style( 'ef-loading-screen' );
+   #     wp_register_script('ef-loading-screen', get_template_directory_uri().'/assets/js/loading-screen.js', array( 'jquery', 'ef-frontendJS' ));
+   #     wp_enqueue_script( 'ef-loading-screen' );
 
 
-    add_action( 'wp_footer', function() {
-        echo '<div id="ef-loading-screen">';
-            echo '<div class="spinner">';
-                echo '<div class="spinner-border" role="status">';
-                    echo '<span class="sr-only">Loading...</span>';
-                echo '</div>';
-            echo '</div>';
-        echo '</div>';
-    } );
+ #   });
+
+
+  #  add_action( 'wp_footer', function() {
+  #      echo '<div id="ef-loading-screen">';
+  #          echo '<div class="spinner">';
+    #            echo '<div class="spinner-border" role="status">';
+   #                 echo '<span class="sr-only">Loading...</span>';
+   #             echo '</div>';
+    #        echo '</div>';
+    #    echo '</div>';
+  #  } );
 
 
 
-}
+#}
 
 
 
