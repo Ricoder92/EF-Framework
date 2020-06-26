@@ -8,7 +8,7 @@
 
 <?php get_header(); ?>
 
-<?php get_template_part('templates/content', 'cover'); ?>  
+<?php get_template_part('templates/content', 'title'); ?>  
 
 <?php get_template_part('templates/content', 'before'); ?>  
 
