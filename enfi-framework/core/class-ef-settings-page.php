@@ -6,7 +6,7 @@
 
 class EF_Settings_Page {
 
-    # construktur
+    # constructur
     public function __construct($id, $name, $menuname, $description, $menu = 'settings', $icon = '', $prio = 0, $capability = 'manage_options') {
 
         $this->slug = $id;
@@ -19,21 +19,27 @@ class EF_Settings_Page {
         $this->capability = $capability;
         $this->fields = array();
 
-        if(!is_child_theme()) 
-            $this->value = get_option($this->slug, 'empty');
-        else {
-            $child_theme = get_stylesheet();
-            $this->value = get_option($this->slug.'-'.$child_theme, 'empty');
+        if (isset($_POST[ef_get_settings_slug($this->slug)])) {
+            $save = $_POST[ef_get_settings_slug($this->slug)];
+            $this->value = $save;
+            #echo '<pre>';
+            #echo print_r($this->value);
+            #echo '</pre>';
+            update_option(ef_get_settings_slug($this->slug), $save);
+            $this->message = '<div class="ef-dashboard-message-success">'.__('SAVE_SUCCESS', 'ef').'</div>';
+        } else {
+            $this->value = ef_get_option($this->slug, 'empty');
         }
 
         # set menu name if empty
         if($this->menuName == '')
             $this->menuName = $this->name;
 
-            # set menu name if empty
+        # set menu name if empty
         if($this->menu == '')
             $this->menuName = 'settings';
 
+        # set icon
         if($this->icon == '')
             $this->icon = 'fa-cog';
 
@@ -51,18 +57,7 @@ class EF_Settings_Page {
 
         }, $this->prio );
 
-        # register settings
-        add_action('admin_init', function() {
-
-            if(!is_child_theme()) 
-                register_setting( $this->slug,  $this->slug );
-            else {
-                $child_theme = get_stylesheet();
-                register_setting( $this->slug,  $this->slug.'-'.$child_theme );
-            }
-
-        });
-
+        # add settings page to side navigation
         add_action('ef-admin-navigation-'.$this->menu, function() {
 
             if($_GET['page'] == $this->slug)
@@ -70,25 +65,25 @@ class EF_Settings_Page {
             else    
                 $css = null;
     
-            echo '<a href="'.admin_url('/admin.php?page='.$this->slug).'" class="list-group-item list-group-item-action '.$css.'">'.__($this->menuName, 'ef').'</a>';
+            echo '<li><a href="'.admin_url('/admin.php?page='.$this->slug).'" class="'.$css.'"><i class="icon fas '.$this->icon.' fa-1x"></i> '.__($this->menuName, 'ef').'</a></li>';
 
         }, $this->prio);
 
+        # add settings page to main navigation
         add_action('ef-admin-navigation-main-page-'.$this->menu, function() {
 
             $url = admin_url("/admin.php?page=".$this->slug);
         
            
-                echo '<div v-ripple onclick="location.href=\''.$url.'\';" class="ef-dashboard-card">';
-                    echo '<div align="center"><i class="icon fas '.$this->icon.' fa-2x"></i><br/><h3> '.__($this->menuName, 'ef').'</h3></div>';
-                    echo '<p>'.__($this->description, 'ef').'</p>';
+                echo '<div onclick="location.href=\''.$url.'\';" class="ef-dashboard-card">';
+                    echo '<div class="icon"><i class="icon fas '.$this->icon.' fa-3x"></i></div>';
+                    echo '<div class="title"><h3> '.__($this->menuName, 'ef').'</h3></div>';
+                    #echo '<div class="text"><p>'.__($this->description, 'ef').'</p></div>';
                 echo '</div>';
-           
-
-                
-
+  
         }, $this->prio);
 
+        # add setitngs page to admin menu bar
         add_action('admin_bar_menu', function() {
 
             global $wp_admin_bar;
@@ -108,11 +103,14 @@ class EF_Settings_Page {
 
             add_action('ef-admin-settings-section-'.$this->slug, function() use ($id, $title) {
                 
-                echo '<div class="card">';
-                echo '<div class="card-body">';
-                    echo '<h5 class="card-title">'.__($title, 'ef').'</h5>';
+                echo '<div class="section-field">';
+
+                    echo '<div class="head ef-toggle-settings-section">'.__($title, 'ef').'</div>';
+
+                    echo '<div class="content" id="section-'.$id.'">';
                         do_action('ef-admin-settings-sectionsfields-'.$id);
                     echo '</div>';
+                      
                 echo '</div>';
             });
 
@@ -153,10 +151,20 @@ class EF_Settings_Page {
             $data['description'] = __($description, 'ef');
 
             add_action('ef-admin-settings-sectionsfields-'.$section_id, function() use ($data, $name){
-                echo '<div class="form-group row">';
-                    echo '<label for="'.$data['name'].'" class="col-sm-3 col-form-label">'.__($name, 'ef').'</label><div class="col-sm-9">';
+
+                echo '<div class="field">';
+                
+                    echo '<div class="label">';
+                        echo '<label for="'.$data['name'].'">'.__($name, 'ef').'</label>';
+                    echo '</div>';
+
+                    echo '<div class="input">';
                         $this->sanitize($data);
-                echo '</div></div>';
+                    echo '</div>';
+                    
+                echo '</div>';
+              
+               
             });
 
            
@@ -169,16 +177,6 @@ class EF_Settings_Page {
 
     public function render() {
 
-        if (isset($_POST[$this->slug])) {
-            $save = $_POST[$this->slug];
-            $this->value = $save;
-            print_r($_POST[$this->slug]);
-            update_option($this->slug, $save);
-    
-        }
-
-        wp_enqueue_style( 'bootstrap' );
-
         echo '<form method="post">';
 
             echo '<div class="ef-dashboard-head">';    
@@ -188,31 +186,28 @@ class EF_Settings_Page {
                 echo '</div>';
             echo '</div>';
 
-            echo '<div class="ef-dashboard-content">';
-                echo '<div class="container">';
-                if (isset($_POST[$this->slug])) {
-                    echo '<div class="row">';
-                    echo '<div class="col-lg-12">';
-                    echo '<div class="alert alert-success" role="alert">A simple success alert—check it out!<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button></div>';
-                  echo '</div></div>';
-                }
-                    echo '<div class="row">';
-                        echo '<div class="col-lg-3">';
-                            do_action('ef-admin-navigation');
-                            echo '<input type="submit" value="Save" class="btn-success btn-lg btn-block">';
-                        echo '</div>';
-                        echo '<div class="col-lg-9">';
-                            do_action('ef-admin-settings-section-'.$this->slug);
-                        echo '</div>';
-                    echo '</div>';
-                echo '</div>';
-            echo '</div>';
-
            
 
-    echo '</form>';
+            echo '<div class="ef-dashboard-content">';
+                echo '<div class="ef-dashboard-settings-page">';
+            
+                    echo '<div class="navigation">';
+                        do_action('ef-admin-navigation');
+                        echo '<input type="submit" value="Save" class="ef-dashboard-settings-page-submit" name="ef-save-settings">';
+                    echo '</div>';
+
+                    echo '<div class="content">';
+
+                        if(isset($this->message))
+                            echo $this->message;
+
+                        do_action('ef-admin-settings-section-'.$this->slug);
+                    echo '</div>';
+                echo '</div>';
+
+            echo '</div>';
+
+        echo '</form>';
 
     }
 
@@ -241,8 +236,7 @@ class EF_Settings_Page {
                 $output .= '<p class="description">'.$description.'</p>';
 
             echo $output;   
-        } 
-
+        }
     }
 
     public function setDefaultValues() {
