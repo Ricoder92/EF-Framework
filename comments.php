@@ -1,5 +1,6 @@
 <?php 
 
+
 $comments_args = array(
     'class_form'        => 'comment-form',
     'class_submit'      => 'btn',
