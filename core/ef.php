@@ -43,7 +43,7 @@ class EF_Framework {
         require_once get_template_directory().'/core/ef-styles-scripts.php';
         require_once get_template_directory().'/core/ef-layout.php';
         require_once get_template_directory().'/core/ef-debug.php';
-        require_once get_template_directory().'/core/ef-google-api.php';
+        #require_once get_template_directory().'/core/ef-google-api.php';
         require_once get_template_directory().'/core/ef-modules.php';
         require_once get_template_directory().'/core/ef-seo.php';
         require_once get_template_directory().'/core/ef-social-media.php';
@@ -140,7 +140,7 @@ class EF_Framework {
 
     # set "defer" tag to javascript for more performance
     function defer_scripts($tag, $handle) {
-        return str_replace( ' src', ' src', $tag );
+        return str_replace( ' src', ' defer src', $tag );
     }
 
     # setup theme stuff

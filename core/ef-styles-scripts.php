@@ -163,11 +163,6 @@ function enqueue_styles_and_scripts() {
             wp_enqueue_script( 'fullpage' );
         }
 
-
-
-
-        
-
     }
 }
 
@@ -213,8 +208,8 @@ function enqueue_admin_styles_and_scripts() {
     wp_register_script('ef-backendJS', get_template_directory_uri().'/assets/js/backend.js', '', '', true);
     wp_enqueue_script( 'ef-backendJS' );
 
-    wp_register_style('google-font-source-sans-pro', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap');
-    wp_enqueue_style( 'google-font-source-sans-pro' );
+    #wp_register_style('google-font-source-sans-pro', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap');
+    #wp_enqueue_style( 'google-font-source-sans-pro' );
 
     # bootstrap
     # wp_register_style('bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css');
