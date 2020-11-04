@@ -75,6 +75,10 @@ jQuery(function($) {
 
     });
 
+
+    wp.codeEditor.initialize($('.fancy-textarea'), cm_settings);
+
+
     $(document).on("click", ".remove", function() {
         var length = $(this).parent().parent().children('div').length;
 
