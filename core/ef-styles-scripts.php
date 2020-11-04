@@ -90,7 +90,7 @@ function enqueue_styles_and_scripts() {
         $options = ef_get_option('ef-styles-scripts');
 
                 # theme CSS and JS
-                wp_register_style('ef-frontend', get_template_directory_uri().'/style.css');
+                wp_register_style('ef-frontend', get_template_directory_uri().'/style.css', array('bootstrapCSS'));
                 wp_register_script('ef-frontendJS', get_template_directory_uri().'/assets/js/frontend.js', array( 'jquery' ));
         
                
@@ -107,7 +107,7 @@ function enqueue_styles_and_scripts() {
                 }
                 
                 if(is_child_theme()) {
-                    wp_register_style('ef-frontend-child', get_stylesheet_directory_uri().'/style.css');
+                    wp_register_style('ef-frontend-child', get_stylesheet_directory_uri().'/style.css', array('bootstrapCSS'));
                     wp_enqueue_style( 'ef-frontend-child' );
         
                     if(isset($options['use-parent-style'])) {
@@ -120,7 +120,7 @@ function enqueue_styles_and_scripts() {
 
         # default jquery deregister 
         wp_deregister_script( 'jquery' );
-        wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.4.1.min.js');
+        wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.5.1.min.js');
         wp_enqueue_script( 'jquery' );
         
         # jQuery UI
@@ -171,7 +171,7 @@ function enqueue_styles_and_scripts() {
     }
 }
 
-add_action('wp_enqueue_scripts', 'enqueue_styles_and_scripts', 1);
+add_action('wp_enqueue_scripts', 'enqueue_styles_and_scripts', -1);
 
 ################################################################################################################################################## 
 ### backend
@@ -220,7 +220,7 @@ function enqueue_admin_styles_and_scripts() {
     # wp_register_style('bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css');
 
 }
-add_action( 'admin_enqueue_scripts', 'enqueue_admin_styles_and_scripts'); 
+add_action( 'admin_enqueue_scripts', 'enqueue_admin_styles_and_scripts', -1); 
 
 ################################################################################################################################################## 
 ### prettifier script tags

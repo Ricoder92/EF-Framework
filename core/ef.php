@@ -140,7 +140,7 @@ class EF_Framework {
 
     # set "defer" tag to javascript for more performance
     function defer_scripts($tag, $handle) {
-        return str_replace( ' src', ' defer src', $tag );
+        return str_replace( ' src', ' src', $tag );
     }
 
     # setup theme stuff
