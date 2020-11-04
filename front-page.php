@@ -1,8 +1,6 @@
     
 <?php get_header(); ?>
 
-<?php get_template_part('templates/content', 'cover'); ?> 
-
 <?php get_template_part('templates/content', 'before'); ?> 
 
     <div class="row">

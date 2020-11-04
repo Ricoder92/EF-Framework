@@ -208,7 +208,7 @@ add_action('wp_head', function() {
 ##################################################################################################################################################
 
 add_action('wp_head', function() {
-    
+
     ef_html_comment('Title');
 
     if(!ef_maintenance_mode_is_active() || current_user_can('administrator')) {
